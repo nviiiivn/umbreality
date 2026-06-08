@@ -1,0 +1,14 @@
+[Unit]
+Description=UmbrealityAI Documentation Portal (MkDocs)
+After=network.target
+
+[Service]
+Type=simple
+User=nvii
+WorkingDirectory=/home/nvii/projects/umbreality-ai
+ExecStart=/usr/bin/mkdocs serve -a 0.0.0.0:6999
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

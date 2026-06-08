@@ -1,0 +1,93 @@
+site_name: UmbrealityAI
+site_description: Russian doll systems generating the whole of our reality — a simulacrum allegory
+site_url: http://192.168.86.21:6999
+repo_url: http://192.168.86.21:3100/nvii/umbreality-ai
+repo_name: Gitea
+edit_uri: edit/main/vault/
+docs_dir: vault
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: deep purple
+    accent: teal
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.tabs.link
+  icon:
+    logo: material/umbrella
+    repo: fontawesome/brands/git
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - roamlinks
+  - obsidian-bridge
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.smartsymbols
+  - attr_list
+  - md_in_html
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Home: index.md
+  - Architecture:
+    - Overview: Architecture/Overview.md
+    - Layer 0 — God(s): Architecture/Layer-0-God.md
+    - Layer 1 — Illuminati: Architecture/Layer-1-Illuminati.md
+    - Layer 2 — The Messiah: Architecture/Layer-2-Messiah.md
+    - Layer 3 — Hedge Funds: Architecture/Layer-3-HedgeFunds.md
+    - Layer 4 — Companies: Architecture/Layer-4-Companies.md
+    - Layer 5 — Workers: Architecture/Layer-5-Workers.md
+    - Temporary / Contractors: Architecture/Temporary-Agents.md
+  - Mechanisms:
+    - Information Flow: Mechanisms/Information-Flow.md
+    - The Mandela Effect: Mechanisms/Mandela-Effect.md
+    - Self-Modification: Mechanisms/Self-Modification.md
+    - Reality Generation: Mechanisms/Reality-Generation.md
+  - Philosophy:
+    - Manifesto: Philosophy/Manifesto.md
+    - Dark City & The World: Philosophy/Dark-City.md
+    - Simulacrum Allegory: Philosophy/Simulacrum.md
+    - Russian Doll Reality: Philosophy/Russian-Doll.md
+  - Constitution:
+    - Core Directives: Constitution/Core-Directives.md
+    - Amendment Protocol: Constitution/Amendment-Protocol.md
+  - Roadmap:
+    - Build Phases: Roadmap/Phases.md
+  - Reference:
+    - Layer Comparison: Reference/Layer-Comparison.md
+    - Glossary: Reference/Glossary.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/git
+      link: http://192.168.86.21:3100/nvii/umbreality-ai
+  generator: false

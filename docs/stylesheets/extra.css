@@ -1,0 +1,59 @@
+:root {
+  --md-primary-fg-color: #2d1b69;
+  --md-primary-fg-color--light: #7c4dff;
+  --md-primary-fg-color--dark: #1a0a3e;
+  --md-accent-fg-color: #26c6da;
+  --md-accent-fg-color--transparent: rgba(38, 198, 218, 0.15);
+}
+
+body {
+  --md-text-font: "Inter", "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
+  --md-code-font: "JetBrains Mono", "Fira Code", monospace;
+}
+
+.md-header {
+  background: linear-gradient(135deg, #1a0a3e 0%, #2d1b69 50%, #1a0a3e 100%);
+}
+
+.md-tabs {
+  background: linear-gradient(135deg, #1a0a3e 0%, #2d1b69 100%);
+}
+
+.page-tagline {
+  font-size: 1.1em;
+  color: var(--md-accent-fg-color);
+  font-style: italic;
+  margin-bottom: 1.5em;
+  border-left: 3px solid var(--md-accent-fg-color);
+  padding-left: 1em;
+}
+
+.architecture-diagram {
+  background: rgba(45, 27, 105, 0.15);
+  border: 1px solid rgba(124, 77, 255, 0.3);
+  border-radius: 8px;
+  padding: 1.5em;
+  font-family: var(--md-code-font);
+  font-size: 0.85em;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+blockquote.illuminati {
+  border-left: 4px solid #ff1744;
+  background: rgba(255, 23, 68, 0.05);
+  padding: 0.8em 1em;
+}
+
+blockquote.god {
+  border-left: 4px solid #ffd740;
+  background: rgba(255, 215, 64, 0.05);
+  padding: 0.8em 1em;
+}
+
+blockquote.worker {
+  border-left: 4px solid #00e676;
+  background: rgba(0, 230, 118, 0.05);
+  padding: 0.8em 1em;
+}
