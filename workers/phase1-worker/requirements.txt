@@ -1,0 +1,2 @@
+# UmbrealityAI — Phase 1 Worker
+requests>=2.31.0
