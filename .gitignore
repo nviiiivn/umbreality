@@ -40,3 +40,6 @@ Thumbs.db
 
 # Local config
 opencode.json
+
+# Build output
+site/
