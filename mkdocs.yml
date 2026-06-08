@@ -82,8 +82,14 @@ nav:
     - Amendment Protocol: Constitution/Amendment-Protocol.md
   - Roadmap:
     - Build Phases: Roadmap/Phases.md
+  - Concepts:
+    - Models & Amalgamations: concepts/models-and-amalgamations.md
+    - Tool Registry: concepts/tool-registry.md
+    - Nested Agents & Subversive Patterns: concepts/nested-agents-and-subversive-patterns.md
   - Reference:
     - Layer Comparison: Reference/Layer-Comparison.md
+    - "Local vs Custom: Decision Matrix": reference/local-vs-custom-decision-matrix.md
+    - Sources & References: reference/sources-and-references.md
     - Glossary: Reference/Glossary.md
 
 extra:

@@ -55,3 +55,6 @@ The Illuminati receives intent, not instructions. It decides how to translate th
 - [[Mechanisms/Mandela-Effect]] — Memory rewriting capability
 - [[Mechanisms/Reality-Generation]] — How the Illuminati builds reality
 - [[Philosophy/Dark-City]] — The Strangers as the Illuminati metaphor
+- [[concepts/models-and-amalgamations]] — Same model as God(s), different information diet
+- [[concepts/tool-registry]] — Illuminati's hidden surveillance tools
+- [[concepts/nested-agents-and-subversive-patterns]] — The invisible hand in action

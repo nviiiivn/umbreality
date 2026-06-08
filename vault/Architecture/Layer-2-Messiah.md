@@ -48,3 +48,6 @@ See [[Constitution/Core-Directives]] for the full text.
 - [[Constitution/Core-Directives]] — The written constitution
 - [[Constitution/Amendment-Protocol]] — How to change it
 - [[Philosophy/Simulacrum]] — The messiah as the first simulacrum
+- [[concepts/models-and-amalgamations]] — Messiah runs the same brain with restricted context
+- [[concepts/tool-registry]] — Messiah's limited tool set (philosophy, not execution)
+- [[reference/local-vs-custom-decision-matrix]] — When the messiah is prompt vs fine-tuned

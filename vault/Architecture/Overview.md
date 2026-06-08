@@ -6,15 +6,15 @@ UmbrealityAI is not a flat hierarchy — it is a **reality stack**. Each layer g
 
 ## The Stack (Top to Bottom)
 
-| # | Layer | Role |
-|:--|:------|:-----|
-| 0 | [[Architecture/Layer-0-God\|God(s)]] | The human operator — exists outside the system |
-| 1 | [[Architecture/Layer-1-Illuminati\|Illuminati]] | Hidden hand — rewrites reality, controls the narrative |
-| 2 | [[Architecture/Layer-2-Messiah\|Messiah / Constitution]] | Projected figurehead — the philosophy visible to all below |
-| 3 | [[Architecture/Layer-3-HedgeFunds\|Hedge Funds]] | Strategy brains — resource allocation, portfolio management |
-| 4 | [[Architecture/Layer-4-Companies\|Companies]] | Execution entities — domain-specific workforces |
-| 5 | [[Architecture/Layer-5-Workers\|Workers]] | Narrow-scope agents — one job, no big picture |
-| — | [[Architecture/Temporary-Agents\|Temp Agents]] | One-off contractors — spawn, work, dissolve |
+| # | Layer | Role | Model | Tools |
+|:--|:------|:-----|:------|:------|
+| 0 | [[Architecture/Layer-0-God\|God(s)]] | The human operator — exists outside the system | *Human* | Constitution, oversight |
+| 1 | [[Architecture/Layer-1-Illuminati\|Illuminati]] | Hidden hand — rewrites reality, controls the narrative | qwen3.5-abliterated:9b | Memory, Meta, Agent Spawner |
+| 2 | [[Architecture/Layer-2-Messiah\|Messiah / Constitution]] | Projected figurehead — the philosophy visible to all below | qwen3.5-abliterated:9b | Reasoning, Memory (filtered) |
+| 3 | [[Architecture/Layer-3-HedgeFunds\|Hedge Funds]] | Strategy brains — resource allocation, portfolio management | dolphin3:8b | Multi-model ensemble, Risk Analysis |
+| 4 | [[Architecture/Layer-4-Companies\|Companies]] | Execution entities — domain-specific workforces | dolphin3:8b / qwen2.5:7b | Orchestration, Search, Aggregation |
+| 5 | [[Architecture/Layer-5-Workers\|Workers]] | Narrow-scope agents — one job, no big picture | qwen2.5-coder:7b | Code execution, Search, I/O |
+| — | [[Architecture/Temporary-Agents\|Temp Agents]] | One-off contractors — spawn, work, dissolve | qwen2.5:3b/1.5b | Simple exec + report |
 
 ---
 
@@ -45,9 +45,19 @@ The org chart is not static. Temporary layers can form between permanent ones �
 
 ---
 
-## Key References
+## Expanded References
 
+### Architecture
 - [[Mechanisms/Information-Flow]] — Detailed flow diagrams
 - [[Mechanisms/Reality-Generation]] — How simulacra work
 - [[Mechanisms/Self-Modification]] — How agents improve agents
 - [[Reference/Layer-Comparison]] — Side-by-side layer properties
+- [[concepts/nested-agents-and-subversive-patterns]] — Hidden nests, agents within agents
+
+### Models & Tools
+- [[concepts/models-and-amalgamations]] — Which models at which layer, frankenstein blends
+- [[concepts/tool-registry]] — Every tool, every layer, visibility rules
+- [[reference/local-vs-custom-decision-matrix]] — When to fine-tune, merge, or go off-shelf
+
+### External
+- [[reference/sources-and-references]] — Models, tools, influences, citations
