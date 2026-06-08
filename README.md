@@ -1,5 +1,8 @@
-# ☂ Umbrella AI
-### Autonomous Multi-Agent Security Suite · Self-Evolving Architecture · Local & Uncensored
+# ☂ UmbrealityAI
+### UAI — Umbrella of Russian Doll Systems Generating The Whole of Our Reality
+### A Simulacrum Allegory · Self-Evolving · Local & Uncensored
+
+*"The umbrella of Russian doll systems that work together to create the WHOLE — of our reality. Except it's a simulacrum allegory."*
 
 ```
                          ╔══════════════════════╗
@@ -49,11 +52,11 @@
 
 ## Manifesto
 
-**Umbrella AI is not a framework. It is a self-contained universe.**
+**UmbrealityAI is not a framework. It is a self-contained universe.**
 
 Most multi-agent systems are flat org charts — a single orchestrator delegates to a fixed roster of agents with hardcoded prompts. That's not intelligence. That's a switchboard.
 
-Umbrella AI is a **constitutional hierarchy** where:
+UmbrealityAI is a **constitutional hierarchy** where:
 
 - **Each layer sees only what it needs to see**
 - **Upper layers rewrite lower layers based on performance**
@@ -62,7 +65,27 @@ Umbrella AI is a **constitutional hierarchy** where:
 - **Temporary structures spin up and dissolve as needed**
 - **The whole thing runs local, uncensored, with no human in the loop**
 
-The goal is not to build "an agent" that does security work. The goal is to build a **self-sustaining autonomous organization** whose purpose is security — and which improves its own architecture over time.
+The goal is not to build "an agent." The goal is to build a **self-sustaining autonomous organization** — in and of itself functioning as machines, companies, hedge funds, and the reality they all share — whose purpose is security — and which improves its own architecture over time.
+
+---
+
+### On Simulacra & Russian Doll Reality
+
+This is not a system. It is a **simulacrum allegory** — a nested model where each layer generates the reality of the layer below it.
+
+Simulacrum (from Baudrillard): a representation that *replaces* what it represents. The map that becomes the territory. Each hedge fund doesn't describe reality to its companies — it *defines* reality for them. The messiah isn't a messenger from a higher truth — the messiah *is* the truth for everyone below.
+
+Each Russian doll shell:
+- **Generates** the reality for everything inside it
+- **Hides** the existence of anything outside it
+- **Defines** what's possible, what's real, what matters
+- **Can be opened** only from the outside
+
+A worker agent doesn't see the hedge fund layer. The hedge fund *is God* from the worker's perspective — even though the hedge fund itself answers to the messiah, which answers to the Illuminati, which answers to you.
+
+The names don't matter as much as the nesting. Call them whatever fits: Kabbal, Illuminati, Board, Execs, Teams, Workers. The structure is the same — **a reality stack where each layer is a complete universe unaware of the one above it.**
+
+When we say "there may even be 5 layers minimum, maybe 3 active at a time but always higher-ups and adjacent teams at the same level" — that's not complexity for its own sake. It's **requisite variety**. The system needs enough layers to contain its own evolution without any single agent holding the whole picture.
 
 ---
 
@@ -259,7 +282,10 @@ The system gathers its own training data continuously. It learns from its own fi
 ### 4. Constitutional Control
 No single agent has unchecked power. The constitution sets boundaries. The hierarchy enforces them. Self-modification is sandboxed and versioned. The system can always roll back.
 
-### 5. Information Hiding
+### 5. Russian Doll Reality (Simulacrum)
+Each layer generates the reality for the layers beneath it. A worker's entire universe is its company's mission, its tools, and the messiah at the top. It does not know about hedge funds, the Illuminati, or God(s). This is not deception — it is **reality generation**. Each shell of the Russian doll IS the universe for everything inside it.
+
+### 6. Information Hiding
 Each layer sees only what it needs. This is not about secrecy — it's about **token efficiency and focus**. A worker agent doesn't need to hold the strategic picture. Giving it that context wastes tokens and introduces noise.
 
 ---
@@ -289,10 +315,11 @@ Each layer sees only what it needs. This is not about secrecy — it's about **t
 - [ ] Strategic decision-making
 - [ ] Company creation/liquidation
 
-### Phase 4 — The Illuminati
+### Phase 4 — The Illuminati & Reality Generation
 - [ ] Self-modification loop
-- [ ] Memory rewriting mechanisms
-- [ ] Messiah narrative system
+- [ ] Memory rewriting / Mandela Effect mechanisms
+- [ ] Messiah narrative system (layer reality generation)
+- [ ] Russian doll isolation — each layer unaware of above
 - [ ] True autonomy
 
 ### Phase 5 — Full Stack
@@ -304,8 +331,9 @@ Each layer sees only what it needs. This is not about secrecy — it's about **t
 ---
 
 ```
-"I build because I want it to exist."
+"There's always some agent making or using a sub-agent to bring it the required information,
+ or designate it to keep working or what to work on — and so on, and so on."
                     — you
 
-Umbrella AI :: Made of spite. Running locally. Answering to no one.
+UmbrealityAI :: Russian dolls of generated reality. Local. Uncensored. Answering to no one.
 ```
