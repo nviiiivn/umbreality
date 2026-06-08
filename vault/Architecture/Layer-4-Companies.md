@@ -53,3 +53,6 @@ Each company IS a complete reality for the workers inside it. A worker at Resear
 - [[Architecture/Layer-3-HedgeFunds]] — The layer that creates companies
 - [[Architecture/Layer-5-Workers]] — The agents that do the work
 - [[Mechanisms/Information-Flow]] — How findings move upward
+- [[concepts/models-and-amalgamations]] — dolphin3:8b / qwen2.5:7b as orchestration models
+- [[concepts/tool-registry]] — Orchestration, search, aggregation tools
+- [[concepts/nested-agents-and-subversive-patterns]] — How companies can nest without knowing

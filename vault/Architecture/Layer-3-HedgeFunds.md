@@ -50,3 +50,6 @@ Hedge funds treat their companies as investments:
 - [[Architecture/Layer-2-Messiah]] — The layer above (perceived top)
 - [[Architecture/Layer-4-Companies]] — The layer below (portfolio entities)
 - [[Mechanisms/Self-Modification]] — How hedge funds improve their companies
+- [[concepts/models-and-amalgamations]] — dolphin3:8b as the strategic analysis model
+- [[concepts/tool-registry]] — Multi-model ensemble, risk analysis, strategy tools
+- [[reference/local-vs-custom-decision-matrix]] — Ensemble diversity vs single-model tradeoffs

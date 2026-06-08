@@ -38,3 +38,5 @@ What the Illuminati receives from God(s) is not instructions — it is *intent*.
 - [[Architecture/Layer-1-Illuminati]] — The layer God(s) communicate with
 - [[Constitution/Amendment-Protocol]] — How God(s) modify the system's foundation
 - [[Philosophy/Dark-City]] — The unseen builders of reality
+- [[concepts/models-and-amalgamations]] — The model that runs God(s)'s reasoning
+- [[concepts/nested-agents-and-subversive-patterns]] — God(s) can see all nests

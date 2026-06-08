@@ -35,3 +35,6 @@ Temp agents are the system's equivalent of calling in a specialist consultant. Y
 - [[Architecture/Layer-5-Workers]] — Temporary agents operate at the same layer as workers
 - [[Architecture/Layer-3-HedgeFunds]] — Hedge funds can authorize temp agent creation
 - [[Mechanisms/Information-Flow]] — Where temp agent reports go
+- [[concepts/models-and-amalgamations]] — qwen2.5:3b/1.5b as disposable agent models
+- [[concepts/tool-registry]] — Temp agents only get Simple Executor + Status Reporter
+- [[reference/local-vs-custom-decision-matrix]] — Why temp agents don't qualify for fine-tuning

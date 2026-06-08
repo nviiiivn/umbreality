@@ -57,3 +57,75 @@ blockquote.worker {
   background: rgba(0, 230, 118, 0.05);
   padding: 0.8em 1em;
 }
+
+/* ── Mobile Responsive ───────────────────────────────────────── */
+
+/* Small phones (iPhone 13 Mini is 375px) */
+@media screen and (max-width: 480px) {
+  /* ASCII diagrams: allow horizontal scroll without breaking layout */
+  .architecture-diagram,
+  pre,
+  code {
+    font-size: 0.65em !important;
+    white-space: pre !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    max-width: 88vw;
+  }
+
+  /* Tables: scroll instead of overflow */
+  .md-typeset table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 0.75em;
+  }
+
+  /* Reduce padding on mobile */
+  .md-content__inner {
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
+  }
+
+  /* Smaller headers on mobile */
+  .md-typeset h1 {
+    font-size: 1.4em !important;
+  }
+  .md-typeset h2 {
+    font-size: 1.15em !important;
+  }
+  .md-typeset h3 {
+    font-size: 1em !important;
+  }
+
+  /* Tighter blockquotes */
+  blockquote {
+    padding: 0.4em 0.6em !important;
+    margin: 0.6em 0 !important;
+  }
+
+  /* Admonitions tighter */
+  .md-typeset .admonition {
+    padding: 0.4em 0.6em !important;
+  }
+
+  /* Lists tighter */
+  .md-typeset ul, .md-typeset ol {
+    padding-left: 1.2em !important;
+  }
+}
+
+/* Medium phones/tablets */
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .architecture-diagram,
+  pre,
+  code {
+    font-size: 0.75em !important;
+    overflow-x: auto !important;
+  }
+  
+  .md-typeset table {
+    display: block;
+    overflow-x: auto;
+  }
+}

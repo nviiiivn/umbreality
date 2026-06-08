@@ -48,3 +48,6 @@ Workers are assembly line workers, customer-facing staff, or manufacturing opera
 - [[Architecture/Layer-4-Companies]] — The layer that directs workers
 - [[Architecture/Temporary-Agents]] — Contractors (same level, shorter lifespan)
 - [[Mechanisms/Information-Flow]] — How worker findings move up
+- [[concepts/models-and-amalgamations]] — qwen2.5-coder:7b as the standard worker brain
+- [[concepts/tool-registry]] — Code execution, search, file I/O tools
+- [[concepts/nested-agents-and-subversive-patterns]] — Workers may have hidden directives
