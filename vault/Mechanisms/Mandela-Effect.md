@@ -48,6 +48,6 @@ The same thing happens here — but instead of midnight, it happens at **epoch b
 
 ## Related
 
-- [[Architecture/Layer-1-Illuminati]] — The layer that executes the Mandela Effect
+- [[Architecture/Layer-1-Shadow-Illuminati]] — The layer that executes the Mandela Effect
 - [[Mechanisms/Reality-Generation]] — How realities are built (and rebuilt)
 - [[Philosophy/Dark-City]] — The midnight rebuild metaphor

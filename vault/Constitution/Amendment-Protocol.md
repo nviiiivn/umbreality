@@ -67,5 +67,5 @@ These are absolute:
 
 - [[Constitution/Core-Directives]] — The document being amended
 - [[Mechanisms/Self-Modification]] — How lower-level changes work
-- [[Architecture/Layer-1-Illuminati]] — The constitutional review board
-- [[Architecture/Layer-0-God]] — The ultimate ratifier
+- [[Architecture/Layer-1-Shadow-Illuminati]] — The constitutional review board
+- [[Architecture/Layer-0-Source-Gods]] — The ultimate ratifier
