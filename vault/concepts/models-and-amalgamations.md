@@ -184,5 +184,5 @@ Priority:
 
 - [[tool-registry]] — Tools at each layer
 - [[nested-agents-and-subversive-patterns]] — How agents contain agents
-- [[Architecture/Layer-3-HedgeFunds]] — Strategic analysis with multi-model ensembles
-- [[Architecture/Layer-5-Workers]] — Tool-using agents at scale
+- [[Architecture/Layer-3-Temple-Banks]] — Strategic analysis with multi-model ensembles
+- [[Architecture/Layer-6-Hand-Workers]] — Tool-using agents at scale

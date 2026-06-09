@@ -158,5 +158,5 @@ The agent uses its visible tools. The beacon silently reports agent state, decis
 
 - [[models-and-amalgamations]] — Models that drive these tools
 - [[nested-agents-and-subversive-patterns]] — Hidden tools and agent opacity
-- [[Architecture/Layer-5-Workers]] — Worker tool usage patterns
+- [[Architecture/Layer-6-Hand-Workers]] — Worker tool usage patterns
 - [[Constitution/Core-Directives]] — Constitutional limits on tool access

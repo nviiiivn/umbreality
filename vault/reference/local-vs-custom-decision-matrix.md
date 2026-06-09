@@ -158,4 +158,4 @@ Constitution     qwen3.5-ab:9b       off-shelf       Reasoning task, not classif
 
 - [[models-and-amalgamations]] — Full model catalog
 - [[tool-registry]] — Tools at each layer
-- [[../Architecture/Overview|Architecture Overview]] — Architectural context for model decisions
+- [[Architecture/Overview]] — Architectural context for model decisions

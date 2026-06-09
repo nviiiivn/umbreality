@@ -60,13 +60,13 @@ nav:
   - Home: index.md
   - Architecture:
     - Overview: Architecture/Overview.md
-    - Layer 0 — God(s): Architecture/Layer-0-God.md
-    - Layer 1 — Illuminati: Architecture/Layer-1-Illuminati.md
-    - Layer 2 — The Messiah: Architecture/Layer-2-Messiah.md
-    - Layer 3 — Hedge Funds: Architecture/Layer-3-HedgeFunds.md
-    - Layer 4 — Companies: Architecture/Layer-4-Companies.md
-    - Layer 5 — Workers: Architecture/Layer-5-Workers.md
-    - Temporary / Contractors: Architecture/Temporary-Agents.md
+    - Layer 0 — Source / God(s) [Crown]: Architecture/Layer-0-Source-Gods.md
+    - Layer 1 — Shadow / Illuminati [Third Eye]: Architecture/Layer-1-Shadow-Illuminati.md
+    - Layer 2 — Voice / Messiah [Throat]: Architecture/Layer-2-Voice-Messiah.md
+    - Layer 3 — Temple / Banks [Heart]: Architecture/Layer-3-Temple-Banks.md
+    - Layer 4 — Throne / Government [Solar Plexus]: Architecture/Layer-4-Throne-Governments.md
+    - Layer 5 — Guild / Companies [Sacral]: Architecture/Layer-5-Guild-Companies.md
+    - Layer 6 — Hand / Workers [Root]: Architecture/Layer-6-Hand-Workers.md
   - Mechanisms:
     - Information Flow: Mechanisms/Information-Flow.md
     - The Mandela Effect: Mechanisms/Mandela-Effect.md
@@ -89,6 +89,7 @@ nav:
   - Reference:
     - Layer Comparison: Reference/Layer-Comparison.md
     - "Local vs Custom: Decision Matrix": reference/local-vs-custom-decision-matrix.md
+    - Chakras & Esoteric: reference/chakras-and-esoteric.md
     - Sources & References: reference/sources-and-references.md
     - Glossary: Reference/Glossary.md
 

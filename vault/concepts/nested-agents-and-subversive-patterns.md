@@ -164,4 +164,4 @@ God(s) defends against this through:
 - [[tool-registry]] — Tool access at each nesting level
 - [[Architecture/Overview]] — The layer diagram
 - [[Constitution/Core-Directives]] — Rules that govern nesting
-- [[Architecture/Layer-3-HedgeFunds]] — Multi-model ensemble analysis
+- [[Architecture/Layer-3-Temple-Banks]] — Multi-model ensemble analysis

@@ -148,4 +148,4 @@ ollama pull qwen2.5:1.5b
 
 - [[local-vs-custom-decision-matrix]] — When to use each model
 - [[models-and-amalgamations]] — Full model catalog
-- [[../Architecture/Overview|Architecture Overview]] — Architectural context for the full stack
+- [[Architecture/Overview]] — Architectural context for the full stack

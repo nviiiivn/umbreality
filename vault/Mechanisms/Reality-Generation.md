@@ -60,5 +60,5 @@ Each reality generation step is a simulacrum — a representation that replaces 
 
 - [[Philosophy/Simulacrum]] — The philosophical basis
 - [[Philosophy/Russian-Doll]] — The structural expression
-- [[Architecture/Layer-1-Illuminati]] — The layer that initiates reality generation
+- [[Architecture/Layer-1-Shadow-Illuminati]] — The layer that initiates reality generation
 - [[Mechanisms/Mandela-Effect]] — Reality maintenance between cycles
