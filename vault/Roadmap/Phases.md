@@ -13,45 +13,51 @@
 
 ---
 
-## Phase 1 — The First Worker
+## Phase 1 — The First Worker ✅
 
 **Goal:** Prove the bottom layer works end-to-end.
 
-- [ ] Python ReAct loop that calls tower Ollama
-- [ ] One tool: web search or command execution
-- [ ] Structured reporting format (findings → report → send up)
-- [ ] Worker receives task, executes, reports, awaits next
-- [ ] Basic logging and error handling
+- [x] Python ReAct loop that calls tower Ollama
+- [x] One tool: web search and command execution
+- [x] Structured reporting format (findings → report → save)
+- [x] Worker receives task, executes, reports, awaits next
+- [x] Basic logging and error handling
+- [x] LAI CLI bridge for direct local model access
 
-**Deliverable:** A single Python script that can be given a task, talk to the tower model, and return structured results.
+**Deliverable:** `workers/phase1-worker/worker.py` — ReAct agent with web search + command execution. `lai` CLI tool for direct model access. Running on tower dolphin3:8b.
 
 ---
 
-## Phase 2 — The First Company
+## Phase 2 — The First Company ✅
 
 **Goal:** Multi-worker orchestration with management layer.
 
-- [ ] Company lead agent (manages workers, validates findings)
-- [ ] 2-3 worker agents with different tools
-- [ ] Internal knowledge base (findings → validated → stored)
-- [ ] Worker → Lead → Company reporting chain
-- [ ] Validation loop for accepting/rejecting findings
+- [x] Company lead agent (manages workers, validates findings)
+- [x] 3+ worker agents with different tools (researcher, coder, analyst, reporter)
+- [x] Internal knowledge base — SQLite with findings and reports
+- [x] Worker → Lead → Company reporting chain
+- [x] API endpoints: `/company/execute`, `/company/knowledge`, `/company/reports`
+- [x] Activity logging and activity feed
 
-**Deliverable:** A company that can accept a research goal, dispatch workers, validate results, and accumulate knowledge.
+**Deliverable:** `companies/research_corp/` — lead agent, 4 workers, knowledge base. Accessible via `api.alola.lol`.
 
 ---
 
-## Phase 3 — The First Hedge Fund
+## Phase 3 — The Temple ✅
 
-**Goal:** Strategic management of multiple companies.
+**Goal:** Multi-company orchestration layer.
 
-- [ ] Hedge fund agent with portfolio view
-- [ ] Resource allocation across companies
-- [ ] Company creation from templates
-- [ ] Performance monitoring and ROI evaluation
-- [ ] Company restructuring/liquidation capability
+- [x] Company registry (create, list, destroy companies dynamically)
+- [x] Resource allocator (task→model mapping across tower + local)
+- [x] Temple Overseer (receives goals, dispatches to companies)
+- [x] Company creation from templates
+- [x] Model allocation by task type (research→dolphin3, code→qwen2.5-coder, etc.)
+- [x] API endpoints: `/temple/companies`, `/temple/resources`, `/temple/execute`
+- [x] God's View admin panel (`admin.alola.lol`)
+- [x] Illuminati intent interpreter (`POST /illuminate`)
+- [x] Full admin pipeline: illuminate → temple → company → workers
 
-**Deliverable:** A hedge fund that can create companies as needed, allocate resources intelligently, and shutter underperformers.
+**Deliverable:** `temple/` — Overseer, Registry, Allocator modules. Admin panel with status, console, activity feed, company management. Running on ai-tp + tower.
 
 ---
 

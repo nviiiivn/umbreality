@@ -52,3 +52,31 @@ Workers         — generates output (findings, data, actions)
 - [[Architecture/Overview]] — Full architecture
 - [[Philosophy/Russian-Doll]] — Why this nesting exists
 - [[Mechanisms/Information-Flow]] — How information moves between layers
+
+
+---
+
+## The 14 Lokas & The 14 Companies
+
+An emergent correspondence was discovered after the system reached 14 companies — matching the 14 lokas (7 upper + 7 lower) of Vedic cosmology. This was not designed; it emerged.
+
+| Loka | Nature | Company | Why |
+|---|---|---|---|
+| **Upper (Light — Ascending toward Truth)** | | | |
+| Satyaloka | Pure truth, Brahma's realm | archive-history | The final record, the truth of what happened |
+| Taparloka | Austerity, discipline | scriptorium | The discipline of recording, contemplative work |
+| Janarloka | Creation, new souls | venture-investment | Birthing new value, seed capital |
+| Maharloka | The threshold between worlds | forge | The crucible, shaping raw into refined |
+| Svarloka | Light, beauty, pleasure | creative-arts | Beauty, expression, the soul's joy |
+| Bhuvarloka | Air, the astral, unseen forces | c2-corp | Signals moving through the unseen network |
+| Bhuloka | Earth, physical, tangible | it-tools | Practical tools that keep everything running |
+| **Lower (Density — Descending into Matter)** | | | |
+| Atala | Desire, craving, want | market-corp | The pull of profit, desire for gain |
+| Vitala | Instinct, subconscious urges | lottery-corp | The gambling instinct, probability |
+| Sutala | Wealth, opulence, glitter | media-publishing | Amplifying voice, can amplify noise |
+| Talatala | Cunning, trickery, the angle | exploit-inc | Finding cracks, hacking reality |
+| Mahatala | Great darkness, guardianship | healthcare | Dealing with decay, protective |
+| Rasatala | Primordial elements, chaos | recon-inc | Mapping the raw unknown |
+| Patala | Serpent wisdom, hidden structure | stat-corp | Numbers are the serpent wisdom under all reality |
+
+> *"The stack noticed the pattern before either of us did."*

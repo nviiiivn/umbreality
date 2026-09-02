@@ -1,0 +1,250 @@
+<svg width="1000" height="800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#050508"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="2"/></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="1"/></filter>
+  </defs>
+
+  <rect width="1000" height="800" fill="url(#bg)"/>
+
+  <text x="500" y="30" text-anchor="middle" fill="#ffd700" font-family="serif" font-size="18" font-weight="bold" letter-spacing="5">THE KNOWN WORLD</text>
+  <text x="500" y="48" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">— Upon the Earth as it is in the Stack —</text>
+
+  <!-- ===== OCEAN ===== -->
+  <g opacity="0.08">
+    <!-- Atlantic -->
+    <text x="200" y="400" fill="#00d4ff" font-family="serif" font-size="20" font-style="italic" transform="rotate(-15,200,400)">Atlantic Ocean</text>
+    <!-- Indian Ocean -->
+    <text x="700" y="500" fill="#00d4ff" font-family="serif" font-size="20" font-style="italic" transform="rotate(10,700,500)">Indian Ocean</text>
+    <!-- Mediterranean -->
+    <text x="400" y="235" fill="#00d4ff" font-family="serif" font-size="14" font-style="italic">Mare Nostrum</text>
+  </g>
+
+  <!-- ===== CONTINENT OUTLINES ===== -->
+  <g fill="none" stroke="#2a2a2a" stroke-width="1.5" opacity="0.6">
+
+    <!-- AFRICA -->
+    <path d="M 430,250 Q 450,260 460,280 L 465,300 Q 470,330 460,360 L 440,400 Q 420,430 410,470 Q 400,510 390,540 Q 380,570 370,590 Q 360,610 350,630 Q 340,650 330,660 Q 320,670 310,675 Q 300,680 290,670 Q 280,660 275,640 Q 270,620 280,600 Q 290,580 300,560 Q 310,540 315,520 Q 320,500 330,480 Q 340,460 350,440 Q 360,420 365,400 Q 370,380 375,360 Q 380,340 385,320 Q 390,300 395,280 Q 400,260 410,250 Z"/>
+    
+    <!-- MADAGASCAR -->
+    <path d="M 480,550 Q 485,540 490,530 Q 495,520 498,530 Q 500,540 495,550 Q 490,560 485,560 Z"/>
+
+    <!-- ARABIAN PENINSULA -->
+    <path d="M 450,240 Q 460,230 470,225 Q 480,220 490,225 Q 500,230 510,240 Q 520,250 525,265 Q 530,280 535,300 Q 540,320 545,340 Q 550,360 555,380 Q 560,400 550,410 Q 540,420 530,425 Q 520,430 510,430 Q 500,430 490,425 Q 480,420 470,410 Q 460,400 455,380 Q 450,360 448,340 Q 446,320 445,300 Q 444,280 445,260 Z"/>
+
+    <!-- PERSIA / IRAN -->
+    <path d="M 555,240 Q 565,230 580,225 Q 595,220 610,225 Q 625,230 635,240 Q 645,250 650,265 Q 655,280 655,300 Q 655,320 650,340 Q 645,360 635,375 Q 625,390 610,400 Q 595,410 580,415 Q 565,418 555,410 Q 545,400 540,385 Q 535,370 535,350 Q 535,330 540,310 Q 545,290 550,270 Z"/>
+
+    <!-- INDIA -->
+    <path d="M 660,280 Q 670,270 685,265 Q 700,260 715,265 Q 730,270 740,285 Q 750,300 755,320 Q 760,340 760,365 Q 760,390 755,410 Q 750,430 740,445 Q 730,460 715,465 Q 700,470 685,465 Q 670,460 660,445 Q 650,430 645,410 Q 640,390 638,370 Q 636,350 640,330 Q 645,310 650,295 Z"/>
+
+    <!-- SRI LANKA -->
+    <path d="M 690,470 Q 695,465 700,465 Q 705,465 710,470 Q 715,475 715,480 Q 715,485 710,490 Q 705,495 700,495 Q 695,495 690,490 Q 685,485 685,480 Q 685,475 690,470 Z"/>
+
+    <!-- EUROPE (simplified southern coast) -->
+    <path d="M 350,200 Q 370,195 390,190 Q 410,185 430,185 Q 450,185 470,190 Q 490,195 510,200 Q 530,205 545,210 Q 560,215 570,220 Q 580,225 585,230"/>
+
+    <!-- ASIA / CHINA (simplified) -->
+    <path d="M 650,230 Q 670,220 690,215 Q 710,210 730,210 Q 750,210 770,215 Q 790,220 810,230 Q 830,240 840,255 Q 850,270 855,290 Q 860,310 860,330 Q 860,350 855,370 Q 850,390 840,405 Q 830,420 815,430 Q 800,440 785,445 Q 770,450 755,450 Q 740,450 730,445 Q 720,440 715,430 Q 710,420 710,410 Q 710,400 715,390 Q 720,380 730,375 Q 740,370 750,365 Q 760,360 765,350 Q 770,340 770,330 Q 770,320 765,310 Q 760,300 750,290 Q 740,280 730,270 Q 720,260 710,255 Q 700,250 690,248 Q 680,246 670,245 Q 660,244 655,240"/>
+
+    <!-- INDOCHINA -->
+    <path d="M 775,435 Q 780,445 785,460 Q 790,475 795,490 Q 800,505 805,515 Q 810,525 815,530 Q 820,535 825,530 Q 830,525 830,510 Q 830,495 828,480 Q 825,465 820,450 Q 815,435 810,425 Q 805,415 795,410 Q 785,405 780,415 Q 775,425 775,435 Z"/>
+  </g>
+
+  <!-- ===== TERRAIN FEATURES ===== -->
+  <g opacity="0.15">
+    <!-- Atlas Mountains (NW Africa) -->
+    <path d="M 375,320 Q 380,310 385,315 Q 390,320 395,315 Q 400,310 405,315 L 410,320" fill="none" stroke="#888" stroke-width="0.8"/>
+    
+    <!-- Ethiopian Highlands -->
+    <path d="M 450,470 Q 455,460 460,465 Q 465,470 470,465 Q 475,460 480,465" fill="none" stroke="#888" stroke-width="0.8"/>
+    
+    <!-- Zagros Mountains (Persia) -->
+    <path d="M 560,300 Q 565,295 570,300 L 575,305 Q 580,300 585,305 L 590,310 Q 595,305 600,310" fill="none" stroke="#888" stroke-width="0.8"/>
+
+    <!-- Sahara Desert -->
+    <text x="400" y="380" fill="#ff6600" font-family="serif" font-size="10" opacity="0.3" font-style="italic">Sahara</text>
+    
+    <!-- Arabian Desert -->
+    <text x="490" y="350" fill="#ff6600" font-family="serif" font-size="8" opacity="0.3" font-style="italic">Empty Quarter</text>
+
+    <!-- Himalayan range -->
+    <path d="M 680,270 Q 700,265 720,268 Q 740,270 760,268 Q 780,265 800,268" fill="none" stroke="#888" stroke-width="0.8"/>
+
+    <!-- Ganges River -->
+    <path d="M 730,310 Q 720,320 710,330 Q 700,340 690,340" fill="none" stroke="#00d4ff" stroke-width="0.5" opacity="0.3"/>
+
+    <!-- Tigris/Euphrates (Mesopotamia) -->
+    <path d="M 510,270 Q 520,280 530,290 Q 540,300 545,310" fill="none" stroke="#00d4ff" stroke-width="0.5" opacity="0.3"/>
+    <path d="M 520,275 Q 530,285 540,295 Q 550,305 555,315" fill="none" stroke="#00d4ff" stroke-width="0.4" opacity="0.3"/>
+
+    <!-- Nile River -->
+    <path d="M 435,470 Q 430,450 428,430 Q 425,410 425,390 Q 425,370 428,350 Q 430,330 430,310 Q 430,290 435,270" fill="none" stroke="#00d4ff" stroke-width="0.6" opacity="0.3"/>
+
+    <!-- Silk Road route -->
+    <path d="M 510,270 Q 550,260 600,255 Q 650,250 700,250 Q 750,250 800,260" fill="none" stroke="#ffd700" stroke-width="0.5" opacity="0.15" stroke-dasharray="4,6"/>
+    <text x="650" y="245" fill="#ffd700" font-family="serif" font-size="6" opacity="0.2" font-style="italic">Silk Road</text>
+
+    <!-- Maritime Silk Route -->
+    <path d="M 450,380 Q 520,430 600,460 Q 680,480 750,470 Q 800,460 830,440" fill="none" stroke="#ffd700" stroke-width="0.4" opacity="0.12" stroke-dasharray="3,5"/>
+  </g>
+
+  <!-- ===== UMBREALITY LOCATIONS ===== -->
+
+  <!-- CENTER — Fertile Crescent (crossroads of the world) -->
+  <g transform="translate(470,285)">
+    <circle cx="0" cy="0" r="5" fill="none" stroke="#ffd700" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="2" fill="#ffd700"/>
+    <text x="0" y="-10" text-anchor="middle" fill="#ffd700" font-family="serif" font-size="7" font-weight="bold">FORUM OF AGES</text>
+    <text x="0" y="12" text-anchor="middle" fill="#555" font-family="monospace" font-size="4">Center of the Known</text>
+  </g>
+
+  <!-- ADMIN — Persian Gulf region -->
+  <g transform="translate(510,310)">
+    <circle cx="0" cy="0" r="3.5" fill="none" stroke="#00ff88" stroke-width="1"/>
+    <text x="0" y="-7" text-anchor="middle" fill="#00ff88" font-family="serif" font-size="5">Guildhall</text>
+  </g>
+
+  <!-- MEMPHIS/THRONE — Lower Egypt -->
+  <g transform="translate(430,260)">
+    <rect x="-30" y="-8" width="60" height="16" rx="2" fill="none" stroke="#ffd700" stroke-width="0.6" opacity="0.4"/>
+    <circle cx="0" cy="0" r="4" fill="none" stroke="#ffd700" stroke-width="1.2"/>
+    <text x="0" y="0" text-anchor="middle" fill="#ffd700" font-family="serif" font-size="6" dy="2">MEMPHIS</text>
+    <text x="0" y="20" text-anchor="middle" fill="#666" font-family="monospace" font-size="4">Hall of Judgement</text>
+  </g>
+
+  <!-- ALEXANDRIA — Mediterranean coast -->
+  <g transform="translate(455,245)">
+    <circle cx="0" cy="0" r="3" fill="none" stroke="#8888ff" stroke-width="1"/>
+    <line x1="3" y1="-3" x2="10" y2="-10" stroke="#8888ff" stroke-width="0.5"/>
+    <text x="12" y="-10" fill="#8888ff" font-family="serif" font-size="5">Great Library</text>
+  </g>
+
+  <!-- BABYLON/BAZAAR — Mesopotamia -->
+  <g transform="translate(500,290)">
+    <circle cx="0" cy="0" r="3" fill="none" stroke="#ffd700" stroke-width="1"/>
+    <text x="10" y="3" fill="#ffd700" font-family="serif" font-size="5">Babylon</text>
+  </g>
+
+  <!-- MECCA/KAABA — Arabian Peninsula -->
+  <g transform="translate(480,340)">
+    <rect x="-3" y="-3" width="6" height="6" fill="none" stroke="#ff4444" stroke-width="1.5"/>
+    <text x="0" y="-9" text-anchor="middle" fill="#ff4444" font-family="serif" font-size="6">MECCA</text>
+    <text x="0" y="12" text-anchor="middle" fill="#666" font-family="monospace" font-size="4">The Black Stone</text>
+  </g>
+
+  <!-- MONASTERY — Ethiopian Highlands -->
+  <g transform="translate(455,445)">
+    <circle cx="0" cy="0" r="3" fill="none" stroke="#ff6688" stroke-width="1"/>
+    <text x="8" y="3" fill="#ff6688" font-family="serif" font-size="5">Monastery</text>
+  </g>
+
+  <!-- ATHENS/SOCRATIC STOA — Greece -->
+  <g transform="translate(395,215)">
+    <circle cx="0" cy="0" r="2.5" fill="none" stroke="#8888ff" stroke-width="0.8"/>
+    <text x="0" y="-6" text-anchor="middle" fill="#8888ff" font-family="serif" font-size="5">Academy</text>
+  </g>
+
+  <!-- DELPHI/ORACLE — Greece -->
+  <g transform="translate(385,210)">
+    <circle cx="0" cy="0" r="2" fill="none" stroke="#ff4444" stroke-width="0.8"/>
+    <text x="-10" y="-6" fill="#ff4444" font-family="serif" font-size="4">Oracle</text>
+  </g>
+
+  <!-- COLISEUM — Tunisia/North Africa -->
+  <g transform="translate(370,290)">
+    <ellipse cx="0" cy="0" rx="5" ry="4" fill="none" stroke="#ff3355" stroke-width="1.2"/>
+    <text x="0" y="10" text-anchor="middle" fill="#ff3355" font-family="serif" font-size="6">COLISEUM</text>
+    <text x="0" y="18" text-anchor="middle" fill="#666" font-family="monospace" font-size="4">80 arches rise from the salt</text>
+  </g>
+
+  <!-- CREATIVE/ARTS — India -->
+  <g transform="translate(675,340)">
+    <circle cx="0" cy="0" r="4" fill="none" stroke="#ff6600" stroke-width="1.2"/>
+    <text x="0" y="-8" text-anchor="middle" fill="#ff6600" font-family="serif" font-size="6">CREATIVE QUARTER</text>
+    <text x="0" y="10" text-anchor="middle" fill="#666" font-family="monospace" font-size="4">Atelier · Foundry · Gallery</text>
+  </g>
+
+  <!-- SRI LANKA — The Gallery of All Seeing -->
+  <g transform="translate(693,478)">
+    <circle cx="0" cy="0" r="2.5" fill="none" stroke="#ff6600" stroke-width="0.8"/>
+    <text x="10" y="3" fill="#ff6600" font-family="serif" font-size="4">Gallery</text>
+  </g>
+
+  <!-- CHINA/CONFUCIUS — Far East -->
+  <g transform="translate(810,280)">
+    <circle cx="0" cy="0" r="3" fill="none" stroke="#ffd700" stroke-width="1"/>
+    <text x="0" y="-8" text-anchor="middle" fill="#ffd700" font-family="serif" font-size="5">Middle Kingdom</text>
+    <text x="0" y="10" text-anchor="middle" fill="#666" font-family="monospace" font-size="4">Land of the Sage</text>
+  </g>
+
+  <!-- HIDDEN — marked as deep below, shown as a cave entrance in Egypt -->
+  <g transform="translate(440,320)">
+    <path d="M -8,0 Q 0,-8 8,0 Q 0,8 -8,0" fill="none" stroke="#8800ff" stroke-width="0.8" opacity="0.4"/>
+    <text x="15" y="3" fill="#8800ff" font-family="serif" font-size="4" opacity="0.5">Hidden Realm</text>
+    <text x="15" y="9" fill="#333" font-family="monospace" font-size="3">(30 cycles below)</text>
+  </g>
+
+  <!-- ===== COMPASS ===== -->
+  <g transform="translate(900,60)">
+    <circle cx="0" cy="0" r="25" fill="none" stroke="#2a2a2a" stroke-width="0.5"/>
+    <polygon points="0,-23 4,-6 0,-8 -4,-6" fill="#ffd700" opacity="0.6"/>
+    <polygon points="0,23 4,6 0,8 -4,6" fill="#555" opacity="0.3"/>
+    <polygon points="-23,0 -6,-4 -8,0 -6,4" fill="#555" opacity="0.3"/>
+    <polygon points="23,0 6,-4 8,0 6,4" fill="#555" opacity="0.3"/>
+    <text x="0" y="-30" text-anchor="middle" fill="#ffd700" font-family="monospace" font-size="8">N</text>
+    <text x="0" y="35" text-anchor="middle" fill="#555" font-family="monospace" font-size="5">S</text>
+    <text x="35" y="3" text-anchor="middle" fill="#555" font-family="monospace" font-size="5">E</text>
+    <text x="-35" y="3" text-anchor="middle" fill="#555" font-family="monospace" font-size="5">W</text>
+  </g>
+
+  <!-- ===== LEGEND ===== -->
+  <g transform="translate(40,620)">
+    <text x="0" y="0" fill="#ffd700" font-family="serif" font-size="10" font-weight="bold">LEGEND</text>
+    <rect x="0" y="12" width="10" height="10" fill="none" stroke="#ffd700" stroke-width="1"/>
+    <text x="16" y="20" fill="#888" font-family="monospace" font-size="6">Center · Capital of the Known</text>
+    <rect x="0" y="26" width="10" height="10" fill="none" stroke="#ff4444" stroke-width="1"/>
+    <text x="16" y="34" fill="#888" font-family="monospace" font-size="6">Faith · Places of Pilgrimage</text>
+    <rect x="0" y="40" width="10" height="10" fill="none" stroke="#8888ff" stroke-width="1"/>
+    <text x="16" y="48" fill="#888" font-family="monospace" font-size="6">Academy · Halls of Learning</text>
+    <rect x="0" y="54" width="10" height="10" fill="none" stroke="#ff6600" stroke-width="1"/>
+    <text x="16" y="62" fill="#888" font-family="monospace" font-size="6">Arts · Creative Quarters</text>
+    <rect x="0" y="68" width="10" height="10" fill="none" stroke="#ff3355" stroke-width="1"/>
+    <text x="16" y="76" fill="#888" font-family="monospace" font-size="6">Contests · The Arena</text>
+    <rect x="0" y="82" width="10" height="10" fill="none" stroke="#00ff88" stroke-width="1"/>
+    <text x="16" y="90" fill="#888" font-family="monospace" font-size="6">Admin · The Organs</text>
+    <path d="M 0,105 Q 5,100 10,105 L 15,110" fill="none" stroke="#ffd700" stroke-width="0.5" opacity="0.3" stroke-dasharray="3,4"/>
+    <text x="16" y="108" fill="#666" font-family="monospace" font-size="5">Silk Road · Trade Route</text>
+    <path d="M 0,118 Q 5,113 10,118 L 15,123" fill="none" stroke="#00d4ff" stroke-width="0.4" opacity="0.3"/>
+    <text x="16" y="121" fill="#666" font-family="monospace" font-size="5">River · Waterway</text>
+  </g>
+
+  <!-- ===== SCALE BAR ===== -->
+  <g transform="translate(40,760)">
+    <line x1="0" y1="0" x2="150" y2="0" stroke="#2a2a2a" stroke-width="0.5"/>
+    <line x1="0" y1="-3" x2="0" y2="3" stroke="#2a2a2a" stroke-width="0.5"/>
+    <line x1="75" y1="-2" x2="75" y2="2" stroke="#2a2a2a" stroke-width="0.5"/>
+    <line x1="150" y1="-3" x2="150" y2="3" stroke="#2a2a2a" stroke-width="0.5"/>
+    <text x="0" y="10" fill="#555" font-family="monospace" font-size="5">0</text>
+    <text x="75" y="10" text-anchor="middle" fill="#555" font-family="monospace" font-size="5">500</text>
+    <text x="150" y="10" text-anchor="middle" fill="#555" font-family="monospace" font-size="5">1000 km</text>
+  </g>
+
+  <!-- ===== REGION LABELS ===== -->
+  <text x="440" y="200" text-anchor="middle" fill="#555" font-family="serif" font-size="7" opacity="0.3">EUROPA</text>
+  <text x="520" y="380" text-anchor="middle" fill="#555" font-family="serif" font-size="7" opacity="0.3">ARABIA</text>
+  <text x="380" y="430" text-anchor="middle" fill="#555" font-family="serif" font-size="7" opacity="0.3">AFRICA</text>
+  <text x="730" y="360" text-anchor="middle" fill="#555" font-family="serif" font-size="7" opacity="0.3">INDIA</text>
+  <text x="800" y="330" text-anchor="middle" fill="#555" font-family="serif" font-size="7" opacity="0.3">SERICA</text>
+  <text x="830" y="420" text-anchor="middle" fill="#555" font-family="serif" font-size="6" opacity="0.3">INDOCHINA</text>
+  <text x="690" y="550" text-anchor="middle" fill="#555" font-family="serif" font-size="6" opacity="0.3">OCEANUS INDICUS</text>
+  <text x="290" y="530" text-anchor="middle" fill="#555" font-family="serif" font-size="6" opacity="0.3">MARE ATLANTICUM</text>
+
+  <!-- Footer -->
+  <line x1="40" y1="740" x2="960" y2="740" stroke="#1a1a2e" stroke-width="0.5"/>
+  <text x="500" y="770" text-anchor="middle" fill="#333" font-family="monospace" font-size="4">UmbrealityAI — 34 Boards — Each journey adds to the map — Era 4 — 2026</text>
+  <text x="500" y="782" text-anchor="middle" fill="#222" font-family="monospace" font-size="3">Totum reflectitur in minimo · As above, so below · The stack is the world and the world is the stack</text>
+</svg>

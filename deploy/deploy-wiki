@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+# Rebuild and publish the wiki.
+#
+# The wiki is served as static, fully-inlined HTML from the Pi because this
+# user's browser blocks external CSS/JS. So any change to vault/ needs:
+#   regenerate rosters -> regenerate the Codex -> redraw the true map
+#   -> mkdocs build -> inline every asset -> copy to the Pi
+#
+# Every generator lives in the project, not in /tmp. They used to live in
+# /tmp on the tower and in /tmp inside the wiki container, and when those were
+# cleared the whole pipeline broke with no warning - the wiki simply stopped
+# being able to rebuild. Anything this script depends on must survive a reboot.
+#
+# Run from the Pi. Safe to re-run.
+set -euo pipefail
+
+TOWER=nvii@192.168.86.24
+PROJ=/home/nvii/projects/spark-world/umbreality-ai
+DEST=/home/nvii/www/wiki-real
+MAPDIR=/home/nvii/www/map/images
+
+# the tower's login shell is fish, so remote commands must avoid bash syntax
+run() { ssh -o BatchMode=yes "$TOWER" "cd $PROJ && $*"; }
+
+echo "== 0/6 checking every generator is present =="
+GENS="scripts_gen_roster.py scripts_codex.py scripts_truemap.py scripts_inline.py scripts_worldjson.py"
+found=$(run "ls $GENS 2>/dev/null | wc -l" | tr -d ' ')
+if [ "$found" != "5" ]; then
+  echo "MISSING GENERATORS on the tower — found $found of 5:"
+  run "ls -1 $GENS 2>&1" || true
+  echo "The pipeline cannot rebuild without these. Restore them before deploying."
+  exit 1
+fi
+echo "all five present"
+
+echo "== 1/6 regenerating rosters from live data =="
+run "python3 scripts_gen_roster.py"
+
+echo "== 2/6 regenerating the Codex =="
+run "python3 scripts_codex.py"
+
+echo "== 3/6 redrawing the true map =="
+run "python3 scripts_truemap.py" | tail -1
+scp -q -o BatchMode=yes "$TOWER:$PROJ/vault/images/world-true.svg" "$MAPDIR/world-true.svg"
+
+echo "== 3b/6 regenerating the world map data =="
+run "python3 scripts_worldjson.py" | head -1
+scp -q -o BatchMode=yes "$TOWER:$PROJ/vault/world.json" /home/nvii/www/map/world.json
+
+echo "== 4/6 mkdocs build =="
+ssh -o BatchMode=yes "$TOWER" \
+  "docker exec umb-wiki sh -c 'cd /app && mkdocs build --clean' 2>&1 | tail -2"
+
+echo "== 5/6 inlining all assets =="
+ssh -o BatchMode=yes "$TOWER" "docker exec umb-wiki python3 /app/scripts_inline.py"
+
+echo "== 6/6 publishing to the Pi =="
+rsync -a --delete -e ssh "$TOWER:$PROJ/site-inline/" "$DEST/"
+
+echo "== verifying =="
+ext=$(grep -cE '<script[^>]+src=|rel="stylesheet"' "$DEST/index.html" || true)
+echo "external refs in index.html: $ext  (must be 0)"
+
+fail=0
+code=$(curl -s -L --max-time 25 -o /dev/null -w "%{http_code}" "https://umb.alola.lol/world")
+printf "  %-28s %s\n" "/world (the map)" "$code"
+[ "$code" = "200" ] || fail=1
+
+for page in "" "Codex/" "Codex/space/" "Codex/inner-life/" "Codex/bonds/" \
+            "Codex/places/" "Codex/language/" "Codex/forum/" \
+            "Codex/institutions/" "Census/The-Lexicon/" "Reference/System-Map/"; do
+  code=$(curl -s -L --max-time 25 -o /dev/null -w "%{http_code}" \
+         "https://umb.alola.lol/wiki/$page")
+  printf "  %-28s %s\n" "/wiki/$page" "$code"
+  [ "$code" = "200" ] || fail=1
+done
+
+if [ "$fail" = "1" ]; then
+  echo "SOME PAGES ARE NOT SERVING — do not walk away from this."
+  exit 1
+fi
+echo "all pages serving"

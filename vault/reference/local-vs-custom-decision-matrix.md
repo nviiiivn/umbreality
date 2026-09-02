@@ -66,7 +66,7 @@ Every decision point in UmbrealityAI requires a choice: use an existing model as
 
 ## When to Fine-Tune
 
-Fine-tuning (via QLoRA on RTX 3070) becomes worthwhile when:
+Fine-tuning (via QLoRA on RTX 3080) becomes worthwhile when:
 
 1. **Task frequency is high** (>100 invocations per day)
 2. **Output format is rigid** (JSON schema, classification labels)
@@ -81,7 +81,7 @@ Fine-tuning (via QLoRA on RTX 3070) becomes worthwhile when:
 | Constitution Keeper | Past constitutional edge cases, rulings | Consistent policy interpretation |
 | Tool Router | Tool call traces, successful vs failed routing | Fewer tool mis-selections, faster routing |
 
-### QLoRA on RTX 3070 8GB
+### QLoRA on RTX 3080 20GB
 
 | Parameter | Value |
 |-----------|-------|

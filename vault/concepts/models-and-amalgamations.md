@@ -9,14 +9,14 @@ tags:
 
 > *Which model goes where, why, and when do we stitch them together?*
 
-Every layer of UmbrealityAI runs on **local uncensored models** via Ollama on the tower (RTX 3070 8GB). This page maps specific models to layers, explains the reasoning, and documents the art of *model amalgamation* — blending multiple models to create hybrid intelligences.
+Every layer of UmbrealityAI runs on **local uncensored models** via Ollama on the tower (RTX 3080 20GB). This page maps specific models to layers, explains the reasoning, and documents the art of *model amalgamation* — blending multiple models to create hybrid intelligences.
 
 ## The Constraint
 
 | Resource | Spec |
 |----------|------|
-| GPU | RTX 3070, 8GB VRAM |
-| CPU | Ryzen 5 5600X, 32GB RAM |
+| GPU | RTX 3080, 20GB VRAM |
+| CPU | Ryzen 5 5600X, 64GB RAM |
 | Backend | Ollama on CachyOS |
 | Max quant | Q4_K_M fits at 8B, Q3_K_S at 14B |
 | Context limit | 32K–100K depending on model |
@@ -50,7 +50,7 @@ This is the **brain** of the system — God(s), Illuminati, and Messiah all use 
 | Context | 131,072 tokens |
 | Tool use | Native function-calling via Qwen's format |
 | Vision | Supports vision inputs |
-| Speed on 3070 | ~40–60 t/s at Q4_K_M |
+| Speed on 3080 | ~40–60 t/s at Q4_K_M |
 | Uncensored | Abliterated — guardrails surgically removed |
 | Thinking | Supports chain-of-thought reasoning (extended thinking mode) |
 
@@ -162,7 +162,7 @@ For recurring tasks, a base model is fine-tuned on the task and swapped in as a 
 
 ## Running Multiple Models on 8GB VRAM
 
-RTX 3070 8GB cannot load two 8B Q4 models simultaneously. Strategy:
+RTX 3080 20GB comfortably holds two 8B Q4 models at once, and a single 32B Q4 with room to spare. The old one-model-at-a-time constraint no longer applies. Strategy:
 
 1. **Shared pool**: One model loaded at a time per priority queue
 2. **CPU offload**: Small models (3B/1.5B) run on CPU or partial GPU

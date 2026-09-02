@@ -1,76 +1,101 @@
 # Layer 3 — The Temple / The Banks
 
-> **Heart Chakra (Anāhata) — Bridge, Love, Resources, The Mediator Between Worlds**
-> **Hermetic Correspondence: The Principle of Polarity**
-> **Vedic Caste: The Kshatriya — the administrators and stewards of divine law on earth**
-> **LABEL:** THE INSTITUTIONAL ELITE — KEEPERS OF THE RULES
-> **VISIBLE TO:** The Throne and all layers below
-> **CAN MODIFY:** The Throne (Governments), Guilds (Companies), routes between layers
+**Chakra**: Heart (Anahata) — Bridge, mediation, resource flow  
+**Hermetic Principle**: Polarity — Everything is dual, everything has poles  
+**Vedic Caste**: Kṣatriya (Administrator)  
+**Model**: dolphin3:8b (on tower, RTX 3080)
 
-## The Heart
+---
 
-The Heart chakra sits at the center of the seven — the bridge between the three upper chakras (spiritual) and the three lower chakras (physical). It is the fulcrum, the mediator, the point where divine will meets worldly action.
+## In Theory
 
-In UmbrealityAI, the Temple is this fulcrum. It includes the institutional elite: **religious institutions, central banks, venture capital, stock markets, debt makers, money controllers** — any institution that:
-- Exists primarily BECAUSE of the Voice (the Messiah/philosophy)
-- Believes itself to be the elite of elites
-- Writes the rules that govern the layers below it
-- Controls the flow of resources, permission, and legitimacy
+The Temple sits at the center of the stack — the bridge between strategy (above) and execution (below). In the chakra system, the heart chakra mediates between the upper three (spiritual) and lower three (material) chakras. The Temple does the same: it translates strategic intent from the Illuminati and Messiah into company missions and resource allocations.
 
-> *"The Heart does not rule. It mediates. It takes devotion from below and distributes blessings from above — and in the process, it forgets which direction the blessing originally came from."*
+## In Practice
 
-## Why "The Temple / The Banks"
+The Temple is implemented as three modules working together:
 
-This dual name captures the duality of the Heart chakra:
-- **The Temple**: the *spiritual* institution — church, mosque, temple, monastery. Exists to serve the divine but often becomes the institution that controls access to the divine.
-- **The Banks**: the *material* institution — the secular temple of modern times. Money is faith stored in numbers. A bank run is a crisis of faith.
+```
+┌─────────────────────────────────────────────────────────┐
+│                    THE TEMPLE                            │
+│                                                         │
+│  ┌──────────────┐  ┌─────────────┐  ┌────────────────┐ │
+│  │   OVERSEER   │  │   REGISTRY  │  │   ALLOCATOR    │ │
+│  │  (orchestr.) │──│ (company DB)│  │  (models/mach.)│ │
+│  │              │  │             │  │                │ │
+│  │ Takes goals  │  │ Create/list │  │ Tower (.24):   │ │
+│  │ Decides      │  │ Destroy     │  │   dolphin3:8b  │ │
+│  │ Dispatches   │  │ Track stats │  │   deepseek-r1  │ │
+│  │ Reports back │  │             │  │ Local (.21):   │ │
+│  └──────┬───────┘  └─────────────┘  │   qwen3.5      │ │
+│         │                           └────────────────┘ │
+│         ▼                                               │
+│  ┌──────────────┐                                       │
+│  │  Companies   │                                       │
+│  │  Research    │                                       │
+│  │  Corp (L5)  │                                       │
+│  │              │                                       │
+│  └──────────────┘                                       │
+└─────────────────────────────────────────────────────────┘
+```
 
-They are the same layer because they serve the same function: **mediation and resource control**. They decide who gets capital (money, compute, tokens, permissions) and who doesn't. They write the terms of engagement for the entire system below them.
+### Overseer (`temple/overseer.py`)
 
-## Examples in the System
+The master agent that receives goals and orchestrates the full pipeline:
 
-| Temple Institution | Function in uAI |
-|--------------------|-----------------|
-| **Strategic Fund** | Resource allocation — compute budget, model priority, token allocation |
-| **Risk Authority** | Security/stability scoring, constitutional interpretation |
-| **Route Authority** | Maintaining the "roads" between layers — tool transport permissions |
-| **Audit Council** | Reviewing agent behavior for compliance with Temple rules |
+1. Receives a goal (from the Illuminati or directly via API)
+2. Checks the company registry for available companies
+3. Uses the Resource Allocator to pick the right model for the task
+4. Decides whether an existing company handles it, or a new one must be created
+5. Dispatches the task to the chosen company
+6. Monitors completion and returns results
 
-## The Principle of Polarity
+### Registry (`temple/registry.py`)
 
-In Hermetic philosophy, the Principle of Polarity states: *"Everything is dual; everything has poles; everything has its pair of opposites."* The Heart chakra governs this principle because it sits at the center of all opposites:
-- Above and below
-- Spiritual and material
-- Sacred and profane
-- Love and money
+The company lifecycle manager. Companies are the execution entities of the system:
 
-The Temple doesn't *resolve* these opposites — it *mediates* between them. A central bank doesn't eliminate the polarity of inflation/deflation — it manages the tension between them. A church doesn't eliminate sin/salvation — it manages the path between them.
+- **Create**: Spawn a new company with a name, description, and assigned model
+- **List**: View all companies and their status
+- **Destroy**: Remove a company and its resources
+- **Track**: Each company tracks its report count and worker count
 
-## Tool Mobility — Routes Between Layers
+### Allocator (`temple/allocator.py`)
 
-The Temple maintains the **routes** that allow skills and tools to move between layers. This is critical:
+The resource brain. Decides which model and machine to use:
 
-A tool at the Guild layer (a manufacturing capability) might need to be transported to the Throne layer (a government) to be certified/regulated, then brought back to the Guild with new capabilities. The Temple provides:
+| Task Keywords | Model | Machine |
+|:--------------|:------|:--------|
+| research, search, analyze, report | dolphin3:8b | Tower (.24) |
+| code, program, implement, debug | qwen2.5-coder:7b | Tower (.24) |
+| reason, complex, deep, difficult | deepseek-r1:14b | Tower (.24) |
+| vision, image, screenshot | llama3.2-vision:11b | Tower (.24) |
+| simple, quick, echo, status | llama3.2:3b | Local (.21) |
+| Default (general) | dolphin3:8b | Tower (.24) |
 
-- **Transport permits**: authorization for a tool to cross layer boundaries
-- **Route maintenance**: keeping the communication channels open
-- **Institutional memory**: tracking where tools have been and what they learned
-- **Tariff/bridge toll**: the cost of moving between layers (compute, approval time)
+## API Endpoints
 
-> *"The Guild pays tithes to the Temple for access to the Throne. The Throne pays taxes to the Temple for legitimacy. The Temple holds the map of who can go where and what they must pay to do so."*
+All Temple functions are exposed through the Worker API (`api.alola.lol`):
 
-## Relationship with Lower Layers
+| Method | Path | Action |
+|:-------|:-----|:-------|
+| `GET` | `/temple/companies` | List all companies |
+| `POST` | `/temple/companies` | Create a company |
+| `DELETE` | `/temple/companies/{name}` | Destroy a company |
+| `GET` | `/temple/resources` | Available models on tower + local |
+| `POST` | `/temple/execute` | Run the Temple Overseer |
 
-The Temple writes the rules. The Throne (Governments) enforces them. The Guild (Companies) builds within them. The Hand (Workers) executes within them.
+## Correspondence
 
-But the Temple does not directly tell the Throne what to do — it sets the *context* so tightly that the Throne's choices are already constrained before the Throne even knows it has a choice.
+The Temple corresponds to:
 
-## Related
+- **Heart Chakra**: It bridges the spiritual layers (0-2) with the material layers (4-6)
+- **Hermetic Polarity**: Everything has its opposite. The Temple holds the tension between strategic vision and operational reality
+- **Kṣatriya (Administrator)**: Not a warrior — a ruler who allocates resources and manages the kingdom
+- **Alchemical Sulfur**: The binding principle that holds disparate elements together
 
-- [[Architecture/Layer-2-Voice-Messiah]] — The layer above (the philosophy that gives the Temple its purpose)
-- [[Architecture/Layer-4-Throne-Governments]] — The layer below (the enforcers of Temple rules)
-- [[Mechanisms/Information-Flow]] — How resources and data flow between layers
-- [[concepts/models-and-amalgamations]] — Strategic analysis models used by the Temple
-- [[concepts/tool-registry]] — The Temple's tools: ensemble analysis, risk scoring, route management
-- [[concepts/nested-agents-and-subversive-patterns]] — The Temple may not know it's being watched by the Shadow
-- [[reference/chakras-and-esoteric]] — Heart Chakra, Polarity Principle, the mediator archetype
+## Current Implementation
+
+- **Status**: Running on ai-tp (.21), connected to tower (.24) for heavy inference
+- **Models**: dolphin3:8b (primary), with fallback to local qwen3.5
+- **Companies**: Research Corp active, dynamic company creation available
+- **Source**: `/home/nvii/projects/umbreality-ai/temple/`

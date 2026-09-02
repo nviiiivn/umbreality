@@ -1,9 +1,13 @@
 # UmbrealityAI — Configuration
-# Tower Ollama endpoint: http://192.168.86.24:11434
+# Tower (.24) runs heavy models on RTX 3080
+# ai-tp (.21) runs fallback models on RPi
 
 TOWER_BASE_URL = "http://192.168.86.24:11434"
-PRIMARY_MODEL = "huihui_ai/qwen3.5-abliterated:9b"
-SECONDARY_MODEL = "dolphin3:8b"
+TOWER_MODEL = "dolphin3:8b"
+PRIMARY_MODEL = "dolphin3:8b"
+SECONDARY_MODEL = "qwen2.5-coder:7b"
+CODER_MODEL = "qwen2.5-coder:7b"
+FALLBACK_MODEL = "qwen3.5:latest"
 
 # Worker identity — this is the "messiah" as the worker perceives it
 WORKER_IDENTITY = {

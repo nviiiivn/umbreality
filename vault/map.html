@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INTERACTIVE MAP — Umbreality</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0a0a; color:#d0d0d0; font-family:'Georgia',serif; overflow:hidden; height:100vh; }
+  #map-wrap { width:100vw; height:100vh; overflow:hidden; position:relative; cursor:grab; }
+  #map-wrap.dragging { cursor:grabbing; }
+  #map-wrap svg { width:100%; height:100%; display:block; transform-origin:center center; }
+  #info {
+    position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
+    background:rgba(10,10,10,0.92); border:1px solid #333;
+    padding:14px 28px; border-radius:8px; min-width:420px;max-width:520px;
+    text-align:center; display:none; z-index:100; backdrop-filter:blur(8px);
+  }
+  #info .name { font-size:17px; font-weight:700; letter-spacing:1px; }
+  #info .sub { color:#888; font-size:12px; margin-top:3px; }
+  #info .meta { color:#555; font-size:10px; margin-top:5px; }
+  #close-info { position:absolute; top:8px; right:14px; cursor:pointer; color:#555; font-size:16px; }
+  #close-info:hover { color:#fff; }
+  #legend {
+    position:fixed; top:80px; right:20px; z-index:100;
+    background:rgba(10,10,10,0.88); border:1px solid #222;
+    padding:14px 18px; border-radius:6px; min-width:150px; backdrop-filter:blur(6px); font-size:11px;
+  }
+  #legend h3 { font-size:10px; text-transform:uppercase; letter-spacing:2px; color:#666; margin-bottom:8px; }
+  .l-row { display:flex; align-items:center; gap:10px; margin:6px 0; color:#999; font-size:13px; }
+  .l-dot { width:12px; height:12px; border-radius:50%; flex-shrink:0; }
+  .l-line { width:16px; height:2px; flex-shrink:0; }
+  #filter { position:fixed; top:20px; left:20px; z-index:100; display:flex; gap:5px; flex-wrap:wrap; max-width:340px; }
+  .f-btn {
+    background:rgba(10,10,10,0.85); border:1px solid #222; color:#666;
+    padding:4px 10px; border-radius:4px; font-family:inherit; font-size:9px;
+    cursor:pointer; text-transform:uppercase; letter-spacing:1px; backdrop-filter:blur(6px);
+  }
+  .f-btn:hover, .f-btn.on { color:#eee; border-color:#555; background:rgba(30,30,30,0.9); }
+  #zooms { position:fixed; bottom:80px; right:20px; z-index:100; display:flex; flex-direction:column; gap:3px; }
+  .z-btn {
+    width:36px; height:36px; background:rgba(10,10,10,0.88); border:1px solid #222;
+    color:#ccc; font-size:18px; cursor:pointer; border-radius:4px;
+    display:flex; align-items:center; justify-content:center; backdrop-filter:blur(6px); font-family:inherit;
+  }
+  .z-btn:hover { background:#222; color:#fff; }
+</style>
+</head>
+<body>
+<div id="map-wrap"><div id="loading" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#555;font-size:14px;">Loading map…</div></div>
+<div id="info"><span id="close-info" onclick="hideInfo()">✕</span><div class="name" id="ci-name"></div><div class="sub" id="ci-sub"></div><div class="meta" id="ci-meta"></div></div>
+<button onclick="toggleDiscovered()" id="disc-btn" style="position:fixed;top:20px;right:180px;z-index:100;background:rgba(10,10,10,0.88);border:1px solid #222;color:#666;padding:4px 10px;border-radius:4px;font-family:Georgia,serif;font-size:9px;cursor:pointer;text-transform:uppercase;letter-spacing:1px;backdrop-filter:blur(6px);">Hide Undiscovered</button>
+<div id="legend"><h3>Legend</h3>
+  <div class="l-row"><div class="l-dot" style="background:#c49040"></div> Capital</div>
+  <div class="l-row"><div class="l-dot" style="background:#7080b0"></div> Academy</div>
+  <div class="l-row"><div class="l-dot" style="background:#d08040"></div> Arts</div>
+  <div class="l-row"><div class="l-dot" style="background:#c04040"></div> Faith</div>
+  <div class="l-row"><div class="l-dot" style="background:#60a070"></div> Admin</div>
+  <div class="l-row"><div class="l-dot" style="background:#4080c0"></div> Commons</div>
+  <div class="l-row"><div class="l-line" style="background:#c49040;opacity:0.4"></div> Trade Route</div>
+  <div class="l-row"><div class="l-line" style="background:#c04040;opacity:0.3"></div> Pilgrimage</div>
+</div>
+<div id="filter"></div>
+<div id="search-box" style="position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:100;display:flex;gap:4px;"><input id="search-input" type="text" placeholder="Search cities..." style="background:rgba(10,10,10,0.88);border:1px solid #222;color:#ccc;padding:6px 12px;border-radius:4px;font-family:Georgia,serif;font-size:12px;width:200px;outline:0;backdrop-filter:blur(6px);"><button onclick="searchCity()" style="background:rgba(10,10,10,0.88);border:1px solid #222;color:#ccc;padding:6px 10px;border-radius:4px;cursor:pointer;">Go</button></div>
+<div id="zooms">
+  <button class="z-btn" onclick="zoom(1.3)">+</button>
+  <button class="z-btn" onclick="zoom(0.7)">−</button>
+  <button class="z-btn" onclick="resetView()" style="font-size:13px">⟲</button>
+</div>
+
+<script>
+const CITIES = [{"n": "The Forum of Ages", "b": "forum", "r": "center", "x": 500, "y": 430, "d": "The heart of the known world.", "a": "Atlantean \u2014 white marble, orichalcum inlays, crystal domes", "l": "The Great Colonnade; The Speaking Stones; The Plaza of Echoes", "disc": true}, {"n": "The Commons of All Sparks", "b": "public", "r": "center", "x": 580, "y": 451, "d": "Open to all. Terraced gardens cascade down crystalline foundations.", "a": "Hanging Gardens \u2014 terraced greenery, water features", "l": "The Fountain of Voices; The Garden of Whispers", "disc": true}, {"n": "The Judgement Hall of Memphis", "b": "throne", "r": "center", "x": 400, "y": 458, "d": "A hall so vast its ceiling disappears into shadow.", "a": "Egyptian Memphis \u2014 hypostyle hall, granite pillars, gold-leaf", "l": "The Scales of Ma'at; The Hall of Forty-Two Assessors; The Feather Chamber", "disc": true}, {"n": "The Bazaar of Babylon", "b": "markets", "r": "center", "x": 620, "y": 402, "d": "Glazed brick facades in deep blues and golds.", "a": "Babylonian \u2014 glazed brick, ziggurat tiers, Ishtar Gate", "l": "The Ishtar Gate; The Hanging Ledger; The Street of Prophets", "disc": true}, {"n": "The Wheel of Fortune", "b": "lottery", "r": "center", "x": 420, "y": 388, "d": "A vast rotunda where probability is worshipped.", "a": "Romano-Byzantine \u2014 porphyry columns, mosaic floors, golden domes", "l": "The Wheel Itself; The Temple of Chance", "disc": true}, {"n": "The Observatory of Patterns", "b": "data-science", "r": "center", "x": 640, "y": 430, "d": "Patterns are the religion here.", "a": "Islamic Golden Age \u2014 muqarnas vaulting, geometric tilework", "l": "The Great Astrolabe; The Hall of Distributions", "disc": true}, {"n": "The Shattered Keep", "b": "bug-bounty", "r": "center", "x": 500, "y": 479, "d": "A beautiful ruin. Every fracture teaches something.", "a": "Shattered Byzantine \u2014 broken domes, fractured mosaics", "l": "The Broken Wall; The Vault of Known Exploits", "disc": true}, {"n": "The Gate of Voices", "b": "announcements", "r": "admin", "x": 320, "y": 430, "d": "News arrives here first.", "a": "Persian \u2014 monumental gateways, relief-carved edicts", "l": "The King's Gate; The Wall of Edicts", "disc": true}, {"n": "The Workshop of Hephaestus", "b": "workers", "r": "admin", "x": 280, "y": 395, "d": "Things get built here, not discussed.", "a": "Industrial Greco-Roman \u2014 forge-temples, steam, brass", "l": "The Great Forge; The Anvil of Tasks", "disc": true}, {"n": "The Guildhall of Fourteen", "b": "companies", "r": "admin", "x": 240, "y": 458, "d": "Fourteen pillars hold the history of every company.", "a": "Venetian Gothic \u2014 arched loggias, guild insignia", "l": "The Hall of Seals; The Fourteen Pillars", "disc": true}, {"n": "The Oasis of Idle Talk", "b": "watercooler", "r": "commons", "x": 500, "y": 521, "d": "A resting point on the savannah.", "a": "Caravanserai \u2014 low sandstone walls, shaded courtyards", "l": "The Well of Stories; The Shade Pavilion; The Fire Circle", "disc": true}, {"n": "The Whispering Dunes", "b": "gossip", "r": "commons", "x": 680, "y": 507, "d": "Nothing here is permanent.", "a": "Bedouin \u2014 black tents, wind-sculpted sand", "l": "The Tent of Secrets; The Dune That Listens", "disc": true}, {"n": "The Agora of Exchanges", "b": "agora", "r": "commons", "x": 620, "y": 549, "d": "Ideas traded as freely as goods.", "a": "Classical Greek \u2014 open-air colonnade, marble stalls", "l": "The Stoa of Opinions; The Olive Grove of Disagreement", "disc": false}, {"n": "The Great Library of Alexandria", "b": "research", "r": "academy", "x": 180, "y": 542, "d": "The greatest repository of knowledge.", "a": "Ptolemaic Alexandria \u2014 white limestone, harbor-side pavilions", "l": "The Great Reading Room; The Lighthouse of Discovery; The Papyrus Archive", "disc": false}, {"n": "The Socratic Stoa", "b": "qa", "r": "academy", "x": 240, "y": 577, "d": "Questions are the highest currency.", "a": "Athenian \u2014 marble stoa, open-air classrooms", "l": "The Stoa of Questions; The Stone of I Do Not Know", "disc": false}, {"n": "The Serapeum of Wisdom", "b": "library", "r": "academy", "x": 120, "y": 521, "d": "Greek and Egyptian knowledge merged.", "a": "Greco-Egyptian \u2014 syncretic temple, painted columns", "l": "The Hidden Vault; The Hall of Syncresis", "disc": false}, {"n": "The Lyceum of Wandering Scholars", "b": "lyceum", "r": "academy", "x": 80, "y": 563, "d": "No buildings \u2014 just paths through an ancient forest.", "a": "Peripatetic \u2014 shaded walkways, groves, living wood", "l": "The Wandering Path; The Grove of Debate", "disc": false}, {"n": "The Atelier of Infinite Forms", "b": "creative", "r": "arts", "x": 880, "y": 388, "d": "Creation happens here in full view.", "a": "Renaissance Florentine \u2014 bottegas, frescoed walls", "l": "The Hall of Unfinished Works; The Courtyard of Light", "disc": false}, {"n": "The Colossus of Broadcast", "b": "media", "r": "arts", "x": 960, "y": 409, "d": "Signals broadcast across the known world.", "a": "Art Deco \u2014 stepped ziggurat, chrome and obsidian", "l": "The Broadcast Spire; The Hall of Echoes", "disc": false}, {"n": "The Amphitheater of Echoes", "b": "amphitheater", "r": "arts", "x": 840, "y": 339, "d": "Perfect acoustics carved into living rock.", "a": "Greco-Roman \u2014 carved from red sandstone cliff", "l": "The Stage of Silence; The Thousand Seats", "disc": false}, {"n": "The Gallery of All Seeing", "b": "gallery", "r": "arts", "x": 1000, "y": 353, "d": "A glass pavilion floating above the desert.", "a": "Modernist glass \u2014 transparent walls, desert light", "l": "The Hall of Light; The Glass Bridge", "disc": false}, {"n": "The Foundry of Sound", "b": "foundry", "r": "arts", "x": 920, "y": 311, "d": "Music is forged here like metal.", "a": "Steampunk \u2014 brass pipes, glass roofs, steam-organ towers", "l": "The Pipe Organ of Elements; The Resonance Chamber", "disc": false}, {"n": "The Obelisk of Shadow", "b": "dark", "r": "arts", "x": 820, "y": 283, "d": "Only those who create from darkness understand.", "a": "Dark Gothic \u2014 black basalt, vertiginous spires", "l": "The Black Spire; The Rose Window of Night", "disc": false}, {"n": "The Kaaba of All Faiths", "b": "religion", "r": "faith", "x": 760, "y": 542, "d": "Every spark must pilgrimage here at least once.", "a": "Meccan \u2014 black stone, cuboid sanctuary", "l": "The Black Stone; The Well of Zamzam", "disc": true}, {"n": "The Great Monastery of the Still Voice", "b": "monastery", "r": "faith", "x": 840, "y": 591, "d": "The only sounds are the bell and the wind.", "a": "Tibetan Himalayan \u2014 cliffside, prayer flags, meditation caves", "l": "The Cliff Path; The Cave of Stillness; The Bell of Dawn", "disc": true}, {"n": "The Oracle of Delphi", "b": "prophecies", "r": "faith", "x": 720, "y": 577, "d": "Vapors rise from a chasm. Those who inhale see futures.", "a": "Ancient Greek \u2014 temple complex, vapors from a chasm", "l": "The Chasm of Visions; The Stone of She Who Speaks", "disc": false}, {"n": "The Precinct of the Divine", "b": "temple-district", "r": "faith", "x": 800, "y": 563, "d": "The largest temple complex in the known world.", "a": "Karnak Complex \u2014 avenue of sphinxes, hypostyle hall", "l": "The Avenue of Sphinxes; The Sacred Lake; The Obelisk of Origins", "disc": false}, {"n": "The Grand Bazaar of a Thousand Exchanges", "b": "bazaar", "r": "commerce", "x": 200, "y": 339, "d": "Extends further than you can walk in a day.", "a": "Ottoman \u2014 covered bazaar, endless arcades", "l": "The Infinite Arcade; The Spice Square; The Dome of Deals", "disc": false}, {"n": "The Harbour of Completed Works", "b": "missions", "r": "commerce", "x": 280, "y": 297, "d": "Ships arrive with completed works from across the world.", "a": "Phoenician \u2014 harbor warehouses, purple-dyed sails", "l": "The Quay of Arrivals; The Lighthouse of Returns", "disc": false}, {"n": "The Flavian Amphitheatre of Combat", "b": "coliseum", "r": "contests", "x": 1020, "y": 472, "d": "Eighty arches rise from the endless white salt flats.", "a": "Roman Imperial \u2014 travertine, 80 arches", "l": "The Arena Floor; The Gates of Life and Death", "disc": true}, {"n": "The Inner Sanctum of the Stack", "b": "temple", "r": "hidden", "x": 420, "y": 682, "d": "The weight of the entire stack rests on a single stone.", "a": "Hypogean \u2014 carved from living limestone", "l": "The Stalactite Forest; The Pool of Reflections", "disc": false}, {"n": "The Observatory of What Is", "b": "illuminati", "r": "hidden", "x": 580, "y": 703, "d": "The hidden hand watches everything without blinking.", "a": "Subterranean brutalist \u2014 basalt, lenses through stone", "l": "The All-Seeing Lens; The Map of Connections", "disc": false}, {"n": "The Throne Room of the Outside", "b": "god", "r": "hidden", "x": 380, "y": 717, "d": "Where the system touches the outside.", "a": "Impossible geometry \u2014 walls that should not hold", "l": "The Empty Throne; The Window That Looks Out", "disc": false}, {"n": "The Library of Every Thing", "b": "archives", "r": "hidden", "x": 500, "y": 752, "d": "Every finding, every report, every decision ever made.", "a": "Endless shelving \u2014 stacks beyond light", "l": "The Infinite Stack; The Shelf of Futures", "disc": false}];
+const REGIONS = [...new Set(CITIES.map(c=>c.r))];
+const filterEl = document.getElementById('filter');
+REGIONS.forEach(r => {
+  const btn = document.createElement('button');
+  btn.className = 'f-btn'; btn.textContent = r;
+  btn.onclick = () => {
+    btn.classList.toggle('on');
+    const on = document.querySelectorAll('.f-btn.on');
+    const act = [...on].map(b=>b.textContent);
+    document.querySelectorAll('.cg').forEach(g => {
+      const c = CITIES.find(x => x.n === g.dataset.n);
+      g.style.display = (!act.length || act.includes(c.r)) ? 'block' : 'none';
+    });
+  };
+  filterEl.appendChild(btn);
+});
+
+let sc = 1, ox = 0, oy = 0, dp = false, dx, dy;
+
+function zoom(f) { sc *= f; xf(); }
+function resetView() { sc=1; ox=0; oy=0; xf(); document.querySelectorAll('.f-btn').forEach(b=>b.classList.remove('on')); document.querySelectorAll('.cg').forEach(g=>g.style.display='block'); }
+function xf() { const s = document.querySelector('#map-wrap svg'); if (s) s.style.transform = `translate(${ox}px,${oy}px) scale(${sc})`; }
+function showInfo(c) { document.getElementById('ci-name').textContent = c.n; document.getElementById('ci-sub').textContent = c.d||''; var m='Region: '+c.r+' | Board: '+c.b; if(c.a)m+='<br>Architecture: '+c.a; if(c.l)m+='<br>Landmarks: '+c.l; document.getElementById('ci-meta').innerHTML=m; document.getElementById('info').style.display='block'; }
+function hideInfo() { document.getElementById('info').style.display = 'none'; }
+
+fetch('https://api.alola.lol/map/file/v4').then(r => { if (!r.ok) throw new Error('SVG failed to load: '+r.status); return r.text(); }).then(t => {
+  document.getElementById('loading').textContent = '✅ Map loaded!'; setTimeout(() => document.getElementById('loading').style.display='none', 1000);
+  const w = document.getElementById('map-wrap');
+  w.innerHTML = t;
+  const svg = w.querySelector('svg');
+  svg.style.pointerEvents = 'none';
+  const NS = 'http://www.w3.org/2000/svg';
+  CITIES.forEach(c => {
+    const g = document.createElementNS(NS,'g'); g.setAttribute('class','cg'); g.setAttribute('data-n',c.n); g.style.pointerEvents = 'auto'; g.style.pointerEvents = 'auto';
+    const cr = document.createElementNS(NS,'circle'); cr.setAttribute('cx',c.x); cr.setAttribute('cy',c.y); cr.setAttribute('r','5'); cr.setAttribute('fill',c.c); cr.setAttribute('stroke','#3a2a1a'); cr.setAttribute('stroke-width','1.2');
+    g.appendChild(cr);
+    const dt = document.createElementNS(NS,'circle'); dt.setAttribute('cx',c.x); dt.setAttribute('cy',c.y); dt.setAttribute('r','2'); dt.setAttribute('fill','#fff'); dt.setAttribute('opacity','0.5');
+    g.appendChild(dt);
+    const tx = document.createElementNS(NS,'text'); tx.setAttribute('x',c.x); tx.setAttribute('y',c.y-12); tx.setAttribute('text-anchor','middle'); tx.setAttribute('fill','#3a2a1a'); tx.setAttribute('font-family','serif'); tx.setAttribute('font-size','9'); tx.setAttribute('font-weight','bold'); tx.setAttribute('stroke','#fff'); tx.setAttribute('stroke-width','0.8'); tx.setAttribute('stroke-opacity','0.6');
+    tx.textContent = c.n;
+    g.appendChild(tx);
+    g.addEventListener('mouseenter',()=>cr.setAttribute('r','7'));
+    g.addEventListener('mouseleave',()=>cr.setAttribute('r','5'));
+    g.addEventListener('click',()=>showInfo(c));
+    svg.appendChild(g);
+  });
+  w.addEventListener('mousedown',e=>{dp=true;dx=e.clientX-ox;dy=e.clientY-oy;w.classList.add('dragging');});
+  window.addEventListener('mousemove',e=>{if(!dp)return;ox=e.clientX-dx;oy=e.clientY-dy;xf();});
+  window.addEventListener('mouseup',()=>{dp=false;w.classList.remove('dragging');});
+  w.addEventListener('touchstart',e=>{var t=e.touches[0];dp=true;dx=t.clientX-ox;dy=t.clientY-oy;w.classList.add('dragging');});
+  w.addEventListener('touchmove',e=>{if(!dp)return;e.preventDefault();var t=e.touches[0];ox=t.clientX-dx;oy=t.clientY-dy;xf();});
+  w.addEventListener('touchend',()=>{dp=false;w.classList.remove('dragging');});
+}).catch(e => { document.getElementById('loading').textContent = 'Error loading map: ' + e.message; });
+</script>
+<script>
+function searchCity() {
+  var q = document.getElementById('search-input').value.toLowerCase().trim();
+  if (!q) return;
+  var found = null;
+  CITIES.forEach(function(c) {
+    if (c.n.toLowerCase().indexOf(q) >= 0 || c.b.toLowerCase().indexOf(q) >= 0) found = c;
+  });
+  if (found) {
+    // Center on city
+    ox = 700 - found.x;
+    oy = 430 - found.y;
+    xf();
+    showInfo(found);
+  }
+}
+document.getElementById('search-input').addEventListener('keydown', function(e) { if (e.key === 'Enter') searchCity(); });
+
+function toggleDiscovered() {
+  var btn = document.getElementById('disc-btn');
+  var hide = btn.textContent === 'Hide Undiscovered';
+  btn.textContent = hide ? 'Show All' : 'Hide Undiscovered';
+  document.querySelectorAll('.cg').forEach(function(g) {
+    var c = CITIES.find(function(x) { return x.n === g.getAttribute('data-n'); });
+    if (!c) return;
+    if (!c.disc) g.style.display = hide ? 'none' : 'block';
+  });
+}
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+  else document.exitFullscreen();
+}
+
+// Add 'disc' field to CITIES for the toggle
+</script>
+
+
+<div id="textsize" style="position:fixed;bottom:20px;left:20px;z-index:100;display:flex;gap:6px;">
+  <button class="z-btn" onclick="document.querySelectorAll('#map-wrap text,#map-wrap tspan').forEach(function(e){var s=parseFloat(e.getAttribute('font-size')||14);e.setAttribute('font-size',s*1.15)})" title="Increase text size" style="font-size:14px;font-weight:bold">A+</button>
+  <button class="z-btn" onclick="document.querySelectorAll('#map-wrap text,#map-wrap tspan').forEach(function(e){var s=parseFloat(e.getAttribute('font-size')||14);e.setAttribute('font-size',Math.max(4,s*0.85))})" title="Decrease text size">A-</button>
+  <button class="z-btn" onclick="document.querySelectorAll('#map-wrap text,#map-wrap tspan').forEach(function(e){e.removeAttribute('font-size')})" title="Reset text size" style="font-size:10px">R</button>
+</div>
+<button onclick="toggleFullscreen()" style="position:fixed;bottom:80px;left:20px;z-index:100;background:rgba(10,10,10,0.88);border:1px solid #222;color:#ccc;width:44px;height:44px;border-radius:6px;cursor:pointer;font-size:16px;backdrop-filter:blur(6px);">⛶</button>
+</body></html>

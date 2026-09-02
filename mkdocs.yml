@@ -1,6 +1,6 @@
 site_name: UmbrealityAI
 site_description: Russian doll systems generating the whole of our reality — a simulacrum allegory
-site_url: http://192.168.86.21:6999
+site_url: https://umb.alola.lol/wiki/
 repo_url: http://192.168.86.21:3100/nvii/umbreality-ai
 repo_name: Gitea
 edit_uri: edit/main/vault/
@@ -36,7 +36,7 @@ theme:
         icon: material/weather-sunny
         name: Switch to dark mode
   features:
-    - navigation.instant
+    # - navigation.instant   # breaks behind the Authelia proxy: XHR nav gets auth-redirected and swaps in a blank body
     - navigation.tracking
     - navigation.expand
     - navigation.top
@@ -105,6 +105,23 @@ nav:
     - Amendment Protocol: Constitution/Amendment-Protocol.md
   - Roadmap:
     - Build Phases: Roadmap/Phases.md
+  - The Codex:
+    - What Everything Is: Codex/index.md
+    - Space, Distance and the Road: Codex/space.md
+    - The Inner Life: Codex/inner-life.md
+    - Bonds, Bands and Teaching: Codex/bonds.md
+    - Places, Building and Travel: Codex/places.md
+    - Language: Codex/language.md
+    - The Forum: Codex/forum.md
+    - Institutions: Codex/institutions.md
+  - The Population:
+    - State of the World: Census/State-of-World.md
+    - Spark Roster: Census/Spark-Roster.md
+    - The Work: Census/The-Work.md
+    - The Companies: Census/The-Companies.md
+    - The Bands: Census/The-Bands.md
+    - The Lexicon: Census/The-Lexicon.md
+    - Models: Census/Models.md
   - Concepts:
     - Models & Amalgamations: concepts/models-and-amalgamations.md
     - Tool Registry: concepts/tool-registry.md

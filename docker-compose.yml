@@ -1,0 +1,44 @@
+# UmbrealityAI — Multi-service orchestration
+# Each service can be updated independently:
+#   docker compose up -d --no-deps api    # restart only the API
+#   docker compose up -d --no-deps mkdocs # restart only MkDocs
+#   docker compose up -d                  # (re)start everything
+
+services:
+  # ── Main API ────────────────────────────────────────────
+  api:
+    build: .
+    container_name: umb-api
+    hostname: umb-api
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      # Project root (temple/, creative/, vault/, etc.)
+      - /home/nvii/projects/spark-world/umbreality-ai:/app
+      # Static web content served by API
+      - /home/nvii/www:/home/nvii/www
+      # Creative outputs persist on host
+      - /home/nvii/projects/spark-world/umbreality-ai/creative/outputs:/app/creative/outputs
+    environment:
+      - UAI_HOST=0.0.0.0
+      - PYTHONUNBUFFERED=1
+      - TZ=America/Los_Angeles
+      - UNSPLASH_ACCESS_KEY=${UNSPLASH_ACCESS_KEY}
+
+  # ── MkDocs / Wiki ────────────────────────────────────
+  mkdocs:
+    image: python:3.13-slim
+    container_name: umb-wiki
+    hostname: umb-wiki
+    restart: unless-stopped
+    ports:
+      - "6999:6999"
+    working_dir: /app
+    command: >
+      sh -c "pip install --no-cache-dir mkdocs mkdocs-material mkdocs-roamlinks-plugin mkdocs-obsidian-bridge &&
+             mkdocs serve -a 0.0.0.0:6999"
+    volumes:
+      - /home/nvii/projects/spark-world/umbreality-ai:/app
+    environment:
+      - TZ=America/Los_Angeles
+      - UNSPLASH_ACCESS_KEY=${UNSPLASH_ACCESS_KEY}

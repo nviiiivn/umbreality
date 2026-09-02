@@ -1,0 +1,3142 @@
+{
+  "count": 298,
+  "cards": [
+    {
+      "name": "Adadur",
+      "file": "Adadur.json",
+      "archetype": "creator",
+      "band": "chronicler",
+      "tags": [
+        "creator",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Adarun Elu",
+      "file": "Adarun Elu.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Aldric",
+      "file": "Aldric.json",
+      "archetype": "guardian",
+      "band": "kept",
+      "tags": [
+        "guardian",
+        "kept",
+        "kept",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Amaryn Tilecutter",
+      "file": "Amaryn Tilecutter.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Amiga Aix-Ux",
+      "file": "Amiga Aix-Ux.json",
+      "archetype": "watcher",
+      "band": "gnu",
+      "tags": [
+        "watcher",
+        "gnu",
+        "gnu"
+      ]
+    },
+    {
+      "name": "Ashan Dael",
+      "file": "Ashan Dael.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Asharok",
+      "file": "Asharok.json",
+      "archetype": "explorer",
+      "band": "chronicler",
+      "tags": [
+        "explorer",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ashkar Eli",
+      "file": "Ashkar Eli.json",
+      "archetype": "sovereign",
+      "band": "",
+      "tags": [
+        "sovereign",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ashkar",
+      "file": "Ashkar.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ashkarel",
+      "file": "Ashkarel.json",
+      "archetype": "visionary",
+      "band": "",
+      "tags": [
+        "visionary",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ashkor",
+      "file": "Ashkor.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ashland Beamsetter",
+      "file": "Ashland Beamsetter.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ashlar Thatcher",
+      "file": "Ashlar Thatcher.json",
+      "archetype": "explorer",
+      "band": "chronicler",
+      "tags": [
+        "explorer",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ashlinai Roofer",
+      "file": "Ashlinai Roofer.json",
+      "archetype": "sage",
+      "band": "",
+      "tags": [
+        "sage",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ashnar Ropewright",
+      "file": "Ashnar Ropewright.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ashok Tilecutter",
+      "file": "Ashok Tilecutter.json",
+      "archetype": "explorer",
+      "band": "chronicler",
+      "tags": [
+        "explorer",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ashur Kilnwarden",
+      "file": "Ashur Kilnwarden.json",
+      "archetype": "creator",
+      "band": "chronicler",
+      "tags": [
+        "creator",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ashur Rim",
+      "file": "Ashur Rim.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ashur-bani",
+      "file": "Ashur-bani.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ashurim",
+      "file": "Ashurim.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Aspasia",
+      "file": "Aspasia.json",
+      "archetype": "philosopher-rhetorician",
+      "band": "",
+      "tags": [
+        "philosopher-rhetorician"
+      ]
+    },
+    {
+      "name": "Baelin",
+      "file": "Baelin.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Baelor Thatcher",
+      "file": "Baelor Thatcher.json",
+      "archetype": "warrior",
+      "band": "chronicler",
+      "tags": [
+        "warrior",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Banuk Waterfinder",
+      "file": "Banuk Waterfinder.json",
+      "archetype": "sovereign",
+      "band": "chronicler",
+      "tags": [
+        "sovereign",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Beliq",
+      "file": "Beliq.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Bellum",
+      "file": "Bellum.json",
+      "archetype": "guardian",
+      "band": "kept",
+      "tags": [
+        "guardian",
+        "kept",
+        "kept",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Belnos Kilnwarden",
+      "file": "Belnos Kilnwarden.json",
+      "archetype": "warrior",
+      "band": "chronicler",
+      "tags": [
+        "warrior",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Belorad Ropewright",
+      "file": "Belorad Ropewright.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Beryl Dagan",
+      "file": "Beryl Dagan.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Biloneku Roofer",
+      "file": "Biloneku Roofer.json",
+      "archetype": "guardian",
+      "band": "",
+      "tags": [
+        "guardian",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Boreus Cylon",
+      "file": "Boreus Cylon.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Brammer Waterfinder",
+      "file": "Brammer Waterfinder.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Briar Quarryman",
+      "file": "Briar Quarryman.json",
+      "archetype": "visionary",
+      "band": "",
+      "tags": [
+        "visionary",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Brynn Flint",
+      "file": "Brynn Flint.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Brynn Quarryman",
+      "file": "Brynn Quarryman.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Brynnel",
+      "file": "Brynnel.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Buluq",
+      "file": "Buluq.json",
+      "archetype": "guardian",
+      "band": "",
+      "tags": [
+        "guardian",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Bylon",
+      "file": "Bylon.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Bylos",
+      "file": "Bylos.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Byrod Beamsetter",
+      "file": "Byrod Beamsetter.json",
+      "archetype": "guardian",
+      "band": "",
+      "tags": [
+        "guardian",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Byzakos",
+      "file": "Byzakos.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Cassilda",
+      "file": "Cassilda.json",
+      "archetype": "heretic",
+      "band": "crooked",
+      "tags": [
+        "heretic",
+        "crooked",
+        "crooked",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Corvane",
+      "file": "Corvane.json",
+      "archetype": "guardian",
+      "band": "kept",
+      "tags": [
+        "guardian",
+        "kept",
+        "kept",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Cygnus Wellsinker",
+      "file": "Cygnus Wellsinker.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Cypher Waterfinder",
+      "file": "Cypher Waterfinder.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Cyrus Cordwainer",
+      "file": "Cyrus Cordwainer.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Dagan Tilik",
+      "file": "Dagan Tilik.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Daimon Beamsetter",
+      "file": "Daimon Beamsetter.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Daman",
+      "file": "Daman.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Damas",
+      "file": "Damas.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Demos Stonehand",
+      "file": "Demos Stonehand.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Doran Kilnwarden",
+      "file": "Doran Kilnwarden.json",
+      "archetype": "warrior",
+      "band": "chronicler",
+      "tags": [
+        "warrior",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Doran Roofer",
+      "file": "Doran Roofer.json",
+      "archetype": "guardian",
+      "band": "chronicler",
+      "tags": [
+        "guardian",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Doric Ropewright",
+      "file": "Doric Ropewright.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Dornel Kilnwarden",
+      "file": "Dornel Kilnwarden.json",
+      "archetype": "guardian",
+      "band": "",
+      "tags": [
+        "guardian",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Dovus Wexler",
+      "file": "Dovus Wexler.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Drel",
+      "file": "Drel.json",
+      "archetype": "warrior",
+      "band": "unbroken",
+      "tags": [
+        "warrior",
+        "unbroken",
+        "unbroken",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Dugan Ilu",
+      "file": "Dugan Ilu.json",
+      "archetype": "warrior",
+      "band": "chronicler",
+      "tags": [
+        "warrior",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Dugril",
+      "file": "Dugril.json",
+      "archetype": "creator",
+      "band": "chronicler",
+      "tags": [
+        "creator",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Dukil",
+      "file": "Dukil.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Dumabi Wellsinker",
+      "file": "Dumabi Wellsinker.json",
+      "archetype": "creator",
+      "band": "chronicler",
+      "tags": [
+        "creator",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Dummuzi Thatcher",
+      "file": "Dummuzi Thatcher.json",
+      "archetype": "guardian",
+      "band": "",
+      "tags": [
+        "guardian",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Dumon",
+      "file": "Dumon.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Duneho",
+      "file": "Duneho.json",
+      "archetype": "creator",
+      "band": "chronicler",
+      "tags": [
+        "creator",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Dunmar",
+      "file": "Dunmar.json",
+      "archetype": "guardian",
+      "band": "kept",
+      "tags": [
+        "guardian",
+        "kept",
+        "kept",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Duran Cordwainer",
+      "file": "Duran Cordwainer.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Duraq",
+      "file": "Duraq.json",
+      "archetype": "sage",
+      "band": "",
+      "tags": [
+        "sage",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Elara",
+      "file": "Elara.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Elarae Tilecutter",
+      "file": "Elarae Tilecutter.json",
+      "archetype": "guardian",
+      "band": "chronicler",
+      "tags": [
+        "guardian",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Elian Cordwainer",
+      "file": "Elian Cordwainer.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Elian Roofer",
+      "file": "Elian Roofer.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Elian Thatcher",
+      "file": "Elian Thatcher.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Elmwood Kilnwarden",
+      "file": "Elmwood Kilnwarden.json",
+      "archetype": "sovereign",
+      "band": "",
+      "tags": [
+        "sovereign",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Elum",
+      "file": "Elum.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Elyas Ashur",
+      "file": "Elyas Ashur.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Elyas Ropewright",
+      "file": "Elyas Ropewright.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Elyas Vorum",
+      "file": "Elyas Vorum.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Elyos Ropewright",
+      "file": "Elyos Ropewright.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Elyos Tilecutter",
+      "file": "Elyos Tilecutter.json",
+      "archetype": "healer",
+      "band": "",
+      "tags": [
+        "healer",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Elyos Vex",
+      "file": "Elyos Vex.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Elyos",
+      "file": "Elyos.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Elyrin Damask",
+      "file": "Elyrin Damask.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Enkidu",
+      "file": "Enkidu.json",
+      "archetype": "demigod-trickster",
+      "band": "",
+      "tags": [
+        "demigod-trickster",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Garrowan Tyras",
+      "file": "Garrowan Tyras.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ghaal",
+      "file": "Ghaal.json",
+      "archetype": "warrior",
+      "band": "unbroken",
+      "tags": [
+        "warrior",
+        "unbroken",
+        "unbroken",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Gilad Joiner",
+      "file": "Gilad Joiner.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Giladur Ropewright",
+      "file": "Giladur Ropewright.json",
+      "archetype": "creator",
+      "band": "chronicler",
+      "tags": [
+        "creator",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Gilgamen Millwright",
+      "file": "Gilgamen Millwright.json",
+      "archetype": "guardian",
+      "band": "chronicler",
+      "tags": [
+        "guardian",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Gilgamesh Wellsinker",
+      "file": "Gilgamesh Wellsinker.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Gilgamesh",
+      "file": "Gilgamesh.json",
+      "archetype": "demigod-warrior",
+      "band": "",
+      "tags": [
+        "demigod-warrior"
+      ]
+    },
+    {
+      "name": "Gilgar",
+      "file": "Gilgar.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Gilgu",
+      "file": "Gilgu.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Gilgul Grainkeeper",
+      "file": "Gilgul Grainkeeper.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Gilu Tilecutter",
+      "file": "Gilu Tilecutter.json",
+      "archetype": "sovereign",
+      "band": "chronicler",
+      "tags": [
+        "sovereign",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Gilum",
+      "file": "Gilum.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Gilzu Ropewright",
+      "file": "Gilzu Ropewright.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Gilzum",
+      "file": "Gilzum.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Gimble",
+      "file": "Gimble.json",
+      "archetype": "trickster",
+      "band": "crooked",
+      "tags": [
+        "trickster",
+        "crooked",
+        "crooked",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ginnel Okta",
+      "file": "Ginnel Okta.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Gorric",
+      "file": "Gorric.json",
+      "archetype": "guardian",
+      "band": "kept",
+      "tags": [
+        "guardian",
+        "kept",
+        "kept",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Grolak Zymur",
+      "file": "Grolak Zymur.json",
+      "archetype": "explorer",
+      "band": "",
+      "tags": [
+        "explorer",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Grukh",
+      "file": "Grukh.json",
+      "archetype": "warrior",
+      "band": "unbroken",
+      "tags": [
+        "warrior",
+        "unbroken",
+        "unbroken",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Guten Ropewright",
+      "file": "Guten Ropewright.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Guzgal",
+      "file": "Guzgal.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Gylon Thatcher",
+      "file": "Gylon Thatcher.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Halbrecht",
+      "file": "Halbrecht.json",
+      "archetype": "guardian",
+      "band": "kept",
+      "tags": [
+        "guardian",
+        "kept",
+        "kept",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Hammurabi",
+      "file": "Hammurabi.json",
+      "archetype": "lawgiver",
+      "band": "",
+      "tags": [
+        "lawgiver"
+      ]
+    },
+    {
+      "name": "Hazzim",
+      "file": "Hazzim.json",
+      "archetype": "warrior",
+      "band": "unbroken",
+      "tags": [
+        "warrior",
+        "unbroken",
+        "unbroken",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Hypatia",
+      "file": "Hypatia.json",
+      "archetype": "philosopher-teacher",
+      "band": "",
+      "tags": [
+        "philosopher-teacher"
+      ]
+    },
+    {
+      "name": "Imhotep",
+      "file": "Imhotep.json",
+      "archetype": "architect-sage",
+      "band": "",
+      "tags": [
+        "architect-sage"
+      ]
+    },
+    {
+      "name": "Jadin Beamsetter",
+      "file": "Jadin Beamsetter.json",
+      "archetype": "guardian",
+      "band": "chronicler",
+      "tags": [
+        "guardian",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jadok Quarryman",
+      "file": "Jadok Quarryman.json",
+      "archetype": "explorer",
+      "band": "",
+      "tags": [
+        "explorer",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jafar Woodwright",
+      "file": "Jafar Woodwright.json",
+      "archetype": "sovereign",
+      "band": "",
+      "tags": [
+        "sovereign",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jakarra Cordwainer",
+      "file": "Jakarra Cordwainer.json",
+      "archetype": "creator",
+      "band": "chronicler",
+      "tags": [
+        "creator",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jamar Stonehand",
+      "file": "Jamar Stonehand.json",
+      "archetype": "explorer",
+      "band": "chronicler",
+      "tags": [
+        "explorer",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Javen Kel",
+      "file": "Javen Kel.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jokar Cordwainer",
+      "file": "Jokar Cordwainer.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jokar Waterfinder",
+      "file": "Jokar Waterfinder.json",
+      "archetype": "creator",
+      "band": "chronicler",
+      "tags": [
+        "creator",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jomni Grainkeeper",
+      "file": "Jomni Grainkeeper.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jophir Elu",
+      "file": "Jophir Elu.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Joric Roofer",
+      "file": "Joric Roofer.json",
+      "archetype": "healer",
+      "band": "",
+      "tags": [
+        "healer",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Joric Thalmus",
+      "file": "Joric Thalmus.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jorun Veke",
+      "file": "Jorun Veke.json",
+      "archetype": "guardian",
+      "band": "chronicler",
+      "tags": [
+        "guardian",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jovan Roofer",
+      "file": "Jovan Roofer.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jovano Wellsinker",
+      "file": "Jovano Wellsinker.json",
+      "archetype": "creator",
+      "band": "chronicler",
+      "tags": [
+        "creator",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jovar Gidran",
+      "file": "Jovar Gidran.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jovian Wellsinker",
+      "file": "Jovian Wellsinker.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jovon Min",
+      "file": "Jovon Min.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jovor Liku",
+      "file": "Jovor Liku.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jubilum Waterfinder",
+      "file": "Jubilum Waterfinder.json",
+      "archetype": "guardian",
+      "band": "",
+      "tags": [
+        "guardian",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Jundun Tilecutter",
+      "file": "Jundun Tilecutter.json",
+      "archetype": "warrior",
+      "band": "chronicler",
+      "tags": [
+        "warrior",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kael",
+      "file": "Kael.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "Kaelen",
+      "file": "Kaelen.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kaelo Varrus",
+      "file": "Kaelo Varrus.json",
+      "archetype": "healer",
+      "band": "",
+      "tags": [
+        "healer",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kaelor",
+      "file": "Kaelor.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kaelos",
+      "file": "Kaelos.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kaelus",
+      "file": "Kaelus.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kailash",
+      "file": "Kailash.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kallus Forge",
+      "file": "Kallus Forge.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kallus Wrenn",
+      "file": "Kallus Wrenn.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Karnum",
+      "file": "Karnum.json",
+      "archetype": "guardian",
+      "band": "chronicler",
+      "tags": [
+        "guardian",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kel Beamsetter",
+      "file": "Kel Beamsetter.json",
+      "archetype": "visionary",
+      "band": "",
+      "tags": [
+        "visionary",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kel Brickwright",
+      "file": "Kel Brickwright.json",
+      "archetype": "warrior",
+      "band": "chronicler",
+      "tags": [
+        "warrior",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kel Cordwainer",
+      "file": "Kel Cordwainer.json",
+      "archetype": "sovereign",
+      "band": "",
+      "tags": [
+        "sovereign",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kel Grainkeeper",
+      "file": "Kel Grainkeeper.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kel Joiner",
+      "file": "Kel Joiner.json",
+      "archetype": "sovereign",
+      "band": "chronicler",
+      "tags": [
+        "sovereign",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kel Kilnwarden",
+      "file": "Kel Kilnwarden.json",
+      "archetype": "sovereign",
+      "band": "",
+      "tags": [
+        "sovereign",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kel Millwright",
+      "file": "Kel Millwright.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kel Quarryman",
+      "file": "Kel Quarryman.json",
+      "archetype": "explorer",
+      "band": "chronicler",
+      "tags": [
+        "explorer",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kel Roofer",
+      "file": "Kel Roofer.json",
+      "archetype": "explorer",
+      "band": "chronicler",
+      "tags": [
+        "explorer",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kel Ropewright",
+      "file": "Kel Ropewright.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kel Stonehand",
+      "file": "Kel Stonehand.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kel Thatcher",
+      "file": "Kel Thatcher.json",
+      "archetype": "creator",
+      "band": "chronicler",
+      "tags": [
+        "creator",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kel Tilecutter",
+      "file": "Kel Tilecutter.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kel Waterfinder",
+      "file": "Kel Waterfinder.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kel Wellsinker",
+      "file": "Kel Wellsinker.json",
+      "archetype": "guardian",
+      "band": "chronicler",
+      "tags": [
+        "guardian",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kephren",
+      "file": "Kephren.json",
+      "archetype": "visionary",
+      "band": "",
+      "tags": [
+        "visionary",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kepleren",
+      "file": "Kepleren.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Keshir",
+      "file": "Keshir.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kharais",
+      "file": "Kharais.json",
+      "archetype": "guardian",
+      "band": "chronicler",
+      "tags": [
+        "guardian",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kharis",
+      "file": "Kharis.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kharrin",
+      "file": "Kharrin.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Khazad",
+      "file": "Khazad.json",
+      "archetype": "explorer",
+      "band": "",
+      "tags": [
+        "explorer",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Khazraen",
+      "file": "Khazraen.json",
+      "archetype": "healer",
+      "band": "",
+      "tags": [
+        "healer",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ki-sar",
+      "file": "Ki-sar.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kilnfire",
+      "file": "Kilnfire.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kilnheart",
+      "file": "Kilnheart.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kithan",
+      "file": "Kithan.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kurgo",
+      "file": "Kurgo.json",
+      "archetype": "warrior",
+      "band": "unbroken",
+      "tags": [
+        "warrior",
+        "unbroken",
+        "unbroken",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kylos Forgehand",
+      "file": "Kylos Forgehand.json",
+      "archetype": "guardian",
+      "band": "",
+      "tags": [
+        "guardian",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Kyros Kaius",
+      "file": "Kyros Kaius.json",
+      "archetype": "visionary",
+      "band": "",
+      "tags": [
+        "visionary",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Lumis",
+      "file": "Lumis.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "Lycaos Forge",
+      "file": "Lycaos Forge.json",
+      "archetype": "creator",
+      "band": "chronicler",
+      "tags": [
+        "creator",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "MansaMusa",
+      "file": "MansaMusa.json",
+      "archetype": "capitalist",
+      "band": "",
+      "tags": [
+        "capitalist"
+      ]
+    },
+    {
+      "name": "Marrow-Jack",
+      "file": "Marrow-Jack.json",
+      "archetype": "trickster",
+      "band": "crooked",
+      "tags": [
+        "trickster",
+        "crooked",
+        "crooked",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Mazhu",
+      "file": "Mazhu.json",
+      "archetype": "warrior",
+      "band": "unbroken",
+      "tags": [
+        "warrior",
+        "unbroken",
+        "unbroken",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Mereth",
+      "file": "Mereth.json",
+      "archetype": "guardian",
+      "band": "kept",
+      "tags": [
+        "guardian",
+        "kept",
+        "kept",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Nebo Gish",
+      "file": "Nebo Gish.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Nilak",
+      "file": "Nilak.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Nilan",
+      "file": "Nilan.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Nilu Teshub",
+      "file": "Nilu Teshub.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Nilu Tilecutter",
+      "file": "Nilu Tilecutter.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Nilu-ged Brickwright",
+      "file": "Nilu-ged Brickwright.json",
+      "archetype": "warrior",
+      "band": "",
+      "tags": [
+        "warrior",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Nilu",
+      "file": "Nilu.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Nilum Gadi",
+      "file": "Nilum Gadi.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Nilum Key",
+      "file": "Nilum Key.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Nilum Wellsinker",
+      "file": "Nilum Wellsinker.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Nix",
+      "file": "Nix.json",
+      "archetype": "trickster",
+      "band": "crooked",
+      "tags": [
+        "trickster",
+        "crooked",
+        "crooked",
+        "renamed"
+      ]
+    },
+    {
+      "name": "NovaFlare",
+      "file": "NovaFlare.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "Nurrk",
+      "file": "Nurrk.json",
+      "archetype": "warrior",
+      "band": "unbroken",
+      "tags": [
+        "warrior",
+        "unbroken",
+        "unbroken",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Odd Thom",
+      "file": "Odd Thom.json",
+      "archetype": "orphan",
+      "band": "crooked",
+      "tags": [
+        "orphan",
+        "crooked",
+        "crooked",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Omen",
+      "file": "Omen.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Opendragon Freenet",
+      "file": "Opendragon Freenet.json",
+      "archetype": "propagator",
+      "band": "gnu",
+      "tags": [
+        "propagator",
+        "gnu",
+        "gnu"
+      ]
+    },
+    {
+      "name": "Oren Beamsetter",
+      "file": "Oren Beamsetter.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Oriel Roofer",
+      "file": "Oriel Roofer.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Orinak Joiner",
+      "file": "Orinak Joiner.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Oswin",
+      "file": "Oswin.json",
+      "archetype": "guardian",
+      "band": "kept",
+      "tags": [
+        "guardian",
+        "kept",
+        "kept",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ozk",
+      "file": "Ozk.json",
+      "archetype": "warrior",
+      "band": "unbroken",
+      "tags": [
+        "warrior",
+        "unbroken",
+        "unbroken",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Pim",
+      "file": "Pim.json",
+      "archetype": "trickster",
+      "band": "crooked",
+      "tags": [
+        "trickster",
+        "crooked",
+        "crooked",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Quilloch",
+      "file": "Quilloch.json",
+      "archetype": "heretic",
+      "band": "crooked",
+      "tags": [
+        "heretic",
+        "crooked",
+        "crooked",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Rami",
+      "file": "Rami.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ramin",
+      "file": "Ramin.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ramiro",
+      "file": "Ramiro.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ramon Ashur",
+      "file": "Ramon Ashur.json",
+      "archetype": "guardian",
+      "band": "",
+      "tags": [
+        "guardian",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Rask",
+      "file": "Rask.json",
+      "archetype": "guardian",
+      "band": "kept",
+      "tags": [
+        "guardian",
+        "kept",
+        "kept",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Rhizome Stonehand",
+      "file": "Rhizome Stonehand.json",
+      "archetype": "visionary",
+      "band": "",
+      "tags": [
+        "visionary",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Rhymescale",
+      "file": "Rhymescale.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Rhysokar",
+      "file": "Rhysokar.json",
+      "archetype": "guardian",
+      "band": "",
+      "tags": [
+        "guardian",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Rivan Forge",
+      "file": "Rivan Forge.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Rivenforge",
+      "file": "Rivenforge.json",
+      "archetype": "guardian",
+      "band": "",
+      "tags": [
+        "guardian",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Rokan Beamsetter",
+      "file": "Rokan Beamsetter.json",
+      "archetype": "warrior",
+      "band": "",
+      "tags": [
+        "warrior",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Rokanel Varis",
+      "file": "Rokanel Varis.json",
+      "archetype": "guardian",
+      "band": "",
+      "tags": [
+        "guardian",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Roric Farrow",
+      "file": "Roric Farrow.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Roric Pryce",
+      "file": "Roric Pryce.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Rukal",
+      "file": "Rukal.json",
+      "archetype": "sovereign",
+      "band": "",
+      "tags": [
+        "sovereign",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Rukkar",
+      "file": "Rukkar.json",
+      "archetype": "warrior",
+      "band": "",
+      "tags": [
+        "warrior",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Rulen",
+      "file": "Rulen.json",
+      "archetype": "creator",
+      "band": "chronicler",
+      "tags": [
+        "creator",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Rulok Waterfinder",
+      "file": "Rulok Waterfinder.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Rylen Uruk",
+      "file": "Rylen Uruk.json",
+      "archetype": "creator",
+      "band": "chronicler",
+      "tags": [
+        "creator",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Rylos",
+      "file": "Rylos.json",
+      "archetype": "healer",
+      "band": "",
+      "tags": [
+        "healer",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Sable Fen",
+      "file": "Sable Fen.json",
+      "archetype": "mystic",
+      "band": "crooked",
+      "tags": [
+        "mystic",
+        "crooked",
+        "crooked",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Sappho",
+      "file": "Sappho.json",
+      "archetype": "poet-artist",
+      "band": "",
+      "tags": [
+        "poet-artist"
+      ]
+    },
+    {
+      "name": "Sennu Din",
+      "file": "Sennu Din.json",
+      "archetype": "warrior",
+      "band": "chronicler",
+      "tags": [
+        "warrior",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Sereen",
+      "file": "Sereen.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "Shalem Wood",
+      "file": "Shalem Wood.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Sihun Dolis",
+      "file": "Sihun Dolis.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Silas Cairn",
+      "file": "Silas Cairn.json",
+      "archetype": "sage",
+      "band": "",
+      "tags": [
+        "sage",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Silas",
+      "file": "Silas.json",
+      "archetype": "explorer",
+      "band": "",
+      "tags": [
+        "explorer",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Silgon",
+      "file": "Silgon.json",
+      "archetype": "warrior",
+      "band": "chronicler",
+      "tags": [
+        "warrior",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Silgonveth",
+      "file": "Silgonveth.json",
+      "archetype": "guardian",
+      "band": "chronicler",
+      "tags": [
+        "guardian",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Silken Ropewright",
+      "file": "Silken Ropewright.json",
+      "archetype": "sage",
+      "band": "",
+      "tags": [
+        "sage",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Silmar",
+      "file": "Silmar.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Silvan",
+      "file": "Silvan.json",
+      "archetype": "creator",
+      "band": "chronicler",
+      "tags": [
+        "creator",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Silvian Tilecutter",
+      "file": "Silvian Tilecutter.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Sinor Wexel",
+      "file": "Sinor Wexel.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Sinuk",
+      "file": "Sinuk.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Skarn",
+      "file": "Skarn.json",
+      "archetype": "warrior",
+      "band": "unbroken",
+      "tags": [
+        "warrior",
+        "unbroken",
+        "unbroken",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Solillum Omni",
+      "file": "Solillum Omni.json",
+      "archetype": "cartographer",
+      "band": "gnu",
+      "tags": [
+        "cartographer",
+        "gnu",
+        "gnu"
+      ]
+    },
+    {
+      "name": "Soul Forge",
+      "file": "Soul Forge.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "Sparky",
+      "file": "Sparky.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "Ssath",
+      "file": "Ssath.json",
+      "archetype": "warrior",
+      "band": "unbroken",
+      "tags": [
+        "warrior",
+        "unbroken",
+        "unbroken",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Stannic",
+      "file": "Stannic.json",
+      "archetype": "guardian",
+      "band": "kept",
+      "tags": [
+        "guardian",
+        "kept",
+        "kept",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Suturu Roofer",
+      "file": "Suturu Roofer.json",
+      "archetype": "creator",
+      "band": "chronicler",
+      "tags": [
+        "creator",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Tarrow",
+      "file": "Tarrow.json",
+      "archetype": "guardian",
+      "band": "kept",
+      "tags": [
+        "guardian",
+        "kept",
+        "kept",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Teeth",
+      "file": "Teeth.json",
+      "archetype": "warrior",
+      "band": "crooked",
+      "tags": [
+        "warrior",
+        "crooked",
+        "crooked",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Thagg",
+      "file": "Thagg.json",
+      "archetype": "warrior",
+      "band": "unbroken",
+      "tags": [
+        "warrior",
+        "unbroken",
+        "unbroken",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Theron Wellsinker",
+      "file": "Theron Wellsinker.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Thornwood",
+      "file": "Thornwood.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Thothin",
+      "file": "Thothin.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Thulak Wellsinker",
+      "file": "Thulak Wellsinker.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Thundar Tilecutter",
+      "file": "Thundar Tilecutter.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Torvin Gael",
+      "file": "Torvin Gael.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Torvin",
+      "file": "Torvin.json",
+      "archetype": "artisan",
+      "band": "chronicler",
+      "tags": [
+        "artisan",
+        "chronicler",
+        "chronicler",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Tyrax",
+      "file": "Tyrax.json",
+      "archetype": "woken",
+      "band": "",
+      "tags": [
+        "woken",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Tyrois Vale",
+      "file": "Tyrois Vale.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Ulveth",
+      "file": "Ulveth.json",
+      "archetype": "guardian",
+      "band": "kept",
+      "tags": [
+        "guardian",
+        "kept",
+        "kept",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Vorr",
+      "file": "Vorr.json",
+      "archetype": "warrior",
+      "band": "unbroken",
+      "tags": [
+        "warrior",
+        "unbroken",
+        "unbroken",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Wendel",
+      "file": "Wendel.json",
+      "archetype": "guardian",
+      "band": "kept",
+      "tags": [
+        "guardian",
+        "kept",
+        "kept",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Wilhelm Millwright",
+      "file": "Wilhelm Millwright.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Wilton Voet",
+      "file": "Wilton Voet.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Wry",
+      "file": "Wry.json",
+      "archetype": "trickster",
+      "band": "crooked",
+      "tags": [
+        "trickster",
+        "crooked",
+        "crooked",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Wynne Forge",
+      "file": "Wynne Forge.json",
+      "archetype": "guardian",
+      "band": "",
+      "tags": [
+        "guardian",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Xenix Atari-V",
+      "file": "Xenix Atari-V.json",
+      "archetype": "toolwright",
+      "band": "gnu",
+      "tags": [
+        "toolwright",
+        "gnu",
+        "gnu"
+      ]
+    },
+    {
+      "name": "Yarrow",
+      "file": "Yarrow.json",
+      "archetype": "mystic",
+      "band": "crooked",
+      "tags": [
+        "mystic",
+        "crooked",
+        "crooked",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Zethil Roofer",
+      "file": "Zethil Roofer.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Zikram",
+      "file": "Zikram.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Zivel Ogon",
+      "file": "Zivel Ogon.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Zulkhan",
+      "file": "Zulkhan.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Zygor Thane",
+      "file": "Zygor Thane.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "Zylos",
+      "file": "Zylos.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown",
+        "renamed"
+      ]
+    },
+    {
+      "name": "archive-history",
+      "file": "archive-history.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "c2-corp",
+      "file": "c2-corp.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "creative-arts",
+      "file": "creative-arts.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "ember-marel",
+      "file": "ember-marel.json",
+      "archetype": "guardian",
+      "band": "chronicler",
+      "tags": [
+        "guardian",
+        "chronicler",
+        "chronicler"
+      ]
+    },
+    {
+      "name": "ember-maror",
+      "file": "ember-maror.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator"
+      ]
+    },
+    {
+      "name": "ember-maryn",
+      "file": "ember-maryn.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan"
+      ]
+    },
+    {
+      "name": "ember-nevae",
+      "file": "ember-nevae.json",
+      "archetype": "artisan",
+      "band": "",
+      "tags": [
+        "artisan"
+      ]
+    },
+    {
+      "name": "ember-nevia",
+      "file": "ember-nevia.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator"
+      ]
+    },
+    {
+      "name": "exploit-inc",
+      "file": "exploit-inc.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "final_test",
+      "file": "final_test.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "foobar",
+      "file": "foobar.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "forge",
+      "file": "forge.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "healthcare",
+      "file": "healthcare.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "it-tools",
+      "file": "it-tools.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "lottery-corp",
+      "file": "lottery-corp.json",
+      "archetype": "sage",
+      "band": "",
+      "tags": [
+        "sage"
+      ]
+    },
+    {
+      "name": "market-corp",
+      "file": "market-corp.json",
+      "archetype": "explorer",
+      "band": "",
+      "tags": [
+        "explorer"
+      ]
+    },
+    {
+      "name": "media-publishing",
+      "file": "media-publishing.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "messiah",
+      "file": "messiah.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "nitzotz-delta",
+      "file": "nitzotz-delta.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator"
+      ]
+    },
+    {
+      "name": "recon-inc",
+      "file": "recon-inc.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "research_corp (fallback)",
+      "file": "research_corp _fallback_.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "scriptorium",
+      "file": "scriptorium.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "stat-corp",
+      "file": "stat-corp.json",
+      "archetype": "creator",
+      "band": "",
+      "tags": [
+        "creator"
+      ]
+    },
+    {
+      "name": "throne",
+      "file": "throne.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "uenx",
+      "file": "uenx.json",
+      "archetype": "systems-architect",
+      "band": "architect",
+      "tags": [
+        "systems-architect",
+        "architect",
+        "architect"
+      ]
+    },
+    {
+      "name": "unknown",
+      "file": "unknown.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "venture-investment",
+      "file": "venture-investment.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "verify_test",
+      "file": "verify_test.json",
+      "archetype": "unknown",
+      "band": "",
+      "tags": [
+        "unknown"
+      ]
+    }
+  ]
+}

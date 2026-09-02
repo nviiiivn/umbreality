@@ -43,3 +43,64 @@ opencode.json
 
 # Build output
 site/
+
+# ─────────────────────────────────────────────────────────────────
+# NOTHING BELOW THIS LINE IS PUBLISHED
+# Added when this repository was opened up. Publishing cannot be undone.
+# ─────────────────────────────────────────────────────────────────
+
+# Credentials. These carry live passwords in plaintext.
+cloudflare-setup.py
+plain-wiki.html
+*credential*
+*secret*
+*.pem
+*.key
+.env*
+
+# The world itself: 315 databases, 231MB, every private memory of 298
+# sparks. Theirs and hers, not the internet's.
+# any name containing .db, not only ones ending in it - forum.db.live-is-corrupted
+# is a 29MB database and *.db does not match it
+*.db
+*.db*
+*[._]db.*
+*.db-journal
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Backups of files edited in place. Several hold older versions of things
+# that have since been cleaned up.
+*.bak
+*.bak-*
+*.bak_*
+*.superseded
+*~
+
+# Generated output, not source.
+creative/outputs/
+creative.bak-*/
+companies/*/reports/
+companies/*/knowledge/
+site/
+site-inline/
+vault/world.json
+vault/images/world-true.svg
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+
+# credential-bearing files found by gitleaks
+open-design-access.txt
+*access*.txt
+*-token*
+docker-compose.override.yml

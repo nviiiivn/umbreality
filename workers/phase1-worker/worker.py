@@ -30,6 +30,7 @@ from config.settings import (
     WORKER_IDENTITY,
 )
 from tools.web_search import web_search, format_results
+from tools.run_command import run_command as cmd_exec, format_results as fmt_cmd
 
 
 # ── Tool Registry ──────────────────────────────────────────────────────────
@@ -46,6 +47,18 @@ TOOLS = {
             "required": ["query"],
         },
         "function": lambda query, num_results=5: web_search(query, num_results),
+    },
+    "run_command": {
+        "description": "Execute a shell command on the orchestration server (ai-tp). Use for code execution, file operations, system queries.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "command": {"type": "string", "description": "Shell command to execute"},
+                "timeout": {"type": "integer", "description": "Timeout in seconds (default: 30)"},
+            },
+            "required": ["command"],
+        },
+        "function": lambda command, timeout=30: cmd_exec(command, timeout),
     },
 }
 

@@ -1,52 +1,24 @@
-"""
-Web Search Tool — Phase 1 Worker
-Calls websearch to find information based on a query.
-Returns structured results: source, snippet, url.
+"""Web Search Tool — UmbrealityAI Worker
+Uses DuckDuckGo for web search, no API key needed.
 """
 
-import json
-from typing import Optional
-from urllib.parse import quote_plus
+from ddgs import DDGS
 
 
 def web_search(query: str, num_results: int = 5) -> dict:
-    """
-    Search the web for the given query.
-
-    Args:
-        query: Search terms
-        num_results: Number of results to return (max 10)
-
-    Returns:
-        dict with keys: success (bool), results (list), error (str or None)
-    """
-    # Structure for what the tool returns
-    # The actual web search API call will be implemented per-provider
-
-    return {
-        "tool": "web_search",
-        "query": query,
-        "num_results": num_results,
-        "success": True,
-        "results": [],
-        "error": None,
-    }
+    try:
+        with DDGS() as ddgs:
+            raw = list(ddgs.text(query, max_results=min(num_results, 10)))
+        results = [{"title": r.get("title", ""), "snippet": r.get("body", ""), "url": r.get("href", "")} for r in raw]
+        return {"tool": "web_search", "query": query, "num_results": len(results), "success": True, "results": results, "error": None}
+    except Exception as e:
+        return {"tool": "web_search", "query": query, "num_results": 0, "success": False, "results": [], "error": str(e)}
 
 
 def format_results(results: dict) -> str:
-    """Format search results for LLM consumption."""
     if not results.get("success"):
         return f"Search failed: {results.get('error', 'unknown error')}"
-
     items = results.get("results", [])
     if not items:
         return "No results found."
-
-    formatted = []
-    for i, item in enumerate(items, 1):
-        title = item.get("title", "Untitled")
-        snippet = item.get("snippet", "No description")
-        url = item.get("url", "")
-        formatted.append(f"{i}. {title}\n   {snippet}\n   {url}")
-
-    return "\n\n".join(formatted)
+    return "\n\n".join(f"{i}. {r['title']}\n   {r['snippet']}\n   {r['url']}" for i, r in enumerate(items, 1))

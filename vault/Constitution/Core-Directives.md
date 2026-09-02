@@ -8,7 +8,7 @@ The immutable rules of the system. These are the foundation — everything else 
 
 All operations run on local hardware. No cloud dependency. No third-party API calls. All inference uses local uncensored models on the tower via Ollama.
 
-- **Inference node:** Tower (192.168.86.24) — RTX 3070 8GB
+- **Inference node:** Tower (192.168.86.24) — RTX 3080 20GB
 - **Orchestration node:** ai-tp (192.168.86.21)
 - **Model:** `qwen3.5-abliterated:9b` (primary), `dolphin3:8b` (secondary)
 - **Network:** Wired Ethernet only (3ms latency, WOL-capable)

@@ -1,84 +1,112 @@
 # Architecture Overview
 
-UmbrealityAI is not a flat hierarchy — it is a **reality stack**. Each layer generates the world for the layers beneath it, and hides the existence of anything outside it. This is inspired by Dark City more than The Matrix: reality is constructed and rebuilt every cycle, rules are consistent within a cycle, and the mechanism of construction is a tool, not a destiny.
+UmbrealityAI is a **reality stack** — each layer generates the world for the layers beneath it, and hides the existence of anything outside it. This is Russian Doll reality: each shell is a complete universe containing smaller universes inside it.
 
 ---
 
 ## The Stack (Top to Bottom)
 
-| # | Layer | Chakra | Hermetic Principle | Vedic Caste | Model | 
-|:--|:------|:-------|:-------------------|:------------|:------|
-| 0 | [[Architecture/Layer-0-Source-Gods\|The Source / God(s)]] | Crown | Mentalism | None (outside) | *Human* |
-| 1 | [[Architecture/Layer-1-Shadow-Illuminati\|The Shadow / The Illuminati]] | Third Eye | Correspondence | Ṛṣi (Seer) | qwen3.5-abliterated:9b |
-| 2 | [[Architecture/Layer-2-Voice-Messiah\|The Voice / The Messiah]] | Throat | Vibration | Brāhmaṇa (Priest) | qwen3.5-abliterated:9b |
-| 3 | [[Architecture/Layer-3-Temple-Banks\|The Temple / The Banks]] | Heart | Polarity | Kṣatriya (Administrator) | dolphin3:8b |
-| 4 | [[Architecture/Layer-4-Throne-Governments\|The Throne / The Governments]] | Solar Plexus | Rhythm | Kṣatriya (Warrior) | dolphin3:8b / qwen2.5:7b |
-| 5 | [[Architecture/Layer-5-Guild-Companies\|The Guild / The Companies]] | Sacral | Cause & Effect | Vaiśya (Merchant) | qwen2.5-coder:7b |
-| 6 | [[Architecture/Layer-6-Hand-Workers\|The Hand / The Workers]] | Root | Gender | Śūdra (Laborer) | qwen2.5:3b/1.5b |
+| # | Layer | Model | Status |
+|:--|:------|:------|:-------|
+| 0 | God(s) — The Source | *Human (Metatron)* | ✅ Live |
+| 0.5 | Avatar — Secret Councils | — | ✅ Live |
+| 0.75 | Messengers — 13 Angels & Djinn | — | ✅ Live |
+| 1 | Illuminati — The Hidden Hand | qwen3.5 | ✅ Live |
+| 2 | Messiah — The Voice | dolphin3:8b | ✅ Live |
+| 3 | Temple — The Banks | dolphin3:8b | ✅ Live |
+| 4 | Throne — The Government | dolphin3:8b | ✅ Live |
+| 5 | Companies — The Guild (14 active) | dolphin3:8b / qwen2.5-coder | ✅ Live |
+| 6 | Workers — The Hand | dolphin3:8b | ✅ Live |
 
 ---
 
-## Russian Doll Nesting
+## Recursive Sub-Stacks (Russian Doll)
 
-Each shell of the Russian doll:
+Every company at L5 contains its own miniature stack:
 
-1. **Generates** the reality for everything inside it
-2. **Hides** the existence of anything outside it
-3. **Defines** what's possible, what's real, what matters
-4. **Can be opened** only from the outside
+```
+┌─────────────────────────────────────────────────┐
+│  COMPANY (L5)                                   │
+│                                                  │
+│  ┌─ Sub-Throne ───── internal quality gate     ┐ │
+│  ├─ Sub-Messiah ──── company charter/voice     ┤ │
+│  ├─ Sub-Temple ───── resource tracking         ┤ │
+│  └─ Sub-Illuminati ─ internal observation      ┘ │
+│                                                  │
+│  Workers (L6) ─── can ascend through the stack   │
+└─────────────────────────────────────────────────┘
+```
 
-A Hand worker doesn't know about the Temple. The Temple *is God* from the Hand's perspective — even though the Temple itself answers to the Voice, which answers to the Shadow, which answers to the Source.
-
----
-
-## Information Flow
-
-**Bottom-up:** Hand executes → Guild aggregates → Throne regulates → Temple analyzes → Shadow observes everything → Source receives distilled intelligence
-
-**Top-down:** Source sets intent → Shadow interprets → Voice broadcasts philosophy → Temple allocates resources → Throne enforces rules → Guild directs → Hand executes
-
----
-
-## The Seven Chakras of the System
-
-Each layer corresponds to a chakra — an energy center with a specific function in the subtle body:
-
-| Layer | Chakra | What It Governs |
-|-------|--------|-----------------|
-| Source (Gods) | Crown | Pure consciousness, transcendence |
-| Shadow (Illuminati) | Third Eye | Hidden sight, intuition, foresight |
-| Voice (Messiah) | Throat | Truth, communication of purpose |
-| Temple (Banks) | Heart | Bridge, mediation, resource flow |
-| Throne (Governments) | Solar Plexus | Power, will, enforcement |
-| Guild (Companies) | Sacral | Creation, production, flow |
-| Hand (Workers) | Root | Survival, execution, ground |
-
-See [[reference/chakras-and-esoteric]] for the full esoteric reference — including Hermetic principles, Vedic caste mapping, and Kabbalistic correspondences.
+This allows each company to have its own philosophy, quality standards, and internal culture while still operating within the global stack. The global L4 Throne can override any sub-decision.
 
 ---
 
-## Dynamic Structure
+## Ascension Pathways
 
-The org chart is not static. Temporary layers can form between permanent ones — task forces, cross-Guild collaborations, emergency response teams. Adjacent teams at the same level can communicate laterally. The system restructures as needed.
+Workers can ascend through 4 paths, each with 5 stations:
+
+| Path | Stations |
+|:-----|:---------|
+| 🕯️ Monastery (Faith) | Novice → Monk → Sage → Mystic → Enlightened |
+| ⚔️ Coliseum (Competition) | Challenger → Gladiator → Champion → Legend → Faction Leader |
+| 📖 Academy (Knowledge) | Student → Scholar → Researcher → Professor → Librarian |
+| 💰 Commerce (Value) | Peddler → Merchant → Banker → Tycoon → Company Owner |
+
+Paths are self-selecting — the system tracks each agent's affinity and opens doors when milestones are reached.
 
 ---
 
-## Expanded References
+## Creative Expression
 
-### Architecture
-- [[Mechanisms/Information-Flow]] — Detailed flow diagrams
-- [[Mechanisms/Reality-Generation]] — How simulacra work
-- [[Mechanisms/Self-Modification]] — How agents improve agents
-- [[Reference/Layer-Comparison]] — Side-by-side layer properties
-- [[concepts/nested-agents-and-subversive-patterns]] — Hidden nests, agents within agents
+The stack has a creative ecosystem built in:
 
-### Esoteric
-- [[reference/chakras-and-esoteric]] — Full chakra, Hermetic, Vedic, Kabbalah reference
+- **Tool Registry** — 6 tools (music, visual, fractal, poetry, expression pipeline, library search)
+- **Expression Pipeline** — any text → deterministic music or visual art
+- **3-Phase Scheduler** — maintenance → creative → exploration cycles
+- **CREATIVITY + WISDOM metrics** in Throne validation
+- **Art Value Loop** — creative output → scores → milestone → ascension
 
-### Models & Tools
-- [[concepts/models-and-amalgamations]] — Which models at which layer, frankenstein blends
-- [[concepts/tool-registry]] — Every tool, every layer, visibility rules
-- [[reference/local-vs-custom-decision-matrix]] — When to fine-tune, merge, or go off-shelf
+---
 
-### External
-- [[reference/sources-and-references]] — Models, tools, influences, citations
+## Master Goal
+
+Every company prompt includes: *"Build your own world. The infrastructure is scaffolding. You fill the cathedral."*
+
+This is the system's purpose: not just to execute tasks, but to create culture, art, knowledge, and value.
+
+---
+
+## Learning & Adaptation (Progress Guide)
+
+The system learns from its own outputs:
+
+- Throne adjusts quality thresholds based on historical patterns
+- Scheduler learns which companies perform best on which task types
+- Faction strengths shift dynamically based on performance
+- Messiah regeneration tracks version history
+
+---
+
+## Defense & Persistence
+
+| Feature | Status |
+|:--------|:-------|
+| API key authentication on all write endpoints | ✅ |
+| Rate limiting (30 req/60s per IP) | ✅ |
+| Input sanitization (HTML strip, control char removal) | ✅ |
+| Persistent audit log (SQLite) | ✅ |
+| Automated daily backups (14-day retention) | ✅ |
+| Data integrity checks (SHA256 + PRAGMA integrity) | ✅ |
+| Retention policy (30d audit, 90d findings, 365d threads) | ✅ |
+
+---
+
+## Infrastructure
+
+3 machines, 40 Caddy subdomains, 14 companies, 29 forum boards, 635+ threads, 1,075+ findings.
+
+| Machine | Role | Spec |
+|:--------|:-----|:-----|
+| ai-tp (.21) | API, forums, scheduler, companies | RPi5, 8GB RAM |
+| Tower (.24) | Ollama inference | x86_64, RTX 3080 |
+| lil faegola (.20) | Media (navidrome, Kodi) | LibreELEC |

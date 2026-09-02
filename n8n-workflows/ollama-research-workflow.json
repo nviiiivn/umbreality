@@ -1,0 +1,55 @@
+{
+  "name": "Umbreality Research",
+  "nodes": [
+    {
+      "id": "webhook-trigger",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [0, 300],
+      "parameters": {
+        "path": "umbreality-research",
+        "options": {},
+        "httpMethod": "POST"
+      }
+    },
+    {
+      "id": "http-ollama",
+      "name": "Call Tower",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [300, 300],
+      "parameters": {
+        "url": "http://192.168.86.24:11434/api/chat",
+        "method": "POST",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "model", "value": "dolphin3:8b" },
+            { "name": "messages[0][role]", "value": "user" },
+            { "name": "messages[0][content]", "value": "={{ $json.body.prompt }}" }
+          ]
+        },
+        "options": {
+          "timeout": 120000
+        }
+      }
+    },
+    {
+      "id": "http-response",
+      "name": "Respond",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [600, 300],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json.message.content }}"
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": { "main": [ [ { "node": "Call Tower", "type": "main", "index": 0 } ] ] },
+    "Call Tower": { "main": [ [ { "node": "Respond", "type": "main", "index": 0 } ] ] }
+  },
+  "settings": {}
+}
