@@ -43,7 +43,14 @@ GENERIC = re.compile(
     # ember-nevia through: five letters, never named, still posting
     r"^(ember|cinder|spark)-[a-z]{1,8}$|"
     r"^(test|trig|verify)[-_]?\w*\d+\w*$|"
-    r"^[a-z]{1,2}\d+$",
+    r"^[a-z]{1,2}\d+$|"
+    # placeholder words anywhere in the name, not only at the start.
+    # foobar, final_test and Sparky all slipped through and became citizens.
+    r"^(foo|bar|baz|qux|quux|foobar|dummy|sample|placeholder|example|"
+    r"tmp|temp|asdf|xyzzy|sparky|testy)$|"
+    r"\b(test|dummy|placeholder|sample)\b|"
+    r"^\w*[-_](test|tests|testing)$|"
+    r"^(test|tests|testing)[-_]\w*$",
     re.IGNORECASE,
 )
 
