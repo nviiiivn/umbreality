@@ -104,3 +104,7 @@ open-design-access.txt
 *access*.txt
 *-token*
 docker-compose.override.yml
+
+# runtime state, not source
+temple/.rotation
+*.rotation
