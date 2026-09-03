@@ -489,6 +489,23 @@ def cycle():
         c.commit()
         c.close()
         if r.get("verdict") == "improves":
+            # Step 3 of the Amendment Protocol: ratification. A proposal
+            # that passed review used to be applied here on the spot, with
+            # nobody asked. It now waits for a person, with the review
+            # stored beside it so the decision is made on the same numbers.
+            # Setting UAI_SELFMOD_RATIFY=0 restores the old behaviour.
+            try:
+                from temple.amendments import ratify_required, hold_for_ratification
+                if ratify_required():
+                    hold_for_ratification(p["id"], r)
+                    tested[-1]["held"] = "awaiting ratification"
+                    break        # at most one change per cycle
+            except Exception as e:
+                print("[amendments] could not hold for ratification, "
+                      "not deploying: %s: %s" % (type(e).__name__, e),
+                      flush=True)
+                break
+
             d = deploy(p, r)
             tested[-1]["deployed"] = d.get("ok")
             tested[-1]["deploy_note"] = d.get("error")

@@ -1176,6 +1176,42 @@ def sim_auto():
         }
     }
 
+# ── The Amendment Protocol ───────────────────────────────────────
+#
+# The loop has run 130 observations and written 11 proposals, and until
+# now there was no endpoint and no page - the only way to see any of it
+# was to open the database by hand.
+
+@app.get("/amendments")
+def amendments_board():
+    """What the world has noticed, proposed, and is waiting to hear about."""
+    from temple.amendments import board
+    return board()
+
+
+@app.post("/amendments/{proposal_id}/ratify")
+def amendments_ratify(proposal_id: int, body: dict = None):
+    """Say yes. The change is applied, with a backup and a commit."""
+    from temple.amendments import ratify
+    who = sanitize_input((body or {}).get("who", "the Source"), 60)
+    r = ratify(proposal_id, who=who)
+    log_activity("amendments", "ratify", "proposal %s" % proposal_id,
+                 "ok" if r.get("ok") else "failed")
+    return r
+
+
+@app.post("/amendments/{proposal_id}/reject")
+def amendments_reject(proposal_id: int, body: dict = None):
+    """Say no, and keep the reason where the world can see it."""
+    from temple.amendments import reject
+    b = body or {}
+    r = reject(proposal_id,
+               reason=sanitize_input(b.get("reason", ""), 500),
+               who=sanitize_input(b.get("who", "the Source"), 60))
+    log_activity("amendments", "reject", "proposal %s" % proposal_id, "ok")
+    return r
+
+
 @app.get("/sim/strategies/performance")
 def sim_strategy_performance():
     """What each strategy has done with its own book.
