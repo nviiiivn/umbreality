@@ -211,6 +211,18 @@ def dispatch_cycle():
             print("[wardens] round failed: %s: %s"
                   % (type(e).__name__, e), flush=True)
 
+        # Standing eases back toward its floor. With a hard ceiling and
+        # gains that keep arriving, these filled up and stopped saying
+        # anything - 75 sparks at exactly 100.0 social credit. Held, not
+        # banked.
+        try:
+            from forum.engine import decay_standing
+            _d = decay_standing()
+            print("[standing] eased %s" % _d, flush=True)
+        except Exception as e:
+            print("[standing] decay failed: %s: %s"
+                  % (type(e).__name__, e), flush=True)
+
         # Standing, recomputed for everyone. A profile read keeps its own
         # spark current, but the scale each component is measured against
         # shifts as the world runs, so the whole population is redone here.

@@ -711,6 +711,12 @@ def apply_curiosity_study(spark_name, domain_id=None):
     if row:
         cur = float(row[0]) if row[0] is not None else 0.5
         gain = CURIOSITY_STUDY_BONUS * _study_novelty(spark_name, domain_id)
+        # Diminishing returns. A flat 0.15 in against 0.05 out meant three
+        # times more arriving than leaving, so every one of the 298 ended up
+        # pinned at the 1.0 ceiling and curiosity measured nothing. The gain
+        # now shrinks as curiosity rises: the same page teaches you less when
+        # you already know most of it.
+        gain *= max(0.05, 1.0 - cur)
         # knowledge, from the Great Library: the same page gives more
         try:
             from temple.blessings import study_multiplier

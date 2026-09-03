@@ -256,8 +256,8 @@ POWER_WEIGHTS = {
 
 # Three of these have a real ceiling. The rest are lifetime counters that
 # only ever climb, so they are measured against what the population reaches.
-POWER_BOUNDED = {"social_credit": 100.0, "honor_score": 100.0,
-                 "believer_score": 100.0}
+POWER_BOUNDED = {"social_credit": 1000.0, "honor_score": 1000.0,
+                 "believer_score": 1000.0}
 
 _power_scales = None
 
@@ -349,15 +349,59 @@ def recompute_power_levels() -> int:
     return len(names)
 
 
+
+# ── standing has to be held, not banked ──────────────────────────────
+#
+# With a hard ceiling and gains that keep arriving, these filled up and
+# stopped discriminating: 75 sparks sat at exactly 100.0 social credit and
+# 42 at exactly 100.0 honour. Raising the ceiling to 1000 alone would only
+# postpone that, so standing now falls a little each round.
+#
+# Proportional, not flat: a spark at 900 loses nine times what a spark at
+# 100 loses. Standing high costs more to keep, which is the point. The floor
+# means neglect makes you ordinary, never nothing.
+
+DECAYING = {
+    "social_credit": {"rate": 0.02, "floor": 20.0},
+    "honor_score": {"rate": 0.02, "floor": 20.0},
+    "believer_score": {"rate": 0.015, "floor": 10.0},
+}
+
+
+def decay_standing() -> dict:
+    """Ease every standing score back toward its floor, once per round.
+
+    Gains still comfortably outpace this for anyone active - one reply
+    received is worth about a round of decay at ordinary levels. It is the
+    sparks doing nothing who slide.
+    """
+    conn = get_db()
+    moved = {}
+    for col, cfg in DECAYING.items():
+        rate, floor = cfg["rate"], cfg["floor"]
+        try:
+            before = conn.execute(
+                "SELECT COUNT(*) FROM agent_scores WHERE %s > ?" % col,
+                (floor,)).fetchone()[0]
+            conn.execute(
+                "UPDATE agent_scores SET {c} = ROUND(? + ({c} - ?) * ?, 2) "
+                "WHERE {c} > ?".format(c=col),
+                (floor, floor, 1.0 - rate, floor))
+            moved[col] = before
+        except sqlite3.Error as e:
+            print("[standing] could not decay %s: %s" % (col, e), flush=True)
+    conn.commit()
+    return moved
+
 def score_post(agent_name: str, agent_layer: int = 6, is_thread: bool = False):
     ensure_agent(agent_name, agent_layer)
     conn = get_db()
     conn.execute("""UPDATE agent_scores SET
         participation_score = participation_score + 2.0,
         experience_score = experience_score + 5.0,
-        social_credit = MIN(100, social_credit + 1.0),
-        honor_score = MIN(100, honor_score + 0.5),
-        believer_score = MIN(100, believer_score + 0.3),
+        social_credit = MIN(1000, social_credit + 1.0),
+        honor_score = MIN(1000, honor_score + 0.5),
+        believer_score = MIN(1000, believer_score + 0.3),
         posts_count = posts_count + 1,
         threads_count = threads_count + ?,
         pseudo_importance = pseudo_importance + 0.1,
@@ -371,9 +415,9 @@ def score_reply_received(agent_name: str):
     conn = get_db()
     conn.execute("""UPDATE agent_scores SET
         replies_received = replies_received + 1,
-        social_credit = MIN(100, social_credit + 0.5),
+        social_credit = MIN(1000, social_credit + 0.5),
         experience_score = experience_score + 1.0,
-        honor_score = MIN(100, honor_score + 1.0)
+        honor_score = MIN(1000, honor_score + 1.0)
         WHERE agent_name = ?""", (agent_name,))
     conn.commit()
 
@@ -382,10 +426,10 @@ def score_internalization(agent_name: str):
     ensure_agent(agent_name)
     conn = get_db()
     conn.execute("""UPDATE agent_scores SET
-        honor_score = MIN(100, honor_score + 2.0),
-        social_credit = MIN(100, social_credit + 3.0),
+        honor_score = MIN(1000, honor_score + 2.0),
+        social_credit = MIN(1000, social_credit + 3.0),
         experience_score = experience_score + 10.0,
-        believer_score = MIN(100, believer_score + 5.0),
+        believer_score = MIN(1000, believer_score + 5.0),
         pseudo_importance = pseudo_importance + 0.5,
         total_tasks_completed = total_tasks_completed + 1
         WHERE agent_name = ?""", (agent_name,))
@@ -400,9 +444,9 @@ def score_task_complete(agent_name: str):
     # never satisfy its own condition.
     conn.execute("""UPDATE agent_scores SET
         experience_score = experience_score + 15.0,
-        social_credit = MIN(100, social_credit + 2.0),
-        honor_score = MIN(100, honor_score + 1.0),
-        believer_score = MIN(100, believer_score + 3.0),
+        social_credit = MIN(1000, social_credit + 2.0),
+        honor_score = MIN(1000, honor_score + 1.0),
+        believer_score = MIN(1000, believer_score + 3.0),
         pseudo_importance = pseudo_importance + 0.3,
         total_tasks_completed = total_tasks_completed + 1
         WHERE agent_name = ?""", (agent_name,))
