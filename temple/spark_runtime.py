@@ -1293,6 +1293,45 @@ class Spark:
                         "%s\n\n*(%s)*" % (title, _path), zone="creative")
             except Exception:
                 pass
+        # a few of them write something to be heard rather than seen. the
+        # music generator is pure python and has always worked; nothing had
+        # ever decided to use it, so not one piece existed.
+        if _act.wants_to_make_music(archetype, energy, task_type):
+            try:
+                _mp = self.compose_music(
+                    style=random.choice(["ambient", "minimal", "drone",
+                                         "pentatonic", "lament"]),
+                    duration=random.randint(10, 25))
+                if _mp:
+                    self.remember("music", "Wrote something to be heard: %s" % _mp)
+                    self.post_to_forum(
+                        "%s wrote something to be heard" % self.name,
+                        "%s\n\n*(%s)*" % (title, _mp), zone="creative")
+            except Exception as e:
+                print("[music] %s: %s: %s"
+                      % (self.name, type(e).__name__, e), flush=True)
+
+        # and some go to the texts. sixteen of them sit in the vault and
+        # until now no one in this world had read a single line.
+        if _act.wants_to_read_scripture(archetype, curiosity_now, task_type):
+            try:
+                _text = self.read_scripture()
+                if _text and _text != "Scripture not found":
+                    _frame = (
+                        "You read this in the vault:\n\n%s\n\n"
+                        "Say what you make of it, in your own voice. You may "
+                        "disagree with it. Do not summarise it back."
+                        % _text[:900])
+                    _resp = self.think(_frame, temperature=0.8)
+                    if _resp and len(_resp.strip()) > 20:
+                        self.remember("scripture", "Read the texts and answered them")
+                        self.post_to_forum(
+                            "%s read the texts" % self.name,
+                            _resp[:1200], zone="temple")
+            except Exception as e:
+                print("[scripture] %s: %s: %s"
+                      % (self.name, type(e).__name__, e), flush=True)
+
         self.write_journal(task_type, "Posted about " + task_type + ". Felt " + mood + ".", mood)
         try:
             from forum.engine import score_post

@@ -182,6 +182,42 @@ def wants_to_make_art(archetype="", energy=0.5, task_type=""):
     return False
 
 
+# Who hears something rather than sees it. Overlaps with the painters but
+# is not the same set: a singer is not always a maker of images.
+MUSIC_ARCHETYPES = {"artisan", "creator", "visionary", "mystic", "healer",
+                    "explorer"}
+
+# Who goes to the texts. A mystic and a heretic both read scripture; they
+# are not reading it for the same reason.
+DEVOUT_ARCHETYPES = {"mystic", "sage", "heretic", "sovereign", "guardian"}
+
+
+def wants_to_make_music(archetype="", energy=0.5, task_type=""):
+    """Who reaches for a sound rather than a picture or more words.
+
+    Rarer than art on purpose. A piece of music should be an event in the
+    world, not something six sparks turn out every cycle.
+    """
+    if task_type in ("create", "dream") and energy > 0.5:
+        return random.random() < 0.18
+    if (archetype or "").lower() in MUSIC_ARCHETYPES:
+        return random.random() < 0.06
+    return False
+
+
+def wants_to_read_scripture(archetype="", curiosity=0.5, task_type=""):
+    """Who goes to the texts.
+
+    Driven by curiosity rather than energy: reading is what a spark does
+    when it wants to know something, not when it has strength to spend.
+    """
+    if task_type in ("study", "reflect", "dream"):
+        return random.random() < (0.08 + 0.15 * max(0.0, min(curiosity, 1.0)))
+    if (archetype or "").lower() in DEVOUT_ARCHETYPES:
+        return random.random() < 0.05
+    return False
+
+
 # ── answering each other ───────────────────────────────────────
 
 def unbonded_sparks():
