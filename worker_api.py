@@ -755,8 +755,26 @@ def creative_express(body: dict):
 
 import threading as _threading, time as _time
 
+def schedulers_enabled() -> bool:
+    """Whether this process should run the world, or only answer questions.
+
+    The API and the world used to be one switch, so looking at a dashboard
+    meant turning 298 sparks loose. UAI_SCHEDULERS=0 serves the endpoints
+    with nothing running behind them - no spark cycles, no model calls, no
+    GPU - which is all any of the read-only pages ever needed.
+    """
+    return os.environ.get("UAI_SCHEDULERS", "1") != "0"
+
+
 @app.on_event("startup")
 def start_scheduler():
+    if not schedulers_enabled():
+        print("[startup] quiet mode: serving the API with no schedulers. "
+              "Nothing will run the world in this process.", flush=True)
+        log_activity("temple", "scheduler",
+                     "quiet mode - API only, no world", "ok")
+        return
+
     from temple.scheduler import start
     result = start()
     log_activity("temple", "scheduler", f"auto-dispatch started ({result['interval']}s interval)", "ok")
@@ -1187,6 +1205,16 @@ def amendments_board():
     """What the world has noticed, proposed, and is waiting to hear about."""
     from temple.amendments import board
     return board()
+
+
+@app.post("/amendments/{proposal_id}/review")
+def amendments_review(proposal_id: int):
+    """Convene the review. Costs nothing and does not need the world awake."""
+    from temple.amendments import send_to_review
+    r = send_to_review(proposal_id)
+    log_activity("amendments", "review", "proposal %s" % proposal_id,
+                 r.get("verdict") or ("ok" if r.get("ok") else "failed"))
+    return r
 
 
 @app.post("/amendments/{proposal_id}/ratify")

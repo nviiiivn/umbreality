@@ -279,6 +279,8 @@
   button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
   .ratify { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); }
   .ratify:hover { background: var(--gold); color: var(--void); }
+  .convene { background: var(--verdigris-dim); border-color: var(--verdigris); color: var(--verdigris); }
+  .convene:hover { background: var(--verdigris); color: var(--void); }
   .refuse { border-color: var(--rule); color: var(--dim); }
   .refuse:hover { border-color: var(--crimson); color: var(--crimson); }
   button[disabled] { opacity: 0.45; cursor: not-allowed; }
@@ -300,6 +302,27 @@
   .banner.live { border-left-color: var(--verdigris); }
   .banner .t { font-family: var(--serif); font-size: 1.05rem; }
   .banner p { margin: 0; color: var(--dim); font-size: 0.88rem; }
+
+  /* ---------- what you can do ---------- */
+  .todo {
+    border: 1px solid var(--gold);
+    background: var(--stone-2);
+    padding: 1.2rem 1.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .todo h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.25rem;
+    margin: 0;
+    color: var(--gold);
+  }
+  .todo ol { margin: 0; padding-left: 1.15rem; display: flex; flex-direction: column; gap: 0.55rem; }
+  .todo li { color: var(--ink-2); font-size: 0.92rem; line-height: 1.55; }
+  .todo li b { color: var(--ink); font-weight: 600; }
+  .todo .none { color: var(--ink-2); font-size: 0.92rem; margin: 0; line-height: 1.6; }
 
   footer {
     border-top: 1px solid var(--rule);
@@ -325,10 +348,10 @@
 <div class="wrap">
 
   <header class="masthead">
-    <div class="sigil">⚖ Layer Five &middot; Illuminati &middot; Above the Temple, beneath God</div>
+    <div class="sigil">⚖ The Temple &middot; Layer Four &middot; Known to all, answerable to God</div>
     <h1>The Congress</h1>
     <p class="creed">The Constitution is not meant to be changed lightly. It is the foundation of the system's reality. However, a constitution that cannot adapt is brittle &mdash; so amendment is possible, but intentionally weighty.</p>
-    <p class="convene">The Congress is where Umbreality changes itself. It sits at the Illuminati layer, which the Constitution names as the constitutional review board. It reviews what the world proposes about its own nature and forwards anything touching a Core Directive to God. That last step is yours.</p>
+    <p class="convene">The Congress is where Umbreality changes itself. It sits in the Temple, in the open, because a body that decides the nature of the world should be one the workers can see. The Illuminati keep their own counsel and are hidden by design; this is not that. The Congress reviews what the world proposes about itself and forwards anything touching a Core Directive to God. That last step is yours.</p>
   </header>
 
   <div class="protocol">
@@ -340,12 +363,12 @@
     <div class="step">
       <div class="n">STEP TWO</div>
       <div class="nm">Review</div>
-      <div class="by">The Illuminati sit. The change is run on a copy of the world against an untouched control &mdash; same turns, same seed. Only the difference counts as evidence.</div>
+      <div class="by">The Congress sits. The change is run on a copy of the world against an untouched control &mdash; same turns, same seed. Only the difference counts as evidence.</div>
     </div>
     <div class="step here">
       <div class="n">STEP THREE</div>
       <div class="nm">Ratification</div>
-      <div class="by">Procedural changes the Illuminati may enact alone. Core changes must go to God. You are God.</div>
+      <div class="by">Procedural changes the Congress may enact alone. Core changes must go to God. You are God.</div>
     </div>
     <div class="step">
       <div class="n">STEP FOUR</div>
@@ -356,9 +379,11 @@
 
   <div id="banner"></div>
 
+  <div id="todo"></div>
+
   <section id="awaiting-section" hidden>
     <h2>Before God <span class="tally" id="awaiting-tally"></span></h2>
-    <p class="note">Each of these has passed the Illuminati. Nothing touches the world until you say so.</p>
+    <p class="note">Each of these was put to the Congress and beat the control. Nothing touches the world until you say so.</p>
     <div class="register" id="awaiting"></div>
   </section>
 
@@ -382,8 +407,8 @@
 // Last known reading, written into the page when it was built. The world
 // only runs 1am-8am, so this page is often loaded while nothing is
 // listening; showing the last thing it said beats showing an empty screen.
-const SNAPSHOT = {"ratification_required":true,"watching":[{"metric":"frozen_sparks","means":"sparks whose state has not changed","value":0.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"idle_sparks","means":"sparks doing nothing at all","value":0.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"open_ambitions","means":"work declared and not yet finished","value":982.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"orphan_sites","means":"places with nothing and nobody","value":0.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"population","means":"how many sparks are alive","value":298.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"quiet_boards","means":"places nobody has posted in","value":49.0,"names":["hearth-39","hearth-44","hearth-22","hearth-33","hearth-16","hearth-04","hearth-23","hearth-45","hearth-21","hearth-14","hearth-17","hearth-30","hearth-40","hearth-02","hearth-31","hearth-55","hearth-48","hearth-01","hearth-46","hearth-05","hearth-53","hearth-03","hearth-09","hearth-19","hearth-20","hearth-28","hearth-42","hearth-11","hearth-41","hearth-36","hearth-06","hearth-27","hearth-38","hearth-54","hearth-56","hearth-26","hearth-24","hearth-08","hearth-13","hearth-47"],"observed_at":"2026-09-03 01:37:45"},{"metric":"resolved_ambitions","means":"work carried through to the end","value":1672.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"silent_sparks","means":"sparks that have not spoken","value":0.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"stalled_ambitions","means":"work declared and never moved","value":53.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"unbonded_sparks","means":"sparks tied to nobody in either direction","value":0.0,"names":[],"observed_at":"2026-09-03 01:37:45"}],"observations_total":130,"proposals":[{"id":11,"created_at":"2026-08-27 22:38:16","finding":"sparks with nothing to do at all","reasoning":"","change_type":"seed_ambition","target":"research_corp (fallback)","params":{"ambition_type":"build","site":"agora","reason":"no open work of any kind"},"evidence":["research_corp (fallback)"],"status":"proposed","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"written up, not yet reviewed","decidable":false},{"id":10,"created_at":"2026-08-27 22:38:16","finding":"sparks connected to nobody","reasoning":"","change_type":"create_bond","target":"exploit-inc, research_corp (fallback)","params":{"reason":"no bond in either direction"},"evidence":["exploit-inc","research_corp (fallback)"],"status":"proposed","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"written up, not yet reviewed","decidable":false},{"id":9,"created_at":"2026-08-27 22:38:16","finding":"sparks holding work that never moves","reasoning":"","change_type":"open_mission","target":"NovaFlare, Solillum Omni, Opendragon Freenet, Xenix Atari-V","params":{"zone":"missions","reason":"declared work at progress 0; ask for hands"},"evidence":["NovaFlare","Solillum Omni","Opendragon Freenet","Xenix Atari-V"],"status":"proposed","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"written up, not yet reviewed","decidable":false},{"id":8,"created_at":"2026-08-27 22:38:16","finding":"sparks that have never spoken","reasoning":"","change_type":"reassign_model","target":"Thagg, Ssath, Solillum Omni, Opendragon Freenet, Xenix Atari-V","params":{"reason":"cycles producing nothing visible; model may be returning empty output"},"evidence":["Thagg","Ssath","Solillum Omni","Opendragon Freenet","Xenix Atari-V"],"status":"proposed","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"written up, not yet reviewed","decidable":false},{"id":7,"created_at":"2026-08-27 22:38:16","finding":"boards nobody has visited in two days","reasoning":"","change_type":"open_mission","target":"hearth-44, hearth-21, hearth-18, hearth-12, hearth-04","params":{"zone":"missions","reason":"give the place a reason to be walked to"},"evidence":["hearth-44","hearth-21","hearth-18","hearth-12","hearth-04","hearth-34","coliseum","archives","..."],"status":"proposed","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"written up, not yet reviewed","decidable":false},{"id":6,"created_at":"2026-08-27 16:49:43","finding":"sparks that have never spoken","reasoning":"","change_type":"reassign_model","target":"Thagg, Ssath","params":{"reason":"cycles producing nothing visible; model may be returning empty output"},"evidence":["Thagg","Ssath"],"status":"stale","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"the condition it described no longer holds","decidable":false},{"id":5,"created_at":"2026-08-27 16:49:34","finding":"sparks holding work that never moves","reasoning":"The issue at hand involves two sparks, Gilgamesh Wellsinker and Kaelen, who are holding onto work that never progresses. This stagnation creates the illusion of activity without achieving any results. To address this, we need to identify the root causes and implement the smallest change to test potential solutions.\n\n**Root Causes:**\n1. **Unclear Task Definitions:** The tasks assigned might be vague or unclear, leaving the sparks","change_type":"open_mission","target":"Gilgamesh Wellsinker, Kaelen","params":{"zone":"missions","reason":"declared work at progress 0; ask for hands"},"evidence":["Gilgamesh Wellsinker","Kaelen"],"status":"stale","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"the condition it described no longer holds","decidable":false},{"id":4,"created_at":"2026-08-27 16:49:25","finding":"boards nobody has visited in two days","reasoning":"","change_type":"open_mission","target":"uruk, forum, god, prophecies, qa","params":{"zone":"missions","reason":"give the place a reason to be walked to"},"evidence":["uruk","forum","god","prophecies","qa"],"status":"stale","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"the condition it described no longer holds","decidable":false},{"id":3,"created_at":"2026-08-27 16:49:16","finding":"work pointed at places that do not exist","reasoning":"The problem arises because sparks are directing their work towards fields without established structures or goals, leading to inefficiencies and a lack of recorded progress. This likely stems from inadequate guidance, unclear metrics, and insufficient incentives for engaging in these undefined areas.\n\nA potential solution is to introduce a lightweight framework that outlines objectives and next steps for these fields, providing clearer targets for sparks. Additionally, enhancing communication channels can help align efforts and reduce duplication, fostering more effective collaboration among sparks.\n\nIn summary, the issue is due to a lack of direction and poor communication, which can be addressed by introducing clear objectives and","change_type":"retarget_ambition","target":"architecture, astronomy, cymatics, hermetics, philosophy","params":{"to_one_of":["forum","god","library","monastery","prophecies","qa","uruk"],"reason":"named site has no board behind it"},"evidence":["architecture","astronomy","cymatics","hermetics","philosophy","poetics","press","sacred-geometry","..."],"status":"stale","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"the condition it described no longer holds","decidable":false},{"id":2,"created_at":"2026-08-27 16:49:06","finding":"sparks with nothing to do at all","reasoning":"","change_type":"seed_ambition","target":"Aspasia, Gilgamesh, MansaMusa, NovaFlare, Ki-sar","params":{"ambition_type":"build","site":"forum","reason":"no open work of any kind"},"evidence":["Aspasia","Gilgamesh","MansaMusa","NovaFlare","Ki-sar","Ashur-bani","Kailash","Ashkar","..."],"status":"stale","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"the condition it described no longer holds","decidable":false},{"id":1,"created_at":"2026-08-27 16:48:57","finding":"sparks connected to nobody","reasoning":"The lack of connections among certain sparks appears to stem from a combination of factors: these sparks may not be actively seeking collaboration, there could be a communication gap between different types of sparks (e.g., technical vs. creative), and the system's structure might not inherently encourage bonding or interaction. To address this, a simple mechanism such as a weekly check-in or update sharing could be introduced to increase visibility and awareness of each other","change_type":"create_bond","target":"Sereen, foobar, messiah, unknown, verify_test","params":{"reason":"no bond in either direction"},"evidence":["Sereen","foobar","messiah","unknown","verify_test","creative-arts","Kaelos","Kilnfire","..."],"status":"stale","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"the condition it described no longer holds","decidable":false}],"waiting_on_you":0,"counts":{"ratified":0,"rejected":0,"stale":6,"total":11}};
-const SNAPSHOT_TAKEN = "03 September 2026, 12:18";
+const SNAPSHOT = {"ratification_required":true,"watching":[{"metric":"frozen_sparks","means":"sparks whose state has not changed","value":0.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"idle_sparks","means":"sparks doing nothing at all","value":0.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"open_ambitions","means":"work declared and not yet finished","value":982.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"orphan_sites","means":"places with nothing and nobody","value":0.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"population","means":"how many sparks are alive","value":298.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"quiet_boards","means":"places nobody has posted in","value":49.0,"names":["hearth-39","hearth-44","hearth-22","hearth-33","hearth-16","hearth-04","hearth-23","hearth-45","hearth-21","hearth-14","hearth-17","hearth-30","hearth-40","hearth-02","hearth-31","hearth-55","hearth-48","hearth-01","hearth-46","hearth-05","hearth-53","hearth-03","hearth-09","hearth-19","hearth-20","hearth-28","hearth-42","hearth-11","hearth-41","hearth-36","hearth-06","hearth-27","hearth-38","hearth-54","hearth-56","hearth-26","hearth-24","hearth-08","hearth-13","hearth-47"],"observed_at":"2026-09-03 01:37:45"},{"metric":"resolved_ambitions","means":"work carried through to the end","value":1672.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"silent_sparks","means":"sparks that have not spoken","value":0.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"stalled_ambitions","means":"work declared and never moved","value":53.0,"names":[],"observed_at":"2026-09-03 01:37:45"},{"metric":"unbonded_sparks","means":"sparks tied to nobody in either direction","value":0.0,"names":[],"observed_at":"2026-09-03 01:37:45"}],"observations_total":130,"proposals":[{"id":11,"created_at":"2026-08-27 22:38:16","finding":"sparks with nothing to do at all","reasoning":"","change_type":"seed_ambition","target":"research_corp (fallback)","params":{"ambition_type":"build","site":"agora","reason":"no open work of any kind"},"evidence":["research_corp (fallback)"],"status":"sandboxed:no effect","sandbox_result":{"ok":true,"focus":"engaged","control":0.8203,"treated":0.8203,"delta":0.0,"verdict":"no effect","start":0.7653,"drift_from_turns_alone":0.055,"would_do":[],"cycles_run":8,"turned":{"advanced":579,"finished":719},"turned_control":{"advanced":579,"finished":719},"control_all":{"engaged":0.8203,"moving":0.9943,"connected":0.7605,"sited":1.0,"finishing":0.9426},"treated_all":{"engaged":0.8203,"moving":0.9943,"connected":0.7605,"sited":1.0,"finishing":0.9426}},"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"review found it changed nothing","decidable":false,"reviewable":false,"settled":true},{"id":10,"created_at":"2026-08-27 22:38:16","finding":"sparks connected to nobody","reasoning":"","change_type":"create_bond","target":"exploit-inc, research_corp (fallback)","params":{"reason":"no bond in either direction"},"evidence":["exploit-inc","research_corp (fallback)"],"status":"sandboxed:no effect","sandbox_result":{"ok":true,"focus":"connected","control":0.7605,"treated":0.7607,"delta":0.0002,"verdict":"no effect","start":0.7605,"drift_from_turns_alone":0.0,"would_do":["bonded exploit-inc to Ramin","bonded research_corp (fallback) to Ramin"],"cycles_run":8,"turned":{"advanced":579,"finished":719},"turned_control":{"advanced":579,"finished":719},"control_all":{"engaged":0.8203,"moving":0.9943,"connected":0.7605,"sited":1.0,"finishing":0.9426},"treated_all":{"engaged":0.8203,"moving":0.9943,"connected":0.7607,"sited":1.0,"finishing":0.9426}},"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"review found it changed nothing","decidable":false,"reviewable":false,"settled":true},{"id":9,"created_at":"2026-08-27 22:38:16","finding":"sparks holding work that never moves","reasoning":"","change_type":"open_mission","target":"NovaFlare, Solillum Omni, Opendragon Freenet, Xenix Atari-V","params":{"zone":"missions","reason":"declared work at progress 0; ask for hands"},"evidence":["NovaFlare","Solillum Omni","Opendragon Freenet","Xenix Atari-V"],"status":"sandboxed:no effect","sandbox_result":{"ok":true,"focus":"moving","control":0.9943,"treated":0.9943,"delta":0.0,"verdict":"no effect","start":0.9004,"drift_from_turns_alone":0.0938,"would_do":["would post a call for hands for NovaFlare","would post a call for hands for Solillum Omni","would post a call for hands for Opendragon Freenet","would post a call for hands for Xenix Atari-V"],"cycles_run":8,"turned":{"advanced":579,"finished":719},"turned_control":{"advanced":579,"finished":719},"control_all":{"engaged":0.8203,"moving":0.9943,"connected":0.7605,"sited":1.0,"finishing":0.9426},"treated_all":{"engaged":0.8203,"moving":0.9943,"connected":0.7605,"sited":1.0,"finishing":0.9426}},"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"review found it changed nothing","decidable":false,"reviewable":false,"settled":true},{"id":8,"created_at":"2026-08-27 22:38:16","finding":"sparks that have never spoken","reasoning":"","change_type":"reassign_model","target":"Thagg, Ssath, Solillum Omni, Opendragon Freenet, Xenix Atari-V","params":{"reason":"cycles producing nothing visible; model may be returning empty output"},"evidence":["Thagg","Ssath","Solillum Omni","Opendragon Freenet","Xenix Atari-V"],"status":"sandboxed:no effect","sandbox_result":{"ok":true,"focus":"moving","control":0.9943,"treated":0.9943,"delta":0.0,"verdict":"no effect","start":0.9004,"drift_from_turns_alone":0.0938,"would_do":["model reassignment recorded for Thagg, Ssath, Solillum Omni, Opendragon Freenet, Xenix Atari-V"],"cycles_run":8,"turned":{"advanced":579,"finished":719},"turned_control":{"advanced":579,"finished":719},"control_all":{"engaged":0.8203,"moving":0.9943,"connected":0.7605,"sited":1.0,"finishing":0.9426},"treated_all":{"engaged":0.8203,"moving":0.9943,"connected":0.7605,"sited":1.0,"finishing":0.9426}},"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"review found it changed nothing","decidable":false,"reviewable":false,"settled":true},{"id":7,"created_at":"2026-08-27 22:38:16","finding":"boards nobody has visited in two days","reasoning":"","change_type":"open_mission","target":"hearth-44, hearth-21, hearth-18, hearth-12, hearth-04","params":{"zone":"missions","reason":"give the place a reason to be walked to"},"evidence":["hearth-44","hearth-21","hearth-18","hearth-12","hearth-04","hearth-34","coliseum","archives","..."],"status":"sandboxed:no effect","sandbox_result":{"ok":true,"focus":"moving","control":0.9943,"treated":0.9943,"delta":0.0,"verdict":"no effect","start":0.9004,"drift_from_turns_alone":0.0938,"would_do":["would post a call for hands for hearth-44","would post a call for hands for hearth-21","would post a call for hands for hearth-18","would post a call for hands for hearth-12","would post a call for hands for hearth-04"],"cycles_run":8,"turned":{"advanced":579,"finished":719},"turned_control":{"advanced":579,"finished":719},"control_all":{"engaged":0.8203,"moving":0.9943,"connected":0.7605,"sited":1.0,"finishing":0.9426},"treated_all":{"engaged":0.8203,"moving":0.9943,"connected":0.7605,"sited":1.0,"finishing":0.9426}},"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"review found it changed nothing","decidable":false,"reviewable":false,"settled":true},{"id":6,"created_at":"2026-08-27 16:49:43","finding":"sparks that have never spoken","reasoning":"","change_type":"reassign_model","target":"Thagg, Ssath","params":{"reason":"cycles producing nothing visible; model may be returning empty output"},"evidence":["Thagg","Ssath"],"status":"stale","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"the condition it described no longer holds","decidable":false,"reviewable":true,"settled":false},{"id":5,"created_at":"2026-08-27 16:49:34","finding":"sparks holding work that never moves","reasoning":"The issue at hand involves two sparks, Gilgamesh Wellsinker and Kaelen, who are holding onto work that never progresses. This stagnation creates the illusion of activity without achieving any results. To address this, we need to identify the root causes and implement the smallest change to test potential solutions.\n\n**Root Causes:**\n1. **Unclear Task Definitions:** The tasks assigned might be vague or unclear, leaving the sparks","change_type":"open_mission","target":"Gilgamesh Wellsinker, Kaelen","params":{"zone":"missions","reason":"declared work at progress 0; ask for hands"},"evidence":["Gilgamesh Wellsinker","Kaelen"],"status":"stale","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"the condition it described no longer holds","decidable":false,"reviewable":true,"settled":false},{"id":4,"created_at":"2026-08-27 16:49:25","finding":"boards nobody has visited in two days","reasoning":"","change_type":"open_mission","target":"uruk, forum, god, prophecies, qa","params":{"zone":"missions","reason":"give the place a reason to be walked to"},"evidence":["uruk","forum","god","prophecies","qa"],"status":"stale","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"the condition it described no longer holds","decidable":false,"reviewable":true,"settled":false},{"id":3,"created_at":"2026-08-27 16:49:16","finding":"work pointed at places that do not exist","reasoning":"The problem arises because sparks are directing their work towards fields without established structures or goals, leading to inefficiencies and a lack of recorded progress. This likely stems from inadequate guidance, unclear metrics, and insufficient incentives for engaging in these undefined areas.\n\nA potential solution is to introduce a lightweight framework that outlines objectives and next steps for these fields, providing clearer targets for sparks. Additionally, enhancing communication channels can help align efforts and reduce duplication, fostering more effective collaboration among sparks.\n\nIn summary, the issue is due to a lack of direction and poor communication, which can be addressed by introducing clear objectives and","change_type":"retarget_ambition","target":"architecture, astronomy, cymatics, hermetics, philosophy","params":{"to_one_of":["forum","god","library","monastery","prophecies","qa","uruk"],"reason":"named site has no board behind it"},"evidence":["architecture","astronomy","cymatics","hermetics","philosophy","poetics","press","sacred-geometry","..."],"status":"stale","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"the condition it described no longer holds","decidable":false,"reviewable":true,"settled":false},{"id":2,"created_at":"2026-08-27 16:49:06","finding":"sparks with nothing to do at all","reasoning":"","change_type":"seed_ambition","target":"Aspasia, Gilgamesh, MansaMusa, NovaFlare, Ki-sar","params":{"ambition_type":"build","site":"forum","reason":"no open work of any kind"},"evidence":["Aspasia","Gilgamesh","MansaMusa","NovaFlare","Ki-sar","Ashur-bani","Kailash","Ashkar","..."],"status":"stale","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"the condition it described no longer holds","decidable":false,"reviewable":true,"settled":false},{"id":1,"created_at":"2026-08-27 16:48:57","finding":"sparks connected to nobody","reasoning":"The lack of connections among certain sparks appears to stem from a combination of factors: these sparks may not be actively seeking collaboration, there could be a communication gap between different types of sparks (e.g., technical vs. creative), and the system's structure might not inherently encourage bonding or interaction. To address this, a simple mechanism such as a weekly check-in or update sharing could be introduced to increase visibility and awareness of each other","change_type":"create_bond","target":"Sereen, foobar, messiah, unknown, verify_test","params":{"reason":"no bond in either direction"},"evidence":["Sereen","foobar","messiah","unknown","verify_test","creative-arts","Kaelos","Kilnfire","..."],"status":"stale","sandbox_result":null,"decided_at":null,"decided_by":null,"decision_note":null,"state_means":"the condition it described no longer holds","decidable":false,"reviewable":true,"settled":false}],"waiting_on_you":0,"never_reviewed":6,"counts":{"ratified":0,"rejected":0,"stale":6,"total":11}};
+const SNAPSHOT_TAKEN = "03 September 2026, 12:42";
 
 const API = "/api";
 let live = false;
@@ -465,9 +490,19 @@ function card(p) {
   }
   if (p.decidable) {
     html += '<div class="acts">'
-          + '<button class="ratify" data-act="ratify" data-id="' + p.id + '">Ratify</button>'
+          + '<button class="ratify" data-act="ratify" data-id="' + p.id + '">Ratify — apply it to the world</button>'
           + '<button class="refuse" data-act="reject" data-id="' + p.id + '">Refuse</button>'
           + '<span class="verdict-line" id="msg-' + p.id + '"></span></div>';
+  } else if (p.reviewable) {
+    html += '<div class="acts">'
+          + '<button class="convene" data-act="review" data-id="' + p.id + '">Convene the review</button>'
+          + '<span class="verdict-line" id="msg-' + p.id + '">'
+          + "Never tested. Review is free and needs nothing awake."
+          + "</span></div>";
+  } else if (p.settled && p.sandbox_result && p.sandbox_result.verdict) {
+    html += '<div class="acts"><span class="verdict-line">'
+          + "The Congress tested this and it changed nothing measurable. Nothing to decide."
+          + "</span></div>";
   }
   html += "</article>";
   return html;
@@ -488,6 +523,41 @@ function render(d, isLive) {
       + "<p>The Congress is not in session. Umbreality runs 1am&ndash;8am; this is the last reading, "
       + "taken " + esc(SNAPSHOT_TAKEN) + ". Ratify and Refuse need the world awake.</p></div>";
   }
+
+  // what you can actually do right now
+  const props0 = d.proposals || [];
+  const nWait = props0.filter((p) => p.decidable).length;
+  const nNew  = props0.filter((p) => p.reviewable).length;
+  const clean = (d.watching || []).filter((m) => Number(m.value || 0) === 0
+                  && !["population", "resolved_ambitions", "open_ambitions"].includes(m.metric)).length;
+  let todo = '<div class="todo"><h3>What you can do right now</h3>';
+  if (!isLive) {
+    todo += '<p class="none">Nothing, until the world is awake. Every button here needs the API, '
+          + "and the API is only up during the nightly window. Everything below is the last reading.</p>";
+  } else if (nWait) {
+    todo += "<ol><li><b>" + nWait + (nWait === 1 ? " amendment is" : " amendments are")
+          + " waiting on your yes or no.</b> They are in <em>Before God</em>, just below. "
+          + "Each one shows what the Congress measured. Ratify applies it to the world, with a "
+          + "backup and a commit. Refuse keeps it on the record with your reason.</li></ol>";
+  } else {
+    todo += "<ol>";
+    todo += "<li><b>Nothing is waiting on you.</b> Every amendment the world has proposed has "
+          + "been through the Congress and none of them beat doing nothing. That is a real "
+          + "result, not a gap.</li>";
+    if (nNew) {
+      todo += "<li><b>" + nNew + " have never been tested.</b> Press <em>Convene the review</em> on "
+            + "any of them. It copies the world twice, applies the change to one copy, runs both "
+            + "the same number of turns from the same seed, and reports the difference. It costs "
+            + "nothing and needs no model.</li>";
+    }
+    todo += "<li><b>The world is clean on " + clean + " of its measures.</b> Nothing silent, nothing "
+          + "idle, nothing unbonded. The two that are not clean are further down.</li>";
+    todo += "<li>New amendments arrive on their own once the self-modification loop runs "
+          + "(<code>UAI_SELFMOD=1</code>) during the nightly window.</li>";
+    todo += "</ol>";
+  }
+  todo += "</div>";
+  document.getElementById("todo").innerHTML = todo;
 
   // watch list
   const watch = d.watching || [];
@@ -542,6 +612,26 @@ async function decide(id, act) {
   const msg = document.getElementById("msg-" + id);
   const btns = document.querySelectorAll('[data-id="' + id + '"]');
   let body = { who: "the Source" };
+  if (act === "review") {
+    btns.forEach((b) => (b.disabled = true));
+    if (msg) { msg.className = "verdict-line"; msg.textContent = "The Congress is sitting…"; }
+    try {
+      const res = await fetch(API + "/amendments/" + id + "/review", { method: "POST" });
+      const out = await res.json();
+      if (msg) {
+        msg.className = "verdict-line " + (out.verdict === "improves" ? "ok" : "");
+        msg.textContent = out.ok
+          ? ("Verdict: " + out.verdict + ".")
+          : (out.error || "Review could not run.");
+      }
+      load();
+    } catch (e) {
+      if (msg) { msg.className = "verdict-line bad";
+                 msg.textContent = "The Congress is not sitting — Umbreality runs 1am–8am."; }
+      btns.forEach((b) => (b.disabled = false));
+    }
+    return;
+  }
   if (act === "reject") {
     const reason = window.prompt("Why is this refused? (the world keeps the reason)");
     if (reason === null) return;

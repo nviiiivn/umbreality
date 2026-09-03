@@ -158,6 +158,53 @@ def reject(proposal_id: int, reason: str = "", who: str = "the Source") -> dict:
     return {"ok": True, "id": proposal_id, "status": "rejected"}
 
 
+def send_to_review(proposal_id: int) -> dict:
+    """Convene the review for one proposal, now.
+
+    Review used to happen only inside the nightly loop, which is off, so
+    proposals sat at `proposed` forever and nothing ever reached
+    ratification. This runs Step Two on demand.
+
+    It is cheap and safe: two copies of soul.db in a temporary directory,
+    the change applied to one, the same turns from the same seed on both,
+    then thrown away. No model call, so the world does not need to be awake.
+    """
+    _ensure_columns()
+    p = _load(proposal_id)
+    if not p:
+        return {"ok": False, "error": "no proposal %s" % proposal_id}
+    if p["status"] in ("ratified", "rejected"):
+        return {"ok": False, "error": "already decided: %s" % p["status"]}
+
+    from temple.sandbox import sandbox
+    try:
+        result = sandbox(p)
+    except Exception as e:
+        return {"ok": False, "error": "%s: %s" % (type(e).__name__, e)}
+
+    if not result.get("ok"):
+        c = _conn()
+        c.execute("UPDATE proposals SET status=? WHERE id=?",
+                  ("sandboxed:error", proposal_id))
+        c.commit()
+        c.close()
+        return {"ok": False, "error": result.get("error"), "id": proposal_id}
+
+    verdict = result.get("verdict")
+    # Only a change that actually beat the control goes to a person. The
+    # rest are recorded and stop there - there is nothing to decide about a
+    # change that does nothing.
+    status = AWAITING if verdict == "improves" else "sandboxed:%s" % verdict
+
+    c = _conn()
+    c.execute("UPDATE proposals SET status=?, sandbox_result=? WHERE id=?",
+              (status, json.dumps(result), proposal_id))
+    c.commit()
+    c.close()
+    return {"ok": True, "id": proposal_id, "verdict": verdict,
+            "status": status, "review": result}
+
+
 # ── what the page needs, in one call ─────────────────────────────
 
 METRIC_MEANING = {
@@ -223,6 +270,12 @@ def board() -> dict:
                 pass
         d["state_means"] = STATE_MEANING.get(d.get("status"), "")
         d["decidable"] = d.get("status") in (AWAITING, "sandboxed:improves")
+        # what a person can actually do with this one, right now
+        d["reviewable"] = d.get("status") in ("proposed", "stale",
+                                              "sandboxed:error")
+        d["settled"] = d.get("status") in ("ratified", "rejected",
+                                           "sandboxed:no effect",
+                                           "sandboxed:worsens")
         proposals.append(d)
 
     observations = _latest_observations(c)
@@ -230,12 +283,14 @@ def board() -> dict:
     c.close()
 
     waiting = [p for p in proposals if p["decidable"]]
+    unreviewed = [p for p in proposals if p["reviewable"]]
     return {
         "ratification_required": ratify_required(),
         "watching": observations,
         "observations_total": total_obs,
         "proposals": proposals,
         "waiting_on_you": len(waiting),
+        "never_reviewed": len(unreviewed),
         "counts": {
             "ratified": sum(1 for p in proposals if p["status"] == "ratified"),
             "rejected": sum(1 for p in proposals if p["status"] == "rejected"),
