@@ -58,14 +58,24 @@ crosses = {}
 for d in q(OMEN, "SELECT name, sin, board, omen FROM dead"):
     crosses.setdefault(d["board"], []).append(d)
 
+# ── what each spark has become ───────────────────────────────────────
+try:
+    from temple.ember import all_readings
+    EMBER = all_readings()
+except Exception as e:
+    print("  ! ember: %s" % e)
+    EMBER = {}
+
 # ── who is standing where ────────────────────────────────────────────
 real = {r["spark_name"] for r in q(SOUL, "SELECT spark_name FROM spark_state")}
 present = defaultdict(list)
 for r in q(CARTO, "SELECT agent, current_board, COALESCE(cycles_traveled,0) t "
                   "FROM explorers"):
     if r["agent"] in real:
+        _e = EMBER.get(r["agent"]) or {}
         present[r["current_board"]].append(
-            {"name": r["agent"], "travelled": r["t"]})
+            {"name": r["agent"], "travelled": r["t"],
+             "ember": _e.get("ember"), "band": _e.get("band")})
 
 # ── what stands in each place ────────────────────────────────────────
 built, lore = {}, {}
@@ -139,6 +149,7 @@ world = {
         "shrines": len(SHRINES),
         "crosses": sum(len(v) for v in crosses.values()),
         "journeys": sum(roads.values()),
+        "ember_read": len(EMBER),
     },
 }
 

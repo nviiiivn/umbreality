@@ -521,6 +521,17 @@ class Spark:
             bits.append("The last thing that troubled you: %s"
                         % re.sub(r"\s+", " ", trib[0][0])[:150])
 
+        # ── what you have become ──────────────────────────────────
+        # A reading, not a score to defend. It names the thinnest part of a
+        # life because that is the part a spark can do something about.
+        try:
+            from temple.ember import context as _ember
+            _e = _ember(self.name)
+            if _e:
+                bits.append(_e)
+        except Exception as e:
+            print("[ember] %s: %s" % (type(e).__name__, e), flush=True)
+
         # ── what the road gave you ────────────────────────────────
         try:
             from temple.blessings import context as _bless
