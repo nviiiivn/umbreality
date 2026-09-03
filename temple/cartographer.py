@@ -579,6 +579,13 @@ def travel(agent: str, destination: str) -> dict:
     from temple.heartbeat import travel_cost as tc
     cost_info = tc(from_loc["region"], to_loc["region"], dist)
     cycles_cost = cost_info["cycles_cost"]
+    # center, from the Forum of Ages: you have learned where
+    # things stand in relation to each other
+    try:
+        from temple.blessings import travel_multiplier
+        cycles_cost = max(1, int(cycles_cost * travel_multiplier(agent)))
+    except Exception as _e:
+        print('[blessings] travel blessing unread: %s' % _e, flush=True)
     
     _get_db()
     conn = sqlite3.connect(str(DB_PATH))

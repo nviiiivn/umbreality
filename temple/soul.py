@@ -711,6 +711,12 @@ def apply_curiosity_study(spark_name, domain_id=None):
     if row:
         cur = float(row[0]) if row[0] is not None else 0.5
         gain = CURIOSITY_STUDY_BONUS * _study_novelty(spark_name, domain_id)
+        # knowledge, from the Great Library: the same page gives more
+        try:
+            from temple.blessings import study_multiplier
+            gain *= study_multiplier(spark_name)
+        except Exception as e:
+            print("[blessings] could not read study blessing: %s" % e, flush=True)
         new_val = min(1.0, cur + gain)
         conn.execute("UPDATE spark_state SET curiosity=?, idle_cycles=0 WHERE spark_name=?",
                     (round(new_val, 3), spark_name))

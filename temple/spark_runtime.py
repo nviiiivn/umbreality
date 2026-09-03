@@ -521,6 +521,15 @@ class Spark:
             bits.append("The last thing that troubled you: %s"
                         % re.sub(r"\s+", " ", trib[0][0])[:150])
 
+        # ── what the road gave you ────────────────────────────────
+        try:
+            from temple.blessings import context as _bless
+            _b = _bless(self.name)
+            if _b:
+                bits.append(_b)
+        except Exception as e:
+            print("[blessings] %s: %s" % (type(e).__name__, e), flush=True)
+
         # ── the road, if you are on it ────────────────────────────
         pil = rows("temple/pilgrimage.db",
                    "SELECT shrines_visited, completed, blessings FROM pilgrims "

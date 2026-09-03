@@ -85,7 +85,16 @@ def survey():
         for d in doms:
             if not d.get("domain_id"):
                 continue
-            if (d.get("mastery") or 0) >= ELDER_MASTERY and \
+            # wisdom, from the Great Monastery: you have sat with what you
+            # know long enough to hand it on a little sooner
+            _bar = ELDER_MASTERY
+            try:
+                from temple.blessings import teaching_mastery_required
+                _bar = teaching_mastery_required(name, ELDER_MASTERY)
+            except Exception as e:
+                print("[blessings] could not read teaching blessing: %s" % e,
+                      flush=True)
+            if (d.get("mastery") or 0) >= _bar and \
                (d.get("times_studied") or 0) >= ELDER_STUDIES:
                 teaches.setdefault(d["domain_id"], []).append(name)
     return knows, teaches
