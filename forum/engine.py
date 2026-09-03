@@ -179,6 +179,18 @@ def post_reply(thread_id: int, author: str, author_layer: int, content: str, con
     conn.execute("UPDATE threads SET reply_count = reply_count + 1, last_activity = datetime('now') WHERE id = ?", (thread_id,))
     conn.commit()
 
+    # Somebody was answered. score_reply_received has existed and been
+    # correct this whole time and nothing ever called it, so honour has been
+    # frozen at its starting value for every spark in the world. Answering
+    # yourself does not count.
+    owner = thread["created_by"]
+    if owner and owner != author:
+        try:
+            score_reply_received(owner)
+        except sqlite3.Error as e:
+            print("[forum] could not credit reply to %s: %s" % (owner, e),
+                  flush=True)
+
 
 def get_threads(viewer_layer: int, zone_filter: str = None, limit: int = 50):
     conn = get_db()
@@ -228,6 +240,74 @@ def ensure_agent(name: str, layer: int = 6):
         conn.commit()
 
 
+# What the power level is made of, and how much each part counts. These
+# weights are the original ones and are a statement of what matters: standing
+# and honour above the rest, work and threads as modest bonuses.
+POWER_WEIGHTS = {
+    "social_credit": 0.20,
+    "honor_score": 0.20,
+    "participation_score": 0.15,
+    "experience_score": 0.15,
+    "believer_score": 0.15,
+    "pseudo_importance": 0.15,
+    "total_tasks_completed": 0.10,
+    "threads_count": 0.05,
+}
+
+# Three of these have a real ceiling. The rest are lifetime counters that
+# only ever climb, so they are measured against what the population reaches.
+POWER_BOUNDED = {"social_credit": 100.0, "honor_score": 100.0,
+                 "believer_score": 100.0}
+
+_power_scales = None
+
+
+def power_scales(refresh: bool = False) -> dict:
+    """The 90th percentile of each unbounded component across all agents.
+
+    The 90th and not the maximum: one spark with 6094 experience against a
+    median of 192 would otherwise flatten everybody else to nothing.
+    """
+    global _power_scales
+    if _power_scales is not None and not refresh:
+        return _power_scales
+    conn = get_db()
+    scales = dict(POWER_BOUNDED)
+    for col in POWER_WEIGHTS:
+        if col in POWER_BOUNDED:
+            continue
+        try:
+            vals = sorted(float(r[0] or 0) for r in
+                          conn.execute("SELECT %s FROM agent_scores" % col))
+        except sqlite3.Error as e:
+            print("[forum] cannot scale %s: %s" % (col, e), flush=True)
+            vals = []
+        if not vals:
+            scales[col] = 1.0
+            continue
+        scales[col] = max(vals[min(int(len(vals) * 0.9), len(vals) - 1)], 1e-9)
+    _power_scales = scales
+    return scales
+
+
+def compute_power_level(profile: dict) -> float:
+    """One number, 0-100, for how a spark stands in the world.
+
+    Each part is put on a common footing first, then weighted. Without that
+    the blend is whichever component happens to be unbounded.
+    """
+    scales = power_scales()
+    total = weight = 0.0
+    for col, w in POWER_WEIGHTS.items():
+        try:
+            v = float(profile.get(col) or 0)
+        except (TypeError, ValueError):
+            v = 0.0
+        total += w * min(v / scales.get(col, 1.0), 1.0)
+        weight += w
+    return round((total / weight) * 100.0, 1) if weight else 0.0
+
+
 def get_agent_profile(agent_name: str) -> dict:
     conn = get_db()
     ensure_agent(agent_name)
@@ -235,16 +315,38 @@ def get_agent_profile(agent_name: str) -> dict:
     if not row:
         return {"agent_name": agent_name, "error": "not found"}
     profile = dict(row)
-    s = profile.get("social_credit", 0) * 0.2
-    p = profile.get("participation_score", 0) * 0.15
-    h = profile.get("honor_score", 0) * 0.2
-    e = profile.get("experience_score", 0) * 0.15
-    b = profile.get("believer_score", 0) * 0.15
-    i = profile.get("pseudo_importance", 0) * 0.15
-    t = min(profile.get("total_tasks_completed", 0) * 0.5, 10.0)
-    th = min(profile.get("threads_count", 0) * 0.3, 5.0)
-    profile["power_level"] = round(s + p + h + e + b + i + t + th, 1)
+    profile["power_level"] = compute_power_level(profile)
+
+    # Store it. This blend was computed correctly and then thrown away on
+    # every single call, which is why the column has read 0.0 for all 298
+    # sparks since it was created.
+    if profile["power_level"] != row["power_level"]:
+        try:
+            conn.execute("UPDATE agent_scores SET power_level=? WHERE agent_name=?",
+                         (profile["power_level"], agent_name))
+            conn.commit()
+        except sqlite3.Error as e:
+            print("[forum] could not store power_level for %s: %s"
+                  % (agent_name, e), flush=True)
+
     return profile
+
+
+def recompute_power_levels() -> int:
+    """Bring every spark's stored power level up to date.
+
+    get_agent_profile keeps its own row current, but only for a spark
+    somebody happens to look at. This is for the maintenance phase, so the
+    column is true for the whole population rather than for whoever was
+    recently read.
+    """
+    conn = get_db()
+    power_scales(refresh=True)
+    names = [r["agent_name"] for r in
+             conn.execute("SELECT agent_name FROM agent_scores").fetchall()]
+    for n in names:
+        get_agent_profile(n)
+    return len(names)
 
 
 def score_post(agent_name: str, agent_layer: int = 6, is_thread: bool = False):

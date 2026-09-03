@@ -211,6 +211,17 @@ def dispatch_cycle():
             print("[wardens] round failed: %s: %s"
                   % (type(e).__name__, e), flush=True)
 
+        # Standing, recomputed for everyone. A profile read keeps its own
+        # spark current, but the scale each component is measured against
+        # shifts as the world runs, so the whole population is redone here.
+        try:
+            from forum.engine import recompute_power_levels
+            print("[standing] recomputed for %d" % recompute_power_levels(),
+                  flush=True)
+        except Exception as e:
+            print("[standing] recompute failed: %s: %s"
+                  % (type(e).__name__, e), flush=True)
+
     # Exploration: somebody actually goes somewhere.
     #
     # This used to require a board nobody had discovered, and the map sync
