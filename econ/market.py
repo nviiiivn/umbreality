@@ -3,7 +3,8 @@
 import random, json, math
 from pathlib import Path
 
-OUTPUT_DIR = Path("/home/nvii/projects/umbreality-ai/creative/outputs/econ")
+OUTPUT_DIR = (Path(__file__).resolve().parent.parent
+              / "creative" / "outputs" / "econ")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 def simulate_price(start=100, volatility=0.02, steps=100):

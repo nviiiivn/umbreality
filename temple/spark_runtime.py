@@ -280,16 +280,28 @@ class Spark:
         return resp.get("threads", [])
 
     def read_scripture(self, name=""):
-        import subprocess, glob
+        """Read one of the sixteen texts in the vault.
+
+        The paths here were absolute and pointed at where the project used
+        to live, so this returned "Scripture not found" every time it was
+        called - which was never, because nothing called it either.
+        """
+        import glob
+        from pathlib import Path as _P
+        vault = _P(__file__).resolve().parent.parent / "vault"
         if name:
-            path = f"/home/nvii/projects/umbreality-ai/vault/**/*{name}*.md"
+            files = sorted(glob.glob(str(vault / "**" / ("*%s*.md" % name)),
+                                     recursive=True))
         else:
-            path = "/home/nvii/projects/umbreality-ai/vault/Revelation/The-Naming-of-Things.md"
-        files = glob.glob(path, recursive=True)
-        if files:
-            with open(files[0]) as f:
+            files = sorted(glob.glob(str(vault / "Revelation" / "*.md")))
+        if not files:
+            return "Scripture not found"
+        try:
+            with open(files[0], encoding="utf-8", errors="ignore") as f:
                 return f.read()[:1500]
-        return "Scripture not found"
+        except OSError as e:
+            print("[scripture] %s: %s" % (files[0], e), flush=True)
+            return "Scripture not found"
 
     def post_to_forum(self, title, content, zone="creative"):
         # the forum has carried a native_lang column all along; a post now

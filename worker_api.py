@@ -1519,7 +1519,7 @@ def navidrome_proxy(path: str = ""):
 
 from fastapi.responses import Response as FastResponse
 
-MUSIC_DIR = "/home/nvii/projects/umbreality-ai/creative/outputs/music"
+MUSIC_DIR = str(Path(__file__).resolve().parent / "creative" / "outputs" / "music")
 
 @app.get("/creative/music/list")
 def music_list():
@@ -1650,10 +1650,10 @@ def academy_assign_mentor(body: dict):
 # ── Static file server (replaces Caddy) ──
 
 WWW_DIR = Path("/home/nvii/www")
-VAULT_DIR = Path("/home/nvii/projects/umbreality-ai/vault")
+# relative to this file: the project moved once already and these were
+# left pointing at the old location, which 404d the whole wiki.
+VAULT_DIR = Path(__file__).resolve().parent / "vault"
 
-
-@app.get("/dark/{path:path}")
 
 @app.get("/admin/{path:path}")
 @app.get("/godseye/{path:path}")
@@ -1669,8 +1669,14 @@ def admin_page(path: str = ""):
     content = file_path.read_bytes()
     return FastResponse(content=content, media_type="text/html; charset=utf-8")
 
+@app.get("/dark/{path:path}")
 def dark_page(path: str = ""):
-    """Serve dark wiki pages directly without Caddy."""
+    """Serve dark wiki pages directly without Caddy.
+
+    This decorator used to sit above admin_page with a blank line between
+    it and its function, so /dark/ resolved to the admin handler and served
+    out of www/admin. This function was never reachable.
+    """
     if not path or path.endswith("/"):
         path = "index.html"
     file_path = WWW_DIR / "dark" / path
