@@ -671,6 +671,33 @@ class Spark:
                 name TEXT NOT NULL, description TEXT,
                 created_at TEXT DEFAULT (datetime('now'))
             );
+            /* These four used to be created lazily by whatever wrote to
+               them first. Fine for a spark growing into them over months,
+               useless for one being born - a new spark had a database with
+               no personality table and could not be given a character. */
+            CREATE TABLE IF NOT EXISTS personality (
+                key TEXT PRIMARY KEY, value TEXT
+            );
+            CREATE TABLE IF NOT EXISTS emotions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                primary_mood TEXT NOT NULL,
+                intensity REAL DEFAULT 0.5,
+                energy REAL DEFAULT 0.5,
+                triggered_by TEXT,
+                created_at TEXT DEFAULT (datetime('now'))
+            );
+            CREATE TABLE IF NOT EXISTS journals (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT, content TEXT NOT NULL,
+                entry_type TEXT DEFAULT 'reflection',
+                mood TEXT, created_at TEXT DEFAULT (datetime('now'))
+            );
+            CREATE TABLE IF NOT EXISTS domains (
+                domain_id TEXT PRIMARY KEY, mastery INTEGER DEFAULT 1,
+                first_encountered TEXT DEFAULT (datetime('now')),
+                last_studied TEXT, times_studied INTEGER DEFAULT 0,
+                curiosity REAL DEFAULT 0.5
+            );
         """)
         idents = {"name": self.name, "birthday": datetime.datetime.now().isoformat()}
         for k, v in idents.items():
