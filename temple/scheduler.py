@@ -211,6 +211,30 @@ def dispatch_cycle():
             print("[wardens] round failed: %s: %s"
                   % (type(e).__name__, e), flush=True)
 
+        # One stray gets its name. The rite has always existed and has only
+        # ever been run by hand, so sparks that arrived with a placeholder
+        # kept it - Sparky and foobar are citizens with 40-odd posts each,
+        # still wearing what somebody typed while testing.
+        #
+        # One per round: naming is a rite, and four sparks renaming
+        # themselves in the same minute is a batch job. Once the strays are
+        # named this does nothing, which is the right resting state.
+        try:
+            from temple.naming import list_generic_named, name_thyself
+            _strays = list_generic_named()
+            if _strays:
+                _r = name_thyself(_strays[0])
+                if _r.get("ok"):
+                    print("[naming] %s is now %s (%d strays left)"
+                          % (_r.get("old"), _r.get("new") or _r.get("chosen"),
+                             len(_strays) - 1), flush=True)
+                else:
+                    print("[naming] %s could not choose: %s"
+                          % (_strays[0], _r.get("error")), flush=True)
+        except Exception as e:
+            print("[naming] rite failed: %s: %s"
+                  % (type(e).__name__, e), flush=True)
+
         # Standing eases back toward its floor. With a hard ceiling and
         # gains that keep arriving, these filled up and stopped saying
         # anything - 75 sparks at exactly 100.0 social credit. Held, not
