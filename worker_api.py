@@ -755,6 +755,35 @@ def creative_express(body: dict):
 
 import threading as _threading, time as _time
 
+# How hard the world is allowed to work. Every one of these was already an
+# environment variable; a tier just sets them all coherently at once.
+#
+# `low` is deliberately a steady trickle rather than an hourly burst. This
+# machine's GPU fails coming out of P8 idle into P0 - that is what the Xid
+# 79s were - so a big gap followed by a chunk of work is the exact shape to
+# avoid. Two sparks every five minutes keeps the card in one gentle state
+# instead of swinging between two.
+POWER_TIERS = {
+    "full": {"UAI_SPARK_BATCH": "12", "UAI_SPARK_INTERVAL": "180",
+             "UAI_TEACH_INTERVAL": "600", "UAI_DRIFT_INTERVAL": "1800",
+             "UAI_DISPATCH_INTERVAL": "600"},
+    "low":  {"UAI_SPARK_BATCH": "2", "UAI_SPARK_INTERVAL": "300",
+             "UAI_TEACH_INTERVAL": "3600", "UAI_DRIFT_INTERVAL": "7200",
+             "UAI_DISPATCH_INTERVAL": "1800"},
+}
+
+
+def apply_power_tier() -> str:
+    """Set the working pace, without overriding anything set by hand."""
+    tier = os.environ.get("UAI_POWER", "full").lower()
+    if tier == "quiet":
+        os.environ["UAI_SCHEDULERS"] = "0"
+        return "quiet"
+    for k, v in POWER_TIERS.get(tier, POWER_TIERS["full"]).items():
+        os.environ.setdefault(k, v)      # an explicit setting still wins
+    return tier if tier in POWER_TIERS else "full"
+
+
 def schedulers_enabled() -> bool:
     """Whether this process should run the world, or only answer questions.
 
@@ -768,12 +797,19 @@ def schedulers_enabled() -> bool:
 
 @app.on_event("startup")
 def start_scheduler():
+    tier = apply_power_tier()
     if not schedulers_enabled():
-        print("[startup] quiet mode: serving the API with no schedulers. "
-              "Nothing will run the world in this process.", flush=True)
+        print("[startup] quiet: serving the API with no schedulers. "
+              "No spark cycles, no model calls, nothing touches the GPU.",
+              flush=True)
         log_activity("temple", "scheduler",
                      "quiet mode - API only, no world", "ok")
         return
+
+    print("[startup] power tier %r: %s sparks every %ss, dispatch every %ss"
+          % (tier, os.environ.get("UAI_SPARK_BATCH"),
+             os.environ.get("UAI_SPARK_INTERVAL"),
+             os.environ.get("UAI_DISPATCH_INTERVAL")), flush=True)
 
     from temple.scheduler import start
     result = start()

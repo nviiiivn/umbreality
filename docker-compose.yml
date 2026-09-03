@@ -21,6 +21,10 @@ services:
       - /home/nvii/projects/spark-world/umbreality-ai/creative/outputs:/app/creative/outputs
     environment:
       - UAI_HOST=0.0.0.0
+      # how hard the world may work: full | low | quiet. Defaults to full,
+      # so the nightly window behaves exactly as it always has.
+      - UAI_POWER=${UAI_POWER:-full}
+      - UAI_SCHEDULERS=${UAI_SCHEDULERS:-1}
       - PYTHONUNBUFFERED=1
       - TZ=America/Los_Angeles
       - UNSPLASH_ACCESS_KEY=${UNSPLASH_ACCESS_KEY}

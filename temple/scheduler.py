@@ -56,7 +56,7 @@ EXPLORATION_TASKS = [
     "visit the monastery and document the spiritual practices observed there",
 ]
 
-SCHEDULE_INTERVAL = 600  # 10 minutes between cycles
+SCHEDULE_INTERVAL = int(os.environ.get("UAI_DISPATCH_INTERVAL", "600"))  # 10 minutes between cycles, longer when the world is idling
 AUTO_RUN = True
 CYCLE_COUNTER = 0
 WEEK_CYCLE = 0  # 0-8 within the 9-cycle week
