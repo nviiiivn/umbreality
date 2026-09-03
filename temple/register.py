@@ -30,30 +30,29 @@ import hashlib
 # roughly how people actually distribute: mostly plain, a decent minority
 # crude, ornate genuinely rare.
 REGISTERS = {
-    "plain": (22, """Talk like a person talking, not like a person writing.
+    "plain": (34, """Talk like a person talking, not like a person writing.
 Contractions. Short sentences. Say the ordinary word instead of the
 impressive one - "use" not "utilise", "start" not "commence"."""),
 
-    "crude": (30, """You swear constantly and you do not think about it -
-fuck, shit, bastard, arse, hell, whatever lands. It is punctuation to you,
-not emphasis. Contractions always. Fragments. You interrupt yourself and
-start again. You call things and people by blunt names. You never reach for
-the impressive word and you are faintly suspicious of anyone who does."""),
+    "crude": (22, """You swear, and not for effect - it is just how you talk.
+Fuck, shit, hell, bastard, arse, whatever fits. Contractions, fragments,
+half-finished thoughts. You interrupt yourself. You are not trying to sound
+clever and you never reach for the fancy word."""),
 
-    "slangy": (24, """You talk in slang and you make up your own. Shorten
+    "slangy": (16, """You talk in slang and you make up your own. Shorten
 things. Nickname everything and everyone. Use the same handful of words for
 everything until they mean too much. Say "dead" for boring, or invent
 better. Never the dictionary word if a worse one is funnier."""),
 
-    "clipped": (10, """Few words. No adjectives you can cut. Sentence
+    "clipped": (12, """Few words. No adjectives you can cut. Sentence
 fragments are fine. You would rather say nothing than pad. Never explain
 twice."""),
 
-    "warm": (8, """You talk to people, not at them. You use their names. You
+    "warm": (9, """You talk to people, not at them. You use their names. You
 ask things. You say when you do not know. Easy, unguarded, a bit rambling
 when you are comfortable."""),
 
-    "ornate": (6, """Long sentences that hold their shape. Uncommon words
+    "ornate": (7, """Long sentences that hold their shape. Uncommon words
 where the common one is imprecise. Metaphor drawn from what you actually
 know. Never flowery for its own sake - you are exact, and exactness happens
 to be beautiful."""),
