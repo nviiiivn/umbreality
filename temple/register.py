@@ -79,8 +79,30 @@ def _weighted_pick(name: str) -> str:
     return "plain"
 
 
+def _declared(spark_name: str):
+    """A register written into the spark's own record, if there is one."""
+    import sqlite3
+    from pathlib import Path
+    db = Path(__file__).resolve().parent / ("spark_%s.db" % spark_name)
+    if not db.exists():
+        return None
+    try:
+        c = sqlite3.connect(str(db), timeout=10)
+        row = c.execute("SELECT value FROM personality WHERE key='register'").fetchone()
+        c.close()
+    except sqlite3.Error:
+        return None
+    return row[0] if row and row[0] in REGISTERS else None
+
+
 def register_of(spark_name: str) -> str:
-    return _weighted_pick(spark_name)
+    """How this spark talks.
+
+    A register it was born with wins. Otherwise it is drawn from its own
+    name, deterministically, so that sparks who predate this idea still have
+    a manner of speech and it never shifts under them.
+    """
+    return _declared(spark_name) or _weighted_pick(spark_name)
 
 
 def instruction(spark_name: str) -> str:
