@@ -1176,6 +1176,17 @@ def sim_auto():
         }
     }
 
+@app.get("/sim/strategies/performance")
+def sim_strategy_performance():
+    """What each strategy has done with its own book.
+
+    Each one trades separately, so these returns are comparable. Anything
+    with fewer than 30 closed positions is not yet evidence.
+    """
+    from sim.persistent_portfolio import strategy_performance
+    return strategy_performance()
+
+
 @app.get("/sim/strategies")
 def sim_strategies():
     """Run all real trading strategies and return signals."""
