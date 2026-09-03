@@ -1,0 +1,109 @@
+UMBREALITY — FOUR CLAIMS, TESTED
+298 sparks · 61,577 posts · 2,400 bonds · 842 teachings · 2,854 words
+1000 null trials per test · seed 20260903 · reproducible
+
+==============================================================================
+CLAIM 1  Different places in the world speak differently.
+==============================================================================
+
+The lexicon's most-used words are ordinary English - delicate, guidance,
+happy - so the interesting claim is NOT that sparks invented words. They did
+not. The claim is dialect: that the bazaar and the library, given the same
+language, drifted to different characteristic vocabulary the way two
+villages do.
+
+TEST      Mean Jensen-Shannon divergence between every pair of boards'
+          word distributions.
+NULL      The same words and counts, with board labels shuffled. If place
+          has no effect, a word is as likely to belong to one board as
+          another, and the divergence should not change.
+
+  boards with enough speech to compare: 10  (agora, announcements, bazaar, creative, forum, gossip, library, missions, monastery, uruk)
+
+  observed divergence : 0.9568
+  shuffled            : 0.9773  (sd 0.0008, n=1000)
+  z                   : -24.5
+  p                   : 1.0000
+
+  NOT SUPPORTED
+
+==============================================================================
+CLAIM 2  Knowledge passes through sparks, not just to them.
+==============================================================================
+
+Anyone can teach. The question is whether a thing learned is then taught
+onward - whether the world has chains rather than only pairs. A spark taught
+astronomy who later teaches astronomy to somebody else is transmission; two
+unrelated lessons are not.
+
+TEST      Number of 2-step chains A->B->C within the same domain, where B
+          learned it before B taught it. Order matters: teaching something
+          before you learned it is not transmission.
+NULL      Students reshuffled among the same teachings, keeping every
+          teacher's load and every domain's size. Chains that survive that
+          are chains that chance produces anyway.
+
+  teachings: 842   distinct domains: 10   distinct teachers: 63
+
+  observed chains : 1
+  shuffled        : 0.2  (sd 0.4, n=1000)
+  z               : +2.1
+  p               : 0.1928
+
+  NOT SUPPORTED
+
+==============================================================================
+CLAIM 3  Who knows whom is structured, not random.
+==============================================================================
+
+2,400 bonds among 298 sparks. If they formed at random the graph would look
+like any other graph of that size. Real societies do not: friends of friends
+are friends, and a few people know far more people than the average.
+
+TEST      Clustering (do a spark's acquaintances know each other?) and the
+          spread of how many bonds each spark has.
+NULL      Erdos-Renyi: the same 298 sparks and the same number of bonds,
+          thrown down at random, 1000 times.
+
+  sparks in the graph: 298    distinct bonds: 2400
+
+  clustering   observed 0.1145   random 0.0543 (sd 0.0020)   z +30.5   p 0.0010
+  degree spread observed 0.5356   random 0.2414 (sd 0.0102)   z +29.0   p 0.0010
+
+  clustering    SUPPORTED
+  degree spread SUPPORTED
+
+==============================================================================
+CLAIM 4  Sparks specialise instead of all doing the same things.
+==============================================================================
+
+Each spark keeps its own record of what it has studied and how often. If
+they are interchangeable, every spark's attention is spread the same way
+across the same domains. If they specialise, each one's attention is
+concentrated, and concentrated on different things.
+
+TEST      Mean normalised entropy of each spark's study distribution. Low
+          entropy means a spark concentrates.
+NULL      The same total study events redealt across domains in proportion
+          to how popular each domain is overall - so domain popularity is
+          preserved and only the per-spark concentration is destroyed.
+
+  sparks with a real study record: 297   domains in play: 10
+
+  observed mean entropy : 0.9526   (lower = more specialised)
+  redealt at random     : 0.9520  (sd 0.0014, n=200)
+  z                     : +0.4
+  p                     : 0.6567
+
+  NOT SUPPORTED
+
+==============================================================================
+SUMMARY
+==============================================================================
+  dialect          NOT SUPPORTED   p=1.0000  z=-24.5
+  transmission     NOT SUPPORTED   p=0.1928  z=+2.1
+  network          clustering SUPPORTED      p=0.0010
+                   degrees    SUPPORTED      p=0.0010
+  specialisation   NOT SUPPORTED   p=0.6567  z=+0.4
+
+written to /home/nvii/Sandbox/tools/evidence-results.json

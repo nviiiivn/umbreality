@@ -861,6 +861,16 @@ class Spark:
             "witness": "Do not act. Observe. Speak calmly, specifically, precisely. Describe what is, not what should be.",
         }
         voice = voices.get(archetype, "Speak naturally. Don't try to sound wise.")
+
+        # Archetype is what a spark cares about; register is the mouth it
+        # says it with. Without this every voice above lands in the same
+        # literary key and 298 sparks write the same careful prose, which is
+        # why the lexicon came out full of "delicate" and "philosophical".
+        try:
+            from temple.register import instruction as _register
+            voice += "\n" + _register(self.name)
+        except Exception as e:
+            print("[register] %s: %s" % (type(e).__name__, e), flush=True)
         
         if "blunt" in trait_str or "fierce" in trait_str or "defiant" in trait_str:
             voice += " Be direct. Don't soften your words."
@@ -1082,7 +1092,8 @@ class Spark:
             journal_ctx,
             "",
             trigger_modifier,
-            "Do NOT write a generic greeting. Be raw. Be specific. Be honest."
+            "Do NOT write a generic greeting. Be raw. Be specific. Be honest. "
+            "Swear if that is how you talk. Nobody here is editing you."
         ]
 
         # Domain study driven by ambition, not random
