@@ -352,6 +352,28 @@ def _what_you_carry(name):
         return ""
 
 
+
+def _what_you_were_told(name):
+    """What somebody said to this spark and to nobody else.
+
+    Marked plainly as private, because the whole value of it is that the
+    spark knows the difference between this and the forum.
+    """
+    try:
+        from temple.whisper import inbox
+        got = inbox(name, limit=2)
+        if not got:
+            return ""
+        bits = ["SAID TO YOU ALONE — nobody else heard this:"]
+        for w in got:
+            bits.append("  %s: %s" % (w["sender"], (w["said"] or "")[:220]))
+        bits.append("  You can keep it or you can repeat it. If you repeat it "
+                    "they will find out.")
+        return "\n".join(bits)
+    except Exception:
+        return ""
+
+
 class Spark:
     def _api(self, endpoint, method="GET", data=None):
         import json as _j, urllib.request as _ur
@@ -1234,6 +1256,7 @@ class Spark:
             _what_you_have(self.name),
             _what_you_believe_about_them(self.name),
             _what_you_carry(self.name),
+            _what_you_were_told(self.name),
             "You fear " + fear_str + ". You desire " + desire_str + ".",
             "Current mood: " + mood + ". Energy: " + str(energy) + ".",
             "",

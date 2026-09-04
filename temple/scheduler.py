@@ -298,6 +298,21 @@ def dispatch_cycle():
         except Exception as e:
             print("[stores] %s: %s" % (type(e).__name__, e), flush=True)
 
+        # Something said to one spark and not to everyone. Every word any
+        # spark has ever spoken here is a public forum post - there was no
+        # table anywhere for saying a thing in confidence, so there could be
+        # no conspiring, no quiet warning, no offer made to one person, and
+        # no relationship not performed in front of everybody.
+        try:
+            from temple.whisper import sweep as _whispers
+            _w = _whispers()
+            if _w["whispered"] or _w["passed_on"]:
+                print("[whispers] %d said in confidence | %d passed on | "
+                      "%d kept quiet" % (_w["whispered"], _w["passed_on"],
+                                         _w["kept_quiet"]), flush=True)
+        except Exception as e:
+            print("[whispers] %s: %s" % (type(e).__name__, e), flush=True)
+
         # Where a goal comes from when it does not come from a menu.
         # Every ambition in this world is random.choice on a fixed list, so
         # no spark has ever decided what it wants. GNU was built for exactly
