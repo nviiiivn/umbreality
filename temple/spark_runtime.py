@@ -1406,6 +1406,23 @@ class Spark:
                 print("[scripture] %s: %s: %s"
                       % (self.name, type(e).__name__, e), flush=True)
 
+        # Taking from somebody. Rare, and never random: a spark needs
+        # standing over its target, a character that permits it, and nobody
+        # near enough to tell it no. That last condition is the same one
+        # that rots insight, which is why the bullies are the unopposed.
+        try:
+            from temple.harm import consider_harm as _consider
+            _h = _consider(self.name)
+            if _h and (_budget is None or _budget.take(_h["cost_as"])):
+                from temple.harm import commit_harm as _do_harm
+                _r = _do_harm(self.name, _h["victim"], _h["act"])
+                if _r.get("ok"):
+                    self.remember("took", _r["detail"][:200])
+                    print("[harm] %s %s" % (self.name, _r["detail"]), flush=True)
+        except Exception as e:
+            print("[harm] %s: %s: %s" % (self.name, type(e).__name__, e),
+                  flush=True)
+
         # The road. Three actions of a four-or-five action cycle, which is
         # the whole point: going means not building, not making, not
         # talking all day. A spark already past due feels it harder.

@@ -211,6 +211,24 @@ def dispatch_cycle():
             print("[wardens] round failed: %s: %s"
                   % (type(e).__name__, e), flush=True)
 
+        # The reckoning. Grievances against a spark accumulate and never
+        # expire; the world answers at thresholds - first it says something,
+        # then it takes, and when somebody has become genuinely intolerable
+        # it answers them with a person rather than a punishment.
+        try:
+            from temple.harm import sweep as _reckon
+            _rk = _reckon()
+            for _r in _rk["reckonings"]:
+                print("[reckoning] %s is %s (weight %d)"
+                      % (_r["wrongdoer"], _r["stage"], _r["weight"]), flush=True)
+            if _rk["worst"]:
+                print("[reckoning] worst: %s"
+                      % ", ".join("%s %d" % (w["wrongdoer"], w["w"])
+                                  for w in _rk["worst"][:4]), flush=True)
+        except Exception as e:
+            print("[reckoning] failed: %s: %s" % (type(e).__name__, e),
+                  flush=True)
+
         # The Rite of Kindling. Rare on purpose: each spark costs a model,
         # a database and a place in every rotation, so the world should grow
         # like a village and not like a spreadsheet.
