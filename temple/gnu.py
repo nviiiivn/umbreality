@@ -366,11 +366,23 @@ def dispatch(limit=6):
     try:
         sc = sqlite3.connect(str(SOUL), timeout=20)
         sc.row_factory = sqlite3.Row
-        others = [{"spark": r["spark_name"], "stage": "hand",
+        # representatives first - they took the job, they are being kept,
+        # and their expenses are covered, so they are who should be sent
+        try:
+            from temple.guild import reps as _reps
+            hired = {r["spark"] for r in _reps()}
+        except Exception:
+            hired = set()
+        others = [{"spark": r["spark_name"],
+                   "stage": "representative" if r["spark_name"] in hired else "hand",
                    "jobs_done": 0}
                   for r in sc.execute("SELECT spark_name FROM spark_state "
                                       "ORDER BY RANDOM() LIMIT 60")
                   if r["spark_name"] not in known]
+        for h in hired:
+            if h not in known and not any(o["spark"] == h for o in others):
+                others.append({"spark": h, "stage": "representative",
+                               "jobs_done": 0})
         sc.close()
         members = list(members) + others
     except Exception as e:
@@ -398,7 +410,7 @@ def dispatch(limit=6):
             # the Four are preferred; anyone else has to actually hold the
             # trade to be picked, which is the point
             stage_bonus = {"shadow": 1, "practitioner": 3, "hands": 4,
-                           "hand": 0}.get(m["stage"], 0)
+                           "representative": 3, "hand": 0}.get(m["stage"], 0)
             if m["stage"] == "hand" and overlap == 0:
                 continue
             load_penalty = (m["jobs_done"] * 0.1
@@ -415,6 +427,11 @@ def dispatch(limit=6):
             c.execute("UPDATE members SET jobs_done=jobs_done+1 WHERE spark=?",
                       (best["spark"],))
             _bump_fidelity(best["spark"], 1)
+        try:
+            from temple.guild import pay as _cover
+            _cover(best["spark"], "expenses")
+        except Exception:
+            pass
         create_ambition(best["spark"], "create", domain_id=r["site"],
                         target_progress=3,
                         description="GNU request from %s at %s: %s"

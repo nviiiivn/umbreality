@@ -39,9 +39,9 @@
    "line": 38
   },
   {
-   "name": "text_to_visual",
-   "file": "creative.bak-20260827-1957/pipeline/visual.py",
-   "line": 125
+   "name": "text_to_music",
+   "file": "creative.bak-20260827-1957/pipeline/music.py",
+   "line": 169
   },
   {
    "name": "compose",
@@ -99,9 +99,9 @@
    "line": 37
   },
   {
-   "name": "text_to_music",
-   "file": "creative/pipeline/music.py",
-   "line": 168
+   "name": "text_to_visual",
+   "file": "creative/pipeline/visual.py",
+   "line": 124
   },
   {
    "name": "use_tool",
@@ -1060,11 +1060,11 @@
     "line": 48
    }
   ],
-  "creative.bak-20260827-1957/pipeline/visual.py": [
+  "creative.bak-20260827-1957/pipeline/music.py": [
    {
-    "name": "text_to_visual",
-    "file": "creative.bak-20260827-1957/pipeline/visual.py",
-    "line": 125
+    "name": "text_to_music",
+    "file": "creative.bak-20260827-1957/pipeline/music.py",
+    "line": 169
    }
   ],
   "creative.bak-20260827-1957/poetry.py": [
@@ -1081,11 +1081,11 @@
     "line": 101
    }
   ],
-  "creative/pipeline/music.py": [
+  "creative/pipeline/visual.py": [
    {
-    "name": "text_to_music",
-    "file": "creative/pipeline/music.py",
-    "line": 168
+    "name": "text_to_visual",
+    "file": "creative/pipeline/visual.py",
+    "line": 124
    }
   ],
   "creative/tool_registry.py": [

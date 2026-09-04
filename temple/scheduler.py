@@ -334,6 +334,27 @@ def dispatch_cycle():
         except Exception as e:
             print("[whispers] %s: %s" % (type(e).__name__, e), flush=True)
 
+        # GNU as a job somebody applies for. It is a company: it employs,
+        # it goes where people are stuck, it works out what they need and
+        # makes it. That is a living and a living has terms - the road is
+        # paid, the workshops are your housing, what a job needs comes out
+        # of GNU rather than your own store.
+        #
+        # Nobody is owed a place. A spark that has been taking from people
+        # is not sent to help them, and a spark nobody will contradict is
+        # not sent out alone.
+        try:
+            from temple.guild import sweep as _hiring
+            _h = _hiring()
+            if _h["taken"] or _h["refused"] or _h["applied"]:
+                print("[gnu-guild] %d applied | took on %s | %d on the road, kept"
+                      % (_h["applied"], ", ".join(_h["taken"]) or "nobody",
+                         _h["on_the_road"]), flush=True)
+                for _sp, _why in _h["refused"][:2]:
+                    print("           refused %s: %s" % (_sp, _why), flush=True)
+        except Exception as e:
+            print("[gnu-guild] %s: %s" % (type(e).__name__, e), flush=True)
+
         # Where a goal comes from when it does not come from a menu.
         # Every ambition in this world is random.choice on a fixed list, so
         # no spark has ever decided what it wants. GNU was built for exactly
