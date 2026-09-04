@@ -211,6 +211,21 @@ def dispatch_cycle():
             print("[wardens] round failed: %s: %s"
                   % (type(e).__name__, e), flush=True)
 
+        # The Temple's collection round. Two sparks in the world's history
+        # had ever walked the road, because it was optional and expensive
+        # and nobody chooses a costly thing that nothing asks of them. It is
+        # asked now, and those who refuse are levied.
+        try:
+            from temple.obligation import sweep as _tithe
+            _t = _tithe()
+            print("[temple] road: %d clear, %d walking, %d overdue | "
+                  "tithed %d for %.2f"
+                  % (_t["clear"], _t["on_the_road"], _t["overdue"],
+                     _t["collected_from"], _t["total_taken"]), flush=True)
+        except Exception as e:
+            print("[temple] collection failed: %s: %s"
+                  % (type(e).__name__, e), flush=True)
+
         # One stray gets its name. The rite has always existed and has only
         # ever been run by hand, so sparks that arrived with a placeholder
         # kept it - Sparky and foobar are citizens with 40-odd posts each,

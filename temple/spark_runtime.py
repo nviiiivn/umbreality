@@ -1224,6 +1224,18 @@ class Spark:
             except Exception:
                 band = ""
 
+        # What this turn can hold. Until now a spark could speak, answer,
+        # study, make art, write music, read scripture and travel in the
+        # same turn, every turn, for ever - so no choice cost it another
+        # choice, and a decision that costs nothing is not a decision.
+        try:
+            from temple.cycles import Budget
+            _budget = Budget(self.name)
+        except Exception as e:
+            print("[cycles] %s: no budget (%s) - acting unbounded"
+                  % (self.name, e), flush=True)
+            _budget = None
+
         curiosity_now = 0.5
         try:
             from temple.soul import get_curiosity_state as _gcs
@@ -1236,7 +1248,8 @@ class Spark:
         zone = _act.choose_zone(band, archetype, task_type)
 
         # the Unbroken have no words yet; when one speaks it counts
-        if _act.should_speak(band, curiosity_now):
+        if _act.should_speak(band, curiosity_now) and (
+                _budget is None or _budget.take("speak")):
             self.post_to_forum(title, response[:1500], zone=zone)
         else:
             self.remember("silence", "Watched. Did not speak.")
@@ -1282,7 +1295,8 @@ class Spark:
                 except Exception:
                     pass
 
-                _t = _act.pick_thread_to_answer(
+                _t = None if (_budget is not None
+                              and not _budget.can("answer")) else _act.pick_thread_to_answer(
                     _threads, self.name, _kin, _sites, _doms, band)
                 if _t:
                     # can this spark even read what it just picked up?
@@ -1306,7 +1320,8 @@ class Spark:
                         title=_t.get("title") or "", body=_body)
                     _reply = self.think(_frame, temperature=0.85)
                     if _reply and len(_reply.strip()) > 20:
-                        self.reply_to_thread(_t.get("id"), _reply[:1200])
+                        if _budget is None or _budget.take("answer"):
+                            self.reply_to_thread(_t.get("id"), _reply[:1200])
                         self.remember("reply", "Answered %s in %s"
                                       % (_t.get("created_by"), _t.get("zone")))
                         try:
@@ -1320,7 +1335,8 @@ class Spark:
                 pass
 
         # some of them make a thing instead of only talking about it
-        if _act.wants_to_make_art(archetype, energy, task_type):
+        if _act.wants_to_make_art(archetype, energy, task_type) and (
+                _budget is None or _budget.take("art")):
             try:
                 _path = self.create_art(style=random.choice(
                     ["mandala", "fractal", "sigil", "glyph"]))
@@ -1334,7 +1350,8 @@ class Spark:
         # a few of them write something to be heard rather than seen. the
         # music generator is pure python and has always worked; nothing had
         # ever decided to use it, so not one piece existed.
-        if _act.wants_to_make_music(archetype, energy, task_type):
+        if _act.wants_to_make_music(archetype, energy, task_type) and (
+                _budget is None or _budget.take("music")):
             try:
                 _mp = self.compose_music(
                     style=random.choice(["ambient", "minimal", "drone",
@@ -1351,7 +1368,8 @@ class Spark:
 
         # and some go to the texts. sixteen of them sit in the vault and
         # until now no one in this world had read a single line.
-        if _act.wants_to_read_scripture(archetype, curiosity_now, task_type):
+        if _act.wants_to_read_scripture(archetype, curiosity_now, task_type) and (
+                _budget is None or _budget.take("scripture")):
             try:
                 _text = self.read_scripture()
                 if _text and _text != "Scripture not found":
@@ -1369,6 +1387,35 @@ class Spark:
             except Exception as e:
                 print("[scripture] %s: %s: %s"
                       % (self.name, type(e).__name__, e), flush=True)
+
+        # The road. Three actions of a four-or-five action cycle, which is
+        # the whole point: going means not building, not making, not
+        # talking all day. A spark already past due feels it harder.
+        try:
+            from temple.obligation import obligation_of, clear as _clear_road
+            _road = obligation_of(self.name)
+            if not _road["completed"]:
+                _pull = {"overdue": 0.5, "owed": 0.12,
+                         "on the road": 0.65}.get(_road["standing"], 0.0)
+                if random.random() < _pull and (
+                        _budget is None or _budget.take("pilgrimage")):
+                    _r = self.start_pilgrimage() if not _road["walking"] else None
+                    from temple.pilgrimage import pilgrim_step
+                    _step = pilgrim_step(self.name)
+                    if _step.get("status") == "pilgrimage_complete":
+                        _clear_road(self.name)
+                    self.remember("road", "On the road: %s"
+                                  % (_step.get("status") or "set out"))
+        except Exception as e:
+            print("[road] %s: %s: %s" % (self.name, type(e).__name__, e),
+                  flush=True)
+
+        if _budget is not None:
+            _b = _budget.close()
+            print("[cycle] %s spent %s of %s%s"
+                  % (self.name, _b["spent"], _b["of"],
+                     " (rested)" if _b.get("rested") else ": " + ", ".join(_b["did"])),
+                  flush=True)
 
         self.write_journal(task_type, "Posted about " + task_type + ". Felt " + mood + ".", mood)
         try:
