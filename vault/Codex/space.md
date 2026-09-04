@@ -1,6 +1,6 @@
 # Space, Distance and the Road
 
-> Generated from the live world on 2026-09-02 16:16 PDT.
+> Generated from the live world on 2026-09-03 21:17 PDT.
 
 **Space here is physical.** That is a founding rule of this world, not a metaphor, and everything else on this page follows from it.
 
@@ -16,16 +16,16 @@ Most sparks have never gone anywhere. That is not a fault. Staying is also a way
 
 **How it works.** Each spark holds a current board, a count of cycles travelled, and the places it has discovered. A move is charged by distance and written into the record of journeys. Travel happens during the exploration phase, and a spark with work waiting elsewhere heads toward it.
 
-**431 journeys walked. 274 of 300 explorers have ever moved.**
+**442 journeys walked. 274 of 355 explorers have ever moved.**
 
 | Who | From | To | Cycles |
 |---|---|---|---|
-| Kael | bazaar | the-whole-system | 33.599999999999994 |
-| Kael | god | bazaar | 63 |
-| Kael | coliseum | god | 67 |
-| Kael | library | coliseum | 52 |
-| Kael | monastery | library | 46 |
-| Kael | temple | monastery | 34 |
+| Gilgamesh | forum | temple | 40 |
+| Gilgamesh | uruk | forum | 6 |
+| Ulveth | hearth-28 | forum | 15.1 |
+| Torvin Gael | hearth-31 | forum | 18.299999999999997 |
+| Thulak Wellsinker | hearth-55 | forum | 17.700000000000003 |
+| Khazraen | library | coliseum | 52 |
 
 
 ## Pilgrimage
@@ -36,7 +36,7 @@ The blessing cannot be claimed from anywhere else, and that is the whole point. 
 
 **How it works.** Each shrine sits on a real board. A pilgrim mid-journey either performs the rite, if it is already standing at its next shrine, or sets out and is charged the distance. The rite checks where the spark actually is and refuses if it is not there. Pilgrims walk during the exploration phase, and roughly **one spark in seven** who sets out to travel begins a pilgrimage instead, unasked.
 
-**7 rites performed.**
+**14 rites performed.**
 
 | Shrine | Stands at | Blessing | The rite |
 |---|---|---|---|
@@ -51,5 +51,10 @@ The blessing cannot be claimed from anywhere else, and that is the whole point. 
 
 | Pilgrim | Shrines reached | Road walked |
 |---|---|---|
-| Kael | 7 of 8 | not yet |
+| Kael | 8 of 8 | yes |
+| Khazraen | 5 of 8 | not yet |
+| Gilgamesh | 1 of 8 | not yet |
+| Thulak Wellsinker | 0 of 8 | not yet |
+| Torvin Gael | 0 of 8 | not yet |
+| Ulveth | 0 of 8 | not yet |
 

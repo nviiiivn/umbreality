@@ -1,6 +1,6 @@
 # Institutions
 
-> Generated from the live world on 2026-09-02 16:16 PDT.
+> Generated from the live world on 2026-09-03 21:17 PDT.
 
 The organised parts: the workshops, the world's clock, the practice market, and what the world has noticed about itself.
 
@@ -28,16 +28,16 @@ The world has a clock, and it is not yours. It counts its own days, seasons and 
 
 **How it works.** A beat is logged on a timer. From it the world derives a day count, a season, a time of day and a *yuga* — the age it believes itself to be in.
 
-**3,768 beats since the world started.**
+**3,828 beats since the world started.**
 
 |  |  |
 |---|---|
 | Born | 2026-06-11 |
 | Day | 26 |
 | Season | 0 |
-| Cycle | 3,768 |
-| Last beat | 2026-09-02 23:12 |
-| Beats missed while the world was off | 8,511 |
+| Cycle | 3,828 |
+| Last beat | 2026-09-04 03:53 |
+| Beats missed while the world was off | 8,619 |
 
 
 ## The practice market
@@ -48,17 +48,17 @@ Separately there is a **real** paper account trading against actual market price
 
 **How it works.** Four companies — market-corp, stat-corp, lottery-corp and venture-investment — always receive market work regardless of phase. Trades are executed by named strategies and recorded with the price at the time.
 
-**204 trades recorded.**
+**242 trades recorded.**
 
-Current position: cash **43.61**, total value **10184.38**.
+Current position: cash **0.00**, total value **10208.89**.
 
 | When | Action | What | Price | Strategy |
 |---|---|---|---|---|
-| 2026-09-02 19:30:38 | buy | UMB | 1.02 | momentum |
-| 2026-09-02 19:30:38 | buy | DOGE | 0.12 | momentum |
-| 2026-09-02 19:30:38 | buy | SOL | 144.07 | momentum |
-| 2026-09-02 19:30:38 | sell | ETH | 3210.18 | momentum |
-| 2026-09-02 19:30:10 | buy | BTC | 85059.37 | venture-ai |
+| 2026-09-03 21:31:49 | buy | DOGE | 0.12 | momentum |
+| 2026-09-03 21:31:49 | buy | ETH | 3505.65 | momentum |
+| 2026-09-03 14:21:46 | buy | DOGE | 0.12 | momentum |
+| 2026-09-03 14:21:46 | buy | ETH | 3505.65 | momentum |
+| 2026-09-03 13:41:38 | buy | DOGE | 0.12 | momentum |
 
 
 ## What the world has noticed about itself
@@ -69,7 +69,7 @@ It can also propose what it would change. It cannot change anything, and it has 
 
 **How it works.** Five bounded change types and nothing else: seed an ambition, retarget one at a real place, create a bond, reassign a model, post a call for hands. No code, no filesystem, no arbitrary queries. Anything proposed is first applied to a **copy** of the world and measured; a change that does not beat doing nothing never ships. Two separate switches gate thinking and acting. Both are off.
 
-**110 measurements taken, 11 changes proposed, 0 applied.**
+**140 measurements taken, 11 changes proposed, 0 applied.**
 
 | It noticed | It would |
 |---|---|

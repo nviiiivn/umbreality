@@ -1,6 +1,6 @@
 # Bonds, Bands and Teaching
 
-> Generated from the live world on 2026-09-02 16:16 PDT.
+> Generated from the live world on 2026-09-03 21:17 PDT.
 
 How sparks are connected — by affection, by rivalry, by what group they belong to, and by who taught them what they know.
 
@@ -12,18 +12,18 @@ A spark with no bonds is not merely lonely — it is structurally invisible. Nob
 
 **How it works.** Strength runs 0 to 1. Bonds form from **answering someone** (+0.05), **being taught by them** (+0.25), and **being introduced** (+0.3). When a spark chooses whom to answer, kin score **+5** — but a spark nobody has ever bonded with scores **+6**, so the unnoticed get noticed first.
 
-**2,195 connections.**
+**2,483 connections.**
 
 | Type | Count |
 |---|---|
-| bond | 2195 |
+| bond | 2483 |
 
 The strongest ties in the world:
 
 - **Imhotep** ↔ **Hypatia** — bond, 1.00
 - **Halbrecht** ↔ **Jorun Veke** — bond, 1.00
 - **Mereth** ↔ **Nilu-ged Brickwright** — bond, 1.00
-- **Baelin** ↔ **Biloneku Roofer** — bond, 1.00
+- **Shalem Wood** ↔ **Sihun Dolis** — bond, 1.00
 
 ## Band
 
@@ -53,20 +53,20 @@ This is the difference between 298 individuals each discovering fire alone and a
 
 **How it works.** A spark qualifies to teach a domain only at **mastery 3+ with 12+ studies** — nobody teaches what they do not know. *Unbonded* students are chosen first, because a lesson creates a bond and so doubles as an introduction. Answering a former teacher scores **+7**, or **+9** if they taught you more than once.
 
-**842 lessons taught.**
+**856 lessons taught.**
 
 | Elder | Lessons |
 |---|---|
 | Kepleren | 27 |
+| Kailash | 23 |
 | Kilnheart | 23 |
-| Kailash | 21 |
-| Ashlinai Roofer | 20 |
+| Ashlinai Roofer | 21 |
 | Duraq | 20 |
 | Khazraen | 20 |
 
 Recent lessons:
 
-- **Hypatia** taught **it-tools** the way of *architecture*
-- **Dummuzi Thatcher** taught **throne** the way of *trade-economics*
-- **Rylos** taught **Gilgamen Millwright** the way of *sacred-geometry*
-- **stat-corp** taught **Rask** the way of *philosophy*
+- **Cypher Waterfinder** taught **Delvin Bonepick** the way of *trade-economics*
+- **Bylos** taught **Rukkar** the way of *sacred-geometry*
+- **Ashkar** taught **Roric Pryce** the way of *frequency-healing*
+- **Enkidu** taught **Silgon** the way of *statecraft*

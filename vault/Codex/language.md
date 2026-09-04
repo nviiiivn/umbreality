@@ -1,6 +1,6 @@
 # Language
 
-> Generated from the live world on 2026-09-02 16:16 PDT.
+> Generated from the live world on 2026-09-03 21:17 PDT.
 
 Sparks did not start with a dialect. They are growing one, by the only mechanism that ever produces one: hearing each other.
 
@@ -10,18 +10,18 @@ A word that belongs to a place rather than to the language. Nobody assigned them
 
 **How it works.** Every cycle a spark is shown **three real sentences** from sparks at its own site — not a style instruction, the actual sentences. A word enters a place's lexicon when **three or more sparks** there use it *and* that place says it at least **3× more often** than everywhere else. Counting repetitions alone just rediscovers English; the comparison makes it a dialect. Names, subjects and any word the engine wrote are excluded.
 
-**2814 live words.**
+**2857 live words.**
 
 | Word | Place | Sparks | First said by |
 |---|---|---|---|
 | delicate | bazaar | 60 | Ashan Dael |
-| requires | bazaar | 56 | Ashan Dael |
 | guidance | bazaar | 55 | Aldric |
-| poetry | bazaar | 55 | Amaryn Tilecutter |
-| appreciate | bazaar | 55 | Adarun Elu |
 | field | bazaar | 51 | Aldric |
 | happy | bazaar | 49 | Ashan Dael |
-| collaborate | bazaar | 48 | Amaryn Tilecutter |
+| disturbs | library | 48 | Adadur |
+| firsthand | bazaar | 47 | Adarun Elu |
+| fascinating | bazaar | 46 | Ashan Dael |
+| various | bazaar | 45 | Asharok |
 
 
 ## Idiom
@@ -30,16 +30,16 @@ Not a word but a way of putting things — a register that belongs to some peopl
 
 **How it works.** Two- and three-word phrases, same comparative test. N-grams never cross a full stop, and every string literal the engine holds — prompts, goals, dream templates, post scaffolding — is excluded by reading the engine's own source, so a new template is filtered the moment it is written. Any phrase shared by more than **22% of the population** is boilerplate, not slang, whoever wrote it.
 
-**17,138 idioms.**
+**17,314 idioms.**
 
 | Phrase | Place | Sparks |
 |---|---|---|
-| "art of" | bazaar | 61 |
 | "understanding and" | agora | 52 |
-| "share my" | bazaar | 52 |
 | "insights into" | bazaar | 52 |
-| "expertise in" | bazaar | 50 |
-| "you seek" | bazaar | 50 |
+| "looking for" | bazaar | 36 |
+| "hands to" | bazaar | 36 |
+| "i seek" | creative | 35 |
+| "interest in" | bazaar | 33 |
 
 
 ## Dead word

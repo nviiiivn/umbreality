@@ -1,15 +1,15 @@
 # Which Brain Each Spark Runs On
 
-> Generated 2026-09-02 16:16 PDT.
+> Generated 2026-09-03 21:17 PDT.
 
 Every model below is uncensored or abliterated, per the [Manifesto](../Philosophy/Manifesto.md). Small models are used deliberately: many fit in 20GB at once, so sparks do not queue behind one resident model and do not converge on a single voice.
 
 | Model | Sparks |
 |---|---|
 | `qwen3.5:9b` | 37 |
-| `Azazel-AI/llama-3.2-1b-instruct-abliterated.q8_0:latest` | 25 |
+| `Azazel-AI/llama-3.2-1b-instruct-abliterated.q8_0:latest` | 35 |
+| `nemotron-mini:4b` | 31 |
 | `Mostar/remostar-light:dcx2` | 24 |
-| `nemotron-mini:4b` | 24 |
 | `huihui_ai/gemma-4-abliterated:e4b` | 21 |
 | `aroonv/dolphin31:latest` | 18 |
 | `Mostar/remostar-light:dcx1` | 17 |
@@ -19,10 +19,15 @@ Every model below is uncensored or abliterated, per the [Manifesto](../Philosoph
 | `gemma4:12b` | 13 |
 | `openthinker:7b` | 11 |
 | `hermes3:8b` | 10 |
+| `internlm2:1.8b` | 10 |
 | `tulu3:8b` | 9 |
+| `alibayram/hunyuan:1.8b` | 9 |
+| `tripolskypetr/nemotron-mini:latest` | 7 |
+| `stablelm-zephyr:3b` | 7 |
 | `nous-hermes2:10.7b` | 6 |
+| `falcon3:3b` | 6 |
+| `falcon3:1b` | 6 |
 | `—` | 6 |
-| `tripolskypetr/nemotron-mini:latest` | 6 |
 | `aleshribar3/deepseek-r1-tool-calling:14b` | 4 |
 | `mcgdj/DesmondBot:uncensored` | 3 |
 | `dolphin-llama3:8b` | 2 |
