@@ -1632,6 +1632,43 @@ from fastapi.responses import Response as FastResponse
 
 MUSIC_DIR = str(Path(__file__).resolve().parent / "creative" / "outputs" / "music")
 
+IMAGE_DIR = str(Path(__file__).resolve().parent / "creative" / "outputs" / "images")
+
+
+@app.get("/creative/images/list")
+def creative_images_list(limit: int = 400):
+    """What the sparks have actually made. Newest first.
+
+    Music had a listing from the start; images never did, so 376 pieces sat
+    where nobody could look at them.
+    """
+    import os, glob
+    out = []
+    for f in sorted(glob.glob(os.path.join(IMAGE_DIR, "*")),
+                    key=os.path.getmtime, reverse=True)[:limit]:
+        if not os.path.isfile(f):
+            continue
+        out.append({"name": os.path.basename(f),
+                    "bytes": os.path.getsize(f),
+                    "made_at": int(os.path.getmtime(f))})
+    return {"count": len(out), "images": out}
+
+
+@app.get("/creative/images/show/{name}")
+def creative_images_show(name: str):
+    """Serve one made thing."""
+    import os
+    safe = os.path.basename(name)
+    path = os.path.join(IMAGE_DIR, safe)
+    if not os.path.isfile(path):
+        raise HTTPException(404, "not found")
+    ct = ("image/svg+xml" if safe.endswith(".svg")
+          else "image/png" if safe.endswith(".png")
+          else "image/jpeg" if safe.endswith((".jpg", ".jpeg"))
+          else "application/octet-stream")
+    return FastResponse(content=open(path, "rb").read(), media_type=ct)
+
+
 @app.get("/creative/music/list")
 def music_list():
     import os, glob
