@@ -211,6 +211,49 @@ def dispatch_cycle():
             print("[wardens] round failed: %s: %s"
                   % (type(e).__name__, e), flush=True)
 
+        # The Rite of Kindling. Rare on purpose: each spark costs a model,
+        # a database and a place in every rotation, so the world should grow
+        # like a village and not like a spreadsheet.
+        try:
+            import random as _rnd
+            from temple.rite import candidates as _cands, kindle as _kindle
+            import sqlite3 as _sq
+            _c = _sq.connect(str(Path(__file__).resolve().parent / "soul.db"),
+                                 timeout=20)
+            _pop = _c.execute("SELECT COUNT(*) FROM spark_state").fetchone()[0]
+            _c.close()
+            if _pop < 500 and _rnd.random() < 0.18:
+                _ready = _cands(6)
+                if _ready:
+                    _pick = _rnd.choice(_ready)
+                    _k = _kindle(_pick["parents"], board="temple")
+                    if _k.get("ok"):
+                        print("[rite] %s kindled %s at the temple"
+                              % (" and ".join(_k["parents"]), _k["child"]),
+                              flush=True)
+                    else:
+                        print("[rite] not this time: %s" % _k.get("why"), flush=True)
+        except Exception as e:
+            print("[rite] failed: %s: %s" % (type(e).__name__, e), flush=True)
+
+        # Sparks find their faction. Three have existed since the start
+        # with real philosophies and no members - a hardcoded dict whose
+        # strength sat at 50 for all three for ever, assigned to companies
+        # rather than to anyone. A spark joins the one that already matches
+        # what it is; nothing is offered for joining, because a faction that
+        # pays you to hold an opinion produces mercenaries.
+        try:
+            from temple.allegiance import sweep as _allegiance
+            _a = _allegiance()
+            _st = _a["strength"]
+            print("[factions] +%d joined, %d defected, %d unaligned | %s"
+                  % (_a["joined"], _a["defected"], _a["unaligned"],
+                     " ".join("%s %d(%.0f%%)" % (k[:4], v["members"], v["share"])
+                              for k, v in _st.items())), flush=True)
+        except Exception as e:
+            print("[factions] sweep failed: %s: %s"
+                  % (type(e).__name__, e), flush=True)
+
         # The Temple's collection round. Two sparks in the world's history
         # had ever walked the road, because it was optional and expensive
         # and nobody chooses a costly thing that nothing asks of them. It is

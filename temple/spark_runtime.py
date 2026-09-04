@@ -236,6 +236,23 @@ def _strip_process(text, given=""):
     return "\n".join(kept).strip(), dropped
 
 
+
+def _faction_line(name):
+    """What a spark believes, in its own prompt. Empty if it is unaligned -
+    and unaligned should stay common, or belonging means nothing."""
+    try:
+        from temple.allegiance import faction_of, AFFINITY
+        f = faction_of(name)
+        if not f:
+            return ("You belong to no faction. You have not found people who "
+                    "think as you do, or you have not wanted to.")
+        return ("YOU ARE ONE OF THE %s. %s You argue for this when it comes up, "
+                "and you notice who else does."
+                % (f.upper(), AFFINITY[f]["creed"]))
+    except Exception:
+        return ""
+
+
 class Spark:
     def _api(self, endpoint, method="GET", data=None):
         import json as _j, urllib.request as _ur
@@ -1112,6 +1129,7 @@ class Spark:
             task_prompt,
             "",
             "Your archetype: " + archetype + ". Your traits: " + trait_str,
+            _faction_line(self.name),
             "You fear " + fear_str + ". You desire " + desire_str + ".",
             "Current mood: " + mood + ". Energy: " + str(energy) + ".",
             "",
