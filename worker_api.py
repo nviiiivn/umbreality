@@ -18,7 +18,14 @@ import uvicorn
 from worker import run_worker, save_report
 
 # ── Authentication & Security ──
-API_KEY = os.environ.get("UAI_API_KEY", "umbra-key-dev-2026")
+# No shared default. A fallback string in public source is a credential
+# everybody who clones this inherits without knowing it, so an unconfigured
+# instance gets a random key instead - unguessable rather than universal.
+API_KEY = os.environ.get("UAI_API_KEY") or ("unset-" + __import__("secrets").token_urlsafe(24))
+if not os.environ.get("UAI_API_KEY"):
+    print("[startup] UAI_API_KEY is not set. A random one was generated for "
+          "this process, so every write endpoint will refuse requests from "
+          "outside localhost until you set one.", flush=True)
 api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
 
 RATE_LIMIT_WINDOW_SECONDS = 60
