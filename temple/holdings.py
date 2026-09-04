@@ -54,22 +54,22 @@ HOLD = BASE / "temple" / "holdings.db"
 # what existing costs, per cycle, before a spark does anything
 UPKEEP = 1.0
 # what a place holds when untouched, and how fast it comes back
-PLACE_CAP = 60.0
-REGEN = 9.0            # a world that strip-mines itself in four rounds is not a tension
+PLACE_CAP = 45.0
+REGEN = 3.2            # a world that strip-mines itself in four rounds is not a tension
 # below this a place is stripped and gives almost nothing
-STRIPPED = 8.0
+STRIPPED = 6.0
 
 # how much a spark can carry
-CARRY_CAP = 40.0
+CARRY_CAP = 13.0        # about a week. Forty was a pantry nothing could empty
 # below this, a spark starts losing actions
-HUNGRY = 6.0
-STARVING = 2.0
+HUNGRY = 4.5
+STARVING = 1.5
 
 # what each way of taking does
-CITY_TAKE = 6.0          # as much as it can carry away
-WILD_TAKE = 4.2          # less than it could, on purpose
-WILD_TENDS = 2.6         # and gives back to the place, which is the point
-WILD_SHARE_BELOW = 8.0   # a wild spark under this is fed by the others
+CITY_TAKE = 3.0          # as much as it can carry away
+WILD_TAKE = 2.1          # less than it could, on purpose
+WILD_TENDS = 1.5         # and gives back to the place, which is the point
+WILD_SHARE_BELOW = 5.0   # a wild spark under this is fed by the others
 
 
 def _conn(db):
@@ -169,7 +169,25 @@ def draw(spark: str, board: str) -> dict:
 
     # a stripped place gives almost nothing to anybody
     scarcity = 1.0 if there > STRIPPED else max(0.05, there / STRIPPED)
-    got = round(min(want * scarcity, max(0.0, there)), 2)
+
+    # The ground answers those who have answered it. Tending an open
+    # commons is eaten by whoever takes most - eighteen rounds of frost put
+    # the wild at 100% starving against the settled at 89.7% precisely
+    # because their restraint subsidised the takers. A place remembers who
+    # tends it, so reciprocity is with somewhere rather than with everywhere.
+    kinship = 1.0
+    ct = _conn(HOLD)
+    ct.execute("""CREATE TABLE IF NOT EXISTS tended (
+        spark TEXT NOT NULL, board TEXT NOT NULL,
+        amount REAL DEFAULT 0, PRIMARY KEY (spark, board))""")
+    row = ct.execute("SELECT amount FROM tended WHERE spark=? AND board=?",
+                     (spark, board)).fetchone()
+    ct.close()
+    if row and float(row["amount"]) > 0:
+        # up to half again, for somebody who has actually put something back
+        kinship = 1.0 + min(0.5, float(row["amount"]) * 0.02)
+
+    got = round(min(want * scarcity * kinship, max(0.0, there)), 2)
     if got <= 0:
         return {"ok": False, "why": "%s has nothing left" % board, "way": way}
 
@@ -194,6 +212,13 @@ def draw(spark: str, board: str) -> dict:
             c.execute("UPDATE places SET yield=ROUND(MIN(?, yield+?),2), "
                       "tended_total=ROUND(COALESCE(tended_total,0)+?,2) "
                       "WHERE board=?", (PLACE_CAP, tended, tended, board))
+            c.execute("""CREATE TABLE IF NOT EXISTS tended (
+                spark TEXT NOT NULL, board TEXT NOT NULL,
+                amount REAL DEFAULT 0, PRIMARY KEY (spark, board))""")
+            c.execute("INSERT INTO tended (spark, board, amount) VALUES (?,?,?) "
+                      "ON CONFLICT(spark, board) DO UPDATE SET "
+                      "amount = ROUND(amount + ?, 2)",
+                      (spark, board, tended, tended))
             now = c.execute("SELECT yield FROM places WHERE board=?",
                             (board,)).fetchone()
 
@@ -285,13 +310,17 @@ def regenerate() -> dict:
     """Places come back, slowly. A stripped one comes back slowest."""
     _ensure()
     c = _conn(HOLD)
+    # Nothing much comes back while the ground is hard.
+    w = weather()
+    hard = 0.12 if w.get("kind") == "frost" else 1.0
+
     # A place that is being looked after comes back faster. A stripped one
     # that nobody tends comes back slowest, which is how a commons dies.
     c.execute("UPDATE places SET yield = ROUND(MIN(?, yield + "
               "CASE WHEN yield <= ? THEN ? ELSE ? END "
               "+ MIN(4.0, COALESCE(tended_total,0) * 0.04)), 2), "
               "updated_at=datetime('now')",
-              (PLACE_CAP, STRIPPED, REGEN * 0.4, REGEN))
+              (PLACE_CAP, STRIPPED, REGEN * 0.4 * hard, REGEN * hard))
     n = c.execute("SELECT COUNT(*) n FROM places").fetchone()["n"]
     stripped = c.execute("SELECT COUNT(*) n FROM places WHERE yield <= ?",
                          (STRIPPED,)).fetchone()["n"]
@@ -315,6 +344,28 @@ def action_penalty(spark: str) -> int:
     return 0
 
 
+def where_they_go(spark: str, boards):
+    """The wild return to places they have tended. The settled go anywhere.
+
+    This is what makes reciprocity worth anything: a relationship with
+    somewhere in particular, rather than goodwill spread over everywhere and
+    collected by whoever takes most.
+    """
+    if way_of(spark) != "wild":
+        return random.choice(boards)
+    c = _conn(HOLD)
+    try:
+        rows = [r["board"] for r in c.execute(
+            "SELECT board FROM tended WHERE spark=? ORDER BY amount DESC LIMIT 3",
+            (spark,))]
+    except sqlite3.Error:
+        rows = []
+    c.close()
+    if rows and random.random() < 0.8:
+        return random.choice(rows)
+    return random.choice(boards)
+
+
 def sweep(feed: int = 140) -> dict:
     """One turn of the world's stomach."""
     _ensure()
@@ -331,7 +382,7 @@ def sweep(feed: int = 140) -> dict:
     took = 0
     for n in random.sample(names, min(feed, len(names))):
         if store_of(n) < CARRY_CAP * 0.8:
-            r = draw(n, random.choice(boards))
+            r = draw(n, where_they_go(n, boards))
             if r.get("ok"):
                 took += 1
 
@@ -377,3 +428,80 @@ def how_are_they() -> dict:
             "note": "neither way is written as correct. The settled are more "
                     "efficient per spark and brittle when a place fails; the "
                     "wild are less efficient and hard to kill."}
+
+
+# ── the frost ────────────────────────────────────────────────────────
+#
+# A hard season. Not a punishment - the experiment. Sixty rounds of a
+# healthy world put the two ways within half a point of each other, because
+# sharing is insurance and insurance costs you in good years. The frost is
+# the bad year, and it is the only condition under which the difference
+# between holding and sharing can show at all.
+
+def frost(severity: float = 0.7, rounds: int = 12) -> dict:
+    """Freeze the ground. Places lose most of what they hold and barely
+    recover while it lasts.
+
+    severity 0..1 - how much of every place is taken.
+    """
+    _ensure()
+    severity = max(0.0, min(1.0, severity))
+    c = _conn(HOLD)
+    c.execute("""CREATE TABLE IF NOT EXISTS weather (
+        id INTEGER PRIMARY KEY CHECK (id=1),
+        kind TEXT, severity REAL, until_cycle INTEGER,
+        began_at TEXT DEFAULT (datetime('now')))""")
+    before = c.execute("SELECT ROUND(AVG(yield),1) a FROM places").fetchone()["a"]
+    c.execute("UPDATE places SET yield = ROUND(yield * ?, 2)", (1.0 - severity,))
+    after = c.execute("SELECT ROUND(AVG(yield),1) a FROM places").fetchone()["a"]
+    c.execute("INSERT OR REPLACE INTO weather (id, kind, severity, until_cycle) "
+              "VALUES (1,?,?,?)", ("frost", severity, _cycle() + rounds))
+    c.commit()
+    c.close()
+
+    try:
+        import urllib.request
+        body = json.dumps({
+            "title": "The ground has gone hard",
+            "author": "temple", "author_layer": 3, "zone": "announcements",
+            "content": "Everything that was growing has stopped. What is in "
+                       "your stores is what you have.\n\nIt will not lift "
+                       "soon."}).encode()
+        req = urllib.request.Request("http://localhost:8910/forum/threads",
+                                     data=body,
+                                     headers={"Content-Type": "application/json"},
+                                     method="POST")
+        urllib.request.urlopen(req, timeout=8)
+    except Exception:
+        pass
+
+    return {"frost": True, "severity": severity, "rounds": rounds,
+            "places_were": before, "places_now": after}
+
+
+def weather() -> dict:
+    _ensure()
+    c = _conn(HOLD)
+    try:
+        row = c.execute("SELECT * FROM weather WHERE id=1").fetchone()
+    except sqlite3.Error:
+        row = None
+    c.close()
+    if not row:
+        return {"kind": "fair"}
+    if _cycle() > int(row["until_cycle"] or 0):
+        return {"kind": "fair", "last": row["kind"]}
+    return {"kind": row["kind"], "severity": float(row["severity"] or 0),
+            "cycles_left": int(row["until_cycle"]) - _cycle()}
+
+
+def thaw() -> dict:
+    _ensure()
+    c = _conn(HOLD)
+    try:
+        c.execute("DELETE FROM weather WHERE id=1")
+        c.commit()
+    except sqlite3.Error:
+        pass
+    c.close()
+    return {"thawed": True}
