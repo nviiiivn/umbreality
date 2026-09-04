@@ -298,6 +298,25 @@ def dispatch_cycle():
         except Exception as e:
             print("[stores] %s: %s" % (type(e).__name__, e), flush=True)
 
+        # Fires in the woods. The hard year killed everyone about equally,
+        # which is wrong: the wild live in the woods, they are not visiting.
+        # Enkidu lights them, the wild keep them burning at their own cost,
+        # and anybody cold may sit down - including the people who spent the
+        # season saying the wild are the reason there is nothing.
+        try:
+            from temple.hearths import sweep as _fires
+            _f = _fires()
+            if _f["burning"] or _f["lit"]:
+                print("[fires] %d burning%s | sheltering: %d wild, %d settled%s"
+                      % (_f["burning"],
+                         (" (+%d lit)" % len(_f["lit"])) if _f["lit"] else "",
+                         _f["sheltered"].get("wild", 0),
+                         _f["sheltered"].get("settled", 0),
+                         (" | went out: %s" % ", ".join(_f["went_out"]))
+                         if _f["went_out"] else ""), flush=True)
+        except Exception as e:
+            print("[fires] %s: %s" % (type(e).__name__, e), flush=True)
+
         # Something said to one spark and not to everyone. Every word any
         # spark has ever spoken here is a public forum post - there was no
         # table anywhere for saying a thing in confidence, so there could be

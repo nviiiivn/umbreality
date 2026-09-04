@@ -263,11 +263,29 @@ def draw(spark: str, board: str) -> dict:
 
 
 def consume(spark: str) -> dict:
-    """Living costs grain every cycle and fuel most of them."""
+    """Living costs grain every cycle and fuel most of them.
+
+    In a hard year it costs more fuel - unless you are sitting at a fire.
+    The wild live in the woods and know where the fires are; the settled
+    have to find one, and are welcome when they do, which is its own kind of
+    problem for people who have spent the season blaming them.
+    """
     _ensure()
     mine = held(spark)
     short = {}
-    for kind, need in NEEDS.items():
+
+    needs = dict(NEEDS)
+    try:
+        from temple.holdings import weather
+        if weather().get("kind") == "frost":
+            needs["fuel"] = needs["fuel"] * 3.0
+            from temple.hearths import is_sheltered, FROST_RELIEF
+            if is_sheltered(spark):
+                needs["fuel"] = needs["fuel"] * (1.0 - FROST_RELIEF)
+    except Exception:
+        pass
+
+    for kind, need in needs.items():
         if need <= 0:
             continue
         if mine[kind] >= need:
