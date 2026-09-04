@@ -25,6 +25,7 @@ services:
       # so the nightly window behaves exactly as it always has.
       - UAI_POWER=${UAI_POWER:-full}
       - UAI_SCHEDULERS=${UAI_SCHEDULERS:-1}
+      - UAI_API_KEY=${UAI_API_KEY}
       - PYTHONUNBUFFERED=1
       - TZ=America/Los_Angeles
       - UNSPLASH_ACCESS_KEY=${UNSPLASH_ACCESS_KEY}
