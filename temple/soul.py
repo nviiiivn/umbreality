@@ -650,8 +650,22 @@ def ambition_from_tribulation(spark_name):
     amb_type, site, action = _r.choice(options)
 
     desc = "%s Because: %s" % (action, (trib["description"] or "")[:90])
+
+    # courage, from the Flavian Amphitheatre: you have stood where people
+    # stood who did not want to, so what troubles you moves faster because
+    # you go at it. Fewer steps to finish work born of a tribulation.
+    target = 4
+    try:
+        from temple.blessings import overcome_bonus
+        b = overcome_bonus(spark_name)
+        if b:
+            target = max(2, int(round(4 * (1.0 - b * 2))))
+    except Exception as e:
+        print("[blessings] courage unread for %s: %s" % (spark_name, e),
+              flush=True)
+
     return create_ambition(spark_name, amb_type, domain_id=site,
-                           target_progress=4, description=desc)
+                           target_progress=target, description=desc)
 
 
 # ── Curiosity & Decay ──────────────────────────────────────────

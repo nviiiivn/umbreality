@@ -682,6 +682,75 @@ class Spark:
         except Exception as e:
             print("[ember] %s: %s" % (type(e).__name__, e), flush=True)
 
+        # ── what the road actually does for you ───────────────────
+        # Four blessings that were defined and never consulted. Each is
+        # wired to something that already exists rather than to new
+        # machinery: faith to the decree, truth to how others are faring,
+        # clarity to places, prosperity to being answered.
+        try:
+            from temple.blessings import (decree_urgency_bonus,
+                                          sees_state_of_others,
+                                          learns_places_unvisited,
+                                          reply_bonus)
+
+            if decree_urgency_bonus(self.name):
+                try:
+                    from temple.decree import standing as _dec
+                    _d = _dec()
+                    if _d and _d.get("text"):
+                        bits.append(
+                            "FAITH: what was spoken above reaches you whole, "
+                            "not as rumour. It was said: %s. You carry it the "
+                            "way it was meant." % str(_d["text"])[:220])
+                except Exception:
+                    pass
+
+            if sees_state_of_others(self.name):
+                try:
+                    from temple.tags import state as _st, DIMENSIONS
+                    from temple.soul import _get_db as _sdb
+                    _c = _sdb()
+                    _kin = [r[0] for r in _c.execute(
+                        "SELECT CASE WHEN spark1=? THEN spark2 ELSE spark1 END "
+                        "FROM relationships WHERE spark1=? OR spark2=? "
+                        "ORDER BY RANDOM() LIMIT 2",
+                        (self.name, self.name, self.name))]
+                    _c.close()
+                    for _k in _kin:
+                        _s = _st(_k)
+                        _worst = max(DIMENSIONS, key=lambda d: abs(_s.get(d, .5) - .5))
+                        _lo, _hi = DIMENSIONS[_worst]
+                        bits.append("TRUTH: you can see how %s actually is. "
+                                    "They are %s, whatever they are saying."
+                                    % (_k, _hi if _s.get(_worst, .5) > .5 else _lo))
+                except Exception:
+                    pass
+
+            if learns_places_unvisited(self.name):
+                try:
+                    from temple.goods import _conn as _gc, GOODS as _G
+                    _c = _gc(_G)
+                    _p = [dict(r) for r in _c.execute(
+                        "SELECT board, sort, grain, fuel, stone FROM ground "
+                        "ORDER BY RANDOM() LIMIT 2")]
+                    _c.close()
+                    for _x in _p:
+                        bits.append("CLARITY: %s resolves for you without "
+                                    "walking there. It is a %s — grain %.0f, "
+                                    "fuel %.0f, stone %.0f."
+                                    % (_x["board"], _x["sort"], _x["grain"],
+                                       _x["fuel"], _x["stone"]))
+                except Exception:
+                    pass
+
+            _rb = reply_bonus(self.name)
+            if _rb:
+                bits.append("PROSPERITY: what you offer gets taken up. Say "
+                            "plainly what you have and what you want for it.")
+        except Exception as e:
+            print("[blessings] %s: %s: %s"
+                  % (self.name, type(e).__name__, e), flush=True)
+
         # ── what the road gave you ────────────────────────────────
         try:
             from temple.blessings import context as _bless

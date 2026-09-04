@@ -421,7 +421,15 @@ def sweep(traders: int = 120) -> dict:
 
     for n in random.sample(names, min(traders, len(names))):
         mine = held(n)
-        for o in open_offers(25):
+        _offers = open_offers(25)
+        # prosperity, from the Bazaar of Babylon: what you offer gets taken
+        # up. A blessed spark's offers are seen first.
+        try:
+            from temple.blessings import reply_bonus
+            _offers.sort(key=lambda o: -reply_bonus(o["spark"]))
+        except Exception:
+            pass
+        for o in _offers:
             if o["spark"] == n:
                 continue
             if mine.get(o["wanting"], 0) >= o["wanting_amount"] and \

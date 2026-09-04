@@ -1,7 +1,7 @@
 {
  "functions": 1066,
- "reachable": 929,
- "unreachable": 99,
+ "reachable": 934,
+ "unreachable": 94,
  "dead": [
   {
    "name": "summon_random",
@@ -202,31 +202,6 @@
    "name": "is_it_true",
    "file": "temple/animosity.py",
    "line": 248
-  },
-  {
-   "name": "decree_urgency_bonus",
-   "file": "temple/blessings.py",
-   "line": 146
-  },
-  {
-   "name": "learns_places_unvisited",
-   "file": "temple/blessings.py",
-   "line": 161
-  },
-  {
-   "name": "overcome_bonus",
-   "file": "temple/blessings.py",
-   "line": 141
-  },
-  {
-   "name": "reply_bonus",
-   "file": "temple/blessings.py",
-   "line": 151
-  },
-  {
-   "name": "sees_state_of_others",
-   "file": "temple/blessings.py",
-   "line": 156
   },
   {
    "name": "get_map_notes",
@@ -572,33 +547,6 @@
     "name": "publish_dispatch",
     "file": "temple/press.py",
     "line": 179
-   }
-  ],
-  "temple/blessings.py": [
-   {
-    "name": "decree_urgency_bonus",
-    "file": "temple/blessings.py",
-    "line": 146
-   },
-   {
-    "name": "learns_places_unvisited",
-    "file": "temple/blessings.py",
-    "line": 161
-   },
-   {
-    "name": "overcome_bonus",
-    "file": "temple/blessings.py",
-    "line": 141
-   },
-   {
-    "name": "reply_bonus",
-    "file": "temple/blessings.py",
-    "line": 151
-   },
-   {
-    "name": "sees_state_of_others",
-    "file": "temple/blessings.py",
-    "line": 156
    }
   ],
   "creative/music.py": [

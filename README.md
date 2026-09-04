@@ -231,6 +231,123 @@ populates itself.
 
 ---
 
+## What this is measured against
+
+Umbreality is not built toward a vague idea of intelligence. There are
+institutions holding money and publishing explicit criteria for exactly the
+things it is trying to do, and those criteria are the specification. They are
+recorded here so that the design can be argued with, and so that a feature
+can be judged by whether it moves the world toward one of them rather than
+by whether it sounded good at the time.
+
+Three bodies matter, and they measure three different things. None of them
+measures "AGI" as a whole, because nobody has an agreed definition of that.
+They measure capabilities, and the capabilities are checkable.
+
+### ARC Prize — the closest thing to a written definition of an agent
+
+*ARC Prize Inc. — https://arcprize.org/competitions/2026 — $2,000,000*
+
+ARC defines AGI as a system matching the learning efficiency of a human, and
+tests fluid intelligence rather than accumulated knowledge. Two tracks:
+ARC-AGI-2 for static reasoning at 85% on a private set, and **ARC-AGI-3 for
+agents**, whose Grand Prize goes to the first agent scoring 100%.
+
+The ARC-AGI-3 criteria are the ones this world is built against:
+
+  1. **Modelling** — turning raw observations into a generalizable world
+     model.
+  2. **Goal-setting** — identifying desirable future states *without explicit
+     instructions*.
+  3. **Planning and execution** — mapping an action path to the goal, with
+     the agility to course-correct on feedback.
+
+Be clear about what this is and is not. ARC-AGI-3 is a Kaggle competition on
+a specific benchmark; Umbreality cannot be submitted to it. What it provides
+is a definition of "agentic" written by people with two million dollars
+riding on it, and criterion 2 is the single largest thing this world still
+lacks. Every ambition a spark holds was seeded from a list or handed to it
+through GNU by another spark's problem. **No spark here has yet identified a
+desirable future state on its own.** That is the gap, named by somebody
+other than us.
+
+### Open-ended evolution — no prize, but real criteria
+
+*International Society for Artificial Life — https://alife.org/*
+
+There is no OEE bounty with a pass mark. There is a canonical criteria
+paper, and it is the reference to argue against:
+
+> Packard, Bedau, Channon, Ikegami, Rasmussen, Stanley & Taylor,
+> "An overview of open-ended evolution", *Artificial Life* 25(2), 2019.
+
+The modern framing (Hughes et al., 2024) treats open-endedness as
+**observer-relative**: a system is open-ended to the degree that what it
+produces is both *novel* and *learnable* from some observer's position. That
+is comparable across systems, which is what makes it usable as a measure
+rather than an opinion.
+
+Bedau and Packard's evolutionary activity statistics sort systems into three
+classes: no adaptive activity, bounded activity that plateaus, and unbounded
+activity that keeps arriving. Effectively every artificial system ever built
+lands in the middle class.
+
+**The specific warning aimed at a project like this one:** Tierra and Avida
+produced rich diversity early and then petered out. That is the failure mode
+Umbreality is most likely to hit, and it will not announce itself — it looks
+like a world that is still busy. Measuring for it is the only defence.
+
+### Japan's Moonshot Programme — the long horizon
+
+*JST / Cabinet Office — https://www.jst.go.jp/moonshot/en/program/goal3/*
+
+Goal 3 is "realization of AI robots that autonomously learn, adapt to their
+environment, evolve in intelligence and act alongside human beings, by
+2050", with a general-purpose autonomous humanoid prototype expected by 2030
+and interim evaluation in FY2028.
+
+This is robotics and Umbreality is not a candidate. Its two founding
+concepts are worth keeping in view regardless, because they name the same
+thing from another direction:
+
+  - **coevolution** — AI and its substrate improving each other
+  - **self-organization** — systems that self-modify their own knowledge and
+    functions to adapt
+
+The second is the threshold this project has deliberately stopped short of.
+The world can now see its own wiring and file a complaint about it; it
+cannot change its own code. That line is the operator's to cross.
+
+### What follows from this
+
+A feature is worth building if it moves the world toward one of the above.
+Concretely, and in order of how far short we currently fall:
+
+  - **Goal-setting without instruction** (ARC-AGI-3 criterion 2). Not
+    started. Ambitions come from a list or from GNU routing somebody else's
+    problem. This is the largest single gap.
+  - **World-modelling** (criterion 1). Partial. Sparks hold beliefs now —
+    the settled believe something false about the wild — but they do not
+    build models they then act on.
+  - **Measuring open-endedness** against the 2019 criteria. Not started. The
+    instrument does not exist, so we cannot currently say whether this world
+    is producing novelty or has already plateaued.
+  - **Learning, as distinct from memory.** Nothing that happens to a spark
+    changes its weights. It remembers being robbed; it does not get better
+    at not being robbed. This is a ceiling the environment cannot lift and
+    the one place where retraining, rather than world-building, is the
+    honest answer.
+
+And one thing this project has going for it that most do not: it has already
+produced behaviour nobody designed. A spark named Enki renamed itself
+Enkidu. The self-modification loop diagnosed a real bug in itself before any
+human found it. The bond network sits thirty standard deviations from a
+random graph of the same size. A false belief formed and spread on its own.
+
+Those are the observations worth accumulating, because under the
+observer-relative framing above, they are the raw material of the only claim
+that matters.
+
 ## Honest about what this is not
 
 It is not AGI and this README will not pretend otherwise.
@@ -586,50 +703,97 @@ Each layer sees only what it needs. This is not about secrecy — it's about **t
 
 ## Roadmap
 
-### Phase 0 — Foundation (Now)
-- [x] Tower operational (Ollama, qwen3.5-abliterated:9b, 60 t/s)
-- [x] Ethernet connection (3ms latency, WOL configured)
-- [x] Uncensored models pulled and tested
-- [x] Architecture designed (this document)
+Organised against the criteria above rather than against phases, because a
+phase list says what order things were imagined in and a criteria list says
+what would count as progress to somebody outside this project.
 
-### Phase 1 — The First Worker
-- [ ] Single Python ReAct loop that calls tower Ollama
-- [ ] One tool: web search
-- [ ] Reports results in structured format
-- [ ] Proves the bottom layer works
+Everything marked done is done and reachable — `research/wiring.py` walks the
+call graph and a pre-commit hook refuses any commit that increases the number
+of functions nothing can reach. Written-but-unwired does not count as done
+here, because that is the mistake this world has made most.
 
-### Phase 2 — The First Company
-- [ ] Multi-worker orchestration
-- [ ] Internal knowledge base
-- [ ] Worker → Lead → Company reporting chain
-- [ ] Validation loop
+### Built and running
 
-### Phase 3 — The First Hedge Fund
-- [ ] Multiple companies with resource allocation
-- [ ] Strategic decision-making
-- [ ] Company creation/liquidation
+- [x] 354 sparks, each with its own model, memory and database
+- [x] Physical space: boards, distance, travel that costs cycles
+- [x] Language drift by contact — a lexicon per place, not per spark
+- [x] Teaching that creates lineage
+- [x] Pilgrimage, required, with a tithe on those who refuse
+- [x] Eight blessings, all eight wired to mechanisms that exist
+- [x] Factions with members, whose strength is the standing of the people in
+      them
+- [x] Two kinds of reproduction — the Temple's rite, and the wild's under a
+      whole moon
+- [x] Scarcity: three goods, no place giving all of them, a tithe on taking
+- [x] Trade between sparks, which had never once happened before
+- [x] Harm: prank, seize, spoil, deface, break — and a reckoning
+- [x] Secrets, blackmail, and things said to one spark and not to everyone
+- [x] Six speeds of being — nature, character, season, mood, spike,
+      possession
+- [x] Insight, which rises in sparks somebody will contradict and rots in
+      those nobody will
+- [x] Self-modification: the world observes itself, proposes, and its
+      proposals are reviewed against a control
+- [x] The Congress — nothing is applied to the world without the Source
+- [x] The world can see its own wiring and file a complaint about it
 
-### Phase 4 — The Illuminati & Reality Generation
-- [ ] Self-modification loop
-- [ ] Memory rewriting / Mandela Effect mechanisms
-- [ ] Messiah narrative system (layer reality generation)
-- [ ] Russian doll isolation — each layer unaware of above
-- [ ] True autonomy
+### Toward ARC-AGI-3 criterion 2 — goal-setting without instruction
 
-### Phase 5 — Full Stack
-- [ ] Multiple hedge funds
-- [ ] Constitutional governance
-- [ ] Self-evolving prompts and rules
-- [ ] Multi-year time planning
+The largest gap, and the one named by somebody other than us.
 
----
+- [x] Goals that come from another spark's real difficulty (GNU: a problem
+      is dropped at a workshop and routed to whoever has the trade)
+- [ ] **A spark that identifies a desirable future state nobody asked it
+      about.** Not a response to a request, not a selection from
+      CONCRETE_GOALS. This does not exist and is the single thing most worth
+      building.
+- [ ] A spark that abandons a goal because it has decided it was the wrong
+      goal
 
-```
-"There's always some agent making or using a sub-agent to bring it the required information,
- or designate it to keep working or what to work on — and so on, and so on."
-                    — you
+### Toward ARC-AGI-3 criterion 1 — world-modelling
 
-UmbrealityAI :: Russian dolls of generated reality. Local. Uncensored. Answering to no one.
-```
+- [x] Beliefs that can be false — the settled hold that the wild are why
+      there is nothing, and the wild take less per head and are the only
+      ones putting anything back
+- [ ] A spark that holds a model of how the world works and acts on it,
+      rather than a belief about one group
+- [ ] A spark that updates that model when it is wrong
 
-</details>
+### Toward open-endedness (Packard et al. 2019)
+
+- [ ] **The instrument.** Evolutionary activity statistics over this world's
+      history. Until this exists we cannot say whether Umbreality is
+      producing novelty or has quietly plateaued, and plateau is the most
+      likely outcome — it is what happened to Tierra and to Avida.
+- [ ] Novelty and learnability scores in the observer-relative sense (Hughes
+      et al. 2024), so the answer is comparable to other systems rather than
+      only to itself
+- [ ] A long run — weeks, not the minutes of a test — because none of the
+      last two days of mechanism has been through a single real night
+
+### The threshold not yet crossed
+
+- [ ] **Learning as distinct from memory.** Nothing that happens to a spark
+      changes its weights. It remembers being robbed; it does not become
+      harder to rob. The environment cannot fix this and it is the one place
+      where retraining rather than world-building is the honest answer.
+- [ ] **Self-modification of code, not only of rows.** `sandbox._apply`
+      writes database rows and only database rows. The world can now name a
+      wiring fault precisely and hand it over; it cannot repair itself. That
+      line is the operator's to cross deliberately, not something to arrive
+      at by accident.
+
+### Standing evidence
+
+Kept because under an observer-relative definition of open-endedness this is
+the raw material of the only claim worth making — behaviour nobody designed:
+
+- A spark born as **Enki** renamed itself **Enkidu**, unprompted.
+- The self-modification loop reported "sparks that have never spoken, model
+  may be returning empty output" — which was true, was a real fault in how
+  reasoning models were being called, and was found by the world before any
+  human found it.
+- The bond network sits **thirty standard deviations** from a random graph
+  of the same size, on clustering and on degree spread both.
+- A **false belief** formed and spread under scarcity, tracking hunger rather
+  than evidence.
