@@ -1236,6 +1236,30 @@ def sim_auto():
 # now there was no endpoint and no page - the only way to see any of it
 # was to open the database by hand.
 
+@app.get("/wiring")
+def wiring_report():
+    """What in this world can actually be reached.
+
+    Read from research/wiring.json, which the pre-commit hook regenerates on
+    every commit. Computed on the spot if it is missing.
+    """
+    import json as _j
+    import subprocess
+    import sys as _sys
+    p = BASE / "research" / "wiring.json"
+    if p.exists():
+        try:
+            return _j.loads(p.read_text())
+        except ValueError:
+            pass
+    try:
+        subprocess.run([_sys.executable, str(BASE / "research" / "wiring.py")],
+                       capture_output=True, timeout=180)
+    except Exception as e:
+        return {"error": "%s: %s" % (type(e).__name__, e)}
+    return _j.loads(p.read_text()) if p.exists() else {"error": "no report"}
+
+
 @app.get("/amendments")
 def amendments_board():
     """What the world has noticed, proposed, and is waiting to hear about."""

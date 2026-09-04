@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚙ What Is Wired — Umbreality</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@300;400;500&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --void:#0c0e13; --stone:#161922; --stone-2:#1d212b;
+    --rule:#2a2f3d; --rule-soft:#21252f;
+    --ink:#e4e6ec; --ink-2:#b9bdc9; --dim:#838a9c;
+    --gold:#c9a227; --verdigris:#4fa088; --crimson:#c0524a; --amber:#d99a2b;
+    --serif:"Spectral",Georgia,serif;
+    --sans:"Archivo",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--void);color:var(--ink);font-family:var(--sans);
+       font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:62rem;margin:0 auto;padding:3rem 1.5rem 5rem;
+        display:flex;flex-direction:column;gap:2.5rem}
+  a{color:var(--gold)}
+  .sigil{font-family:var(--mono);font-size:.66rem;letter-spacing:.24em;
+         text-transform:uppercase;color:var(--gold)}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,5vw,3rem);
+     margin:.4rem 0 0;line-height:1.06}
+  .sub{font-family:var(--serif);font-style:italic;color:var(--ink-2);
+       max-width:44rem;margin:.6rem 0 0}
+  h2{font-family:var(--serif);font-weight:400;font-size:1.3rem;margin:0;
+     padding-bottom:.5rem;border-bottom:1px solid var(--rule);
+     display:flex;align-items:baseline;gap:.7rem}
+  h2 small{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;
+           color:var(--dim);text-transform:uppercase}
+  section{display:flex;flex-direction:column;gap:1rem}
+  .note{margin:0;color:var(--dim);font-size:.9rem;max-width:46rem}
+
+  .tally{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));
+         gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  .cell{background:var(--stone);padding:1rem 1.1rem}
+  .cell .n{font-family:var(--serif);font-size:2rem;line-height:1;
+           font-variant-numeric:tabular-nums}
+  .cell .l{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;
+           text-transform:uppercase;color:var(--dim);margin-top:.35rem}
+  .cell.good .n{color:var(--verdigris)}
+  .cell.bad .n{color:var(--amber)}
+
+  .bar{height:.6rem;background:var(--crimson);border:1px solid var(--rule);
+       display:flex;overflow:hidden}
+  .bar i{display:block;background:var(--verdigris);height:100%}
+
+  .files{display:flex;flex-direction:column}
+  .file{border-bottom:1px solid var(--rule-soft);padding:.7rem .2rem}
+  .file .p{font-family:var(--mono);font-size:.82rem;color:var(--ink);
+           display:flex;justify-content:space-between;gap:1rem}
+  .file .p b{color:var(--amber);font-weight:500}
+  .fns{font-family:var(--mono);font-size:.72rem;color:var(--dim);
+       margin-top:.35rem;word-break:break-word}
+
+  .why{background:var(--stone);border:1px solid var(--rule);
+       border-left:3px solid var(--gold);padding:1.1rem 1.25rem;
+       display:flex;flex-direction:column;gap:.5rem}
+  .why b{color:var(--ink)}
+  .why p{margin:0;color:var(--ink-2);font-size:.94rem}
+  code{font-family:var(--mono);font-size:.86em;color:var(--gold)}
+
+  footer{border-top:1px solid var(--rule);padding-top:1rem;
+         font-family:var(--mono);font-size:.68rem;color:var(--dim);
+         display:flex;flex-wrap:wrap;gap:.4rem 1.4rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="sigil">⚙ umb.alola.lol · the wiring</div>
+    <h1>What Is Wired</h1>
+    <p class="sub">Umbreality grew by writing modules, not by extending the one loop that runs them — so things arrived finished and dead, and nothing ever said so. This is the count.</p>
+  </header>
+
+  <div class="tally" id="tally"></div>
+  <div class="bar" id="bar" title="reachable vs unreachable"><i></i></div>
+
+  <div class="why">
+    <b>Why this page exists</b>
+    <p>A function only runs if something calls it. <code>temple/scheduler.py</code> is the only heartbeat in this world — anything not reachable from it, from an HTTP route, or from a spark's own turn is dead code that looks exactly like live code. No test fails. No error appears.</p>
+    <p>That is how the wardens never patrolled, the pilgrimage was never required, <code>apply_reality_shift</code> was never called, <code>sim/strategies.py</code> was never imported, <code>record_daily_prices</code> left the price history empty for the life of the world, and <code>gnu.cycle</code> — which says <em>“safe on a timer”</em> in its own docstring — was never put on one.</p>
+    <p><code>research/wiring.py</code> walks the call graph and a git hook refuses any commit that raises the number below. It can go down. It cannot go up.</p>
+  </div>
+
+  <section>
+    <h2>Nothing reaches these <small id="dead-count"></small></h2>
+    <p class="note">Some of these are correct — <code>frost()</code> and <code>shift()</code> are levers the Source pulls, never the world. The rest are things that were built and never connected.</p>
+    <div class="files" id="files"></div>
+  </section>
+
+  <footer>
+    <span><a href="/">← Umbreality</a></span>
+    <span id="when">reading research/wiring.json</span>
+    <span>budget: it may only go down</span>
+  </footer>
+
+</div>
+
+<script>
+const SNAPSHOT = {"functions":1078,"reachable":926,"unreachable":113,"by_file":{"temple/guide.py":[{"name":"adapt_thresholds"},{"name":"get_faction_history"},{"name":"get_scheduler_insights"},{"name":"get_throne_insights"},{"name":"record_faction_event"},{"name":"record_messiah_version"},{"name":"record_scheduler_outcome"},{"name":"record_throne_lesson"}],"temple/press.py":[{"name":"assign_chroniclers"},{"name":"chroniclers"},{"name":"gather"},{"name":"post_classifieds"},{"name":"press_cycle"},{"name":"publish_dispatch"}],"creative.bak-20260827-1957/tool_registry.py":[{"name":"get_tool"},{"name":"list_tools"},{"name":"register_tool"},{"name":"search_tools"},{"name":"use_tool"}],"temple/blessings.py":[{"name":"decree_urgency_bonus"},{"name":"learns_places_unvisited"},{"name":"overcome_bonus"},{"name":"reply_bonus"},{"name":"sees_state_of_others"}],"creative.bak-20260827-1957/music.py":[{"name":"compose"},{"name":"generate_ambient"},{"name":"generate_melody"},{"name":"generate_tone"}],"creative/music.py":[{"name":"compose"},{"name":"generate_ambient"},{"name":"generate_melody"},{"name":"generate_tone"}],"scripts_codex.py":[{"name":"clean"},{"name":"entry"},{"name":"n"},{"name":"table"}],"sim/persistent_portfolio.py":[{"name":"auto_trade_cycle"},{"name":"backfill_price_history"},{"name":"book_cash"},{"name":"set_auto_trade"}],"illuminati/reality.py":[{"name":"current"},{"name":"history"},{"name":"shift"}],"temple/decree.py":[{"name":"lift"},{"name":"obedience"},{"name":"speak"}],"temple/holdings.py":[{"name":"action_penalty"},{"name":"frost"},{"name":"thaw"}],"temple/mentorship.py":[{"name":"cycle"},{"name":"lineage_report"},{"name":"teach_once"}],"temple/waking.py":[{"name":"cycle"},{"name":"ready"},{"name":"wake"}],"econ/gather.py":[{"name":"get_public_programs"},{"name":"recommend_for_company"}],"forum/engine.py":[{"name":"get_leaderboard"},{"name":"mark_internalized"}],"research/dialect-retest.py":[{"name":"js"},{"name":"mean_pair"}],"scripts_inline.py":[{"name":"css_sub"},{"name":"js_sub"}],"sim/portfolio.py":[{"name":"execute_strategy"},{"name":"run_full_portfolio"}],"temple/academy.py":[{"name":"auto_enroll_all"},{"name":"register_elder"}],"temple/factions.py":[{"name":"generate_conflict"},{"name":"get_faction_for"}],"temple/gnu.py":[{"name":"found"},{"name":"status"}],"temple/map_generator.py":[{"name":"generate_map"},{"name":"write_map"}],"temple/omens.py":[{"name":"raise_the_dead"},{"name":"the_dead"}],"temple/sandbox.py":[{"name":"cycle"},{"name":"monitor"}],"temple/secrets.py":[{"name":"gods_eye"},{"name":"learn"}],"temple/tongues.py":[{"name":"assign"},{"name":"speakers_of"}],"workers/phase1-worker/tools/run_command.py":[{"name":"format_results"},{"name":"run_command"}],"avatar/messengers.py":[{"name":"summon_random"}],"companies/research_corp/knowledge/store.py":[{"name":"validate_finding"}],"creative.bak-20260827-1957/library.py":[{"name":"get_collection"}],"creative.bak-20260827-1957/pipeline/music.py":[{"name":"text_to_music"}],"creative.bak-20260827-1957/poetry.py":[{"name":"compose"}],"creative.bak-20260827-1957/visual.py":[{"name":"create"}],"creative/pipeline/visual.py":[{"name":"text_to_visual"}],"creative/tool_registry.py":[{"name":"use_tool"}],"econ/bounties.py":[{"name":"analyze_bounty_fit"}],"illuminati/interpreter.py":[{"name":"apply_reality_shift"}],"research/hard-year.py":[{"name":"line"}],"scripts_gen_roster.py":[{"name":"kv"}],"scripts_truemap.py":[{"name":"project"}],"sim/strategies.py":[{"name":"arbitrage_strategy"}],"sub_stack/messiah.py":[{"name":"inject_into_prompt"}],"temple/actions.py":[{"name":"agora_post"}],"temple/amendments.py":[{"name":"hold_for_ratification"}],"temple/animosity.py":[{"name":"is_it_true"}],"temple/cartographer.py":[{"name":"get_map_notes"}],"temple/cycles.py":[{"name":"allowance"}],"temple/harm.py":[{"name":"answer_with_a_person"}],"temple/pilgrimage.py":[{"name":"shrine_at"}],"temple/register.py":[{"name":"census"}],"temple/rite.py":[{"name":"lineage"}],"temple/selfmod.py":[{"name":"pending"}],"temple/tags.py":[{"name":"possess"}],"temple/whisper.py":[{"name":"gods_eye"}],"temple/wildking.py":[{"name":"carries"}],"temple/wildrite.py":[{"name":"lineage"}],"workers/phase1-worker/tools/web_search.py":[{"name":"web_search"}]}};
+const TAKEN = "04 September 2026, 11:46";
+
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g,
+  c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+
+function render(d, live) {
+  const pct = d.functions ? (100 * d.reachable / d.functions) : 0;
+  document.getElementById("tally").innerHTML =
+      '<div class="cell"><div class="n">' + d.functions + '</div><div class="l">functions written</div></div>'
+    + '<div class="cell good"><div class="n">' + d.reachable + '</div><div class="l">something reaches</div></div>'
+    + '<div class="cell bad"><div class="n">' + d.unreachable + '</div><div class="l">nothing reaches</div></div>'
+    + '<div class="cell"><div class="n">' + pct.toFixed(0) + '%</div><div class="l">of the world is live</div></div>';
+
+  document.querySelector("#bar i").style.width = pct.toFixed(1) + "%";
+  document.getElementById("dead-count").textContent =
+    d.unreachable + " across " + Object.keys(d.by_file || {}).length + " files";
+
+  document.getElementById("files").innerHTML =
+    Object.entries(d.by_file || {}).map(([f, items]) =>
+      '<div class="file"><div class="p"><span>' + esc(f) + '</span><b>'
+      + items.length + '</b></div><div class="fns">'
+      + items.map(i => esc(i.name) + "()").join("  ·  ")
+      + "</div></div>").join("");
+
+  document.getElementById("when").textContent =
+    live ? "read live" : "as of " + TAKEN;
+}
+
+async function load() {
+  try {
+    const r = await fetch("/api/wiring", { cache: "no-store" });
+    if (!r.ok) throw new Error();
+    render(await r.json(), true);
+  } catch (e) {
+    render(SNAPSHOT, false);
+  }
+}
+render(SNAPSHOT, false);
+load();
+</script>
+</body>
+</html>

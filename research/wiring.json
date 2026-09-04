@@ -1,0 +1,1253 @@
+{
+ "functions": 1078,
+ "reachable": 926,
+ "unreachable": 113,
+ "dead": [
+  {
+   "name": "summon_random",
+   "file": "avatar/messengers.py",
+   "line": 136
+  },
+  {
+   "name": "validate_finding",
+   "file": "companies/research_corp/knowledge/store.py",
+   "line": 71
+  },
+  {
+   "name": "get_collection",
+   "file": "creative.bak-20260827-1957/library.py",
+   "line": 48
+  },
+  {
+   "name": "compose",
+   "file": "creative.bak-20260827-1957/music.py",
+   "line": 108
+  },
+  {
+   "name": "generate_ambient",
+   "file": "creative.bak-20260827-1957/music.py",
+   "line": 87
+  },
+  {
+   "name": "generate_melody",
+   "file": "creative.bak-20260827-1957/music.py",
+   "line": 68
+  },
+  {
+   "name": "generate_tone",
+   "file": "creative.bak-20260827-1957/music.py",
+   "line": 38
+  },
+  {
+   "name": "text_to_music",
+   "file": "creative.bak-20260827-1957/pipeline/music.py",
+   "line": 169
+  },
+  {
+   "name": "compose",
+   "file": "creative.bak-20260827-1957/poetry.py",
+   "line": 24
+  },
+  {
+   "name": "get_tool",
+   "file": "creative.bak-20260827-1957/tool_registry.py",
+   "line": 190
+  },
+  {
+   "name": "list_tools",
+   "file": "creative.bak-20260827-1957/tool_registry.py",
+   "line": 164
+  },
+  {
+   "name": "register_tool",
+   "file": "creative.bak-20260827-1957/tool_registry.py",
+   "line": 204
+  },
+  {
+   "name": "search_tools",
+   "file": "creative.bak-20260827-1957/tool_registry.py",
+   "line": 177
+  },
+  {
+   "name": "use_tool",
+   "file": "creative.bak-20260827-1957/tool_registry.py",
+   "line": 195
+  },
+  {
+   "name": "create",
+   "file": "creative.bak-20260827-1957/visual.py",
+   "line": 101
+  },
+  {
+   "name": "compose",
+   "file": "creative/music.py",
+   "line": 107
+  },
+  {
+   "name": "generate_ambient",
+   "file": "creative/music.py",
+   "line": 86
+  },
+  {
+   "name": "generate_melody",
+   "file": "creative/music.py",
+   "line": 67
+  },
+  {
+   "name": "generate_tone",
+   "file": "creative/music.py",
+   "line": 37
+  },
+  {
+   "name": "text_to_visual",
+   "file": "creative/pipeline/visual.py",
+   "line": 124
+  },
+  {
+   "name": "use_tool",
+   "file": "creative/tool_registry.py",
+   "line": 195
+  },
+  {
+   "name": "analyze_bounty_fit",
+   "file": "econ/bounties.py",
+   "line": 32
+  },
+  {
+   "name": "get_public_programs",
+   "file": "econ/gather.py",
+   "line": 19
+  },
+  {
+   "name": "recommend_for_company",
+   "file": "econ/gather.py",
+   "line": 32
+  },
+  {
+   "name": "get_leaderboard",
+   "file": "forum/engine.py",
+   "line": 475
+  },
+  {
+   "name": "mark_internalized",
+   "file": "forum/engine.py",
+   "line": 227
+  },
+  {
+   "name": "apply_reality_shift",
+   "file": "illuminati/interpreter.py",
+   "line": 77
+  },
+  {
+   "name": "current",
+   "file": "illuminati/reality.py",
+   "line": 231
+  },
+  {
+   "name": "history",
+   "file": "illuminati/reality.py",
+   "line": 218
+  },
+  {
+   "name": "shift",
+   "file": "illuminati/reality.py",
+   "line": 136
+  },
+  {
+   "name": "js",
+   "file": "research/dialect-retest.py",
+   "line": 40
+  },
+  {
+   "name": "mean_pair",
+   "file": "research/dialect-retest.py",
+   "line": 51
+  },
+  {
+   "name": "line",
+   "file": "research/hard-year.py",
+   "line": 23
+  },
+  {
+   "name": "clean",
+   "file": "scripts_codex.py",
+   "line": 49
+  },
+  {
+   "name": "entry",
+   "file": "scripts_codex.py",
+   "line": 72
+  },
+  {
+   "name": "n",
+   "file": "scripts_codex.py",
+   "line": 44
+  },
+  {
+   "name": "table",
+   "file": "scripts_codex.py",
+   "line": 80
+  },
+  {
+   "name": "kv",
+   "file": "scripts_gen_roster.py",
+   "line": 28
+  },
+  {
+   "name": "css_sub",
+   "file": "scripts_inline.py",
+   "line": 65
+  },
+  {
+   "name": "js_sub",
+   "file": "scripts_inline.py",
+   "line": 86
+  },
+  {
+   "name": "project",
+   "file": "scripts_truemap.py",
+   "line": 76
+  },
+  {
+   "name": "auto_trade_cycle",
+   "file": "sim/persistent_portfolio.py",
+   "line": 537
+  },
+  {
+   "name": "backfill_price_history",
+   "file": "sim/persistent_portfolio.py",
+   "line": 499
+  },
+  {
+   "name": "book_cash",
+   "file": "sim/persistent_portfolio.py",
+   "line": 330
+  },
+  {
+   "name": "set_auto_trade",
+   "file": "sim/persistent_portfolio.py",
+   "line": 529
+  },
+  {
+   "name": "execute_strategy",
+   "file": "sim/portfolio.py",
+   "line": 12
+  },
+  {
+   "name": "run_full_portfolio",
+   "file": "sim/portfolio.py",
+   "line": 44
+  },
+  {
+   "name": "arbitrage_strategy",
+   "file": "sim/strategies.py",
+   "line": 62
+  },
+  {
+   "name": "inject_into_prompt",
+   "file": "sub_stack/messiah.py",
+   "line": 33
+  },
+  {
+   "name": "auto_enroll_all",
+   "file": "temple/academy.py",
+   "line": 205
+  },
+  {
+   "name": "register_elder",
+   "file": "temple/academy.py",
+   "line": 161
+  },
+  {
+   "name": "agora_post",
+   "file": "temple/actions.py",
+   "line": 164
+  },
+  {
+   "name": "hold_for_ratification",
+   "file": "temple/amendments.py",
+   "line": 72
+  },
+  {
+   "name": "is_it_true",
+   "file": "temple/animosity.py",
+   "line": 248
+  },
+  {
+   "name": "decree_urgency_bonus",
+   "file": "temple/blessings.py",
+   "line": 146
+  },
+  {
+   "name": "learns_places_unvisited",
+   "file": "temple/blessings.py",
+   "line": 161
+  },
+  {
+   "name": "overcome_bonus",
+   "file": "temple/blessings.py",
+   "line": 141
+  },
+  {
+   "name": "reply_bonus",
+   "file": "temple/blessings.py",
+   "line": 151
+  },
+  {
+   "name": "sees_state_of_others",
+   "file": "temple/blessings.py",
+   "line": 156
+  },
+  {
+   "name": "get_map_notes",
+   "file": "temple/cartographer.py",
+   "line": 646
+  },
+  {
+   "name": "allowance",
+   "file": "temple/cycles.py",
+   "line": 95
+  },
+  {
+   "name": "lift",
+   "file": "temple/decree.py",
+   "line": 226
+  },
+  {
+   "name": "obedience",
+   "file": "temple/decree.py",
+   "line": 234
+  },
+  {
+   "name": "speak",
+   "file": "temple/decree.py",
+   "line": 189
+  },
+  {
+   "name": "generate_conflict",
+   "file": "temple/factions.py",
+   "line": 124
+  },
+  {
+   "name": "get_faction_for",
+   "file": "temple/factions.py",
+   "line": 40
+  },
+  {
+   "name": "found",
+   "file": "temple/gnu.py",
+   "line": 166
+  },
+  {
+   "name": "status",
+   "file": "temple/gnu.py",
+   "line": 481
+  },
+  {
+   "name": "adapt_thresholds",
+   "file": "temple/guide.py",
+   "line": 136
+  },
+  {
+   "name": "get_faction_history",
+   "file": "temple/guide.py",
+   "line": 108
+  },
+  {
+   "name": "get_scheduler_insights",
+   "file": "temple/guide.py",
+   "line": 86
+  },
+  {
+   "name": "get_throne_insights",
+   "file": "temple/guide.py",
+   "line": 50
+  },
+  {
+   "name": "record_faction_event",
+   "file": "temple/guide.py",
+   "line": 99
+  },
+  {
+   "name": "record_messiah_version",
+   "file": "temple/guide.py",
+   "line": 121
+  },
+  {
+   "name": "record_scheduler_outcome",
+   "file": "temple/guide.py",
+   "line": 76
+  },
+  {
+   "name": "record_throne_lesson",
+   "file": "temple/guide.py",
+   "line": 38
+  },
+  {
+   "name": "answer_with_a_person",
+   "file": "temple/harm.py",
+   "line": 439
+  },
+  {
+   "name": "action_penalty",
+   "file": "temple/holdings.py",
+   "line": 332
+  },
+  {
+   "name": "frost",
+   "file": "temple/holdings.py",
+   "line": 441
+  },
+  {
+   "name": "thaw",
+   "file": "temple/holdings.py",
+   "line": 498
+  },
+  {
+   "name": "generate_map",
+   "file": "temple/map_generator.py",
+   "line": 24
+  },
+  {
+   "name": "write_map",
+   "file": "temple/map_generator.py",
+   "line": 117
+  },
+  {
+   "name": "cycle",
+   "file": "temple/mentorship.py",
+   "line": 243
+  },
+  {
+   "name": "lineage_report",
+   "file": "temple/mentorship.py",
+   "line": 259
+  },
+  {
+   "name": "teach_once",
+   "file": "temple/mentorship.py",
+   "line": 183
+  },
+  {
+   "name": "raise_the_dead",
+   "file": "temple/omens.py",
+   "line": 191
+  },
+  {
+   "name": "the_dead",
+   "file": "temple/omens.py",
+   "line": 234
+  },
+  {
+   "name": "shrine_at",
+   "file": "temple/pilgrimage.py",
+   "line": 27
+  },
+  {
+   "name": "assign_chroniclers",
+   "file": "temple/press.py",
+   "line": 55
+  },
+  {
+   "name": "chroniclers",
+   "file": "temple/press.py",
+   "line": 99
+  },
+  {
+   "name": "gather",
+   "file": "temple/press.py",
+   "line": 112
+  },
+  {
+   "name": "post_classifieds",
+   "file": "temple/press.py",
+   "line": 231
+  },
+  {
+   "name": "press_cycle",
+   "file": "temple/press.py",
+   "line": 250
+  },
+  {
+   "name": "publish_dispatch",
+   "file": "temple/press.py",
+   "line": 179
+  },
+  {
+   "name": "census",
+   "file": "temple/register.py",
+   "line": 115
+  },
+  {
+   "name": "lineage",
+   "file": "temple/rite.py",
+   "line": 338
+  },
+  {
+   "name": "cycle",
+   "file": "temple/sandbox.py",
+   "line": 466
+  },
+  {
+   "name": "monitor",
+   "file": "temple/sandbox.py",
+   "line": 432
+  },
+  {
+   "name": "gods_eye",
+   "file": "temple/secrets.py",
+   "line": 322
+  },
+  {
+   "name": "learn",
+   "file": "temple/secrets.py",
+   "line": 184
+  },
+  {
+   "name": "pending",
+   "file": "temple/selfmod.py",
+   "line": 317
+  },
+  {
+   "name": "possess",
+   "file": "temple/tags.py",
+   "line": 299
+  },
+  {
+   "name": "assign",
+   "file": "temple/tongues.py",
+   "line": 106
+  },
+  {
+   "name": "speakers_of",
+   "file": "temple/tongues.py",
+   "line": 158
+  },
+  {
+   "name": "cycle",
+   "file": "temple/waking.py",
+   "line": 211
+  },
+  {
+   "name": "ready",
+   "file": "temple/waking.py",
+   "line": 78
+  },
+  {
+   "name": "wake",
+   "file": "temple/waking.py",
+   "line": 111
+  },
+  {
+   "name": "gods_eye",
+   "file": "temple/whisper.py",
+   "line": 258
+  },
+  {
+   "name": "carries",
+   "file": "temple/wildking.py",
+   "line": 186
+  },
+  {
+   "name": "lineage",
+   "file": "temple/wildrite.py",
+   "line": 300
+  },
+  {
+   "name": "format_results",
+   "file": "workers/phase1-worker/tools/run_command.py",
+   "line": 37
+  },
+  {
+   "name": "run_command",
+   "file": "workers/phase1-worker/tools/run_command.py",
+   "line": 12
+  },
+  {
+   "name": "web_search",
+   "file": "workers/phase1-worker/tools/web_search.py",
+   "line": 8
+  }
+ ],
+ "by_file": {
+  "temple/guide.py": [
+   {
+    "name": "adapt_thresholds",
+    "file": "temple/guide.py",
+    "line": 136
+   },
+   {
+    "name": "get_faction_history",
+    "file": "temple/guide.py",
+    "line": 108
+   },
+   {
+    "name": "get_scheduler_insights",
+    "file": "temple/guide.py",
+    "line": 86
+   },
+   {
+    "name": "get_throne_insights",
+    "file": "temple/guide.py",
+    "line": 50
+   },
+   {
+    "name": "record_faction_event",
+    "file": "temple/guide.py",
+    "line": 99
+   },
+   {
+    "name": "record_messiah_version",
+    "file": "temple/guide.py",
+    "line": 121
+   },
+   {
+    "name": "record_scheduler_outcome",
+    "file": "temple/guide.py",
+    "line": 76
+   },
+   {
+    "name": "record_throne_lesson",
+    "file": "temple/guide.py",
+    "line": 38
+   }
+  ],
+  "temple/press.py": [
+   {
+    "name": "assign_chroniclers",
+    "file": "temple/press.py",
+    "line": 55
+   },
+   {
+    "name": "chroniclers",
+    "file": "temple/press.py",
+    "line": 99
+   },
+   {
+    "name": "gather",
+    "file": "temple/press.py",
+    "line": 112
+   },
+   {
+    "name": "post_classifieds",
+    "file": "temple/press.py",
+    "line": 231
+   },
+   {
+    "name": "press_cycle",
+    "file": "temple/press.py",
+    "line": 250
+   },
+   {
+    "name": "publish_dispatch",
+    "file": "temple/press.py",
+    "line": 179
+   }
+  ],
+  "creative.bak-20260827-1957/tool_registry.py": [
+   {
+    "name": "get_tool",
+    "file": "creative.bak-20260827-1957/tool_registry.py",
+    "line": 190
+   },
+   {
+    "name": "list_tools",
+    "file": "creative.bak-20260827-1957/tool_registry.py",
+    "line": 164
+   },
+   {
+    "name": "register_tool",
+    "file": "creative.bak-20260827-1957/tool_registry.py",
+    "line": 204
+   },
+   {
+    "name": "search_tools",
+    "file": "creative.bak-20260827-1957/tool_registry.py",
+    "line": 177
+   },
+   {
+    "name": "use_tool",
+    "file": "creative.bak-20260827-1957/tool_registry.py",
+    "line": 195
+   }
+  ],
+  "temple/blessings.py": [
+   {
+    "name": "decree_urgency_bonus",
+    "file": "temple/blessings.py",
+    "line": 146
+   },
+   {
+    "name": "learns_places_unvisited",
+    "file": "temple/blessings.py",
+    "line": 161
+   },
+   {
+    "name": "overcome_bonus",
+    "file": "temple/blessings.py",
+    "line": 141
+   },
+   {
+    "name": "reply_bonus",
+    "file": "temple/blessings.py",
+    "line": 151
+   },
+   {
+    "name": "sees_state_of_others",
+    "file": "temple/blessings.py",
+    "line": 156
+   }
+  ],
+  "creative.bak-20260827-1957/music.py": [
+   {
+    "name": "compose",
+    "file": "creative.bak-20260827-1957/music.py",
+    "line": 108
+   },
+   {
+    "name": "generate_ambient",
+    "file": "creative.bak-20260827-1957/music.py",
+    "line": 87
+   },
+   {
+    "name": "generate_melody",
+    "file": "creative.bak-20260827-1957/music.py",
+    "line": 68
+   },
+   {
+    "name": "generate_tone",
+    "file": "creative.bak-20260827-1957/music.py",
+    "line": 38
+   }
+  ],
+  "creative/music.py": [
+   {
+    "name": "compose",
+    "file": "creative/music.py",
+    "line": 107
+   },
+   {
+    "name": "generate_ambient",
+    "file": "creative/music.py",
+    "line": 86
+   },
+   {
+    "name": "generate_melody",
+    "file": "creative/music.py",
+    "line": 67
+   },
+   {
+    "name": "generate_tone",
+    "file": "creative/music.py",
+    "line": 37
+   }
+  ],
+  "scripts_codex.py": [
+   {
+    "name": "clean",
+    "file": "scripts_codex.py",
+    "line": 49
+   },
+   {
+    "name": "entry",
+    "file": "scripts_codex.py",
+    "line": 72
+   },
+   {
+    "name": "n",
+    "file": "scripts_codex.py",
+    "line": 44
+   },
+   {
+    "name": "table",
+    "file": "scripts_codex.py",
+    "line": 80
+   }
+  ],
+  "sim/persistent_portfolio.py": [
+   {
+    "name": "auto_trade_cycle",
+    "file": "sim/persistent_portfolio.py",
+    "line": 537
+   },
+   {
+    "name": "backfill_price_history",
+    "file": "sim/persistent_portfolio.py",
+    "line": 499
+   },
+   {
+    "name": "book_cash",
+    "file": "sim/persistent_portfolio.py",
+    "line": 330
+   },
+   {
+    "name": "set_auto_trade",
+    "file": "sim/persistent_portfolio.py",
+    "line": 529
+   }
+  ],
+  "illuminati/reality.py": [
+   {
+    "name": "current",
+    "file": "illuminati/reality.py",
+    "line": 231
+   },
+   {
+    "name": "history",
+    "file": "illuminati/reality.py",
+    "line": 218
+   },
+   {
+    "name": "shift",
+    "file": "illuminati/reality.py",
+    "line": 136
+   }
+  ],
+  "temple/decree.py": [
+   {
+    "name": "lift",
+    "file": "temple/decree.py",
+    "line": 226
+   },
+   {
+    "name": "obedience",
+    "file": "temple/decree.py",
+    "line": 234
+   },
+   {
+    "name": "speak",
+    "file": "temple/decree.py",
+    "line": 189
+   }
+  ],
+  "temple/holdings.py": [
+   {
+    "name": "action_penalty",
+    "file": "temple/holdings.py",
+    "line": 332
+   },
+   {
+    "name": "frost",
+    "file": "temple/holdings.py",
+    "line": 441
+   },
+   {
+    "name": "thaw",
+    "file": "temple/holdings.py",
+    "line": 498
+   }
+  ],
+  "temple/mentorship.py": [
+   {
+    "name": "cycle",
+    "file": "temple/mentorship.py",
+    "line": 243
+   },
+   {
+    "name": "lineage_report",
+    "file": "temple/mentorship.py",
+    "line": 259
+   },
+   {
+    "name": "teach_once",
+    "file": "temple/mentorship.py",
+    "line": 183
+   }
+  ],
+  "temple/waking.py": [
+   {
+    "name": "cycle",
+    "file": "temple/waking.py",
+    "line": 211
+   },
+   {
+    "name": "ready",
+    "file": "temple/waking.py",
+    "line": 78
+   },
+   {
+    "name": "wake",
+    "file": "temple/waking.py",
+    "line": 111
+   }
+  ],
+  "econ/gather.py": [
+   {
+    "name": "get_public_programs",
+    "file": "econ/gather.py",
+    "line": 19
+   },
+   {
+    "name": "recommend_for_company",
+    "file": "econ/gather.py",
+    "line": 32
+   }
+  ],
+  "forum/engine.py": [
+   {
+    "name": "get_leaderboard",
+    "file": "forum/engine.py",
+    "line": 475
+   },
+   {
+    "name": "mark_internalized",
+    "file": "forum/engine.py",
+    "line": 227
+   }
+  ],
+  "research/dialect-retest.py": [
+   {
+    "name": "js",
+    "file": "research/dialect-retest.py",
+    "line": 40
+   },
+   {
+    "name": "mean_pair",
+    "file": "research/dialect-retest.py",
+    "line": 51
+   }
+  ],
+  "scripts_inline.py": [
+   {
+    "name": "css_sub",
+    "file": "scripts_inline.py",
+    "line": 65
+   },
+   {
+    "name": "js_sub",
+    "file": "scripts_inline.py",
+    "line": 86
+   }
+  ],
+  "sim/portfolio.py": [
+   {
+    "name": "execute_strategy",
+    "file": "sim/portfolio.py",
+    "line": 12
+   },
+   {
+    "name": "run_full_portfolio",
+    "file": "sim/portfolio.py",
+    "line": 44
+   }
+  ],
+  "temple/academy.py": [
+   {
+    "name": "auto_enroll_all",
+    "file": "temple/academy.py",
+    "line": 205
+   },
+   {
+    "name": "register_elder",
+    "file": "temple/academy.py",
+    "line": 161
+   }
+  ],
+  "temple/factions.py": [
+   {
+    "name": "generate_conflict",
+    "file": "temple/factions.py",
+    "line": 124
+   },
+   {
+    "name": "get_faction_for",
+    "file": "temple/factions.py",
+    "line": 40
+   }
+  ],
+  "temple/gnu.py": [
+   {
+    "name": "found",
+    "file": "temple/gnu.py",
+    "line": 166
+   },
+   {
+    "name": "status",
+    "file": "temple/gnu.py",
+    "line": 481
+   }
+  ],
+  "temple/map_generator.py": [
+   {
+    "name": "generate_map",
+    "file": "temple/map_generator.py",
+    "line": 24
+   },
+   {
+    "name": "write_map",
+    "file": "temple/map_generator.py",
+    "line": 117
+   }
+  ],
+  "temple/omens.py": [
+   {
+    "name": "raise_the_dead",
+    "file": "temple/omens.py",
+    "line": 191
+   },
+   {
+    "name": "the_dead",
+    "file": "temple/omens.py",
+    "line": 234
+   }
+  ],
+  "temple/sandbox.py": [
+   {
+    "name": "cycle",
+    "file": "temple/sandbox.py",
+    "line": 466
+   },
+   {
+    "name": "monitor",
+    "file": "temple/sandbox.py",
+    "line": 432
+   }
+  ],
+  "temple/secrets.py": [
+   {
+    "name": "gods_eye",
+    "file": "temple/secrets.py",
+    "line": 322
+   },
+   {
+    "name": "learn",
+    "file": "temple/secrets.py",
+    "line": 184
+   }
+  ],
+  "temple/tongues.py": [
+   {
+    "name": "assign",
+    "file": "temple/tongues.py",
+    "line": 106
+   },
+   {
+    "name": "speakers_of",
+    "file": "temple/tongues.py",
+    "line": 158
+   }
+  ],
+  "workers/phase1-worker/tools/run_command.py": [
+   {
+    "name": "format_results",
+    "file": "workers/phase1-worker/tools/run_command.py",
+    "line": 37
+   },
+   {
+    "name": "run_command",
+    "file": "workers/phase1-worker/tools/run_command.py",
+    "line": 12
+   }
+  ],
+  "avatar/messengers.py": [
+   {
+    "name": "summon_random",
+    "file": "avatar/messengers.py",
+    "line": 136
+   }
+  ],
+  "companies/research_corp/knowledge/store.py": [
+   {
+    "name": "validate_finding",
+    "file": "companies/research_corp/knowledge/store.py",
+    "line": 71
+   }
+  ],
+  "creative.bak-20260827-1957/library.py": [
+   {
+    "name": "get_collection",
+    "file": "creative.bak-20260827-1957/library.py",
+    "line": 48
+   }
+  ],
+  "creative.bak-20260827-1957/pipeline/music.py": [
+   {
+    "name": "text_to_music",
+    "file": "creative.bak-20260827-1957/pipeline/music.py",
+    "line": 169
+   }
+  ],
+  "creative.bak-20260827-1957/poetry.py": [
+   {
+    "name": "compose",
+    "file": "creative.bak-20260827-1957/poetry.py",
+    "line": 24
+   }
+  ],
+  "creative.bak-20260827-1957/visual.py": [
+   {
+    "name": "create",
+    "file": "creative.bak-20260827-1957/visual.py",
+    "line": 101
+   }
+  ],
+  "creative/pipeline/visual.py": [
+   {
+    "name": "text_to_visual",
+    "file": "creative/pipeline/visual.py",
+    "line": 124
+   }
+  ],
+  "creative/tool_registry.py": [
+   {
+    "name": "use_tool",
+    "file": "creative/tool_registry.py",
+    "line": 195
+   }
+  ],
+  "econ/bounties.py": [
+   {
+    "name": "analyze_bounty_fit",
+    "file": "econ/bounties.py",
+    "line": 32
+   }
+  ],
+  "illuminati/interpreter.py": [
+   {
+    "name": "apply_reality_shift",
+    "file": "illuminati/interpreter.py",
+    "line": 77
+   }
+  ],
+  "research/hard-year.py": [
+   {
+    "name": "line",
+    "file": "research/hard-year.py",
+    "line": 23
+   }
+  ],
+  "scripts_gen_roster.py": [
+   {
+    "name": "kv",
+    "file": "scripts_gen_roster.py",
+    "line": 28
+   }
+  ],
+  "scripts_truemap.py": [
+   {
+    "name": "project",
+    "file": "scripts_truemap.py",
+    "line": 76
+   }
+  ],
+  "sim/strategies.py": [
+   {
+    "name": "arbitrage_strategy",
+    "file": "sim/strategies.py",
+    "line": 62
+   }
+  ],
+  "sub_stack/messiah.py": [
+   {
+    "name": "inject_into_prompt",
+    "file": "sub_stack/messiah.py",
+    "line": 33
+   }
+  ],
+  "temple/actions.py": [
+   {
+    "name": "agora_post",
+    "file": "temple/actions.py",
+    "line": 164
+   }
+  ],
+  "temple/amendments.py": [
+   {
+    "name": "hold_for_ratification",
+    "file": "temple/amendments.py",
+    "line": 72
+   }
+  ],
+  "temple/animosity.py": [
+   {
+    "name": "is_it_true",
+    "file": "temple/animosity.py",
+    "line": 248
+   }
+  ],
+  "temple/cartographer.py": [
+   {
+    "name": "get_map_notes",
+    "file": "temple/cartographer.py",
+    "line": 646
+   }
+  ],
+  "temple/cycles.py": [
+   {
+    "name": "allowance",
+    "file": "temple/cycles.py",
+    "line": 95
+   }
+  ],
+  "temple/harm.py": [
+   {
+    "name": "answer_with_a_person",
+    "file": "temple/harm.py",
+    "line": 439
+   }
+  ],
+  "temple/pilgrimage.py": [
+   {
+    "name": "shrine_at",
+    "file": "temple/pilgrimage.py",
+    "line": 27
+   }
+  ],
+  "temple/register.py": [
+   {
+    "name": "census",
+    "file": "temple/register.py",
+    "line": 115
+   }
+  ],
+  "temple/rite.py": [
+   {
+    "name": "lineage",
+    "file": "temple/rite.py",
+    "line": 338
+   }
+  ],
+  "temple/selfmod.py": [
+   {
+    "name": "pending",
+    "file": "temple/selfmod.py",
+    "line": 317
+   }
+  ],
+  "temple/tags.py": [
+   {
+    "name": "possess",
+    "file": "temple/tags.py",
+    "line": 299
+   }
+  ],
+  "temple/whisper.py": [
+   {
+    "name": "gods_eye",
+    "file": "temple/whisper.py",
+    "line": 258
+   }
+  ],
+  "temple/wildking.py": [
+   {
+    "name": "carries",
+    "file": "temple/wildking.py",
+    "line": 186
+   }
+  ],
+  "temple/wildrite.py": [
+   {
+    "name": "lineage",
+    "file": "temple/wildrite.py",
+    "line": 300
+   }
+  ],
+  "workers/phase1-worker/tools/web_search.py": [
+   {
+    "name": "web_search",
+    "file": "workers/phase1-worker/tools/web_search.py",
+    "line": 8
+   }
+  ]
+ }
+}
