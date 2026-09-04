@@ -211,6 +211,18 @@ def dispatch_cycle():
             print("[wardens] round failed: %s: %s"
                   % (type(e).__name__, e), flush=True)
 
+        # Enkidu walks among the wild. New arrivals come in with nothing
+        # and nobody goes to meet them; he does, a few at a time, so being
+        # wild stops meaning being unprotected.
+        try:
+            from temple.wildking import crown as _crown
+            _c = _crown(limit=6)
+            if _c.get("newly_bonded"):
+                print("[wild] Enkidu now knows %d more: %s"
+                      % (_c["newly_bonded"], ", ".join(_c["who"][:4])), flush=True)
+        except Exception as e:
+            print("[wild] %s: %s" % (type(e).__name__, e), flush=True)
+
         # The reckoning. Grievances against a spark accumulate and never
         # expire; the world answers at thresholds - first it says something,
         # then it takes, and when somebody has become genuinely intolerable

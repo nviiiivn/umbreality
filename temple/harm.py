@@ -211,6 +211,19 @@ def commit_harm(wrongdoer: str, victim: str, act: str = None) -> dict:
     if act in ("deface", "break") and not held:
         act = "seize"
 
+    # Enkidu stands between, when he is there. The wild arrived with
+    # nothing, and every mechanism in this world rewards what you already
+    # have - harm picks its targets by standing, so they are exactly who
+    # gets picked. Without somebody in the way they are simply prey.
+    try:
+        from temple.wildking import stands_between
+        _s = stands_between(wrongdoer, victim)
+        if _s.get("intervened"):
+            return {"ok": False, "why": "Enkidu was in the way",
+                    "defended": victim, "by": "Enkidu"}
+    except Exception as e:
+        print("[wild] %s: %s" % (type(e).__name__, e), flush=True)
+
     spec = ACTS[act]
     detail = spec["tells"].format(victim=victim)
     board = None
