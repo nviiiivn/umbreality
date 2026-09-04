@@ -279,6 +279,27 @@ def _the_moon():
         return ""
 
 
+
+def _what_you_have(name):
+    """What a spark is carrying, and what that costs it."""
+    try:
+        from temple.holdings import store_of, way_of, HUNGRY, STARVING
+        have = store_of(name)
+        way = way_of(name)
+        if have < STARVING:
+            return ("WHAT YOU HAVE: almost nothing. You are down to scraps and "
+                    "there is not enough of you left to do much.")
+        if have < HUNGRY:
+            return ("WHAT YOU HAVE: not enough. You are hungry and it is in "
+                    "everything you do.")
+        if way == "wild":
+            return ("WHAT YOU HAVE: enough for now, and what you have is not "
+                    "only yours. The others eat when you do.")
+        return "WHAT YOU HAVE: enough for now. It is yours and nobody else's."
+    except Exception:
+        return ""
+
+
 class Spark:
     def _api(self, endpoint, method="GET", data=None):
         import json as _j, urllib.request as _ur
@@ -1158,6 +1179,7 @@ class Spark:
             _faction_line(self.name),
             _how_you_are(self.name),
             _the_moon(),
+            _what_you_have(self.name),
             "You fear " + fear_str + ". You desire " + desire_str + ".",
             "Current mood: " + mood + ". Energy: " + str(energy) + ".",
             "",

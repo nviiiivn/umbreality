@@ -123,7 +123,16 @@ def allowance(spark_name: str) -> int:
     except Exception:
         pass
 
-    return max(MIN_ACTIONS, min(MAX_ACTIONS, n))
+    # Hunger narrows a spark. This is the selection pressure the world was
+    # missing: a spark with nothing does less, so it builds less and leaves
+    # less behind, and heredity finally has something to carry.
+    try:
+        from temple.holdings import action_penalty
+        n -= action_penalty(spark_name)
+    except Exception as e:
+        print("[cycles] no stores for %s: %s" % (spark_name, e), flush=True)
+
+    return max(1, min(MAX_ACTIONS, n))
 
 
 class Budget:

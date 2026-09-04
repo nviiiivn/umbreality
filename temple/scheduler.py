@@ -280,6 +280,24 @@ def dispatch_cycle():
             print("[reckoning] failed: %s: %s" % (type(e).__name__, e),
                   flush=True)
 
+        # The world eats. Places yield and are drawn down, sparks spend
+        # simply existing, and the wild feed their own. Two ways of taking
+        # in one world under real scarcity, and which one survives is the
+        # world's answer rather than anybody's design.
+        try:
+            from temple.holdings import sweep as _eat, how_are_they
+            _e = _eat()
+            _w = how_are_they()
+            _ways = " | ".join(
+                "%s: median %.1f, %d hungry" % (k, v["median_store"], v["hungry"])
+                for k, v in _w["ways"].items())
+            print("[stores] drew %d, shared %.1f across %d | %d hungry | "
+                  "%d places stripped || %s"
+                  % (_e["drew"], _e["shared"]["moved"], _e["shared"]["transfers"],
+                     _e["hungry"], _e["places"]["stripped"], _ways), flush=True)
+        except Exception as e:
+            print("[stores] %s: %s" % (type(e).__name__, e), flush=True)
+
         # The wild gather when the moon is whole, and not otherwise.
         # Nobody calls it. That is the difference between their rite and
         # the Temple's - the Temple's happens when somebody approves it,
