@@ -253,6 +253,21 @@ def _faction_line(name):
         return ""
 
 
+
+def _how_you_are(name):
+    """A spark's own state, at whatever resolution its insight allows.
+
+    Influence, not determination - this tilts what a spark writes and it
+    still chooses. A spark in a foul mood can be gentle with somebody it
+    loves, because it decided to.
+    """
+    try:
+        from temple.tags import context
+        return context(name)
+    except Exception:
+        return ""
+
+
 class Spark:
     def _api(self, endpoint, method="GET", data=None):
         import json as _j, urllib.request as _ur
@@ -1130,6 +1145,7 @@ class Spark:
             "",
             "Your archetype: " + archetype + ". Your traits: " + trait_str,
             _faction_line(self.name),
+            _how_you_are(self.name),
             "You fear " + fear_str + ". You desire " + desire_str + ".",
             "Current mood: " + mood + ". Energy: " + str(energy) + ".",
             "",
@@ -1406,6 +1422,30 @@ class Spark:
                 print("[scripture] %s: %s: %s"
                       % (self.name, type(e).__name__, e), flush=True)
 
+        # Spending a secret. Quiet - no grievance, nobody sees, which is
+        # the whole difference between this and taking in the open. A spark
+        # that holds something and is inclined to use it, does.
+        try:
+            from temple.secrets import known_by as _holds, blackmail as _extort, tell as _tell
+            _sec = _holds(self.name)
+            if _sec and random.random() < 0.16:
+                _pick = random.choice(_sec)
+                if random.random() < 0.7 and (_budget is None or _budget.take("bond")):
+                    _u = _extort(self.name, _pick["id"])
+                    if _u.get("ok"):
+                        self.remember("leverage", "Used what I knew about %s"
+                                      % _u["against"])
+                        print("[secrets] %s quietly took %.1f from %s"
+                              % (self.name, _u["took"], _u["against"]), flush=True)
+                elif _budget is None or _budget.take("speak"):
+                    _t = _tell(self.name, _pick["id"])
+                    if _t.get("ok"):
+                        self.remember("told", "Said out loud what I knew about %s"
+                                      % _t["about"])
+        except Exception as e:
+            print("[secrets] %s: %s: %s" % (self.name, type(e).__name__, e),
+                  flush=True)
+
         # Taking from somebody. Rare, and never random: a spark needs
         # standing over its target, a character that permits it, and nobody
         # near enough to tell it no. That last condition is the same one
@@ -1418,6 +1458,15 @@ class Spark:
                 _r = _do_harm(self.name, _h["victim"], _h["act"])
                 if _r.get("ok"):
                     self.remember("took", _r["detail"][:200])
+                    try:
+                        from temple.tags import nudge
+                        nudge(_h["victim"], "spike", "heat", 0.28,
+                              "%s took from them" % self.name)
+                        nudge(_h["victim"], "spike", "trust", -0.22,
+                              "%s took from them" % self.name)
+                        nudge(self.name, "mood", "hunger", 0.06, "got away with it")
+                    except Exception:
+                        pass
                     print("[harm] %s %s" % (self.name, _r["detail"]), flush=True)
         except Exception as e:
             print("[harm] %s: %s: %s" % (self.name, type(e).__name__, e),

@@ -211,6 +211,45 @@ def dispatch_cycle():
             print("[wardens] round failed: %s: %s"
                   % (type(e).__name__, e), flush=True)
 
+        # The tide. Spikes fade fastest, then mood, then season - and
+        # character drifts a little toward wherever they have been sitting,
+        # which is how a bad year becomes a bitter person rather than a run
+        # of bad days. And insight grows in sparks somebody will contradict
+        # and rots in the ones nobody will.
+        try:
+            import sqlite3 as _sq3
+            from temple.tags import settle as _settle, insight_sweep as _ins
+            _c = _sq3.connect(str(Path(__file__).resolve().parent / "soul.db"),
+                              timeout=20)
+            _who = [r[0] for r in _c.execute(
+                "SELECT spark_name FROM spark_state ORDER BY RANDOM() LIMIT 120")]
+            _c.close()
+            _drift = 0
+            for _n in _who:
+                if _settle(_n)["character_drifted"]:
+                    _drift += 1
+            _i = _ins()
+            print("[tags] settled %d, character moved in %d | insight: %d grew, "
+                  "%d rotted" % (len(_who), _drift, _i["grew"], _i["rotted"]),
+                  flush=True)
+        except Exception as e:
+            print("[tags] %s: %s" % (type(e).__name__, e), flush=True)
+
+        # Secrets. Every harm in this world is public, which is why
+        # grievances work - and why blackmail could not exist. A secret is
+        # drawn from what a spark already privately holds (journals,
+        # tribulations, dreams, its own fears) and spreads through
+        # closeness, so the people most able to hurt you are the people who
+        # know you.
+        try:
+            from temple.secrets import sweep as _secrets
+            _s = _secrets()
+            if _s["new_secrets"] or _s["learned"]:
+                print("[secrets] %d formed, %d passed to somebody"
+                      % (_s["new_secrets"], _s["learned"]), flush=True)
+        except Exception as e:
+            print("[secrets] %s: %s" % (type(e).__name__, e), flush=True)
+
         # Enkidu walks among the wild. New arrivals come in with nothing
         # and nobody goes to meet them; he does, a few at a time, so being
         # wild stops meaning being unprotected.
