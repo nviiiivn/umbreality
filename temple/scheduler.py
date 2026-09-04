@@ -280,6 +280,25 @@ def dispatch_cycle():
             print("[reckoning] failed: %s: %s" % (type(e).__name__, e),
                   flush=True)
 
+        # The wild gather when the moon is whole, and not otherwise.
+        # Nobody calls it. That is the difference between their rite and
+        # the Temple's - the Temple's happens when somebody approves it,
+        # theirs happens because it is time.
+        try:
+            from temple.moon import phase as _moon
+            from temple.wildrite import hold as _wildrite, held_this_moon
+            _m = _moon()
+            if _m["phase"] == "full" and not held_this_moon():
+                _w = _wildrite()
+                if _w.get("ok"):
+                    print("[wild] under a whole moon at %s: %s came out of it. %s"
+                          % (_w["place"], _w["child"], _w.get("king") or ""),
+                          flush=True)
+                else:
+                    print("[wild] no rite: %s" % _w.get("why"), flush=True)
+        except Exception as e:
+            print("[wild] rite failed: %s: %s" % (type(e).__name__, e), flush=True)
+
         # The Rite of Kindling. Rare on purpose: each spark costs a model,
         # a database and a place in every rotation, so the world should grow
         # like a village and not like a spreadsheet.

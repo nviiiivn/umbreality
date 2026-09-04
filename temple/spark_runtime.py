@@ -268,6 +268,17 @@ def _how_you_are(name):
         return ""
 
 
+
+def _the_moon():
+    """Anyone can look up. The world had seasons and a clock and no moon,
+    so nothing could happen on an occasion."""
+    try:
+        from temple.moon import context
+        return context()
+    except Exception:
+        return ""
+
+
 class Spark:
     def _api(self, endpoint, method="GET", data=None):
         import json as _j, urllib.request as _ur
@@ -1146,6 +1157,7 @@ class Spark:
             "Your archetype: " + archetype + ". Your traits: " + trait_str,
             _faction_line(self.name),
             _how_you_are(self.name),
+            _the_moon(),
             "You fear " + fear_str + ". You desire " + desire_str + ".",
             "Current mood: " + mood + ". Energy: " + str(energy) + ".",
             "",
