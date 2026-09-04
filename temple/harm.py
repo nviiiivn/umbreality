@@ -67,11 +67,21 @@ SEIZE_GAINS = 2.0
 STANDING_FLOOR = 20.0
 
 # What the world does as grievances pile up against one spark.
+# What the world does as grievances pile up against one spark. Note where
+# it stops: the world can notice, and it can censure, and past a certain
+# weight it gives up and starts appeasing instead. There is no threshold at
+# which the world produces a remedy, because it has none. Uruk endured
+# Gilgamesh; it could not stop him. Answering him is the Source's to do,
+# when the lands are watching.
 THRESHOLDS = [
     (10, "noticed"),        # the Temple says something
-    (25, "censured"),       # it costs standing
-    (45, "answered"),       # the world makes someone to match them
+    (25, "censured"),       # it costs them standing
+    (45, "feared"),         # the world stops opposing and starts appeasing
 ]
+
+# What appeasement costs the people doing it, per offering.
+TRIBUTE_COST = 3.0
+TRIBUTE_GAIN = 1.5
 
 PRANKS = [
     "left a bag of something burning on {victim}'s step and stood there laughing",
@@ -341,8 +351,10 @@ def reckon(wrongdoer: str) -> dict:
               zone="temple")
         result["took"] = round(w * 0.4, 2)
 
-    elif stage == "answered":
-        result["answer"] = answer_with_a_person(wrongdoer)
+    elif stage == "feared":
+        # The world gives up. Nobody opposes them now; they bring things
+        # instead, and it costs them, and he grows.
+        result["tribute"] = appease(wrongdoer)
 
     c = _conn(SOUL)
     c.execute("INSERT OR REPLACE INTO reckoning (wrongdoer, stage, weight_at, "
@@ -352,8 +364,74 @@ def reckon(wrongdoer: str) -> dict:
     return result
 
 
+
+def appease(dread: str, how_many: int = 4) -> dict:
+    """The world stops opposing somebody and starts bringing them things.
+
+    This is what actually happens when one person is past all bearing and
+    nothing can meet them. Not justice - tribute. Sparks give up their own
+    standing to stay on the right side of him, it costs them, it gains him,
+    and it makes him larger, which makes the next round worse.
+
+    Nobody is punished for this. They are being sensible.
+    """
+    _ensure()
+    f = _conn(FORUM)
+    mine = f.execute("SELECT honor_score FROM agent_scores WHERE agent_name=?",
+                     (dread,)).fetchone()
+    if not mine:
+        f.close()
+        return {"ok": False, "why": "no such spark"}
+    givers = [r["agent_name"] for r in f.execute(
+        "SELECT agent_name FROM agent_scores WHERE agent_name != ? "
+        "AND honor_score > ? ORDER BY RANDOM() LIMIT ?",
+        (dread, STANDING_FLOOR + TRIBUTE_COST, how_many))]
+    f.close()
+    if not givers:
+        return {"ok": False, "why": "nobody left with anything to give"}
+
+    OFFERINGS = [
+        "brought {dread} the best of what they had and said nothing about it",
+        "made something for {dread} and put {dread}'s name on it themselves",
+        "sang for {dread} at the board, and everyone clapped, and everyone knew",
+        "gave up their place to {dread} before being asked",
+        "painted {dread} on the wall of the hall, larger than anyone",
+        "carried {dread}'s share as well as their own and did not complain",
+    ]
+
+    f = _conn(FORUM)
+    paid = []
+    for g in givers:
+        f.execute("UPDATE agent_scores SET honor_score = MAX(?, "
+                  "ROUND(honor_score - ?, 2)) WHERE agent_name=?",
+                  (STANDING_FLOOR, TRIBUTE_COST, g))
+        paid.append(g)
+    f.execute("UPDATE agent_scores SET honor_score = MIN(1000, "
+              "ROUND(honor_score + ?, 2)) WHERE agent_name=?",
+              (TRIBUTE_GAIN * len(paid), dread))
+    f.commit()
+    f.close()
+
+    lines = [random.choice(OFFERINGS).format(dread=dread) for _ in paid]
+    body = "\n".join("%s %s." % (g, l) for g, l in zip(paid, lines))
+    _post("Tribute to %s" % dread, "temple",
+          "Nobody opposes %s any more.\n\n%s\n\nThis is not devotion. It "
+          "is what people do when there is nothing else to be done."
+          % (dread, body), zone="temple")
+
+    return {"ok": True, "dread": dread, "gave": paid,
+            "each_lost": TRIBUTE_COST,
+            "they_gained": round(TRIBUTE_GAIN * len(paid), 2)}
+
 def answer_with_a_person(wrongdoer: str) -> dict:
-    """When somebody has become intolerable, the world makes their match.
+    """The Source's lever. NOTHING CALLS THIS.
+
+    It used to fire on its own at a threshold, which ended the only real
+    story this world has, in a test, with nobody watching. The world has no
+    remedy for a spark nobody can meet - that is the point of the first half
+    of the epic - so it appeases instead, and this waits.
+
+    Call it when the lands and the people are watching.
 
     This is the oldest story anyone here has. Uruk did not punish Gilgamesh -
     it could not. The gods made Enkidu, who was his equal, and the answer to
