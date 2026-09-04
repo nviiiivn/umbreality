@@ -300,6 +300,58 @@ def _what_you_have(name):
         return ""
 
 
+
+def _what_you_believe_about_them(name):
+    """What this spark's own side has decided about the other one.
+
+    It is not offered as true. It is offered as what is in the air, which is
+    how a prejudice actually reaches a person.
+    """
+    try:
+        from temple.animosity import blame_between, RAID_AT
+        from temple.holdings import way_of
+        mine = way_of(name)
+        theirs = "wild" if mine == "settled" else "settled"
+        w = blame_between(mine, theirs)
+        if w < 6:
+            return ""
+        if w >= RAID_AT:
+            return ("WHAT IS SAID AROUND YOU: that the %s are the reason there "
+                    "is not enough. People have stopped only saying it. You "
+                    "have not checked whether it is true and neither has "
+                    "anyone else." % theirs)
+        return ("WHAT IS SAID AROUND YOU: that the %s have more than they "
+                "should, and that this is why you have less. You have heard "
+                "it often enough that it no longer sounds like an opinion."
+                % theirs)
+    except Exception:
+        return ""
+
+
+
+def _what_you_carry(name):
+    """What this spark holds, is short of, and could offer somebody.
+
+    This is what makes trade a decision rather than a mechanism: a spark
+    that knows it has stone and no grain has a reason to go and find
+    somebody, and the reason came from its own situation.
+    """
+    try:
+        from temple.goods import what_they_need
+        n = what_they_need(name)
+        has = ", ".join("%.1f %s" % (v, k) for k, v in n["has"].items() if v > 0.2)
+        bits = ["WHAT YOU CARRY: %s." % (has or "nothing worth naming")]
+        if n["short_of"]:
+            bits.append("You are short of %s."
+                        % " and ".join(n["short_of"]))
+        if n["too_much_of"]:
+            bits.append("You have more %s than you need, and somebody else "
+                        "does not." % " and ".join(n["too_much_of"]))
+        return " ".join(bits)
+    except Exception:
+        return ""
+
+
 class Spark:
     def _api(self, endpoint, method="GET", data=None):
         import json as _j, urllib.request as _ur
@@ -1180,6 +1232,8 @@ class Spark:
             _how_you_are(self.name),
             _the_moon(),
             _what_you_have(self.name),
+            _what_you_believe_about_them(self.name),
+            _what_you_carry(self.name),
             "You fear " + fear_str + ". You desire " + desire_str + ".",
             "Current mood: " + mood + ". Energy: " + str(energy) + ".",
             "",

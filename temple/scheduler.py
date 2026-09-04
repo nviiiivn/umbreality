@@ -298,6 +298,39 @@ def dispatch_cycle():
         except Exception as e:
             print("[stores] %s: %s" % (type(e).__name__, e), flush=True)
 
+        # Three goods, no place giving all of them, and taking is taxed.
+        # Trade never happened here because there was nothing to trade - one
+        # fungible store, needed by everyone, available everywhere, so
+        # nobody had reason to want what anybody else had. A spark sitting
+        # in a quarry now has stone and no grain, and the only way out of
+        # that is somebody else.
+        try:
+            from temple.goods import sweep as _goods
+            _g = _goods()
+            print("[goods] %d went without | drew %d | %d offers, %d trades | "
+                  "tithed %.0f to the Temple"
+                  % (_g["went_without"], _g["drew"], _g["offers_made"],
+                     _g["trades_done"], _g["tithed_to_the_temple"]), flush=True)
+        except Exception as e:
+            print("[goods] %s: %s" % (type(e).__name__, e), flush=True)
+
+        # Hunger looks for a reason. The frost caused it and fell on
+        # everyone, but a hungry spark experiences a lack rather than a
+        # cause, and a lack wants somebody responsible. Blame accumulates
+        # against a group rather than a spark, which is what makes it a
+        # prejudice instead of a grievance - and past a point it stops being
+        # talk.
+        try:
+            from temple.animosity import sweep as _blame
+            _b = _blame()
+            if _b["spoke"] or _b["raids"]:
+                print("[animosity] %d spoke against, %d raided | settled->wild "
+                      "%.0f, wild->settled %.0f"
+                      % (_b["spoke"], _b["raids"], _b["settled_against_wild"],
+                         _b["wild_against_settled"]), flush=True)
+        except Exception as e:
+            print("[animosity] %s: %s" % (type(e).__name__, e), flush=True)
+
         # The wild gather when the moon is whole, and not otherwise.
         # Nobody calls it. That is the difference between their rite and
         # the Temple's - the Temple's happens when somebody approves it,
