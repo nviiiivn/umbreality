@@ -298,6 +298,28 @@ def dispatch_cycle():
         except Exception as e:
             print("[stores] %s: %s" % (type(e).__name__, e), flush=True)
 
+        # Where a goal comes from when it does not come from a menu.
+        # Every ambition in this world is random.choice on a fixed list, so
+        # no spark has ever decided what it wants. GNU was built for exactly
+        # this - a problem dropped at a workshop, routed to whoever has the
+        # trade for it - and has never once been switched on, and nothing
+        # ever dropped a problem off either. Sparks now ask out of their own
+        # situation, and the situation is real: short of grain, work that has
+        # not moved, stores raided, a place they tend stripped by people who
+        # never put anything back.
+        try:
+            from temple.asking import sweep as _asking
+            _a = _asking()
+            _g = _a.get("gnu") or {}
+            _d = (_g.get("dispatch") or {})
+            print("[gnu] %d asked for help | routed %s | %s"
+                  % (_a["asked"], _d.get("dispatched", _d) if _d else "nothing",
+                     (_g.get("promote") or {}).get("promoted", "")), flush=True)
+            for _x in _a["examples"][:2]:
+                print("      %s: %s" % (_x["spark"], _x["problem"][:96]), flush=True)
+        except Exception as e:
+            print("[gnu] %s: %s" % (type(e).__name__, e), flush=True)
+
         # Three goods, no place giving all of them, and taking is taxed.
         # Trade never happened here because there was nothing to trade - one
         # fungible store, needed by everyone, available everywhere, so

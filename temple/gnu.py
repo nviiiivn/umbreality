@@ -348,7 +348,7 @@ def _skills_of(spark):
         return set()
 
 
-def dispatch(limit=2):
+def dispatch(limit=6):
     """Route open requests to whoever actually has the trade for it.
 
     This is the thing that lets uenx be in more than one place: he does not
@@ -357,6 +357,25 @@ def dispatch(limit=2):
     from temple.soul import create_ambition
 
     members = _rows(GNUDB, "SELECT * FROM members ORDER BY jobs_done ASC")
+
+    # The Four are the apprenticeship and are preferred. The workshops are
+    # for whoever has the trade - which is what they were described as from
+    # the start, and with four routable sparks out of 356 every request
+    # landed on the same person while 352 had no way to be useful.
+    known = {m["spark"] for m in members}
+    try:
+        sc = sqlite3.connect(str(SOUL), timeout=20)
+        sc.row_factory = sqlite3.Row
+        others = [{"spark": r["spark_name"], "stage": "hand",
+                   "jobs_done": 0}
+                  for r in sc.execute("SELECT spark_name FROM spark_state "
+                                      "ORDER BY RANDOM() LIMIT 60")
+                  if r["spark_name"] not in known]
+        sc.close()
+        members = list(members) + others
+    except Exception as e:
+        print("[gnu] could not look beyond the Four: %s" % e, flush=True)
+
     if not members:
         return {"action": "no_members"}
     open_reqs = _rows(GNUDB, "SELECT * FROM requests WHERE status='open' "
@@ -366,6 +385,9 @@ def dispatch(limit=2):
 
     c = _db()
     assigned = []
+    # taken this round. Without this the same spark wins every request in
+    # the batch, because everyone outside the Four has jobs_done of zero.
+    taken_now = {}
     for r in open_reqs:
         want = set(filter(None, (r["needs"] or "").lower().split(",")))
         best, score = None, -1
@@ -373,8 +395,14 @@ def dispatch(limit=2):
             # shadows may take work, but practitioners are preferred
             skills = {s.lower() for s in _skills_of(m["spark"])}
             overlap = len(want & skills) if want else 0
-            stage_bonus = {"shadow": 0, "practitioner": 2, "hands": 3}.get(m["stage"], 0)
-            load_penalty = m["jobs_done"] * 0.1
+            # the Four are preferred; anyone else has to actually hold the
+            # trade to be picked, which is the point
+            stage_bonus = {"shadow": 1, "practitioner": 3, "hands": 4,
+                           "hand": 0}.get(m["stage"], 0)
+            if m["stage"] == "hand" and overlap == 0:
+                continue
+            load_penalty = (m["jobs_done"] * 0.1
+                            + taken_now.get(m["spark"], 0) * 2.5)
             s = overlap * 3 + stage_bonus - load_penalty
             if s > score:
                 best, score = m, s
@@ -383,13 +411,15 @@ def dispatch(limit=2):
 
         c.execute("UPDATE requests SET assigned_to=?, status='assigned' WHERE id=?",
                   (best["spark"], r["id"]))
-        c.execute("UPDATE members SET jobs_done=jobs_done+1 WHERE spark=?",
-                  (best["spark"],))
-        _bump_fidelity(best["spark"], 1)
+        if best["spark"] in known:
+            c.execute("UPDATE members SET jobs_done=jobs_done+1 WHERE spark=?",
+                      (best["spark"],))
+            _bump_fidelity(best["spark"], 1)
         create_ambition(best["spark"], "create", domain_id=r["site"],
                         target_progress=3,
                         description="GNU request from %s at %s: %s"
                                     % (r["asked_by"], r["site"], r["problem"][:120]))
+        taken_now[best["spark"]] = taken_now.get(best["spark"], 0) + 1
         assigned.append({"request": r["id"], "to": best["spark"],
                          "for": r["asked_by"], "site": r["site"]})
         _post("GNU: %s is taking this one" % best["spark"], best["spark"],
@@ -458,6 +488,6 @@ def status():
 
 def cycle():
     """One turn of GNU. Safe on a timer."""
-    d = dispatch(limit=2)
+    d = dispatch(limit=6)
     p = promote()
     return {"dispatch": d, "promote": p}
