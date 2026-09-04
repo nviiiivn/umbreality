@@ -54,11 +54,19 @@ def _mod(path: Path) -> str:
     return str(path.relative_to(ROOT)).replace("/", ".")[:-3]
 
 
+def _is_backup(name):
+    """A copy kept for safety is not part of the world."""
+    n = name.lower()
+    return (".bak" in n or n.endswith(".old") or n.endswith("~")
+            or ".precred" in n or "superseded" in n)
+
+
 def python_files():
     for dirpath, dirnames, filenames in os.walk(ROOT):
-        dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS]
+        dirnames[:] = [d for d in dirnames
+                       if d not in SKIP_DIRS and not _is_backup(d)]
         for fn in filenames:
-            if fn.endswith(".py"):
+            if fn.endswith(".py") and not _is_backup(fn):
                 yield Path(dirpath) / fn
 
 

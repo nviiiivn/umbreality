@@ -1,7 +1,7 @@
 {
- "functions": 1079,
- "reachable": 927,
- "unreachable": 113,
+ "functions": 1066,
+ "reachable": 929,
+ "unreachable": 99,
  "dead": [
   {
    "name": "summon_random",
@@ -12,71 +12,6 @@
    "name": "validate_finding",
    "file": "companies/research_corp/knowledge/store.py",
    "line": 71
-  },
-  {
-   "name": "get_collection",
-   "file": "creative.bak-20260827-1957/library.py",
-   "line": 48
-  },
-  {
-   "name": "compose",
-   "file": "creative.bak-20260827-1957/music.py",
-   "line": 108
-  },
-  {
-   "name": "generate_ambient",
-   "file": "creative.bak-20260827-1957/music.py",
-   "line": 87
-  },
-  {
-   "name": "generate_melody",
-   "file": "creative.bak-20260827-1957/music.py",
-   "line": 68
-  },
-  {
-   "name": "generate_tone",
-   "file": "creative.bak-20260827-1957/music.py",
-   "line": 38
-  },
-  {
-   "name": "text_to_music",
-   "file": "creative.bak-20260827-1957/pipeline/music.py",
-   "line": 169
-  },
-  {
-   "name": "compose",
-   "file": "creative.bak-20260827-1957/poetry.py",
-   "line": 24
-  },
-  {
-   "name": "get_tool",
-   "file": "creative.bak-20260827-1957/tool_registry.py",
-   "line": 190
-  },
-  {
-   "name": "list_tools",
-   "file": "creative.bak-20260827-1957/tool_registry.py",
-   "line": 164
-  },
-  {
-   "name": "register_tool",
-   "file": "creative.bak-20260827-1957/tool_registry.py",
-   "line": 204
-  },
-  {
-   "name": "search_tools",
-   "file": "creative.bak-20260827-1957/tool_registry.py",
-   "line": 177
-  },
-  {
-   "name": "use_tool",
-   "file": "creative.bak-20260827-1957/tool_registry.py",
-   "line": 195
-  },
-  {
-   "name": "create",
-   "file": "creative.bak-20260827-1957/visual.py",
-   "line": 101
   },
   {
    "name": "compose",
@@ -97,11 +32,6 @@
    "name": "generate_tone",
    "file": "creative/music.py",
    "line": 37
-  },
-  {
-   "name": "text_to_visual",
-   "file": "creative/pipeline/visual.py",
-   "line": 124
   },
   {
    "name": "use_tool",
@@ -341,7 +271,7 @@
   {
    "name": "status",
    "file": "temple/gnu.py",
-   "line": 481
+   "line": 498
   },
   {
    "name": "adapt_thresholds",
@@ -644,33 +574,6 @@
     "line": 179
    }
   ],
-  "creative.bak-20260827-1957/tool_registry.py": [
-   {
-    "name": "get_tool",
-    "file": "creative.bak-20260827-1957/tool_registry.py",
-    "line": 190
-   },
-   {
-    "name": "list_tools",
-    "file": "creative.bak-20260827-1957/tool_registry.py",
-    "line": 164
-   },
-   {
-    "name": "register_tool",
-    "file": "creative.bak-20260827-1957/tool_registry.py",
-    "line": 204
-   },
-   {
-    "name": "search_tools",
-    "file": "creative.bak-20260827-1957/tool_registry.py",
-    "line": 177
-   },
-   {
-    "name": "use_tool",
-    "file": "creative.bak-20260827-1957/tool_registry.py",
-    "line": 195
-   }
-  ],
   "temple/blessings.py": [
    {
     "name": "decree_urgency_bonus",
@@ -696,28 +599,6 @@
     "name": "sees_state_of_others",
     "file": "temple/blessings.py",
     "line": 156
-   }
-  ],
-  "creative.bak-20260827-1957/music.py": [
-   {
-    "name": "compose",
-    "file": "creative.bak-20260827-1957/music.py",
-    "line": 108
-   },
-   {
-    "name": "generate_ambient",
-    "file": "creative.bak-20260827-1957/music.py",
-    "line": 87
-   },
-   {
-    "name": "generate_melody",
-    "file": "creative.bak-20260827-1957/music.py",
-    "line": 68
-   },
-   {
-    "name": "generate_tone",
-    "file": "creative.bak-20260827-1957/music.py",
-    "line": 38
    }
   ],
   "creative/music.py": [
@@ -964,7 +845,7 @@
    {
     "name": "status",
     "file": "temple/gnu.py",
-    "line": 481
+    "line": 498
    }
   ],
   "temple/map_generator.py": [
@@ -1051,41 +932,6 @@
     "name": "validate_finding",
     "file": "companies/research_corp/knowledge/store.py",
     "line": 71
-   }
-  ],
-  "creative.bak-20260827-1957/library.py": [
-   {
-    "name": "get_collection",
-    "file": "creative.bak-20260827-1957/library.py",
-    "line": 48
-   }
-  ],
-  "creative.bak-20260827-1957/pipeline/music.py": [
-   {
-    "name": "text_to_music",
-    "file": "creative.bak-20260827-1957/pipeline/music.py",
-    "line": 169
-   }
-  ],
-  "creative.bak-20260827-1957/poetry.py": [
-   {
-    "name": "compose",
-    "file": "creative.bak-20260827-1957/poetry.py",
-    "line": 24
-   }
-  ],
-  "creative.bak-20260827-1957/visual.py": [
-   {
-    "name": "create",
-    "file": "creative.bak-20260827-1957/visual.py",
-    "line": 101
-   }
-  ],
-  "creative/pipeline/visual.py": [
-   {
-    "name": "text_to_visual",
-    "file": "creative/pipeline/visual.py",
-    "line": 124
    }
   ],
   "creative/tool_registry.py": [

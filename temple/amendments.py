@@ -117,6 +117,15 @@ def ratify(proposal_id: int, who: str = "the Source") -> dict:
     if p["status"] not in (AWAITING, "proposed", "sandboxed:improves"):
         return {"ok": False, "error": "proposal is %s, not awaiting a decision"
                                       % p["status"]}
+    if p.get("change_type") == "wire":
+        # Nothing to apply. The world found a fault in itself and named it;
+        # saying yes is accepting the finding, and the work is a person's.
+        _decide(proposal_id, "ratified", who,
+                "accepted as a real fault; the wiring is a person's job")
+        return {"ok": True, "id": proposal_id, "judgement": True,
+                "note": "Accepted. Nothing was applied - this names work to "
+                        "be done rather than rows to move."}
+
     try:
         result = json.loads(p["sandbox_result"] or "null")
     except (ValueError, TypeError):
@@ -208,6 +217,9 @@ def send_to_review(proposal_id: int) -> dict:
 # ── what the page needs, in one call ─────────────────────────────
 
 METRIC_MEANING = {
+    "unreachable_code": "functions that were written and that nothing in the "
+                        "world can reach",
+    "dead_modules": "whole files where nothing is connected to anything",
     "population": "how many sparks are alive",
     "open_ambitions": "work declared and not yet finished",
     "resolved_ambitions": "work carried through to the end",
@@ -269,7 +281,13 @@ def board() -> dict:
             except (ValueError, TypeError):
                 pass
         d["state_means"] = STATE_MEANING.get(d.get("status"), "")
-        d["decidable"] = d.get("status") in (AWAITING, "sandboxed:improves")
+        # a wiring fault is a judgement rather than a change to try: the
+        # sandbox measures what happens to the world when rows move, and
+        # nothing moves here. It goes straight to a person.
+        d["is_judgement"] = d.get("change_type") == "wire"
+        d["decidable"] = (d.get("status") in (AWAITING, "sandboxed:improves")
+                          or (d.get("change_type") == "wire"
+                              and d.get("status") == "proposed"))
         # what a person can actually do with this one, right now
         d["reviewable"] = d.get("status") in ("proposed", "stale",
                                               "sandboxed:error")

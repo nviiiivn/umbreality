@@ -262,6 +262,27 @@ def dispatch_cycle():
         except Exception as e:
             print("[wild] %s: %s" % (type(e).__name__, e), flush=True)
 
+        # The world looks at itself. Its ten observations are all row
+        # counts - it could notice that sparks were lonely and never that
+        # the wardens had never run, because there was no observation for a
+        # thing built and connected to nothing, which is the fault that
+        # actually shaped this place. It has eyes for that now, and words
+        # for it, and it puts what it finds before the Congress.
+        try:
+            from temple.selfsight import cycle as _selfsight
+            _ss = _selfsight()
+            _o = _ss.get("observed") or {}
+            if _o.get("ok"):
+                _p = (_ss.get("proposed") or {}).get("raised") or []
+                print("[selfsight] %d of %d functions unreachable, %d modules "
+                      "dead%s"
+                      % (_o["unreachable"], _o["unreachable"] + _o["reachable"],
+                         len(_o["dead_modules"]),
+                         (" | raised %d before the Congress" % len(_p)) if _p else ""),
+                      flush=True)
+        except Exception as e:
+            print("[selfsight] %s: %s" % (type(e).__name__, e), flush=True)
+
         # The reckoning. Grievances against a spark accumulate and never
         # expire; the world answers at thresholds - first it says something,
         # then it takes, and when somebody has become genuinely intolerable
