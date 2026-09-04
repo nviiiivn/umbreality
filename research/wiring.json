@@ -1,6 +1,6 @@
 {
- "functions": 1078,
- "reachable": 926,
+ "functions": 1079,
+ "reachable": 927,
  "unreachable": 113,
  "dead": [
   {
@@ -39,9 +39,9 @@
    "line": 38
   },
   {
-   "name": "text_to_music",
-   "file": "creative.bak-20260827-1957/pipeline/music.py",
-   "line": 169
+   "name": "text_to_visual",
+   "file": "creative.bak-20260827-1957/pipeline/visual.py",
+   "line": 125
   },
   {
    "name": "compose",
@@ -99,9 +99,9 @@
    "line": 37
   },
   {
-   "name": "text_to_visual",
-   "file": "creative/pipeline/visual.py",
-   "line": 124
+   "name": "text_to_music",
+   "file": "creative/pipeline/music.py",
+   "line": 168
   },
   {
    "name": "use_tool",
@@ -1060,11 +1060,11 @@
     "line": 48
    }
   ],
-  "creative.bak-20260827-1957/pipeline/music.py": [
+  "creative.bak-20260827-1957/pipeline/visual.py": [
    {
-    "name": "text_to_music",
-    "file": "creative.bak-20260827-1957/pipeline/music.py",
-    "line": 169
+    "name": "text_to_visual",
+    "file": "creative.bak-20260827-1957/pipeline/visual.py",
+    "line": 125
    }
   ],
   "creative.bak-20260827-1957/poetry.py": [
@@ -1081,11 +1081,11 @@
     "line": 101
    }
   ],
-  "creative/pipeline/visual.py": [
+  "creative/pipeline/music.py": [
    {
-    "name": "text_to_visual",
-    "file": "creative/pipeline/visual.py",
-    "line": 124
+    "name": "text_to_music",
+    "file": "creative/pipeline/music.py",
+    "line": 168
    }
   ],
   "creative/tool_registry.py": [

@@ -279,9 +279,11 @@ def consume(spark: str) -> dict:
         from temple.holdings import weather
         if weather().get("kind") == "frost":
             needs["fuel"] = needs["fuel"] * 3.0
-            from temple.hearths import is_sheltered, FROST_RELIEF
-            if is_sheltered(spark):
-                needs["fuel"] = needs["fuel"] * (1.0 - FROST_RELIEF)
+            # A circle cut in the ground, or being one of his. Neither is
+            # bought - the wild are the ones with nothing, and making their
+            # protection a purchase would be the opposite of what he is.
+            from temple.wards import protection
+            needs["fuel"] = needs["fuel"] * (1.0 - protection(spark))
     except Exception:
         pass
 

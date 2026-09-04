@@ -298,24 +298,26 @@ def dispatch_cycle():
         except Exception as e:
             print("[stores] %s: %s" % (type(e).__name__, e), flush=True)
 
-        # Fires in the woods. The hard year killed everyone about equally,
-        # which is wrong: the wild live in the woods, they are not visiting.
-        # Enkidu lights them, the wild keep them burning at their own cost,
-        # and anybody cold may sit down - including the people who spent the
-        # season saying the wild are the reason there is nothing.
+        # Circles in the ground. The hard year killed everyone about equally,
+        # which is wrong - the wild live in the woods, they are not
+        # visiting - but the first version had Enkidu buying firewood, which
+        # made protection a thing the ones with nothing had to pay for.
+        # He cuts a figure instead. It costs nobody anything. Anyone cold
+        # may stand in it, including the people who spent the season saying
+        # the wild are the reason there is nothing.
         try:
-            from temple.hearths import sweep as _fires
-            _f = _fires()
-            if _f["burning"] or _f["lit"]:
-                print("[fires] %d burning%s | sheltering: %d wild, %d settled%s"
-                      % (_f["burning"],
-                         (" (+%d lit)" % len(_f["lit"])) if _f["lit"] else "",
-                         _f["sheltered"].get("wild", 0),
-                         _f["sheltered"].get("settled", 0),
-                         (" | went out: %s" % ", ".join(_f["went_out"]))
-                         if _f["went_out"] else ""), flush=True)
+            from temple.wards import sweep as _wards
+            _w = _wards()
+            if _w["holding"] or _w["cut"]:
+                print("[wards] %d holding%s | inside: %d wild, %d settled | "
+                      "his clarity %.2f"
+                      % (_w["holding"],
+                         (" (+%s)" % "; ".join(_w["cut"])) if _w["cut"] else "",
+                         _w["inside"].get("wild", 0),
+                         _w["inside"].get("settled", 0),
+                         _w["his_insight"]), flush=True)
         except Exception as e:
-            print("[fires] %s: %s" % (type(e).__name__, e), flush=True)
+            print("[wards] %s: %s" % (type(e).__name__, e), flush=True)
 
         # Something said to one spark and not to everyone. Every word any
         # spark has ever spoken here is a public forum post - there was no
