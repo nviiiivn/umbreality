@@ -85,6 +85,8 @@ def build():
     calls = defaultdict(set)        # "mod:func" -> {func names}
     imports = defaultdict(dict)     # mod -> {local name: source module}
     entries = set()
+    deferred_roots = []   # (mod, names called at module level)
+    fimports = defaultdict(dict)    # "mod:func" -> {local name: source}
 
     for path in python_files():
         rel = str(path.relative_to(ROOT))
@@ -123,21 +125,46 @@ def build():
                 for sub in ast.walk(node):
                     if isinstance(sub, ast.Call):
                         calls[q].add(_called(sub))
+                    # an import inside a function belongs to that function.
+                    # Two functions in one file legitimately import
+                    # different things under the same local name, and this
+                    # codebase does it - flattening them to the module lost
+                    # whichever came first.
+                    elif isinstance(sub, ast.ImportFrom) and sub.module:
+                        for a in sub.names:
+                            fimports[q][a.asname or a.name] = (sub.module,
+                                                               a.name)
                 if node.decorator_list:
                     entries.add(q)          # a route, an event, a timer
+
+        # Anything called at module level runs the moment the module is
+        # loaded. That is a root regardless of whether we happened to list
+        # the file as an entry point - a plain generator script has no
+        # __main__ guard and is still executed on every deploy. Resolved
+        # after the whole tree is walked, because doing it here would depend
+        # on the order files came off the disk.
+        deferred_roots.append((mod, module_level_calls))
 
         if rel in ENTRY_FILES or '__name__ == "__main__"' in src:
             for node in ast.walk(tree):
                 if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
                     entries.add("%s:%s" % (mod, node.name))
-            for n in module_level_calls:
-                for q in by_name.get(n, ()):
-                    entries.add(q)
 
-    return defs, by_name, calls, imports, entries
+    for mod, names in deferred_roots:
+        for n in names:
+            # a bare name means this module's own definition if it has one,
+            # otherwise whatever it imported under that name
+            own = "%s:%s" % (mod, n)
+            if own in defs:
+                entries.add(own)
+                continue
+            for q in resolve(own, n, by_name, imports, None):
+                entries.add(q)
+
+    return defs, by_name, calls, imports, entries, fimports
 
 
-def resolve(caller_q, name, by_name, imports):
+def resolve(caller_q, name, by_name, imports, fimports=None):
     """Which definition does this call mean?
 
     If the calling module imported the name from somewhere, that is the
@@ -147,7 +174,9 @@ def resolve(caller_q, name, by_name, imports):
     things live.
     """
     mod = caller_q.split(":")[0]
-    found = imports.get(mod, {}).get(name)
+    # the caller's own function scope wins over its module's
+    found = (fimports or {}).get(caller_q, {}).get(name) \
+        or imports.get(mod, {}).get(name)
     if found:
         src, original = found
         q = "%s:%s" % (src, original)
@@ -160,7 +189,7 @@ def resolve(caller_q, name, by_name, imports):
     return by_name.get(name, set())
 
 
-def walk(defs, by_name, calls, imports, entries):
+def walk(defs, by_name, calls, imports, entries, fimports=None):
     seen, stack = set(), [e for e in entries if e in defs]
     while stack:
         q = stack.pop()
@@ -170,15 +199,16 @@ def walk(defs, by_name, calls, imports, entries):
         for name in calls.get(q, ()):
             if not name:
                 continue
-            for target in resolve(q, name, by_name, imports):
+            for target in resolve(q, name, by_name, imports,
+                                  fimports):
                 if target not in seen:
                     stack.append(target)
     return seen
 
 
 def report():
-    defs, by_name, calls, imports, entries = build()
-    live = walk(defs, by_name, calls, imports, entries)
+    defs, by_name, calls, imports, entries, fimports = build()
+    live = walk(defs, by_name, calls, imports, entries, fimports)
 
     dead = []
     for q, (rel, line) in sorted(defs.items()):
