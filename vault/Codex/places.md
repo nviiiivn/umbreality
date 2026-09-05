@@ -1,6 +1,6 @@
 # Places, Building and Travel
 
-> Generated from the live world on 2026-09-03 21:17 PDT.
+> Generated from the live world on 2026-09-04 17:13 PDT.
 
 Where things happen, and what gets left behind when they do.
 
@@ -12,20 +12,20 @@ Beyond them: the hearths where kin-groups live, the workshops, and **the Wild**,
 
 **How it works.** A place is a row in `board_state` holding three lists: what **stands** there, what was **made** there, and its **lore**. Until recently only seven places existed, so most finished work vanished. There are now **75**.
 
-**75 places. 1596 things standing.**
+**75 places. 1674 things standing.**
 
 | Place | Built | Made |
 |---|---|---|
-| forum | 334 | 76 |
-| uruk | 74 | 122 |
-| library | 62 | 112 |
-| monastery | 87 | 39 |
-| bazaar | 8 | 72 |
-| press | 5 | 41 |
+| forum | 355 | 76 |
+| uruk | 75 | 124 |
+| library | 67 | 113 |
+| monastery | 95 | 39 |
+| bazaar | 9 | 77 |
+| press | 7 | 41 |
+| the-whole-system | 7 | 19 |
+| gallery | 4 | 21 |
 | the-crooked | 5 | 19 |
-| gallery | 4 | 20 |
-| qa | 12 | 11 |
-| dark | 5 | 18 |
+| announcements | 6 | 18 |
 
 
 ## Structure, artifact and lore
@@ -40,9 +40,9 @@ The most recent things raised:
 
 - **qa** — *Vorr's temple* (temple) by Vorr
 - **qa** — *Keshir's doubt* (doubt) by Keshir
+- **prophecies** — *Elyos's temple* (temple) by Elyos Vex
 - **prophecies** — *forge's bazaar* (bazaar) by forge
-- **prophecies** — *The Prophecies making* (structure) by Dumon
-- **god** — *Wynne Road* (road) by Wynne Forge
-- **god** — *exploit-inc's unknown* (unknown) by exploit-inc
-- **monastery** — *Silken's unknown* (unknown) by Silken Ropewright
-- **monastery** — *Kylos's bazaar* (bazaar) by Kylos Forgehand
+- **god** — *Rukkar's temple* (temple) by Rukkar
+- **god** — *Javen's form* (form) by Javen Kel
+- **monastery** — *Rokanel's temple* (temple) by Rokanel Varis
+- **monastery** — *Nilan's temple* (temple) by Nilan

@@ -1,7 +1,7 @@
 {
- "functions": 1066,
- "reachable": 934,
- "unreachable": 94,
+ "functions": 1068,
+ "reachable": 946,
+ "unreachable": 89,
  "dead": [
   {
    "name": "summon_random",
@@ -12,26 +12,6 @@
    "name": "validate_finding",
    "file": "companies/research_corp/knowledge/store.py",
    "line": 71
-  },
-  {
-   "name": "compose",
-   "file": "creative/music.py",
-   "line": 107
-  },
-  {
-   "name": "generate_ambient",
-   "file": "creative/music.py",
-   "line": 86
-  },
-  {
-   "name": "generate_melody",
-   "file": "creative/music.py",
-   "line": 67
-  },
-  {
-   "name": "generate_tone",
-   "file": "creative/music.py",
-   "line": 37
   },
   {
    "name": "use_tool",
@@ -52,11 +32,6 @@
    "name": "recommend_for_company",
    "file": "econ/gather.py",
    "line": 32
-  },
-  {
-   "name": "get_leaderboard",
-   "file": "forum/engine.py",
-   "line": 475
   },
   {
    "name": "mark_internalized",
@@ -84,46 +59,6 @@
    "line": 136
   },
   {
-   "name": "js",
-   "file": "research/dialect-retest.py",
-   "line": 40
-  },
-  {
-   "name": "mean_pair",
-   "file": "research/dialect-retest.py",
-   "line": 51
-  },
-  {
-   "name": "line",
-   "file": "research/hard-year.py",
-   "line": 23
-  },
-  {
-   "name": "clean",
-   "file": "scripts_codex.py",
-   "line": 49
-  },
-  {
-   "name": "entry",
-   "file": "scripts_codex.py",
-   "line": 72
-  },
-  {
-   "name": "n",
-   "file": "scripts_codex.py",
-   "line": 44
-  },
-  {
-   "name": "table",
-   "file": "scripts_codex.py",
-   "line": 80
-  },
-  {
-   "name": "kv",
-   "file": "scripts_gen_roster.py",
-   "line": 28
-  },
-  {
    "name": "css_sub",
    "file": "scripts_inline.py",
    "line": 65
@@ -132,11 +67,6 @@
    "name": "js_sub",
    "file": "scripts_inline.py",
    "line": 86
-  },
-  {
-   "name": "project",
-   "file": "scripts_truemap.py",
-   "line": 76
   },
   {
    "name": "auto_trade_cycle",
@@ -199,9 +129,14 @@
    "line": 72
   },
   {
-   "name": "is_it_true",
-   "file": "temple/animosity.py",
-   "line": 248
+   "name": "report",
+   "file": "temple/asking.py",
+   "line": 176
+  },
+  {
+   "name": "report",
+   "file": "temple/blessings.py",
+   "line": 183
   },
   {
    "name": "get_map_notes",
@@ -212,6 +147,11 @@
    "name": "allowance",
    "file": "temple/cycles.py",
    "line": 95
+  },
+  {
+   "name": "report",
+   "file": "temple/cycles.py",
+   "line": 198
   },
   {
    "name": "lift",
@@ -227,6 +167,16 @@
    "name": "speak",
    "file": "temple/decree.py",
    "line": 189
+  },
+  {
+   "name": "report",
+   "file": "temple/drift.py",
+   "line": 486
+  },
+  {
+   "name": "report",
+   "file": "temple/ember.py",
+   "line": 201
   },
   {
    "name": "generate_conflict",
@@ -247,6 +197,11 @@
    "name": "status",
    "file": "temple/gnu.py",
    "line": 498
+  },
+  {
+   "name": "report",
+   "file": "temple/goods.py",
+   "line": 449
   },
   {
    "name": "adapt_thresholds",
@@ -289,6 +244,11 @@
    "line": 38
   },
   {
+   "name": "report",
+   "file": "temple/guild.py",
+   "line": 332
+  },
+  {
    "name": "answer_with_a_person",
    "file": "temple/harm.py",
    "line": 439
@@ -297,16 +257,6 @@
    "name": "action_penalty",
    "file": "temple/holdings.py",
    "line": 332
-  },
-  {
-   "name": "frost",
-   "file": "temple/holdings.py",
-   "line": 441
-  },
-  {
-   "name": "thaw",
-   "file": "temple/holdings.py",
-   "line": 498
   },
   {
    "name": "generate_map",
@@ -334,9 +284,19 @@
    "line": 183
   },
   {
+   "name": "report",
+   "file": "temple/obligation.py",
+   "line": 244
+  },
+  {
    "name": "raise_the_dead",
    "file": "temple/omens.py",
    "line": 191
+  },
+  {
+   "name": "report",
+   "file": "temple/omens.py",
+   "line": 243
   },
   {
    "name": "the_dead",
@@ -419,9 +379,19 @@
    "line": 299
   },
   {
+   "name": "report",
+   "file": "temple/tags.py",
+   "line": 376
+  },
+  {
    "name": "assign",
    "file": "temple/tongues.py",
    "line": 106
+  },
+  {
+   "name": "report",
+   "file": "temple/tongues.py",
+   "line": 247
   },
   {
    "name": "speakers_of",
@@ -444,6 +414,16 @@
    "line": 111
   },
   {
+   "name": "report",
+   "file": "temple/wardens.py",
+   "line": 262
+  },
+  {
+   "name": "report",
+   "file": "temple/wards.py",
+   "line": 314
+  },
+  {
    "name": "gods_eye",
    "file": "temple/whisper.py",
    "line": 258
@@ -454,6 +434,11 @@
    "line": 186
   },
   {
+   "name": "report",
+   "file": "temple/wildking.py",
+   "line": 199
+  },
+  {
    "name": "lineage",
    "file": "temple/wildrite.py",
    "line": 300
@@ -462,16 +447,6 @@
    "name": "format_results",
    "file": "workers/phase1-worker/tools/run_command.py",
    "line": 37
-  },
-  {
-   "name": "run_command",
-   "file": "workers/phase1-worker/tools/run_command.py",
-   "line": 12
-  },
-  {
-   "name": "web_search",
-   "file": "workers/phase1-worker/tools/web_search.py",
-   "line": 8
   }
  ],
  "by_file": {
@@ -549,50 +524,6 @@
     "line": 179
    }
   ],
-  "creative/music.py": [
-   {
-    "name": "compose",
-    "file": "creative/music.py",
-    "line": 107
-   },
-   {
-    "name": "generate_ambient",
-    "file": "creative/music.py",
-    "line": 86
-   },
-   {
-    "name": "generate_melody",
-    "file": "creative/music.py",
-    "line": 67
-   },
-   {
-    "name": "generate_tone",
-    "file": "creative/music.py",
-    "line": 37
-   }
-  ],
-  "scripts_codex.py": [
-   {
-    "name": "clean",
-    "file": "scripts_codex.py",
-    "line": 49
-   },
-   {
-    "name": "entry",
-    "file": "scripts_codex.py",
-    "line": 72
-   },
-   {
-    "name": "n",
-    "file": "scripts_codex.py",
-    "line": 44
-   },
-   {
-    "name": "table",
-    "file": "scripts_codex.py",
-    "line": 80
-   }
-  ],
   "sim/persistent_portfolio.py": [
    {
     "name": "auto_trade_cycle",
@@ -649,23 +580,6 @@
     "line": 189
    }
   ],
-  "temple/holdings.py": [
-   {
-    "name": "action_penalty",
-    "file": "temple/holdings.py",
-    "line": 332
-   },
-   {
-    "name": "frost",
-    "file": "temple/holdings.py",
-    "line": 441
-   },
-   {
-    "name": "thaw",
-    "file": "temple/holdings.py",
-    "line": 498
-   }
-  ],
   "temple/mentorship.py": [
    {
     "name": "cycle",
@@ -681,6 +595,40 @@
     "name": "teach_once",
     "file": "temple/mentorship.py",
     "line": 183
+   }
+  ],
+  "temple/omens.py": [
+   {
+    "name": "raise_the_dead",
+    "file": "temple/omens.py",
+    "line": 191
+   },
+   {
+    "name": "report",
+    "file": "temple/omens.py",
+    "line": 243
+   },
+   {
+    "name": "the_dead",
+    "file": "temple/omens.py",
+    "line": 234
+   }
+  ],
+  "temple/tongues.py": [
+   {
+    "name": "assign",
+    "file": "temple/tongues.py",
+    "line": 106
+   },
+   {
+    "name": "report",
+    "file": "temple/tongues.py",
+    "line": 247
+   },
+   {
+    "name": "speakers_of",
+    "file": "temple/tongues.py",
+    "line": 158
    }
   ],
   "temple/waking.py": [
@@ -710,30 +658,6 @@
     "name": "recommend_for_company",
     "file": "econ/gather.py",
     "line": 32
-   }
-  ],
-  "forum/engine.py": [
-   {
-    "name": "get_leaderboard",
-    "file": "forum/engine.py",
-    "line": 475
-   },
-   {
-    "name": "mark_internalized",
-    "file": "forum/engine.py",
-    "line": 227
-   }
-  ],
-  "research/dialect-retest.py": [
-   {
-    "name": "js",
-    "file": "research/dialect-retest.py",
-    "line": 40
-   },
-   {
-    "name": "mean_pair",
-    "file": "research/dialect-retest.py",
-    "line": 51
    }
   ],
   "scripts_inline.py": [
@@ -772,6 +696,18 @@
     "line": 161
    }
   ],
+  "temple/cycles.py": [
+   {
+    "name": "allowance",
+    "file": "temple/cycles.py",
+    "line": 95
+   },
+   {
+    "name": "report",
+    "file": "temple/cycles.py",
+    "line": 198
+   }
+  ],
   "temple/factions.py": [
    {
     "name": "generate_conflict",
@@ -808,18 +744,6 @@
     "line": 117
    }
   ],
-  "temple/omens.py": [
-   {
-    "name": "raise_the_dead",
-    "file": "temple/omens.py",
-    "line": 191
-   },
-   {
-    "name": "the_dead",
-    "file": "temple/omens.py",
-    "line": 234
-   }
-  ],
   "temple/sandbox.py": [
    {
     "name": "cycle",
@@ -844,28 +768,28 @@
     "line": 184
    }
   ],
-  "temple/tongues.py": [
+  "temple/tags.py": [
    {
-    "name": "assign",
-    "file": "temple/tongues.py",
-    "line": 106
+    "name": "possess",
+    "file": "temple/tags.py",
+    "line": 299
    },
    {
-    "name": "speakers_of",
-    "file": "temple/tongues.py",
-    "line": 158
+    "name": "report",
+    "file": "temple/tags.py",
+    "line": 376
    }
   ],
-  "workers/phase1-worker/tools/run_command.py": [
+  "temple/wildking.py": [
    {
-    "name": "format_results",
-    "file": "workers/phase1-worker/tools/run_command.py",
-    "line": 37
+    "name": "carries",
+    "file": "temple/wildking.py",
+    "line": 186
    },
    {
-    "name": "run_command",
-    "file": "workers/phase1-worker/tools/run_command.py",
-    "line": 12
+    "name": "report",
+    "file": "temple/wildking.py",
+    "line": 199
    }
   ],
   "avatar/messengers.py": [
@@ -896,32 +820,18 @@
     "line": 32
    }
   ],
+  "forum/engine.py": [
+   {
+    "name": "mark_internalized",
+    "file": "forum/engine.py",
+    "line": 227
+   }
+  ],
   "illuminati/interpreter.py": [
    {
     "name": "apply_reality_shift",
     "file": "illuminati/interpreter.py",
     "line": 77
-   }
-  ],
-  "research/hard-year.py": [
-   {
-    "name": "line",
-    "file": "research/hard-year.py",
-    "line": 23
-   }
-  ],
-  "scripts_gen_roster.py": [
-   {
-    "name": "kv",
-    "file": "scripts_gen_roster.py",
-    "line": 28
-   }
-  ],
-  "scripts_truemap.py": [
-   {
-    "name": "project",
-    "file": "scripts_truemap.py",
-    "line": 76
    }
   ],
   "sim/strategies.py": [
@@ -952,11 +862,18 @@
     "line": 72
    }
   ],
-  "temple/animosity.py": [
+  "temple/asking.py": [
    {
-    "name": "is_it_true",
-    "file": "temple/animosity.py",
-    "line": 248
+    "name": "report",
+    "file": "temple/asking.py",
+    "line": 176
+   }
+  ],
+  "temple/blessings.py": [
+   {
+    "name": "report",
+    "file": "temple/blessings.py",
+    "line": 183
    }
   ],
   "temple/cartographer.py": [
@@ -966,11 +883,32 @@
     "line": 646
    }
   ],
-  "temple/cycles.py": [
+  "temple/drift.py": [
    {
-    "name": "allowance",
-    "file": "temple/cycles.py",
-    "line": 95
+    "name": "report",
+    "file": "temple/drift.py",
+    "line": 486
+   }
+  ],
+  "temple/ember.py": [
+   {
+    "name": "report",
+    "file": "temple/ember.py",
+    "line": 201
+   }
+  ],
+  "temple/goods.py": [
+   {
+    "name": "report",
+    "file": "temple/goods.py",
+    "line": 449
+   }
+  ],
+  "temple/guild.py": [
+   {
+    "name": "report",
+    "file": "temple/guild.py",
+    "line": 332
    }
   ],
   "temple/harm.py": [
@@ -978,6 +916,20 @@
     "name": "answer_with_a_person",
     "file": "temple/harm.py",
     "line": 439
+   }
+  ],
+  "temple/holdings.py": [
+   {
+    "name": "action_penalty",
+    "file": "temple/holdings.py",
+    "line": 332
+   }
+  ],
+  "temple/obligation.py": [
+   {
+    "name": "report",
+    "file": "temple/obligation.py",
+    "line": 244
    }
   ],
   "temple/pilgrimage.py": [
@@ -1008,11 +960,18 @@
     "line": 317
    }
   ],
-  "temple/tags.py": [
+  "temple/wardens.py": [
    {
-    "name": "possess",
-    "file": "temple/tags.py",
-    "line": 299
+    "name": "report",
+    "file": "temple/wardens.py",
+    "line": 262
+   }
+  ],
+  "temple/wards.py": [
+   {
+    "name": "report",
+    "file": "temple/wards.py",
+    "line": 314
    }
   ],
   "temple/whisper.py": [
@@ -1022,13 +981,6 @@
     "line": 258
    }
   ],
-  "temple/wildking.py": [
-   {
-    "name": "carries",
-    "file": "temple/wildking.py",
-    "line": 186
-   }
-  ],
   "temple/wildrite.py": [
    {
     "name": "lineage",
@@ -1036,11 +988,11 @@
     "line": 300
    }
   ],
-  "workers/phase1-worker/tools/web_search.py": [
+  "workers/phase1-worker/tools/run_command.py": [
    {
-    "name": "web_search",
-    "file": "workers/phase1-worker/tools/web_search.py",
-    "line": 8
+    "name": "format_results",
+    "file": "workers/phase1-worker/tools/run_command.py",
+    "line": 37
    }
   ]
  }

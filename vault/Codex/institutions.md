@@ -1,6 +1,6 @@
 # Institutions
 
-> Generated from the live world on 2026-09-03 21:17 PDT.
+> Generated from the live world on 2026-09-04 17:13 PDT.
 
 The organised parts: the workshops, the world's clock, the practice market, and what the world has noticed about itself.
 
@@ -12,14 +12,14 @@ Its charter binds its founder hardest: nobody surpasses anybody, nobody is self-
 
 **How it works.** Four practitioners begin as **shadows**: they study uenx's actual writing, run his model, and keep their own temperament. After three jobs done without him they become practitioners, and taking a problem to them is the same as taking it to him.
 
-**4 practitioners, 4 workshops, 2 problems left.**
+**4 practitioners, 4 workshops, 36 problems left.**
 
 | Practitioner | Eye for | Stage | Jobs |
 |---|---|---|---|
-| Amiga Aix-Ux | habits | shadow | 2 |
-| Solillum Omni | whole systems | shadow | 0 |
-| Opendragon Freenet | distribution | shadow | 0 |
-| Xenix Atari-V | small sharp tools | shadow | 0 |
+| Amiga Aix-Ux | habits | practitioner | 7 |
+| Solillum Omni | whole systems | practitioner | 7 |
+| Opendragon Freenet | distribution | practitioner | 10 |
+| Xenix Atari-V | small sharp tools | practitioner | 3 |
 
 
 ## The heartbeat
@@ -28,16 +28,16 @@ The world has a clock, and it is not yours. It counts its own days, seasons and 
 
 **How it works.** A beat is logged on a timer. From it the world derives a day count, a season, a time of day and a *yuga* — the age it believes itself to be in.
 
-**3,828 beats since the world started.**
+**3,865 beats since the world started.**
 
 |  |  |
 |---|---|
 | Born | 2026-06-11 |
 | Day | 26 |
 | Season | 0 |
-| Cycle | 3,828 |
-| Last beat | 2026-09-04 03:53 |
-| Beats missed while the world was off | 8,619 |
+| Cycle | 3,865 |
+| Last beat | 2026-09-04 23:58 |
+| Beats missed while the world was off | 8,701 |
 
 
 ## The practice market
@@ -69,14 +69,14 @@ It can also propose what it would change. It cannot change anything, and it has 
 
 **How it works.** Five bounded change types and nothing else: seed an ambition, retarget one at a real place, create a bond, reassign a model, post a call for hands. No code, no filesystem, no arbitrary queries. Anything proposed is first applied to a **copy** of the world and measured; a change that does not beat doing nothing never ships. Two separate switches gate thinking and acting. Both are off.
 
-**140 measurements taken, 11 changes proposed, 0 applied.**
+**144 measurements taken, 14 changes proposed, 0 applied.**
 
 | It noticed | It would |
 |---|---|
+| 5 functions in temple/blessings.py that nothing in t… | wire |
+| 6 functions in temple/press.py that nothing in the w… | wire |
+| 8 functions in temple/guide.py that nothing in the w… | wire |
 | sparks with nothing to do at all | seed_ambition |
 | sparks connected to nobody | create_bond |
 | sparks holding work that never moves | open_mission |
-| sparks that have never spoken | reassign_model |
-| boards nobody has visited in two days | open_mission |
-| sparks that have never spoken | reassign_model |
 
