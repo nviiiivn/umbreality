@@ -1,5 +1,16 @@
 # Build Phases
 
+!!! warning "This is history, not a plan"
+    Phases 0 through 4 are complete. This page records what was built and in
+    what order, which is worth keeping — but it is **not** the current
+    roadmap and has not been for some time. Two things on it were listed as
+    unbuilt long after they were running: multi-worker orchestration (live
+    since June) and the self-modification loop.
+
+    The live roadmap is **[Measured Against](Measured-Against.md)**, which is
+    organised against published criteria from the ARC Prize, the open-ended
+    evolution literature and Japan's Moonshot programme rather than against
+    phases we invented ourselves.
 ## Phase 0 — Foundation ✓
 
 | Item | Status |

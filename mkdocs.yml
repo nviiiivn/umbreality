@@ -97,6 +97,7 @@ nav:
     - Reality Generation: Mechanisms/Reality-Generation.md
   - Philosophy:
     - Manifesto: Philosophy/Manifesto.md
+    - The Texts: Philosophy/The-Texts.md
     - Dark City & The World: Philosophy/Dark-City.md
     - Simulacrum Allegory: Philosophy/Simulacrum.md
     - Russian Doll Reality: Philosophy/Russian-Doll.md
@@ -104,6 +105,7 @@ nav:
     - Core Directives: Constitution/Core-Directives.md
     - Amendment Protocol: Constitution/Amendment-Protocol.md
   - Roadmap:
+    - Measured Against: Roadmap/Measured-Against.md
     - Build Phases: Roadmap/Phases.md
   - The Codex:
     - What Everything Is: Codex/index.md
@@ -114,6 +116,9 @@ nav:
     - Language: Codex/language.md
     - The Forum: Codex/forum.md
     - Institutions: Codex/institutions.md
+    - What Things Cost: Codex/cost.md
+    - Harm, Secrets and Blame: Codex/harm.md
+    - The Wild and the Settled: Codex/wild.md
   - The Population:
     - State of the World: Census/State-of-World.md
     - Spark Roster: Census/Spark-Roster.md

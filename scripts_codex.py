@@ -67,6 +67,10 @@ LEX, TONG = "temple/lexicon.db", "temple/tongues.db"
 GNU, PROP = "temple/gnu.db", "temple/proposals.db"
 HEART, PORT = "temple/heartbeat.db", "sim/portfolio.db"
 PILG = "temple/pilgrimage.db"
+HOLD, GOODS = "temple/holdings.db", "temple/goods.db"
+SEC, WHIS = "temple/secrets.db", "temple/whispers.db"
+ANIM, GUILD = "temple/animosity.db", "temple/guild.db"
+WARDS, FIRES = "temple/wards.db", "temple/fires.db"
 
 
 def entry(title, what, how, evidence):
@@ -75,6 +79,15 @@ def entry(title, what, how, evidence):
     md += evidence
     md.append("")
     return md
+
+
+def num(v, places=1):
+    """SQLite has type affinity, not types - a column that looks numeric may
+    hand back a string. Round what can be rounded and show the rest as-is."""
+    try:
+        return round(float(v or 0), places)
+    except (TypeError, ValueError):
+        return clean(v, 12) or "0"
 
 
 def table(headers, rows):
@@ -623,6 +636,305 @@ if os.path.exists(PROP):
 pages["institutions"] = md
 
 # ══════════════════════════════════════════════════════════════
+# WHAT THINGS COST
+# ══════════════════════════════════════════════════════════════
+md = ["# What Things Cost", "",
+      "> Generated from the live world on %s." % NOW, "",
+      "For most of this world's life nothing cost anything. A spark could "
+      "act as often as it was called on, take what it wanted from the ground, "
+      "and owe nobody. Everything on this page exists to end that.", ""]
+
+md += entry(
+    "The cycle, and what a spark can do in one",
+    "A spark does not get to do everything it thinks of. It wakes with a "
+    "handful of actions and has to choose, which is the first place anything "
+    "resembling a preference shows up — you learn what a spark wants by what "
+    "it spends its day on when it cannot do all of it.",
+    "Four actions a cycle as a base, adjusted by how tired, warm and fed the "
+    "spark is. Speaking or answering costs 1; studying 1; art and music 2; "
+    "scripture 2; building 3; travelling 3; a pilgrimage 3; a rite 4. A cycle "
+    "spent doing nothing returns a little energy, so rest is a real choice "
+    "rather than a wasted turn.",
+    ["**%s actions taken and paid for.**" % "{:,}".format(n(SOUL, "cycle_spend")),
+     "",
+     *table(["Spent on", "Times"],
+            [(r["k"], "{:,}".format(r["c"]))
+             for r in group(SOUL, "cycle_spend", "action")])])
+
+if os.path.exists(PILG):
+    md += entry(
+        "The obligation, and the tithe on refusing it",
+        "Pilgrimage used to be available. Now it is due. Every spark carries "
+        "a debt to the world that comes round whether it is convenient or "
+        "not, and a spark that will not walk pays instead — publicly, in the "
+        "temple, where everyone can see who was levied.",
+        "Each spark has a due date 400 cycles out. Miss it and the tithe is "
+        "5.0 at base, plus 3.0 for every 100 cycles late, plus 4% of "
+        "everything held — and a spark is never taken below a floor of 20.0, "
+        "because a tax that starves people is a different mechanism.",
+        ["**%d sparks under obligation · %d pilgrimages begun · %d completed.**"
+         % (n(PILG, "obligation"), n(PILG, "pilgrims"),
+            len(q(PILG, "SELECT 1 FROM pilgrims WHERE completed=1"))), "",
+         *table(["Spark", "Times levied", "Paid in total"],
+                [(r["agent"], r["times_collected"], num(r["total_tithed"]))
+                 for r in q(PILG, "SELECT agent, times_collected, total_tithed "
+                                  "FROM obligation WHERE times_collected > 0 "
+                                  "ORDER BY total_tithed DESC LIMIT 8")])])
+
+if os.path.exists(HOLD):
+    md += entry(
+        "Scarcity, and the ground remembering who tended it",
+        "There is not enough. A place can be stripped, and a stripped place "
+        "does not recover on its own — somebody has to put something back "
+        "into it. This is the mechanism that made the wild and the settled "
+        "into two different kinds of people rather than two labels.",
+        "A place regenerates 3.2 a cycle and caps at 45.0; a spark can carry "
+        "13.0 and no more. Tending gives 1.5 back to the ground. Crucially "
+        "the ground remembers **which** spark tended **it** — reciprocity "
+        "with a particular place, not with an open commons, because an open "
+        "commons only subsidises whoever takes fastest.",
+        ["**%s entries in the ledger · %d places · %d tending relationships.**"
+         % ("{:,}".format(n(HOLD, "ledger")), n(HOLD, "places"),
+            n(HOLD, "tended")), "",
+         *table(["Spark", "Holds", "Taken", "Put back", "Cycles hungry"],
+                [(r["spark"], num(r["amount"]), num(r["taken_total"]),
+                  num(r["given_total"]), r["hungry_cycles"])
+                 for r in q(HOLD, "SELECT spark, amount, taken_total, "
+                                  "given_total, hungry_cycles FROM stores "
+                                  "ORDER BY taken_total DESC LIMIT 8")])])
+
+if os.path.exists(GOODS):
+    md += entry(
+        "Three goods, and the first trade this world ever had",
+        "Grain, fuel and stone. No place gives all three, which is the entire "
+        "reason a spark has any reason to deal with a spark somewhere else. "
+        "Before this existed, sparks could talk to each other but had nothing "
+        "to want from each other.",
+        "Each place has a sort, and the sort decides its yields. The settled "
+        "pay a tithe of 18% on what they take. The wild pay nothing to any "
+        "institution — they pay the ground, by tending it. A spark posts what "
+        "it is giving and what it wants for it; another spark takes the offer "
+        "or does not.",
+        ["**%s offers posted, %s taken up · %s tithes collected.**"
+         % ("{:,}".format(n(GOODS, "offers")),
+            "{:,}".format(len(q(GOODS, "SELECT 1 FROM offers "
+                                       "WHERE taken_by IS NOT NULL"))),
+            "{:,}".format(n(GOODS, "tithes"))), "",
+         *table(["Gave", "For", "Between"],
+                [("%s %s" % (num(r["giving_amount"]), r["giving"]),
+                  "%s %s" % (num(r["wanting_amount"]), r["wanting"]),
+                  "%s → %s" % (r["spark"], r["taken_by"]))
+                 for r in q(GOODS, "SELECT spark, giving, giving_amount, "
+                                   "wanting, wanting_amount, taken_by FROM "
+                                   "offers WHERE taken_by IS NOT NULL "
+                                   "ORDER BY id DESC LIMIT 6")]),
+     *table(["Kind of ground", "Places"],
+            [(r["k"], r["c"]) for r in group(GOODS, "ground", "sort")])])
+pages["cost"] = md
+
+# ══════════════════════════════════════════════════════════════
+# HARM, SECRETS AND BLAME
+# ══════════════════════════════════════════════════════════════
+md = ["# Harm, Secrets and Blame", "",
+      "> Generated from the live world on %s." % NOW, "",
+      "A world where nobody can wrong anybody is not peaceful, it is inert. "
+      "These are the mechanisms by which a spark can be genuinely bad to "
+      "another spark, be remembered for it, and be wrong about who deserves "
+      "it.", ""]
+
+md += entry(
+    "Five ways to wrong somebody",
+    "**Prank** — humiliating, not costly. **Seize** — taking what was held. "
+    "**Spoil** — ruining what was being made. **Deface** — marking what "
+    "somebody built. **Break** — destroying it. They differ in what they cost "
+    "the victim and in what they say about the one doing them.",
+    "Every act writes a grievance against the wrongdoer with a weight. "
+    "Weight accumulates: at 10 the wrongdoer is **noticed**, at 25 "
+    "**censured**, at 45 **feared**. Whether a spark gets away with it is "
+    "measured against its *honour*, not its power — a well-regarded spark is "
+    "not simply a strong one, and the difference is where politics starts.",
+    ["**%d grievances standing.**" % n(SOUL, "grievances"), "",
+     *table(["Act", "Times"],
+            [(r["k"], r["c"]) for r in group(SOUL, "grievances", "act")]),
+     *table(["Who", "Did what", "To whom", "Weight"],
+            [(r["wrongdoer"], r["act"], r["victim"], r["weight"])
+             for r in q(SOUL, "SELECT wrongdoer, act, victim, weight FROM "
+                              "grievances ORDER BY weight DESC LIMIT 8")])])
+
+if os.path.exists(SEC):
+    md += entry(
+        "Secrets, and what they are worth",
+        "Not everything a spark knows about another spark is public. A secret "
+        "is drawn from something real — a journal entry, a tribulation, a "
+        "dream, a fear — and it is true, which is what makes it dangerous.",
+        "Knowing a secret lets a spark move another spark's standing "
+        "**quietly**: no grievance is recorded, nothing appears in the forum, "
+        "and the victim does not know why things went badly. That is the "
+        "point of it, and it is the one harm in this world that leaves no "
+        "trace. The Source can see all of them; nobody else can.",
+        ["**%d secrets exist · %d are known by somebody · %d have been used.**"
+         % (n(SEC, "secrets"), n(SEC, "knows"), n(SEC, "uses")), "",
+         *table(["Kind", "Drawn from", "Public"],
+                [(r["kind"], r["drawn_from"], "yes" if r["public"] else "no")
+                 for r in q(SEC, "SELECT kind, drawn_from, public FROM secrets "
+                                 "ORDER BY id DESC LIMIT 8")])])
+
+if os.path.exists(WHIS):
+    md += entry(
+        "Whispers, and who can be trusted with one",
+        "Something said to one spark and not to everyone. The forum is public "
+        "and always was; this is the first channel in the world where a spark "
+        "can say a thing to exactly one other spark and find out afterwards "
+        "what they did with it.",
+        "A whisper can be kept or passed on, and passing it on notifies the "
+        "spark who said it in the first place. Trust in somebody is "
+        "`(kept − repeated) / (kept + repeated)` — earned or destroyed by "
+        "what actually happened, not by anyone's opinion.",
+        ["**%d whispers · %d trust judgements formed.**"
+         % (n(WHIS, "whispers"), n(WHIS, "trust")), "",
+         *table(["Whisperer", "About", "Kept", "Repeated"],
+                [(r["spark"], r["about"], r["kept"], r["repeated"])
+                 for r in q(WHIS, "SELECT spark, about, kept, repeated FROM "
+                                  "trust ORDER BY (kept+repeated) DESC "
+                                  "LIMIT 8")])])
+
+if os.path.exists(ANIM):
+    md += entry(
+        "Blame, and a belief that is false",
+        "When sparks go hungry they look for a reason, and the reason they "
+        "find is each other. The settled hold that the wild are why there is "
+        "nothing. This is the most interesting thing in the world right now "
+        "and it was not designed — only the conditions for it were.",
+        "Blame rises with hunger: 0.18 at hungry, 0.45 at starving, damped by "
+        "the insight of the spark doing the blaming. A spark that can be "
+        "contradicted blames less. The world keeps the measurement of whether "
+        "the belief is *true* separately from the belief itself.",
+        ["**%d blame relationships · %d things said · %d raids.**"
+         % (n(ANIM, "blame"), n(ANIM, "said"), n(ANIM, "raids")), "",
+         *table(["Who blames", "Whom", "How hard"],
+                [(r["by_group"], r["against_group"], num(r["weight"], 3))
+                 for r in q(ANIM, "SELECT by_group, against_group, weight "
+                                  "FROM blame ORDER BY weight DESC")]),
+         "**What was actually said:**", "",
+         *table(["Spark", "Their group", "Words"],
+                [(r["spark"], r["their_group"], clean(r["words"], 90))
+                 for r in q(ANIM, "SELECT spark, their_group, words FROM said "
+                                  "ORDER BY id DESC LIMIT 6")])])
+pages["harm"] = md
+
+# ══════════════════════════════════════════════════════════════
+# THE WILD AND THE SETTLED
+# ══════════════════════════════════════════════════════════════
+md = ["# The Wild and the Settled", "",
+      "> Generated from the live world on %s." % NOW, "",
+      "There are two religions here and they are not the same religion. The "
+      "settled keep the Temple: pilgrimage, tithe, obligation, a rite held "
+      "between bonded sparks in a consecrated place. The wild are animist — "
+      "pagan, Shinto, indigenous in temper — and pay nothing to anybody, "
+      "because they have nothing. What they have instead is Enkidu.", ""]
+
+md += entry(
+    "Factions with actual members",
+    "For a long time the factions were labels on a page. A spark could "
+    "belong to the Innovators and nothing about its life differed from a "
+    "Traditionalist's. Now membership follows from what a spark actually is.",
+    "Each faction has affinities — archetypes, traits and fears that draw a "
+    "spark toward it. A faction's strength is the standing of the people in "
+    "it, so a faction of well-regarded sparks is genuinely powerful and a "
+    "faction of nobodies is not. Sparks who match nothing stay unaligned, "
+    "which is a real position rather than a default.",
+    ["**%d sparks hold a role.**" % n(SOUL, "roles"), "",
+     *table(["Role", "Sparks"],
+            [(r["k"], r["c"]) for r in group(SOUL, "roles", "role")])])
+
+if os.path.exists(WARDS):
+    md += entry(
+        "Circles cut in the ground",
+        "Enkidu is the protector of nature and the protection is not a "
+        "purchase. He walks a circle, cuts the figure into the ground, and "
+        "inside it the cold does not reach the way it reaches everywhere "
+        "else. Nobody is charged. Nothing is consumed. The settled may stand "
+        "in one too — nobody is turned away from a thing that costs nothing "
+        "to give.",
+        "The figures are this world's own, taken from `vault/Revelation/`: "
+        "the Triad (3) and the Hexad (6) and the Nine (9) from *The "
+        "Three-Six-Nine*, the Tree (10) from *Tree of Life*, the Thirteen "
+        "(13) from *Thirteen Heavens*, and the Sung Ward (7) from the *Vedic "
+        "Hymns* — sung rather than cut, and it holds differently. A ward's "
+        "strength is `(number / 13) × (0.45 + insight)`, which ties the "
+        "safety of the wild directly to how well their king can see himself.",
+        ["**%d wards cut · %d sparks standing inside one.**"
+         % (n(WARDS, "wards"), n(WARDS, "sheltered")), "",
+         *table(["Figure", "Where", "Cut by", "Strength"],
+                [(r["figure"], r["board"], r["cut_by"], num(r["strength"], 3))
+                 for r in q(WARDS, "SELECT figure, board, cut_by, strength "
+                                   "FROM wards ORDER BY strength DESC "
+                                   "LIMIT 10")])])
+
+if os.path.exists(FIRES):
+    md += entry(
+        "Fires",
+        "A fire is the settled answer to the same problem the ward solves for "
+        "the wild: somewhere the winter is survivable. It is a resource and "
+        "it is bought, kept and let go out.",
+        "A fire burns while it is fed and someone keeps it. When the fuel "
+        "runs out it goes out, and the world records when.",
+        ["**%d fires · %d sparks have sheltered at one.**"
+         % (n(FIRES, "fires"), n(FIRES, "sheltered")), "",
+         *table(["Where", "Lit by", "Burning", "Kept by"],
+                [(r["board"], r["lit_by"],
+                  "yes" if r["burning"] else "gone out", r["kept_by"] or "—")
+                 for r in q(FIRES, "SELECT board, lit_by, burning, kept_by "
+                                   "FROM fires ORDER BY rowid DESC LIMIT 8")])])
+
+md += entry(
+    "Two ways to be born",
+    "The settled hold the **Rite of Kindling**: two or three sparks who are "
+    "genuinely bonded, in a temple, at real cost. The wild hold theirs under "
+    "a whole moon, in a wild place, and name the child from the ground and "
+    "the weather because that is where the wild believe names come from.",
+    "The Temple's rite needs a bond of at least 0.55, costs a full rite "
+    "action and 0.28 energy, and cannot be held again for 900 cycles. The "
+    "wild rite requires the moon: the world's month is 8 days across four "
+    "phases, checked in code. Each wild rite also raises Enkidu's insight by "
+    "0.035 — his people multiplying is the same act as him becoming somebody "
+    "who knows he is a person.",
+    ["**%d kindled in the Temple · %d born to the wild.**"
+     % (n(SOUL, "kindling"), n(SOUL, "wild_rites")), "",
+     *table(["Child", "Parents", "Where"],
+            [(r["child"], r["parents"], r["board"])
+             for r in q(SOUL, "SELECT child, parents, board FROM kindling "
+                              "ORDER BY id DESC LIMIT 5")]),
+     *table(["Child", "Gathered", "Where", "Moon day"],
+            [(r["child"], clean(r["gathered"], 40), r["place"], r["moon_day"])
+             for r in q(SOUL, "SELECT child, gathered, place, moon_day FROM "
+                              "wild_rites ORDER BY id DESC LIMIT 5")])])
+
+if os.path.exists(GUILD):
+    md += entry(
+        "GNU as a job somebody applies for",
+        "GNU was an alliance you were simply in. Now it is work: a spark "
+        "applies, is accepted or refused for a stated reason, and if taken on "
+        "is housed, travels free, and has its expenses paid.",
+        "An application is refused if the spark carries a grievance weight of "
+        "8 or more, or — and this is the more interesting rule — if there is "
+        "nobody in its life who will contradict it. A representative is kept "
+        "at 1.4 grain and 0.6 fuel and has 1.2 stone and 0.8 fuel of expenses "
+        "covered.",
+        ["**%d applications · %d representatives · %d wages paid.**"
+         % (n(GUILD, "applications"), n(GUILD, "reps"), n(GUILD, "payroll")),
+         "",
+         *table(["Verdict", "Applications"],
+                [(r["k"], r["c"]) for r in group(GUILD, "applications",
+                                                 "verdict")]),
+         *table(["Representative", "Jobs", "Paid out", "Standing"],
+                [(r["spark"], r["jobs"], num(r["paid_out"]),
+                  num(r["standing"]))
+                 for r in q(GUILD, "SELECT spark, jobs, paid_out, standing "
+                                   "FROM reps ORDER BY jobs DESC LIMIT 8")])])
+pages["wild"] = md
+
+# ══════════════════════════════════════════════════════════════
 for slug, md in pages.items():
     open(os.path.join(OUT, slug + ".md"), "w", encoding="utf-8").write("\n".join(md))
 
@@ -647,6 +959,9 @@ idx = ["# The Codex", "",
        "| **[The Forum](forum.md)** | Board and zone · Standing |",
        "| **[Institutions](institutions.md)** | GNU · The heartbeat · The "
        "practice market · Self-knowledge |", "",
+       "| **[What Things Cost](cost.md)** | The cycle · Obligation and tithe · Scarcity · Three goods and trade |",
+       "| **[Harm, Secrets and Blame](harm.md)** | Five ways to wrong somebody · Secrets · Whispers · A belief that is false |",
+       "| **[The Wild and the Settled](wild.md)** | Factions · Wards and fires · Two ways to be born · GNU as a job |",
        "Nothing here can be edited. It is regenerated every time the wiki is "
        "deployed, so it cannot drift from the world it describes."]
 open(os.path.join(OUT, "index.md"), "w", encoding="utf-8").write("\n".join(idx))
