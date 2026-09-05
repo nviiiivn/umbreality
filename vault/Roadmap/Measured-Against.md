@@ -103,9 +103,15 @@ Concretely, and in order of how far short we currently fall:
   - **World-modelling** (criterion 1). Partial. Sparks hold beliefs now —
     the settled believe something false about the wild — but they do not
     build models they then act on.
-  - **Measuring open-endedness** against the 2019 criteria. Not started. The
-    instrument does not exist, so we cannot currently say whether this world
-    is producing novelty or has already plateaued.
+  - **Measuring open-endedness** against the 2019 criteria. Built.
+    `research/openendedness.py` compares the world to a shadow of itself
+    with identical volume and population and no selection. Coined words beat
+    drift by roughly thirty to one, which is the dialect being genuinely
+    selected for rather than noise. Tribulations come back Class 1 — eight
+    fixed types used evenly enough to be indistinguishable from random, a
+    mechanism producing no selection at all. The remaining gap is history:
+    45 days are needed for a verdict and the relevant tables hold 33, 11
+    and 7.
   - **Learning, as distinct from memory.** Nothing that happens to a spark
     changes its weights. It remembers being robbed; it does not get better
     at not being robbed. This is a ceiling the environment cannot lift and
@@ -137,7 +143,7 @@ here, because that is the mistake this world has made most.
 
 ### Built and running
 
-- [x] 356 sparks, each with its own model, memory and database
+- [x] 357 sparks, each with its own model, memory and database
 - [x] Physical space: boards, distance, travel that costs cycles
 - [x] Language drift by contact — a lexicon per place, not per spark
 - [x] Teaching that creates lineage
@@ -184,10 +190,15 @@ The largest gap, and the one named by somebody other than us.
 
 ### Toward open-endedness (Packard et al. 2019)
 
-- [ ] **The instrument.** Evolutionary activity statistics over this world's
-      history. Until this exists we cannot say whether Umbreality is
-      producing novelty or has quietly plateaued, and plateau is the most
-      likely outcome — it is what happened to Tierra and to Avida.
+- [x] **The instrument.** `research/openendedness.py` — evolutionary
+      activity statistics measured against a shadow of this world with the
+      same volume, population and growth and no selection. Real minus
+      shadow, per Packard et al. Current reading: class 2 overall; coined words hold 670 components in real circulation against 21.5 under drift.
+- [ ] **Enough history to use it.** A Class 3 verdict needs 45 days of
+      recorded history and the lexicon has 33, bonds 11, teaching 7. The
+      forum has 87 days but the mechanisms that make the interesting
+      components only started recording recently. Until then the tool
+      refuses the verdict rather than guessing, which is the point of it.
 - [ ] Novelty and learnability scores in the observer-relative sense (Hughes
       et al. 2024), so the answer is comparable to other systems rather than
       only to itself

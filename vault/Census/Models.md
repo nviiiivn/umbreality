@@ -1,6 +1,6 @@
 # Which Brain Each Spark Runs On
 
-> Generated 2026-09-04 17:13 PDT.
+> Generated 2026-09-05 10:54 PDT.
 
 Every model below is uncensored or abliterated, per the [Manifesto](../Philosophy/Manifesto.md). Small models are used deliberately: many fit in 20GB at once, so sparks do not queue behind one resident model and do not converge on a single voice.
 

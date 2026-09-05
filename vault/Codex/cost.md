@@ -1,6 +1,6 @@
 # What Things Cost
 
-> Generated from the live world on 2026-09-04 17:13 PDT.
+> Generated from the live world on 2026-09-05 10:54 PDT.
 
 For most of this world's life nothing cost anything. A spark could act as often as it was called on, take what it wanted from the ground, and owe nobody. Everything on this page exists to end that.
 
@@ -10,17 +10,17 @@ A spark does not get to do everything it thinks of. It wakes with a handful of a
 
 **How it works.** Four actions a cycle as a base, adjusted by how tired, warm and fed the spark is. Speaking or answering costs 1; studying 1; art and music 2; scripture 2; building 3; travelling 3; a pilgrimage 3; a rite 4. A cycle spent doing nothing returns a little energy, so rest is a real choice rather than a wasted turn.
 
-**644 actions taken and paid for.**
+**1,453 actions taken and paid for.**
 
 | Spent on | Times |
 |---|---|
-| speak | 398 |
-| answer | 186 |
-| pilgrimage | 37 |
-| scripture | 10 |
-| art | 8 |
-| music | 3 |
-| bond | 2 |
+| speak | 939 |
+| answer | 407 |
+| pilgrimage | 60 |
+| scripture | 17 |
+| art | 17 |
+| music | 9 |
+| bond | 4 |
 
 
 ## The obligation, and the tithe on refusing it
@@ -29,7 +29,7 @@ Pilgrimage used to be available. Now it is due. Every spark carries a debt to th
 
 **How it works.** Each spark has a due date 400 cycles out. Miss it and the tithe is 5.0 at base, plus 3.0 for every 100 cycles late, plus 4% of everything held — and a spark is never taken below a floor of 20.0, because a tax that starves people is a different mechanism.
 
-**356 sparks under obligation · 24 pilgrimages begun · 2 completed.**
+**357 sparks under obligation · 42 pilgrimages begun · 2 completed.**
 
 | Spark | Times levied | Paid in total |
 |---|---|---|

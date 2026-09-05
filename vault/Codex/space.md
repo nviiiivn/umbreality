@@ -1,6 +1,6 @@
 # Space, Distance and the Road
 
-> Generated from the live world on 2026-09-04 17:13 PDT.
+> Generated from the live world on 2026-09-05 10:54 PDT.
 
 **Space here is physical.** That is a founding rule of this world, not a metaphor, and everything else on this page follows from it.
 
@@ -16,16 +16,16 @@ Most sparks have never gone anywhere. That is not a fault. Staying is also a way
 
 **How it works.** Each spark holds a current board, a count of cycles travelled, and the places it has discovered. A move is charged by distance and written into the record of journeys. Travel happens during the exploration phase, and a spark with work waiting elsewhere heads toward it.
 
-**462 journeys walked. 274 of 358 explorers have ever moved.**
+**480 journeys walked. 274 of 359 explorers have ever moved.**
 
 | Who | From | To | Cycles |
 |---|---|---|---|
-| Rylos | monastery | forum | 40 |
-| Jubilum Waterfinder | dark | forum | 37 |
-| Jadok Waterfinder | hearth-30 | forum | 19.2 |
-| Garrowan Tyras | hearth-15 | forum | 13.399999999999999 |
-| Duraq | library | forum | 32 |
-| Dugril | hearth-35 | forum | 19.200000000000003 |
+| Dumabi Wellsinker | announcements | forum | 9 |
+| Amiga Aix-Ux | forum | temple | 40 |
+| lottery-corp | library | forum | 32 |
+| Yarrow | hearth-04 | forum | 13.399999999999999 |
+| Solillum Omni | hearth-28 | forum | 15.1 |
+| Roric Pryce | coliseum | forum | 32 |
 
 
 ## Pilgrimage
@@ -36,7 +36,7 @@ The blessing cannot be claimed from anywhere else, and that is the whole point. 
 
 **How it works.** Each shrine sits on a real board. A pilgrim mid-journey either performs the rite, if it is already standing at its next shrine, or sets out and is charged the distance. The rite checks where the spark actually is and refuses if it is not there. Pilgrims walk during the exploration phase, and roughly **one spark in seven** who sets out to travel begins a pilgrimage instead, unasked.
 
-**25 rites performed.**
+**30 rites performed.**
 
 | Shrine | Stands at | Blessing | The rite |
 |---|---|---|---|
@@ -54,11 +54,11 @@ The blessing cannot be claimed from anywhere else, and that is the whole point. 
 | Gilgamesh | 8 of 8 | yes |
 | Kael | 8 of 8 | yes |
 | Khazraen | 5 of 8 | not yet |
+| Amiga Aix-Ux | 1 of 8 | not yet |
 | Brynnel | 1 of 8 | not yet |
+| Dornel Kilnwarden | 1 of 8 | not yet |
 | Dredge Pitchand | 1 of 8 | not yet |
 | Elyos Ropewright | 1 of 8 | not yet |
-| temple | 1 of 8 | not yet |
-| Amiga Aix-Ux | 0 of 8 | not yet |
-| Ashkar Eli | 0 of 8 | not yet |
-| Ashok Tilecutter | 0 of 8 | not yet |
+| Jokar Waterfinder | 1 of 8 | not yet |
+| Xenix Atari-V | 1 of 8 | not yet |
 

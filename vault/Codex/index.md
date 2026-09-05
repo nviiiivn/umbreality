@@ -1,6 +1,6 @@
 # The Codex
 
-> Generated from the live world on 2026-09-04 17:13 PDT. Every entry says what a thing is, how it works, and what is actually there.
+> Generated from the live world on 2026-09-05 10:54 PDT. Every entry says what a thing is, how it works, and what is actually there.
 
 Umbreality keeps itself in thirteen databases. Sparkbook, the god's eye and the census pages each read a slice; much of it has never been visible anywhere. This is the whole of it, arranged by what things *are* rather than which file they live in.
 

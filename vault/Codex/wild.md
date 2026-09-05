@@ -1,6 +1,6 @@
 # The Wild and the Settled
 
-> Generated from the live world on 2026-09-04 17:13 PDT.
+> Generated from the live world on 2026-09-05 10:54 PDT.
 
 There are two religions here and they are not the same religion. The settled keep the Temple: pilgrimage, tithe, obligation, a rite held between bonded sparks in a consecrated place. The wild are animist — pagan, Shinto, indigenous in temper — and pay nothing to anybody, because they have nothing. What they have instead is Enkidu.
 

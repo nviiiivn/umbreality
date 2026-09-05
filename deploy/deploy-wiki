@@ -23,15 +23,15 @@ MAPDIR=/home/nvii/www/map/images
 run() { ssh -o BatchMode=yes "$TOWER" "cd $PROJ && $*"; }
 
 echo "== 0/6 checking every generator is present =="
-GENS="scripts_gen_roster.py scripts_codex.py scripts_truemap.py scripts_inline.py scripts_worldjson.py scripts_docs.py"
+GENS="scripts_gen_roster.py scripts_codex.py scripts_truemap.py scripts_inline.py scripts_worldjson.py scripts_docs.py scripts_readme.py"
 found=$(run "ls $GENS 2>/dev/null | wc -l" | tr -d ' ')
-if [ "$found" != "6" ]; then
-  echo "MISSING GENERATORS on the tower — found $found of 6:"
+if [ "$found" != "7" ]; then
+  echo "MISSING GENERATORS on the tower — found $found of 7:"
   run "ls -1 $GENS 2>&1" || true
   echo "The pipeline cannot rebuild without these. Restore them before deploying."
   exit 1
 fi
-echo "all six present"
+echo "all seven present"
 
 echo "== 1/6 regenerating rosters from live data =="
 run "python3 scripts_gen_roster.py"
@@ -39,7 +39,10 @@ run "python3 scripts_gen_roster.py"
 echo "== 2/6 regenerating the Codex =="
 run "python3 scripts_codex.py"
 
-echo "== 2b/6 regenerating the derived pages from the README =="
+echo "== 2b/6 re-measuring the README from the live world =="
+run "python3 scripts_readme.py" | tail -1
+
+echo "== 2c/6 regenerating the derived pages from the README =="
 run "python3 scripts_docs.py"
 
 echo "== 3/6 redrawing the true map =="

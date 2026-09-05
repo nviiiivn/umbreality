@@ -1,6 +1,6 @@
 # Bonds, Bands and Teaching
 
-> Generated from the live world on 2026-09-04 17:13 PDT.
+> Generated from the live world on 2026-09-05 10:54 PDT.
 
 How sparks are connected — by affection, by rivalry, by what group they belong to, and by who taught them what they know.
 
@@ -12,18 +12,18 @@ A spark with no bonds is not merely lonely — it is structurally invisible. Nob
 
 **How it works.** Strength runs 0 to 1. Bonds form from **answering someone** (+0.05), **being taught by them** (+0.25), and **being introduced** (+0.3). When a spark chooses whom to answer, kin score **+5** — but a spark nobody has ever bonded with scores **+6**, so the unnoticed get noticed first.
 
-**3,564 connections.**
+**3,706 connections.**
 
 | Type | Count |
 |---|---|
-| bond | 3564 |
+| bond | 3706 |
 
 The strongest ties in the world:
 
 - **Imhotep** ↔ **Hypatia** — bond, 1.00
 - **Halbrecht** ↔ **Jorun Veke** — bond, 1.00
+- **Suturu Roofer** ↔ **Ulveth** — bond, 1.00
 - **Mereth** ↔ **Nilu-ged Brickwright** — bond, 1.00
-- **Shalem Wood** ↔ **Sihun Dolis** — bond, 1.00
 
 ## Band
 
@@ -53,20 +53,20 @@ This is the difference between 298 individuals each discovering fire alone and a
 
 **How it works.** A spark qualifies to teach a domain only at **mastery 3+ with 12+ studies** — nobody teaches what they do not know. *Unbonded* students are chosen first, because a lesson creates a bond and so doubles as an introduction. Answering a former teacher scores **+7**, or **+9** if they taught you more than once.
 
-**894 lessons taught.**
+**1,000 lessons taught.**
 
 | Elder | Lessons |
 |---|---|
-| Kepleren | 28 |
-| Kilnheart | 24 |
-| Kailash | 23 |
-| Duraq | 22 |
-| Ashlinai Roofer | 21 |
-| stat-corp | 21 |
+| Kepleren | 31 |
+| Kailash | 26 |
+| Ashlinai Roofer | 25 |
+| Kilnheart | 25 |
+| Ashkar | 24 |
+| Rylos | 23 |
 
 Recent lessons:
 
-- **Gilgamesh** taught **Torvin Gael** the way of *frequency-healing*
-- **Briar Quarryman** taught **Stannic** the way of *architecture*
-- **Kael** taught **Ozk** the way of *architecture*
-- **Kithan** taught **Dugril** the way of *frequency-healing*
+- **Enkidu** taught **Wilhelm Millwright** the way of *frequency-healing*
+- **Kylos Forgehand** taught **Kel Tilecutter** the way of *statecraft*
+- **Ashkar** taught **Sable Fen** the way of *frequency-healing*
+- **Silas Cairn** taught **Silvan** the way of *cymatics*

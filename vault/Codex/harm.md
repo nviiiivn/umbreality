@@ -1,6 +1,6 @@
 # Harm, Secrets and Blame
 
-> Generated from the live world on 2026-09-04 17:13 PDT.
+> Generated from the live world on 2026-09-05 10:54 PDT.
 
 A world where nobody can wrong anybody is not peaceful, it is inert. These are the mechanisms by which a spark can be genuinely bad to another spark, be remembered for it, and be wrong about who deserves it.
 
@@ -10,15 +10,15 @@ A world where nobody can wrong anybody is not peaceful, it is inert. These are t
 
 **How it works.** Every act writes a grievance against the wrongdoer with a weight. Weight accumulates: at 10 the wrongdoer is **noticed**, at 25 **censured**, at 45 **feared**. Whether a spark gets away with it is measured against its *honour*, not its power — a well-regarded spark is not simply a strong one, and the difference is where politics starts.
 
-**111 grievances standing.**
+**112 grievances standing.**
 
 | Act | Times |
 |---|---|
 | raid | 89 |
 | prank | 11 |
 | spoil | 4 |
+| deface | 4 |
 | seize | 3 |
-| deface | 3 |
 | break | 1 |
 
 | Who | Did what | To whom | Weight |
@@ -27,10 +27,10 @@ A world where nobody can wrong anybody is not peaceful, it is inert. These are t
 | Gilgamesh | deface | Thundar Tilecutter | 5 |
 | Gilgamesh | deface | Zylos | 5 |
 | Gilgamesh | deface | Kharais | 5 |
+| Ashland Beamsetter | deface | Ramiro | 5 |
 | Gilgamesh | spoil | Pim | 4 |
 | Gilgamesh | spoil | Rylos | 4 |
 | Gilgamesh | spoil | Khazraen | 4 |
-| Elyos | spoil | Ssath | 4 |
 
 
 ## Secrets, and what they are worth

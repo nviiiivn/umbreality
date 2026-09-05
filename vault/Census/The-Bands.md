@@ -1,6 +1,6 @@
 # The Bands
 
-> Generated 2026-09-04 17:13 PDT.
+> Generated 2026-09-05 10:54 PDT.
 
 Sparks are not uniform. They are sorted into bands, and a band determines what a spark wants, what it is asked to do, and which model it thinks with.
 
