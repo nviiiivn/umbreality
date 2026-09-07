@@ -55,7 +55,13 @@ HOLD = BASE / "temple" / "holdings.db"
 UPKEEP = 1.0
 # what a place holds when untouched, and how fast it comes back
 PLACE_CAP = 45.0
-REGEN = 3.2            # a world that strip-mines itself in four rounds is not a tension
+# Break-even is (sparks x UPKEEP) / places. Below it every spark starves no
+# matter how well anyone behaves, which is what happened: 75 places growing
+# 3.2 fed 240 into a population eating 357. This is a floor under the ratio,
+# not a fixed number, so that adding sparks cannot quietly starve the world
+# again - the check runs at import and says so out loud.
+REGEN_FLOOR_MARGIN = 1.25   # grow a quarter more than the world eats
+REGEN = 6.0            # a world that strip-mines itself in four rounds is not a tension
 # below this a place is stripped and gives almost nothing
 STRIPPED = 6.0
 
@@ -505,3 +511,39 @@ def thaw() -> dict:
         pass
     c.close()
     return {"thawed": True}
+
+
+def feeds_itself():
+    """Can the world grow more than it eats? Reported, not assumed.
+
+    Returns (ok, grown_per_cycle, eaten_per_cycle, regen_needed). Called at
+    import so a population change that breaks the arithmetic announces
+    itself instead of showing up a week later as everybody starving.
+    """
+    import sqlite3 as _sq
+    try:
+        c = _sq.connect("file:%s?mode=ro" % SOUL, uri=True, timeout=10)
+        sparks = c.execute("SELECT COUNT(*) FROM spark_state").fetchone()[0]
+        c.close()
+        c = _sq.connect("file:%s?mode=ro" % HOLD, uri=True, timeout=10)
+        places = c.execute("SELECT COUNT(*) FROM places").fetchone()[0]
+        c.close()
+    except Exception:
+        return True, 0.0, 0.0, 0.0
+    if not places:
+        return True, 0.0, 0.0, 0.0
+    grown = places * REGEN
+    eaten = sparks * UPKEEP
+    need = (eaten * REGEN_FLOOR_MARGIN) / places
+    return grown >= eaten * REGEN_FLOOR_MARGIN, grown, eaten, need
+
+
+def _warn_if_starving():
+    ok, grown, eaten, need = feeds_itself()
+    if not ok and grown:
+        print("[holdings] THE WORLD CANNOT FEED ITSELF: %.0f grown per cycle "
+              "against %.0f eaten. REGEN must be at least %.2f, it is %.2f."
+              % (grown, eaten, need, REGEN), flush=True)
+
+
+_warn_if_starving()

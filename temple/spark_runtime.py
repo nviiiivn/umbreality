@@ -1186,7 +1186,7 @@ class Spark:
                                     "num_predict": 400},
                     }).encode()
                     _r2 = urllib.request.Request(
-                        "http://localhost:11434/api/chat", data=_b2,
+                        OLLAMA_URL, data=_b2,
                         headers={"Content-Type": "application/json"},
                         method="POST")
                     _resp2 = json.loads(urllib.request.urlopen(_r2, timeout=90).read())

@@ -1,6 +1,6 @@
 {
- "functions": 1080,
- "reachable": 958,
+ "functions": 1081,
+ "reachable": 959,
  "unreachable": 89,
  "dead": [
   {
@@ -36,7 +36,7 @@
   {
    "name": "mark_internalized",
    "file": "forum/engine.py",
-   "line": 227
+   "line": 258
   },
   {
    "name": "apply_reality_shift",
@@ -824,7 +824,7 @@
    {
     "name": "mark_internalized",
     "file": "forum/engine.py",
-    "line": 227
+    "line": 258
    }
   ],
   "illuminati/interpreter.py": [

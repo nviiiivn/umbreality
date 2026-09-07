@@ -108,3 +108,5 @@ docker-compose.override.yml
 # runtime state, not source
 temple/.rotation
 *.rotation
+logs-*.txt
+research/fastclock-until.txt
