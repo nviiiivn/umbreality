@@ -1,6 +1,6 @@
 {
- "functions": 1081,
- "reachable": 959,
+ "functions": 1091,
+ "reachable": 969,
  "unreachable": 89,
  "dead": [
   {
@@ -256,7 +256,7 @@
   {
    "name": "action_penalty",
    "file": "temple/holdings.py",
-   "line": 332
+   "line": 338
   },
   {
    "name": "generate_map",
@@ -922,7 +922,7 @@
    {
     "name": "action_penalty",
     "file": "temple/holdings.py",
-    "line": 332
+    "line": 338
    }
   ],
   "temple/obligation.py": [

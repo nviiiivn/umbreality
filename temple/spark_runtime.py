@@ -6,6 +6,9 @@ import sqlite3, json, datetime, urllib.request, os, hashlib, random, re
 from pathlib import Path
 
 OLLAMA_URL = "http://192.168.86.24:11434/api/chat"
+
+# Set UAI_CPU_ONLY=1 to keep every generation off the graphics card.
+CPU_ONLY = os.environ.get("UAI_CPU_ONLY") == "1"
 BASE = Path(__file__).resolve().parent.parent
 
 GILGAMESH_TYPES = [
@@ -374,6 +377,30 @@ def _what_you_were_told(name):
         return ""
 
 
+# ── the card has a ceiling and it is not the number it reports ───────
+# Verified stable at 16.75GB. Above roughly 17GB this card leaves the PCIe
+# bus and only a cold power cycle brings it back, so a model that does not
+# fit is not a slow spark, it is a dead machine.
+VRAM_CEILING_GB = 14.0
+
+
+def _model_fits(model: str) -> bool:
+    """False if this model is too large for the card to hold safely."""
+    import re as _re
+    import subprocess as _sp
+    try:
+        out = _sp.run(["ollama", "list"], capture_output=True, text=True,
+                      timeout=30).stdout
+    except Exception:
+        return True          # cannot check: do not block the world
+    for line in out.splitlines()[1:]:
+        m = _re.match(r"(\S+)\s+\S+\s+([\d.]+)\s*(GB|MB)", line)
+        if m and m.group(1) == model:
+            gb = float(m.group(2)) * (1 if m.group(3) == "GB" else 0.001)
+            return gb <= VRAM_CEILING_GB
+    return True              # unknown model: leave it alone
+
+
 class Spark:
     def _api(self, endpoint, method="GET", data=None):
         import json as _j, urllib.request as _ur
@@ -482,6 +509,12 @@ class Spark:
         self._init_db()
         # an explicit model wins; otherwise use whatever this spark was given
         self.model = model or self._load_model() or self.DEFAULT_MODEL
+        # a model bigger than the card takes the whole machine down, so a
+        # spark carrying one falls back rather than being allowed to try
+        if not _model_fits(self.model):
+            print("[vram] %s was on %s, which does not fit the card - using %s"
+                  % (self.name, self.model, self.DEFAULT_MODEL), flush=True)
+            self.model = self.DEFAULT_MODEL
 
     _CARD_CACHE = {}
     _POP_CACHE = {"n": 0}
@@ -850,7 +883,14 @@ class Spark:
             return None
 
     def set_model(self, model):
-        """Give this spark a different brain, permanently."""
+        """Give this spark a different brain, permanently.
+
+        Refuses anything the card cannot hold - see _model_fits.
+        """
+        if not _model_fits(model):
+            return {"ok": False, "error":
+                    "%s is larger than the card can hold (%.1fGB ceiling)"
+                    % (model, VRAM_CEILING_GB)}
         conn = sqlite3.connect(str(self.db_path))
         conn.execute(
             "INSERT OR REPLACE INTO identity (key, value) VALUES ('model', ?)",
@@ -1153,6 +1193,11 @@ class Spark:
                 # a reasoning model spends its budget thinking before it
                 # writes anything; 500 leaves nothing for the answer
                 "num_predict": 2200 if _is_thinking_model(self.model) else 500,
+                # the card drops off the PCIe bus under load and only a cold
+                # power cycle brings it back. The processor is slower per
+                # turn and gives the world more turns, because it runs all
+                # day instead of dying every few minutes.
+                **({"num_gpu": 0} if CPU_ONLY else {}),
             }
         }).encode()
         try:
@@ -1183,7 +1228,8 @@ class Spark:
                         "model": self.model, "messages": _again,
                         "stream": False,
                         "options": {"temperature": temperature,
-                                    "num_predict": 400},
+                                    "num_predict": 400,
+                                    **({"num_gpu": 0} if CPU_ONLY else {})},
                     }).encode()
                     _r2 = urllib.request.Request(
                         OLLAMA_URL, data=_b2,
