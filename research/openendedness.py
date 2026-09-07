@@ -113,9 +113,17 @@ def events_words():
     if len(words) < MIN_COMPONENTS:
         forum.close()
         return None, "only %d coined words" % len(words)
+    # a failed model call was posted verbatim as the spark's own words for
+    # months. Those are not speech and must not count as usage.
+    BAD = ("content LIKE '%[Error:%' OR content LIKE '%Traceback (most%' "
+           "OR content LIKE '%URLError%'")
+    skipped = forum.execute(
+        "SELECT COUNT(*) FROM posts WHERE content IS NOT NULL AND (%s)"
+        % BAD).fetchone()[0]
+
     ev, n = Counter(), 0
     for r in forum.execute("SELECT created_at, content FROM posts "
-                           "WHERE content IS NOT NULL"):
+                           "WHERE content IS NOT NULL AND NOT (%s)" % BAD):
         d = _day(r["created_at"])
         if not d:
             continue
@@ -123,7 +131,8 @@ def events_words():
         for w in set(TOKEN.findall((r["content"] or "").lower())) & words:
             ev[(w, d)] += 1
     forum.close()
-    return ev, "%d coined words across %s posts" % (len(words), "{:,}".format(n))
+    return ev, ("%d coined words across %s posts (%s failure posts excluded)"
+                % (len(words), "{:,}".format(n), "{:,}".format(skipped)))
 
 
 def events_column(rel, table, comp_col, time_col):

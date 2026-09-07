@@ -150,7 +150,34 @@ def _author_tongue(author: str) -> str:
         return "en"
 
 
+# ── nothing broken gets recorded as speech ───────────────────────────
+
+FAILURE_MARKS = ("[Error:", "Traceback (most recent call last)",
+                 "URLError", "ConnectionRefused", "HTTPError",
+                 "[Exception:", "<html")
+
+
+def is_failure(content) -> bool:
+    """Is this a machine's failure rather than a spark's words?
+
+    A failed model call used to be posted verbatim as the spark's own
+    contribution. Every caller did it, so the check lives here at the door
+    where all of them pass, not in each of them.
+    """
+    if content is None:
+        return True
+    t = str(content).strip()
+    if not t:
+        return True
+    head = t[:200]
+    return any(m in head for m in FAILURE_MARKS)
+
+
 def create_thread(title: str, author: str, author_layer: int, zone: str = None, first_post_content: str = "", native_lang: str = None):
+    if is_failure(first_post_content) or is_failure(title):
+        print("[forum] %s could not think - not posting a failure as "
+              "speech" % author, flush=True)
+        return None
     if zone is None:
         zone = LAYER_ZONES.get(author_layer, "workers")
     conn = get_db()
@@ -169,6 +196,10 @@ def create_thread(title: str, author: str, author_layer: int, zone: str = None, 
 
 
 def post_reply(thread_id: int, author: str, author_layer: int, content: str, content_type: str = "text", native_lang: str = None):
+    if is_failure(content):
+        print("[forum] %s could not think - not posting a failure as "
+              "speech" % author, flush=True)
+        return None
     conn = get_db()
     thread = conn.execute("SELECT * FROM threads WHERE id = ?", (thread_id,)).fetchone()
     if not thread:

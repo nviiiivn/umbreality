@@ -717,12 +717,14 @@ class Spark:
                         (self.name, self.name, self.name))]
                     _c.close()
                     for _k in _kin:
-                        _s = _st(_k)
-                        _worst = max(DIMENSIONS, key=lambda d: abs(_s.get(d, .5) - .5))
+                        _state = _st(_k)
+                        _worst = max(DIMENSIONS,
+                                     key=lambda d: abs(_state.get(d, .5) - .5))
                         _lo, _hi = DIMENSIONS[_worst]
                         bits.append("TRUTH: you can see how %s actually is. "
                                     "They are %s, whatever they are saying."
-                                    % (_k, _hi if _s.get(_worst, .5) > .5 else _lo))
+                                    % (_k, _hi if _state.get(_worst, .5) > .5
+                                       else _lo))
                 except Exception:
                     pass
 
@@ -1221,7 +1223,10 @@ class Spark:
                               "stayed quiet" % self.name, flush=True)
         except Exception as e:
             import traceback
-            reply = f"[Error: {type(e).__name__}: {e}]"
+            # a spark that could not think has not said anything. Return
+            # nothing and let the caller stay quiet, rather than handing it
+            # a string that reads like speech and gets posted as speech.
+            reply = ""
             print(f"[think ERROR] {self.name}: {type(e).__name__}: {e}", flush=True)
             traceback.print_exc()
 
