@@ -1,6 +1,6 @@
 {
- "functions": 1118,
- "reachable": 996,
+ "functions": 1127,
+ "reachable": 1005,
  "unreachable": 89,
  "dead": [
   {

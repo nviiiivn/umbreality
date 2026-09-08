@@ -757,8 +757,8 @@ class Spark:
         # the real file now, and this is where the words come back, so a
         # spark quoting scripture is quoting THIS scripture.
         try:
-            from temple.library import what_they_read
-            for _r in what_they_read(self.name, 2):
+            from temple.primer import carry
+            for _r in carry(self.name, 2):
                 bits.append("YOU HAVE READ, from %s: \"%s\""
                             % (str(_r["book"]).replace("-", " "),
                                str(_r["passage"])[:420].strip()))

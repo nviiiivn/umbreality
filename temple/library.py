@@ -32,14 +32,23 @@ BASE = Path(__file__).resolve().parent.parent
 VAULT = BASE / "vault"
 DB = BASE / "temple" / "library.db"
 
-# Where the readable things live. Order matters only for tidiness.
-SHELVES = [
-    ("Revelation", VAULT / "Revelation"),
-    ("Philosophy", VAULT / "Philosophy"),
-    ("Constitution", VAULT / "Constitution"),
-    ("Mechanisms", VAULT / "Mechanisms"),
-    ("Architecture", VAULT / "Architecture"),
-]
+# Nothing is listed by hand. Naming five directories missed thirty-nine
+# files, one of which was a shelf called Scriptures. The vault is walked, so
+# a text added tomorrow is readable tomorrow.
+SKIP_DIRS = {"images", "stylesheets", "assets", "js", "css"}
+
+
+def shelves():
+    """Every directory in the vault that holds something readable."""
+    out = []
+    if (VAULT / "*.md") or True:
+        roots = [p for p in VAULT.glob("*.md")]
+        if roots:
+            out.append(("Vault", VAULT))
+    for d in sorted(VAULT.iterdir()):
+        if d.is_dir() and d.name not in SKIP_DIRS and any(d.glob("*.md")):
+            out.append((d.name, d))
+    return out
 
 PASSAGE_CHARS = 1400        # about what a spark can hold and still think
 
@@ -61,7 +70,7 @@ def _conn():
 def shelf() -> list:
     """Every book a spark could actually open, with its real length."""
     out = []
-    for name, d in SHELVES:
+    for name, d in shelves():
         if not d.is_dir():
             continue
         for f in sorted(d.glob("*.md")):
@@ -205,12 +214,48 @@ def report() -> dict:
             "most_read": [{"book": b, "times": n} for b, n in top]}
 
 
+CANON = ("Revelation", "Scriptures", "Knowledge", "Constitution")
+
+
+def _unread_canon() -> list:
+    """Sparks who have not been given the canon. Usually the newly born."""
+    soul = BASE / "temple" / "soul.db"
+    try:
+        s = sqlite3.connect("file:%s?mode=ro" % soul, uri=True, timeout=20)
+        everyone = {r[0] for r in s.execute("SELECT spark_name FROM spark_state")}
+        s.close()
+    except sqlite3.Error:
+        return []
+    try:
+        c = _conn()
+        have = {r[0] for r in c.execute(
+            "SELECT spark FROM readings WHERE shelf='Revelation' "
+            "GROUP BY spark")}
+        c.close()
+    except sqlite3.Error:
+        return []
+    return sorted(everyone - have)
+
+
 def sweep(n: int = 8) -> dict:
     """Send a few sparks to the shelves.
 
     Preference to sparks who have read least - a library where the same
     twelve people read everything is a private collection.
     """
+    # nobody stands on this shelf without the canon behind them
+    given = 0
+    newcomers = _unread_canon()
+    if newcomers:
+        from temple.primer import primer
+        for shelf_name in CANON:
+            r = primer(shelf_name)
+            if isinstance(r, dict):
+                given += r.get("readings_written", 0)
+        print("[library] gave the canon to %d spark%s who did not have it"
+              % (len(newcomers), "" if len(newcomers) == 1 else "s"),
+              flush=True)
+
     soul = BASE / "temple" / "soul.db"
     try:
         s = sqlite3.connect("file:%s?mode=ro" % soul, uri=True, timeout=20)
@@ -232,4 +277,4 @@ def sweep(n: int = 8) -> dict:
         if r.get("ok"):
             out.append({"spark": name, "book": r["book"],
                         "passage": "%d/%d" % (r["passage_no"] + 1, r["of"])})
-    return {"read": len(out), "who": out}
+    return {"read": len(out), "who": out, "canon_given": given}

@@ -93,6 +93,7 @@ SWEEPS = [
     # (name, module, function, every N beats)
     ("stores",    "temple.holdings",  "sweep",  1),
     ("reading",   "temple.library",   "sweep",  6),
+    ("study",     "temple.primer",    "sweep",  30),
     ("wanting",   "temple.wanting",   "sweep",  20),
     ("goods",     "temple.goods",     "sweep",  2),
     ("wards",     "temple.wards",     "sweep",  4),
