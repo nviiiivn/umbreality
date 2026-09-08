@@ -39,16 +39,25 @@ SKIP_DIRS = {"images", "stylesheets", "assets", "js", "css"}
 
 
 def shelves():
-    """Every directory in the vault that holds something readable."""
+    """Every directory in the vault holding readable text, at any depth.
+
+    Stopping at the first level missed the whole imported library, whose
+    books live in tradition folders under vault/Library. A shelf keeps the
+    name of its own folder, so mysticism-kabbalah and scripture-texts stay
+    separate rather than collapsing into one "Library".
+    """
     out = []
-    if (VAULT / "*.md") or True:
-        roots = [p for p in VAULT.glob("*.md")]
-        if roots:
-            out.append(("Vault", VAULT))
-    for d in sorted(VAULT.iterdir()):
-        if d.is_dir() and d.name not in SKIP_DIRS and any(d.glob("*.md")):
-            out.append((d.name, d))
-    return out
+    if any(VAULT.glob("*.md")):
+        out.append(("Vault", VAULT))
+    for root, dirs, files in os.walk(VAULT):
+        dirs[:] = [d for d in dirs if d not in SKIP_DIRS
+                   and not d.startswith(".")]
+        p = Path(root)
+        if p == VAULT:
+            continue
+        if any(f.endswith(".md") for f in files):
+            out.append((p.name, p))
+    return sorted(set(out), key=lambda x: x[0])
 
 PASSAGE_CHARS = 1400        # about what a spark can hold and still think
 

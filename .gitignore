@@ -110,3 +110,11 @@ temple/.rotation
 *.rotation
 logs-*.txt
 research/fastclock-until.txt
+
+# The library's contents. The mechanism is in temple/library.py and belongs
+# in the repo; the books do not - they are a personal collection and this is
+# a public repository.
+temple/library.db
+vault/Library/
+library-source/
+*.pdf
