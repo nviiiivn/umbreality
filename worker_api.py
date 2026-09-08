@@ -17,6 +17,12 @@ import uvicorn
 
 from worker import run_worker, save_report
 
+# The card cannot survive waking from idle - measured 7 Sep: dead four
+# seconds after the P8->P2 transition, at 88W and 34C. UAI_CPU_ONLY=1 keeps
+# every generation off it.
+import os as _os
+_CPU_ONLY = _os.environ.get("UAI_CPU_ONLY") == "1"
+
 # ── Authentication & Security ──
 # No shared default. A fallback string in public source is a credential
 # everybody who clones this inherits without knowing it, so an unconfigured
@@ -691,6 +697,30 @@ def avatar_summon(body: dict):
     result = summon(messenger, message, target_layer)
     log_activity("avatar", "summon", f"{messenger} → L{target_layer}", "ok")
     return result
+
+
+@app.get("/library/report")
+def library_report():
+    """What the world has actually read, as opposed to been told it read."""
+    from temple.library import report, shelf
+    r = report()
+    r["shelf"] = [b["book"] for b in shelf()]
+    return r
+
+
+@app.get("/library/known/{spark}")
+def library_known(spark: str):
+    """Which books this spark knows, and how well."""
+    from temple.library import learned, what_they_read
+    return {"spark": spark, "books": learned(spark),
+            "carrying": what_they_read(spark, 3)}
+
+
+@app.get("/wants")
+def wants_chosen():
+    """Every ambition a spark decided on for itself."""
+    from temple.wanting import theirs
+    return {"wants": theirs(30)}
 
 
 @app.get("/avatar/messengers")
@@ -2036,7 +2066,8 @@ def tower_chat(body: dict):
     
     payload = _js.dumps({
         "model": model, "messages": messages,
-        "stream": False, "options": {"num_predict": max_tokens, "temperature": temperature, "keep_alive": 600}
+        "stream": False, "options": {
+                **({"num_gpu": 0} if _CPU_ONLY else {}),"num_predict": max_tokens, "temperature": temperature, "keep_alive": 600}
     }).encode()
     
     try:
@@ -2067,7 +2098,8 @@ def openai_chat_completions_stripped(body: dict, request: Request = None):
     
     payload = _js.dumps({
         "model": model, "messages": messages, "stream": False,
-        "options": {"num_predict": max_tokens, "temperature": temperature, "keep_alive": 600}
+        "options": {
+                **({"num_gpu": 0} if _CPU_ONLY else {}),"num_predict": max_tokens, "temperature": temperature, "keep_alive": 600}
     }).encode()
     try:
         req = _ur.Request(f"{tower}/api/chat", data=payload,
@@ -2096,7 +2128,8 @@ def openai_chat_completions(body: dict, request: Request = None):
     
     payload = _js.dumps({
         "model": model, "messages": messages, "stream": False,
-        "options": {"num_predict": max_tokens, "temperature": temperature, "keep_alive": 600}
+        "options": {
+                **({"num_gpu": 0} if _CPU_ONLY else {}),"num_predict": max_tokens, "temperature": temperature, "keep_alive": 600}
     }).encode()
     
     try:

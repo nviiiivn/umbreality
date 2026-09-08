@@ -1,6 +1,6 @@
 {
- "functions": 1091,
- "reachable": 969,
+ "functions": 1118,
+ "reachable": 996,
  "unreachable": 89,
  "dead": [
   {
@@ -36,7 +36,7 @@
   {
    "name": "mark_internalized",
    "file": "forum/engine.py",
-   "line": 258
+   "line": 265
   },
   {
    "name": "apply_reality_shift",
@@ -46,17 +46,17 @@
   {
    "name": "current",
    "file": "illuminati/reality.py",
-   "line": 231
+   "line": 238
   },
   {
    "name": "history",
    "file": "illuminati/reality.py",
-   "line": 218
+   "line": 225
   },
   {
    "name": "shift",
    "file": "illuminati/reality.py",
-   "line": 136
+   "line": 143
   },
   {
    "name": "css_sub",
@@ -550,17 +550,17 @@
    {
     "name": "current",
     "file": "illuminati/reality.py",
-    "line": 231
+    "line": 238
    },
    {
     "name": "history",
     "file": "illuminati/reality.py",
-    "line": 218
+    "line": 225
    },
    {
     "name": "shift",
     "file": "illuminati/reality.py",
-    "line": 136
+    "line": 143
    }
   ],
   "temple/decree.py": [
@@ -824,7 +824,7 @@
    {
     "name": "mark_internalized",
     "file": "forum/engine.py",
-    "line": 258
+    "line": 265
    }
   ],
   "illuminati/interpreter.py": [

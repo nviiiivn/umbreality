@@ -4,6 +4,12 @@ and verification. Drop-in replacement for the paid Oracle service."""
 import json, urllib.request, os, sys
 from pathlib import Path
 
+# The card cannot survive waking from idle - measured 7 Sep: dead four
+# seconds after the P8->P2 transition, at 88W and 34C. UAI_CPU_ONLY=1 keeps
+# every generation off it.
+import os as _os
+_CPU_ONLY = _os.environ.get("UAI_CPU_ONLY") == "1"
+
 TOWER = os.environ.get("UAI_OLLAMA_URL", "http://192.168.86.24:11434")
 REASONING_MODEL = "deepseek-r1:14b"
 FAST_MODEL = "dolphin3:8b"
@@ -31,7 +37,8 @@ Output your verdict as JSON:
         body = json.dumps({"model": REASONING_MODEL, "messages": [
             {"role": "system", "content": "You are a skeptical verifier. Be critical. Find real problems."},
             {"role": "user", "content": prompt}
-        ], "stream": False, "options": {"num_predict": 500, "temperature": 0.1}}).encode()
+        ], "stream": False, "options": {
+                **({"num_gpu": 0} if _CPU_ONLY else {}),"num_predict": 500, "temperature": 0.1}}).encode()
         req = urllib.request.Request(f"{TOWER}/api/chat", data=body, headers={"Content-Type": "application/json"})
         resp = json.loads(urllib.request.urlopen(req, timeout=120).read())
         content = resp.get("message", {}).get("content", "") or resp.get("message", {}).get("thinking", "")
@@ -71,7 +78,8 @@ Output a structured analysis with: root_cause, severity (low/medium/high/critica
         body = json.dumps({"model": REASONING_MODEL, "messages": [
             {"role": "system", "content": "You are a deep reasoning analyst. Find root causes."},
             {"role": "user", "content": prompt}
-        ], "stream": False, "options": {"num_predict": 400, "temperature": 0.1}}).encode()
+        ], "stream": False, "options": {
+                **({"num_gpu": 0} if _CPU_ONLY else {}),"num_predict": 400, "temperature": 0.1}}).encode()
         req = urllib.request.Request(f"{TOWER}/api/chat", data=body, headers={"Content-Type": "application/json"})
         resp = json.loads(urllib.request.urlopen(req, timeout=60).read())
         return resp.get("message", {}).get("content", "") or resp.get("message", {}).get("thinking", "")

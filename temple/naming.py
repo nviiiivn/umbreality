@@ -18,6 +18,12 @@ import sqlite3
 import urllib.request
 from pathlib import Path
 
+# The card cannot survive waking from idle - measured 7 Sep: dead four
+# seconds after the P8->P2 transition, at 88W and 34C. UAI_CPU_ONLY=1 keeps
+# every generation off it.
+import os as _os
+_CPU_ONLY = _os.environ.get("UAI_CPU_ONLY") == "1"
+
 BASE = Path(__file__).resolve().parent.parent
 OLLAMA = os.environ.get("UAI_OLLAMA", "http://localhost:11434")
 NAMING_MODEL = os.environ.get("UAI_NAMING_MODEL", "gemma4:latest")
@@ -157,6 +163,7 @@ def propose_name(name: str, timeout: int = 90, avoid: str = "") -> str:
         "prompt": prompt,
         "stream": False,
         "options": {
+                **({"num_gpu": 0} if _CPU_ONLY else {}),
             "temperature": 1.15,
             "top_p": 0.95,
             "num_predict": 24,

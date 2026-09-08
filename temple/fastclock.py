@@ -46,6 +46,7 @@ doing.
 """
 import os
 import sys
+import threading
 import time
 import traceback
 from datetime import datetime
@@ -56,7 +57,7 @@ if BASE not in sys.path:
 
 # One beat every three minutes: 480 a day, 144 to a world day, so about
 # three and a third world days for every real one.
-BEAT_SECONDS = int(os.environ.get("UAI_BEAT_SECONDS", "180"))
+BEAT_SECONDS = int(os.environ.get("UAI_BEAT_SECONDS", "24"))
 
 # An absolute stop time, kept on disk so a restart inherits it instead of
 # starting the clock over. Written by whoever launches the run.
@@ -91,6 +92,8 @@ def gpu_ok():
 SWEEPS = [
     # (name, module, function, every N beats)
     ("stores",    "temple.holdings",  "sweep",  1),
+    ("reading",   "temple.library",   "sweep",  6),
+    ("wanting",   "temple.wanting",   "sweep",  20),
     ("goods",     "temple.goods",     "sweep",  2),
     ("wards",     "temple.wards",     "sweep",  4),
     ("whispers",  "temple.whisper",   "sweep",  4),
@@ -151,8 +154,33 @@ def tick(n):
     return out
 
 
+def _sweeps_forever():
+    """The economy, on its own thread, as fast as it can manage."""
+    n = 0
+    while True:
+        n += 1
+        out = []
+        for name, mod, fn, every in SWEEPS:
+            if n % every:
+                continue
+            try:
+                m = __import__(mod, fromlist=[fn])
+                r = getattr(m, fn)()
+                if isinstance(r, dict):
+                    bits = [k for k, v in r.items()
+                            if isinstance(v, (int, float)) and v]
+                    if bits:
+                        out.append("%s(%s)" % (name, ",".join(
+                            "%s=%s" % (b, r[b]) for b in bits[:3])))
+            except Exception as e:
+                out.append("%s FAILED %s: %s" % (name, type(e).__name__, e))
+        if out:
+            print("[world %s] %s" % (_now(), " | ".join(out)), flush=True)
+        time.sleep(1)
+
+
 def run():
-    """The loop. Never touches the GPU; safe to leave running."""
+    """The clock. Never waits for the bookkeeping, never touches the GPU."""
     print("[fastclock] a beat every %ss — about %.1f world days per real day"
           % (BEAT_SECONDS, (86400 / BEAT_SECONDS) / 144.0), flush=True)
     try:
@@ -164,6 +192,8 @@ def run():
     except Exception:
         pass
 
+    threading.Thread(target=_sweeps_forever, daemon=True).start()
+
     n = 0
     warned = False
     while True:
@@ -171,24 +201,31 @@ def run():
         started = time.time()
         stop_at = deadline()
         if stop_at and time.time() >= stop_at:
-            print("[fastclock] reached the 48-hour mark — stopping. The world "
-                  "keeps its state; nothing is undone.", flush=True)
+            print("[fastclock] reached the mark — stopping. The world keeps "
+                  "its state; nothing is undone.", flush=True)
             return
-        if n % 20 == 1:
+        if n % 40 == 1:
             if not gpu_ok() and not warned:
-                print("[fastclock] the card is not answering. Sparks will be "
-                      "silent; the world keeps running on the processor.",
-                      flush=True)
+                print("[fastclock] the card is not answering. The world keeps "
+                      "running on the processor.", flush=True)
                 warned = True
             elif gpu_ok():
                 warned = False
         try:
-            out = tick(n)
+            h = _beat()
+            import sqlite3 as _sq
+            _c = _sq.connect(os.path.join(BASE, "temple", "heartbeat.db"),
+                             timeout=10)
+            _cy, _dy = _c.execute(
+                "SELECT cycle, day FROM heart_state").fetchone()
+            _c.close()
+            if n % 25 == 1:
+                print("[fastclock %s] cycle %s day %s" % (_now(), _cy, _dy),
+                      flush=True)
         except Exception as e:
-            out = ["tick FAILED %s: %s" % (type(e).__name__, e)]
-        if out:
-            print("[fastclock %s] %s" % (_now(), " | ".join(out)), flush=True)
-        time.sleep(max(1.0, BEAT_SECONDS - (time.time() - started)))
+            print("[fastclock] heartbeat failed %s: %s"
+                  % (type(e).__name__, e), flush=True)
+        time.sleep(max(0.5, BEAT_SECONDS - (time.time() - started)))
 
 
 if __name__ == "__main__":

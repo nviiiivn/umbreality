@@ -150,6 +150,29 @@ def build():
                 if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
                     entries.add("%s:%s" % (mod, node.name))
 
+    # Mechanisms called from a table of strings - fastclock's SWEEPS is
+    # (name, "temple.holdings", "sweep", 1) resolved by __import__ at run
+    # time. That is real wiring; a call-graph walk simply cannot see it.
+    # SWEEP TABLES
+    for path in python_files():
+        try:
+            tree = ast.parse(path.read_text(encoding="utf-8", errors="ignore"))
+        except SyntaxError:
+            continue
+        for node in ast.walk(tree):
+            if not isinstance(node, (ast.List, ast.Tuple)):
+                continue
+            for el in node.elts:
+                if not isinstance(el, (ast.Tuple, ast.List)):
+                    continue
+                strs = [x.value for x in el.elts
+                        if isinstance(x, ast.Constant) and isinstance(x.value, str)]
+                for i, a in enumerate(strs[:-1]):
+                    if "." in a and not a.endswith("."):
+                        cand = "%s:%s" % (a, strs[i + 1])
+                        if cand in defs:
+                            entries.add(cand)
+
     for mod, names in deferred_roots:
         for n in names:
             # a bare name means this module's own definition if it has one,

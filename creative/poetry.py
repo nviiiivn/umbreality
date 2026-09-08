@@ -3,6 +3,12 @@
 import os, random, json, urllib.request
 from pathlib import Path
 
+# The card cannot survive waking from idle - measured 7 Sep: dead four
+# seconds after the P8->P2 transition, at 88W and 34C. UAI_CPU_ONLY=1 keeps
+# every generation off it.
+import os as _os
+_CPU_ONLY = _os.environ.get("UAI_CPU_ONLY") == "1"
+
 OUTPUT_DIR = Path(__file__).resolve().parent / "outputs" / "text"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -36,7 +42,8 @@ Output only the piece itself, no explanations."""
             {"role": "user", "content": prompt}
         ],
         "stream": False,
-        "options": {"temperature": 0.8, "num_predict": 500},
+        "options": {
+                **({"num_gpu": 0} if _CPU_ONLY else {}),"temperature": 0.8, "num_predict": 500},
     }).encode()
 
     try:

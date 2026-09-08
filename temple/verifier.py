@@ -2,6 +2,12 @@
 
 import json, urllib.request, os
 
+# The card cannot survive waking from idle - measured 7 Sep: dead four
+# seconds after the P8->P2 transition, at 88W and 34C. UAI_CPU_ONLY=1 keeps
+# every generation off it.
+import os as _os
+_CPU_ONLY = _os.environ.get("UAI_CPU_ONLY") == "1"
+
 TOWER = os.environ.get("UAI_OLLAMA_URL", "http://192.168.86.24:11434")
 MODEL = "deepseek-r1:14b"  # Strongest reasoning model on Tower
 
@@ -44,7 +50,8 @@ Is the system healthy? What needs attention? Be brief and critical."""
         body = json.dumps({"model": MODEL, "messages": [
             {"role": "system", "content": "You are a system verifier. Be brief, be critical, be honest."},
             {"role": "user", "content": prompt}
-        ], "stream": False, "options": {"num_predict": 200, "temperature": 0.1}}).encode()
+        ], "stream": False, "options": {
+                **({"num_gpu": 0} if _CPU_ONLY else {}),"num_predict": 200, "temperature": 0.1}}).encode()
         req = urllib.request.Request(f"{TOWER}/api/chat", data=body, headers={"Content-Type": "application/json"})
         resp = json.loads(urllib.request.urlopen(req, timeout=30).read())
         verdict = resp.get("message", {}).get("content", "") or resp.get("message", {}).get("thinking", "")

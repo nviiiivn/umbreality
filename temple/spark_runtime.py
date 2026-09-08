@@ -7,6 +7,11 @@ from pathlib import Path
 
 OLLAMA_URL = "http://192.168.86.24:11434/api/chat"
 
+# Sparks think in short bursts; a 4k window is plenty and keeps every
+# model small enough to stay resident on the card. Set per request so the
+# rest of the machine keeps its full context.
+SPARK_CTX = int(os.environ.get("UAI_SPARK_CTX", "4096"))
+
 # Set UAI_CPU_ONLY=1 to keep every generation off the graphics card.
 CPU_ONLY = os.environ.get("UAI_CPU_ONLY") == "1"
 BASE = Path(__file__).resolve().parent.parent
@@ -401,6 +406,87 @@ def _model_fits(model: str) -> bool:
     return True              # unknown model: leave it alone
 
 
+# The card is 7-19x faster per token and also falls off the bus. Both are
+# true. What made it a net loss overnight was not its speed, it was how long
+# a dead card took to say so.
+GPU_TIMEOUT = float(os.environ.get("UAI_GPU_TIMEOUT", "8"))
+GPU_STRIKES = 3            # consecutive failures before we stop trying
+GPU_COOLDOWN = 60          # seconds to leave it alone, then try once more
+_gpu_state = {"strikes": 0, "down_until": 0.0}
+
+# One model stays on the card and never leaves, because this card dies on
+# power-state transitions and every load/unload is one. Everything else runs
+# on the processor.
+PINNED = {m.strip() for m in os.environ.get(
+    "UAI_PINNED_MODEL",
+    "Azazel-AI/llama-3.2-1b-instruct-abliterated.q8_0:latest,"
+    "alibayram/hunyuan:1.8b,stablelm-zephyr:3b,nemotron-mini:4b"
+).split(",") if m.strip()}
+
+
+def _gpu_available(model):
+    """Should this request try the card at all?"""
+    import time as _t
+    if CPU_ONLY:
+        return False
+    if model not in PINNED:
+        return False      # only the resident models touch the card
+    return _t.time() >= _gpu_state["down_until"]
+
+
+def _gpu_failed():
+    import time as _t
+    _gpu_state["strikes"] += 1
+    if _gpu_state["strikes"] >= GPU_STRIKES:
+        _gpu_state["down_until"] = _t.time() + GPU_COOLDOWN
+        _gpu_state["strikes"] = 0
+        print("[gpu] three failures in a row - leaving the card alone for "
+              "%d minutes; everything runs on the processor until then"
+              % (GPU_COOLDOWN // 60), flush=True)
+
+
+def _ask_model(body, timeout=90):
+    """The card if it is worth trying, the processor otherwise.
+
+    A card that is gone costs one request eight seconds, once, and then
+    nothing for five minutes.
+    """
+    try:
+        payload = json.loads(body.decode())
+    except Exception:
+        payload = None
+
+    model = (payload or {}).get("model", "")
+    if payload is not None and _gpu_available(model):
+        try:
+            payload.setdefault("options", {})
+            payload["options"].pop("num_gpu", None)
+            payload["keep_alive"] = -1     # never unload: no transitions
+            req = urllib.request.Request(
+                OLLAMA_URL, data=json.dumps(payload).encode(),
+                headers={"Content-Type": "application/json"}, method="POST")
+            out = json.loads(
+                urllib.request.urlopen(req, timeout=GPU_TIMEOUT).read())
+            _gpu_state["strikes"] = 0
+            return out
+        except Exception as first:
+            _gpu_failed()
+            print("[gpu] %s - this turn goes to the processor"
+                  % type(first).__name__, flush=True)
+
+    # the processor
+    if payload is None:
+        req = urllib.request.Request(
+            OLLAMA_URL, data=body,
+            headers={"Content-Type": "application/json"}, method="POST")
+        return json.loads(urllib.request.urlopen(req, timeout=timeout).read())
+    payload.setdefault("options", {})["num_gpu"] = 0
+    req = urllib.request.Request(
+        OLLAMA_URL, data=json.dumps(payload).encode(),
+        headers={"Content-Type": "application/json"}, method="POST")
+    return json.loads(urllib.request.urlopen(req, timeout=timeout).read())
+
+
 class Spark:
     def _api(self, endpoint, method="GET", data=None):
         import json as _j, urllib.request as _ur
@@ -663,6 +749,22 @@ class Spark:
                                          shown))
         else:
             bits.append("Nothing you have made is standing anywhere yet.")
+
+        # ── what you have actually read ───────────────────────────
+        # The academy said "Read vault/Revelation/Hermetic-Stack.md" and
+        # handed a spark nothing at all - 147 sparks wrote 2,267 posts about
+        # scripture they had never seen a line of. temple/library.py opens
+        # the real file now, and this is where the words come back, so a
+        # spark quoting scripture is quoting THIS scripture.
+        try:
+            from temple.library import what_they_read
+            for _r in what_they_read(self.name, 2):
+                bits.append("YOU HAVE READ, from %s: \"%s\""
+                            % (str(_r["book"]).replace("-", " "),
+                               str(_r["passage"])[:420].strip()))
+        except Exception as e:
+            print("[library] %s: %s: %s" % (self.name, type(e).__name__, e),
+                  flush=True)
 
         # ── who you are close to ──────────────────────────────────
         kin = rows("temple/soul.db",
@@ -1189,21 +1291,20 @@ class Spark:
         body = json.dumps({
             "model": self.model, "messages": messages,
             "stream": False, "options": {
+                    "num_ctx": SPARK_CTX,
                 "temperature": temperature,
                 # a reasoning model spends its budget thinking before it
                 # writes anything; 500 leaves nothing for the answer
                 "num_predict": 2200 if _is_thinking_model(self.model) else 500,
-                # the card drops off the PCIe bus under load and only a cold
-                # power cycle brings it back. The processor is slower per
-                # turn and gives the world more turns, because it runs all
-                # day instead of dying every few minutes.
+                # the card is 7-19x faster and it also falls off the bus.
+                # Both are true, so it is used and not depended on: see the
+                # retry below, which repeats the call on the processor if
+                # the card does not answer.
                 **({"num_gpu": 0} if CPU_ONLY else {}),
             }
         }).encode()
         try:
-            req = urllib.request.Request(OLLAMA_URL, data=body,
-                headers={"Content-Type": "application/json"})
-            resp = json.loads(urllib.request.urlopen(req, timeout=60).read())
+            resp = _ask_model(body, timeout=60)
             _msg = resp.get("message", {}) or {}
             reply = (_msg.get("content") or "").strip()
 
@@ -1227,15 +1328,12 @@ class Spark:
                     _b2 = json.dumps({
                         "model": self.model, "messages": _again,
                         "stream": False,
-                        "options": {"temperature": temperature,
+                        "options": {
+                    "num_ctx": SPARK_CTX,"temperature": temperature,
                                     "num_predict": 400,
                                     **({"num_gpu": 0} if CPU_ONLY else {})},
                     }).encode()
-                    _r2 = urllib.request.Request(
-                        OLLAMA_URL, data=_b2,
-                        headers={"Content-Type": "application/json"},
-                        method="POST")
-                    _resp2 = json.loads(urllib.request.urlopen(_r2, timeout=90).read())
+                    _resp2 = _ask_model(_b2, timeout=90)
                     _c2 = ((_resp2.get("message") or {}).get("content") or "").strip()
                     _c2, _ = _strip_process(_c2, system + "\n" + prompt)
                     if _c2 and not _looks_like_process(_c2):

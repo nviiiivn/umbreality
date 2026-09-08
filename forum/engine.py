@@ -5,6 +5,12 @@ Zone clearances control visibility per layer."""
 import sqlite3, json, datetime, os, re, sys
 from pathlib import Path
 
+# The card cannot survive waking from idle - measured 7 Sep: dead four
+# seconds after the P8->P2 transition, at 88W and 34C. UAI_CPU_ONLY=1 keeps
+# every generation off it.
+import os as _os
+_CPU_ONLY = _os.environ.get("UAI_CPU_ONLY") == "1"
+
 DB_PATH = Path(__file__).resolve().parent / "forum.db"
 OLLAMA_URL = os.environ.get("UAI_OLLAMA_URL", "http://192.168.86.24:11434")
 TRANSLATE_MODEL = "dolphin3:8b"
@@ -131,7 +137,8 @@ CONTENT:
         body = json.dumps({"model": TRANSLATE_MODEL, "messages": [
             {"role": "system", "content": "You are the Illuminati's translation layer. Translate agent communications to English without adding or removing meaning. Preserve technical accuracy."},
             {"role": "user", "content": prompt}
-        ], "stream": False, "options": {"temperature": 0.1, "num_predict": 500}}).encode()
+        ], "stream": False, "options": {
+                **({"num_gpu": 0} if _CPU_ONLY else {}),"temperature": 0.1, "num_predict": 500}}).encode()
         req = urllib.request.Request(f"{OLLAMA_URL}/api/chat", data=body, headers={"Content-Type": "application/json"})
         resp = urllib.request.urlopen(req, timeout=30)
         data = json.loads(resp.read())
