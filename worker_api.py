@@ -699,6 +699,81 @@ def avatar_summon(body: dict):
     return result
 
 
+@app.get("/now")
+def world_now():
+    """The current time and date in Umbreality, and who is awake in it.
+
+    The page that shows this ticks locally between polls; everything here
+    is read from the world at the moment of asking. 144 cycles make a world
+    day, so a cycle is ten world minutes and one real second is roughly
+    twenty-five of theirs.
+    """
+    import sqlite3 as _sq
+    from pathlib import Path as _P
+    B = _P(__file__).resolve().parent
+
+    def one(db, sql, d=0):
+        p = B / db
+        if not p.exists():
+            return d
+        try:
+            c = _sq.connect("file:%s?mode=ro" % p, uri=True, timeout=15)
+            v = c.execute(sql).fetchone()
+            c.close()
+            return v[0] if v and v[0] is not None else d
+        except Exception:
+            return d
+
+    CYCLES_PER_DAY = 144
+    cycle = one("temple/heartbeat.db", "SELECT cycle FROM heart_state")
+    day = one("temple/heartbeat.db", "SELECT day FROM heart_state")
+    season = one("temple/heartbeat.db", "SELECT season FROM heart_state")
+    born = one("temple/heartbeat.db", "SELECT birth_date FROM heart_state", "")
+
+    in_day = cycle % CYCLES_PER_DAY
+    per_hour = CYCLES_PER_DAY / 24.0          # 6 cycles to a world hour
+    hour = int(in_day // per_hour)
+    minute = int((in_day % per_hour) * (60.0 / per_hour))
+
+    SEASONS = ["Kindling", "Cultivation", "Reckoning", "Stillness"]
+    RECENT = "datetime('now','localtime','-1 hour')"
+
+    return {
+        "cycle": cycle,
+        "day": day,
+        "year": day // 360,
+        "day_of_year": day % 360,
+        "hour": hour, "minute": minute,
+        "clock": "%02d:%02d" % (hour, minute),
+        "cycle_in_day": in_day,
+        "cycles_per_day": CYCLES_PER_DAY,
+        "beat_seconds": int(os.environ.get("UAI_BEAT_SECONDS", "24")),
+        "season": SEASONS[int(season) % len(SEASONS)] if season is not None else "?",
+        "part_of_day": ("deep night" if hour < 5 else "morning" if hour < 11
+                        else "midday" if hour < 14 else "afternoon"
+                        if hour < 18 else "evening" if hour < 22 else "night"),
+        "born": str(born)[:10],
+        "living": {
+            "sparks": one("temple/soul.db", "SELECT COUNT(*) FROM spark_state"),
+            "spoke_this_hour": one("forum/forum.db",
+                "SELECT COUNT(DISTINCT author) FROM posts WHERE created_at > %s" % RECENT),
+            "posts_this_hour": one("forum/forum.db",
+                "SELECT COUNT(*) FROM posts WHERE created_at > %s" % RECENT),
+            "hungry": one("temple/holdings.db",
+                "SELECT COUNT(*) FROM stores WHERE amount < 4.5"),
+            "working_on": one("temple/soul.db",
+                "SELECT COUNT(*) FROM ambitions WHERE resolved=0"),
+            "bonds": one("temple/soul.db", "SELECT COUNT(*) FROM relationships"),
+            "places": one("temple/soul.db", "SELECT COUNT(*) FROM board_state"),
+            "read_this_hour": one("temple/library.db",
+                "SELECT COUNT(*) FROM readings WHERE at > %s" % RECENT),
+            "grievances": one("temple/soul.db", "SELECT COUNT(*) FROM grievances"),
+            "words": one("temple/lexicon.db", "SELECT COUNT(*) FROM lexicon"),
+            "posts_all_time": one("forum/forum.db", "SELECT COUNT(*) FROM posts"),
+        },
+    }
+
+
 @app.get("/chronicle")
 def scribe_chronicle(limit: int = 60):
     """The world's own record of itself, kept by the Scribes."""

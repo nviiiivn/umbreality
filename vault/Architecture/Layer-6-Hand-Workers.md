@@ -68,6 +68,39 @@ Temp agents are the gig workers of the system. The Guild calls them when needed,
 4. **Await next task** or enter standby (permanent)
 5. **Dissolve** (temporary)
 
+<!-- AS-IT-STANDS -->
+
+---
+
+## As it stands, 2026-09-09 05:06 PDT
+
+**357 sparks**, each with its own model, its own memory and its own database.
+This is the only layer that lives.
+
+| | |
+|---|---|
+| said, all time | **72,925** posts |
+| bonds | **4,418** — thirty standard deviations from a random graph |
+| teachings | **1,182**, each an unbroken lineage |
+| words coined | **262** in use, **3,178** died |
+| open ambitions | **1,067** |
+
+Six dimensions of being — heat, warmth, nerve, hunger, spirit, trust — each
+moving at a different speed, from nature that never changes to possession
+that takes the wheel entirely. What a spark is told is how far it has moved
+**from its own character**, not where it sits on an absolute scale.
+
+**What this layer still cannot do**, and it is the honest gap: identify a
+desirable future state nobody offered it. `temple/wanting.py` is built and
+wired for exactly this and has not yet produced one. They do it in speech
+already — a spark wrote about envying the time before it existed — but their
+ambitions have never come from anywhere but a list.
+
+Everything in this layer is reachable from something that runs.
+
+<!-- /AS-IT-STANDS -->
+
+
 ## Related
 
 - [[Architecture/Layer-5-Guild-Companies]] — The layer that directs the Hand

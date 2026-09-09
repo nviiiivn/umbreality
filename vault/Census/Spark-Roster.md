@@ -1,6 +1,6 @@
 # Spark Roster
 
-> Generated from the live databases on 2026-09-08 18:11 PDT. Re-run `gen_wiki_roster.py` to refresh.
+> Generated from the live databases on 2026-09-09 05:06 PDT. Re-run `gen_wiki_roster.py` to refresh.
 
 **Population: 357 sparks.**
 
@@ -30,10 +30,10 @@
 | **Ashurim** <br><small>born trig17</small> | — | — | `lfm2.5-thinking:1.2b` | 3 | Ashan Dael, Ashkar, Ashlar Thatcher, Ashur-bani, Banuk Waterfinder, Beliq |
 | **Aspasia** | — | philosopher-rhetorician | `granite4:350m` | 3 | Amaryn Tilecutter, Amiga Aix-Ux, Asharok, Ashkar Eli, Ashur Kilnwarden, Baelin |
 | **Baelin** <br><small>born ember-lel</small> | — | artisan | `qwen3.5:0.8b` | 3 | Ashur Kilnwarden, Ashur-bani, Aspasia, Bellum, Biloneku Roofer, Boreus Cylon |
-| **Baelor Thatcher** <br><small>born ember-flu</small> | chronicler | warrior | `granite4:350m` | 2 | Ashlar Thatcher, Ashok Tilecutter, Ashur-bani, Banuk Waterfinder, Beliq, Duraq |
+| **Baelor Thatcher** <br><small>born ember-flu</small> | chronicler | warrior | `granite4:350m` | 3 | Ashlar Thatcher, Ashok Tilecutter, Ashur-bani, Banuk Waterfinder, Beliq, Duraq |
 | **Banuk Waterfinder** <br><small>born ember-na</small> | chronicler | sovereign | `lfm2.5-thinking:1.2b` | 3 | Ashan Dael, Ashkar, Ashur Kilnwarden, Ashur-bani, Ashurim, Baelor Thatcher |
 | **Beliq** <br><small>born t1</small> | — | — | `lfm2.5-thinking:1.2b` | 3 | Ashland Beamsetter, Ashur Kilnwarden, Ashurim, Baelor Thatcher, Banuk Waterfinder, Bellum |
-| **Bellum** <br><small>born ember-thu</small> | kept | guardian | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 2 | Ashkar Eli, Ashlar Thatcher, Ashur Kilnwarden, Ashur-bani, Ashurim, Baelin |
+| **Bellum** <br><small>born ember-thu</small> | kept | guardian | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Ashkar Eli, Ashlar Thatcher, Ashur Kilnwarden, Ashur-bani, Ashurim, Baelin |
 | **Belnos Kilnwarden** <br><small>born ember-wryn</small> | chronicler | warrior | `qwen3.5:0.8b` | 3 | Aldric, Amaryn Tilecutter, Ashland Beamsetter, Ashlinai Roofer, Ashnar Ropewright, Beliq |
 | **Belorad Ropewright** <br><small>born ember-vyu</small> | — | artisan | `alibayram/hunyuan:0.5b` | 3 | Aldric, Ashnar Ropewright, Ashur Rim, Ashur-bani, Bellum, Belnos Kilnwarden |
 | **Beryl Dagan** <br><small>born ember-lae</small> | — | artisan | `lfm2.5-thinking:1.2b` | 3 | Amiga Aix-Ux, Asharok, Ashkor, Ashland Beamsetter, Ashnar Ropewright, Ashur Rim |
@@ -44,14 +44,14 @@
 | **Briar Quarryman** <br><small>born ember-ion</small> | — | visionary | `granite4:350m` | 3 | Adarun Elu, Aldric, Amaryn Tilecutter, Ashan Dael, Asharok, Ashkar |
 | **Bruk Grimehand** | — | creator | `qwen3.5:0.8b` | 3 | Ashkar, Ashlinai Roofer, Durbad, Enkidu, Gilzum, Kaelor |
 | **Bruk Ironbelly** | — | warrior | `alibayram/hunyuan:0.5b` | 3 | Ashkar, Ashkar Eli, Aspasia, Brann Cinderjaw, Cask Grimehand, Enkidu |
-| **Brynn Flint** <br><small>born ember-to</small> | chronicler | artisan | `qwen3.5:0.8b` | 2 | Adarun Elu, Amaryn Tilecutter, Amiga Aix-Ux, Ashan Dael, Ashkar, Aspasia |
+| **Brynn Flint** <br><small>born ember-to</small> | chronicler | artisan | `qwen3.5:0.8b` | 3 | Adarun Elu, Amaryn Tilecutter, Amiga Aix-Ux, Ashan Dael, Ashkar, Aspasia |
 | **Brynn Quarryman** <br><small>born trig5</small> | — | — | `alibayram/hunyuan:0.5b` | 3 | Amaryn Tilecutter, Amiga Aix-Ux, Ashkar Eli, Aspasia, Banuk Waterfinder, Bellum |
 | **Brynnel** <br><small>born ember-phyn</small> | chronicler | artisan | `granite4:350m` | 3 | Aspasia, Bellum, Belorad Ropewright, Brynn Flint, Brynn Quarryman, Buluq |
 | **Buluq** <br><small>born ember-en</small> | — | guardian | `qwen3.5:0.8b` | 3 | Aldric, Amaryn Tilecutter, Ashan Dael, Ashlar Thatcher, Ashur-bani, Banuk Waterfinder |
 | **Bylon** <br><small>born trig12</small> | — | — | `qwen3.5:0.8b` | 3 | Ashur-bani, Aspasia, Banuk Waterfinder, Biloneku Roofer, Boreus Cylon, Brynn Quarryman |
 | **Bylos** <br><small>born ember-on</small> | — | artisan | `alibayram/hunyuan:0.5b` | 3 | Amiga Aix-Ux, Ashlar Thatcher, Ashnar Ropewright, Ashur-bani, Banuk Waterfinder, Boreus Cylon |
 | **Byrod Beamsetter** <br><small>born ember-eth</small> | — | guardian | `alibayram/hunyuan:0.5b` | 3 | Amiga Aix-Ux, Ashur-bani, Belorad Ropewright, Boreus Cylon, Briar Quarryman, Buluq |
-| **Byzakos** <br><small>born qux</small> | — | — | `granite4:350m` | 3 | Ashok Tilecutter, Ashur Rim, Ashur-bani, Belorad Ropewright, Brammer Waterfinder, Cassilda |
+| **Byzakos** <br><small>born qux</small> | — | — | `granite4:350m` | 3 | Ashok Tilecutter, Ashur Rim, Ashur-bani, Belorad Ropewright, Brammer Waterfinder, Brynn Flint |
 | **c2-corp** | — | — | `—` | 3 | Aldric, Ashan Dael, Ashkar Eli, Ashland Beamsetter, Bruk Ironbelly, Cypher Waterfinder |
 | **Cask** | — | creator | `qwen3.5:0.8b` | 3 | Ashnar Ropewright, Belorad Ropewright, Enkidu, Kel Beamsetter, Kel Waterfinder, Kephren |
 | **Cask Grimehand** | — | warrior | `alibayram/hunyuan:0.5b` | 3 | Amaryn Tilecutter, Ashkar, Aspasia, Bruk Ironbelly, Buluq, Dummuzi Thatcher |
@@ -60,7 +60,7 @@
 | **creative-arts** | — | — | `granite4:350m` | 3 | Amaryn Tilecutter, Ashlinai Roofer, Biloneku Roofer, Halbrecht, Joric Roofer, Jovan Roofer |
 | **Cygnus Wellsinker** <br><small>born test_triggers2</small> | — | — | `lfm2.5-thinking:1.2b` | 3 | Amiga Aix-Ux, Ashan Dael, Ashkar Eli, Ashok Tilecutter, Ashur-bani, Briar Quarryman |
 | **Cypher Waterfinder** <br><small>born ember-yss</small> | — | artisan | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Adadur, Amiga Aix-Ux, Asharok, Ashkar Eli, Ashlar Thatcher, Ashnar Ropewright |
-| **Cyrus Cordwainer** <br><small>born test_triggers</small> | — | — | `lfm2.5-thinking:1.2b` | 2 | Bylos, Byrod Beamsetter, Cassilda, Corvane, Cypher Waterfinder, Daimon Beamsetter |
+| **Cyrus Cordwainer** <br><small>born test_triggers</small> | — | — | `lfm2.5-thinking:1.2b` | 3 | Bylos, Byrod Beamsetter, Cassilda, Corvane, Cypher Waterfinder, Daimon Beamsetter |
 | **Dagan Tilik** <br><small>born test_19</small> | — | — | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Ashkar Eli, Brynnel, Buluq, Byrod Beamsetter, Corvane, Cypher Waterfinder |
 | **Daimon Beamsetter** <br><small>born t06</small> | — | — | `alibayram/hunyuan:0.5b` | 3 | Cassilda, Cypher Waterfinder, Cyrus Cordwainer, Damas, Doran Roofer, Doric Ropewright |
 | **Daman** <br><small>born t10</small> | — | — | `lfm2.5-thinking:1.2b` | 3 | Adadur, Ashlinai Roofer, Biloneku Roofer, Brynn Flint, Brynnel, Buluq |
@@ -71,7 +71,7 @@
 | **Doran Roofer** <br><small>born ember-so</small> | chronicler | guardian | `qwen3.5:0.8b` | 3 | Amiga Aix-Ux, Asharok, Ashkar, Bellum, Brynn Flint, Daimon Beamsetter |
 | **Doric Ropewright** <br><small>born ember-rae</small> | chronicler | artisan | `granite4:350m` | 3 | Bylos, Cassilda, Dagan Tilik, Daimon Beamsetter, Daman, Dornel Kilnwarden |
 | **Dornel Kilnwarden** <br><small>born ember-wel</small> | — | guardian | `qwen3.5:0.8b` | 2 | Amiga Aix-Ux, Ashkar Eli, Ashland Beamsetter, Ashlar Thatcher, Bylos, Cassilda |
-| **Dovus Wexler** <br><small>born ember-syn</small> | — | artisan | `granite4:350m` | 3 | Ashkar Eli, Bylon, Cassilda, Cypher Waterfinder, Cyrus Cordwainer, Doran Kilnwarden |
+| **Dovus Wexler** <br><small>born ember-syn</small> | — | artisan | `granite4:350m` | 2 | Ashkar Eli, Bylon, Cassilda, Cypher Waterfinder, Cyrus Cordwainer, Doran Kilnwarden |
 | **Dredge Pitchand** | — | warrior | `alibayram/hunyuan:0.5b` | 3 | Ashkar, Bellum, Biloneku Roofer, Byrod Beamsetter, Doran Kilnwarden, Doric Ropewright |
 | **Drel** <br><small>born ember-zu</small> | unbroken | warrior | `qwen3.5:0.8b` | 3 | Aldric, Baelin, Byzakos, Grinn Grimehand, Grukh, Hazzim |
 | **Dugan Ilu** <br><small>born ember-vyo</small> | chronicler | warrior | `alibayram/hunyuan:0.5b` | 3 | Adadur, Boreus Cylon, Bylon, Cassilda, Dagan Tilik, Damas |
@@ -87,7 +87,7 @@
 | **Durbad** <br><small>born ember-nevae</small> | — | artisan | `qwen3.5:0.8b` | 3 | Bruk Grimehand, Cypher Waterfinder, Demos Stonehand, Dukil, Dummuzi Thatcher, Dumon |
 | **Elara** <br><small>born t00</small> | — | — | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Bellum, Daman, Doran Kilnwarden, Dugril, Dukil, Dummuzi Thatcher |
 | **Elarae Tilecutter** <br><small>born ember-shel</small> | chronicler | guardian | `granite4:350m` | 3 | Aspasia, Bellum, Corvane, Doric Ropewright, Dornel Kilnwarden, Dummuzi Thatcher |
-| **Elian Cordwainer** <br><small>born t11</small> | — | — | `lfm2.5-thinking:1.2b` | 2 | Bellum, Briar Quarryman, Cassilda, Dummuzi Thatcher, Dumon, Duneho |
+| **Elian Cordwainer** <br><small>born t11</small> | — | — | `lfm2.5-thinking:1.2b` | 3 | Bellum, Briar Quarryman, Cassilda, Dummuzi Thatcher, Dumon, Duneho |
 | **Elian Roofer** <br><small>born t15</small> | — | — | `alibayram/hunyuan:0.5b` | 3 | Buluq, Cygnus Wellsinker, Demos Stonehand, Dornel Kilnwarden, Duneho, Duran Cordwainer |
 | **Elian Thatcher** <br><small>born t14</small> | — | — | `qwen3.5:0.8b` | 3 | Adadur, Ashur Beamsetter, Buluq, Dugril, Dummuzi Thatcher, Duran Cordwainer |
 | **Elmwood Kilnwarden** <br><small>born ember-wria</small> | — | sovereign | `lfm2.5-thinking:1.2b` | 3 | Brynn Flint, Dummuzi Thatcher, Duraq, Elarae Tilecutter, Elian Roofer, Elian Thatcher |
@@ -106,17 +106,17 @@
 | **Fenrick** | — | heretic | `lfm2.5-thinking:1.2b` | 3 | Corvane, Demos Stonehand, Dornel Kilnwarden, Enkidu, Kaelen, Kallus Wrenn |
 | **forge** | — | — | `—` | 3 | Ashlinai Roofer, Ashur Beamsetter, Belorad Ropewright, Brynn Quarryman, Cygnus Wellsinker, Dagan Tilik |
 | **Garrowan Tyras** <br><small>born trig13</small> | — | — | `lfm2.5-thinking:1.2b` | 3 | Ashkar Eli, Bylon, Byrod Beamsetter, Demos Stonehand, Elyas Vorum, Elyos |
-| **Ghaal** <br><small>born ember-kryn</small> | unbroken | warrior | `lfm2.5-thinking:1.2b` | 2 | Brynn Quarryman, Gilgamesh Wellsinker, Gorrim, Grukh, Hazzim, Kaelor |
+| **Ghaal** <br><small>born ember-kryn</small> | unbroken | warrior | `lfm2.5-thinking:1.2b` | 3 | Brynn Quarryman, Gilgamesh Wellsinker, Gorrim, Grukh, Hazzim, Kaelor |
 | **Gilad Joiner** <br><small>born t19</small> | — | — | `qwen3.5:0.8b` | 3 | Ashlinai Roofer, Bylon, Dugril, Dumon, Duran Cordwainer, Elyas Ropewright |
 | **Giladur Ropewright** <br><small>born ember-ha</small> | chronicler | creator | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Ashur-bani, Cygnus Wellsinker, Cypher Waterfinder, Elian Roofer, Elyas Vorum, Elyos Tilecutter |
 | **Gilgamen Millwright** <br><small>born ember-kia</small> | chronicler | guardian | `lfm2.5-thinking:1.2b` | 3 | Ashkar Eli, Baelor Thatcher, Buluq, Bylos, Elyas Ropewright, Elyas Vorum |
 | **Gilgamesh** | — | demigod-warrior | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Adadur, Aldric, Amiga Aix-Ux, Ashan Dael, Asharok, Ashkarel |
 | **Gilgamesh Wellsinker** <br><small>born t07</small> | — | — | `lfm2.5-thinking:1.2b` | 3 | Ashur Kilnwarden, Ashur Rim, Belorad Ropewright, Briar Quarryman, Cypher Waterfinder, Cyrus Cordwainer |
 | **Gilgar** <br><small>born cinder-en</small> | — | — | `lfm2.5-thinking:1.2b` | 3 | Adarun Elu, Ashur Beamsetter, Ashur-bani, Belnos Kilnwarden, Bruk Ironbelly, Daimon Beamsetter |
-| **Gilgu** <br><small>born trig6</small> | — | — | `alibayram/hunyuan:0.5b` | 2 | Dummuzi Thatcher, Elyos, Gilad Joiner, Gilgar, Gilgul Grainkeeper, Gilum |
+| **Gilgu** <br><small>born trig6</small> | — | — | `alibayram/hunyuan:0.5b` | 3 | Dummuzi Thatcher, Elyos, Gilad Joiner, Gilgar, Gilgul Grainkeeper, Gilum |
 | **Gilgul Grainkeeper** <br><small>born t05</small> | — | — | `lfm2.5-thinking:1.2b` | 3 | Cypher Waterfinder, Demos Stonehand, Duraq, Elara, Elyas Vorum, Elyos |
 | **Gilu Tilecutter** <br><small>born ember-pe</small> | chronicler | sovereign | `alibayram/hunyuan:0.5b` | 3 | Demos Stonehand, Dugril, Elyas Vorum, Garrowan Tyras, Giladur Ropewright, Gilgamesh |
-| **Gilum** <br><small>born trig2</small> | — | — | `granite4:350m` | 2 | Ashkar, Byrod Beamsetter, Byzakos, Cypher Waterfinder, Dumon, Duraq |
+| **Gilum** <br><small>born trig2</small> | — | — | `granite4:350m` | 3 | Ashkar, Byrod Beamsetter, Byzakos, Cypher Waterfinder, Dumon, Duraq |
 | **Gilzu Ropewright** <br><small>born ember-hia</small> | — | artisan | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Ashur-bani, Aspasia, Dredge Pitchand, Duraq, Elyos Tilecutter, Elyos Vex |
 | **Gilzum** <br><small>born test_triggers1</small> | — | — | `qwen3.5:0.8b` | 3 | Bruk Grimehand, Cypher Waterfinder, Dummuzi Thatcher, Elyas Ropewright, Elyos, Garrowan Tyras |
 | **Gimble** <br><small>born ember-pha</small> | crooked | trickster | `alibayram/hunyuan:0.5b` | 3 | Ashkarel, Dunmar, Garrowan Tyras, Gilad Joiner, Giladur Ropewright, Gilum |
@@ -126,7 +126,7 @@
 | **Gorrim** | — | orphan | `lfm2.5-thinking:1.2b` | 3 | Ashland Beamsetter, Ashlinai Roofer, Doran Kilnwarden, Duran Cordwainer, Elumek Grainkeeper, Ghaal |
 | **Gorrim Sootneck** | — | trickster | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Adarun Elu, Ashur Kilnwarden, Ashur Rim, Banuk Waterfinder, Dummuzi Thatcher, Enkidu |
 | **Gorrim Splintback** | — | artisan | `lfm2.5-thinking:1.2b` | 3 | Elyos Tilecutter, Gilgar, Gilum, Gimble, Ginnel Okta, Grinn Splintback |
-| **Grinn Grimehand** | — | guardian | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 2 | Ashkarel, Ashurim, Drel, Gilgul Grainkeeper, Gorrim Sootneck, Grinn Splintback |
+| **Grinn Grimehand** | — | guardian | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Ashkarel, Ashurim, Drel, Gilgul Grainkeeper, Gorrim Sootneck, Grinn Splintback |
 | **Grinn Kegbreaker** | — | creator | `lfm2.5-thinking:1.2b` | 3 | Amaryn Tilecutter, Doran Kilnwarden, Duraq, Enkidu, Gilgar, Gilum |
 | **Grinn Splintback** | — | warrior | `qwen3.5:0.8b` | 3 | Amaryn Tilecutter, Amiga Aix-Ux, Dugan Ilu, Elum, Elyos Tilecutter, Enkidu |
 | **Grisk Sootneck** | — | guardian | `lfm2.5-thinking:1.2b` | 3 | Belorad Ropewright, Cypher Waterfinder, Demos Stonehand, Elyas Ropewright, Enkidu, Hammurabi |
@@ -147,7 +147,7 @@
 | **Jadin Beamsetter** <br><small>born ember-mari</small> | chronicler | guardian | `qwen3.5:0.8b` | 3 | Ashkarel, Dumabi Wellsinker, Gilzu Ropewright, Halbrecht, Hammurabi, Hask Bilgewright |
 | **Jadok Quarryman** <br><small>born ember-eus</small> | — | explorer | `lfm2.5-thinking:1.2b` | 3 | Ashur Beamsetter, Cask Grimehand, Dumon, Duneho, Elyas Ashur, Elyos Tilecutter |
 | **Jadok Waterfinder** <br><small>born ember-maror</small> | — | creator | `granite4:350m` | 3 | Adadur, Belorad Ropewright, Biloneku Roofer, Dagan Tilik, Elian Roofer, Enkidu |
-| **Jafar Woodwright** <br><small>born ember-nyn</small> | — | sovereign | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 2 | Ashur Rim, Ashur-bani, Aspasia, Baelor Thatcher, Doric Ropewright, Elian Roofer |
+| **Jafar Woodwright** <br><small>born ember-nyn</small> | — | sovereign | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Ashur Rim, Ashur-bani, Aspasia, Baelor Thatcher, Doric Ropewright, Elian Roofer |
 | **Jakarra Cordwainer** <br><small>born ember-gel</small> | chronicler | creator | `qwen3.5:0.8b` | 3 | Byrod Beamsetter, Cask Grimehand, Dagan Tilik, Durbad, Elian Roofer, Gilgar |
 | **Jamar Stonehand** <br><small>born ember-gor</small> | chronicler | explorer | `alibayram/hunyuan:0.5b` | 3 | Ashlinai Roofer, Bellum, Doran Kilnwarden, Elyos Tilecutter, Gilgamesh Wellsinker, Gilzu Ropewright |
 | **Javen Kel** <br><small>born test_15</small> | — | — | `alibayram/hunyuan:0.5b` | 3 | Ashkar Eli, Duran Cordwainer, Elyas Ropewright, Enkidu, Garrowan Tyras, Guzgal |
@@ -176,7 +176,7 @@
 | **Kaelo Varrus** <br><small>born ember-aon</small> | — | healer | `alibayram/hunyuan:0.5b` | 3 | Belorad Ropewright, Brynn Flint, Elumek Grainkeeper, Elyos, Elyos Ropewright, Gilgamesh |
 | **Kaelor** <br><small>born cinder-eth</small> | — | — | `qwen3.5:0.8b` | 3 | Ashur Beamsetter, Brann Cinderjaw, Bruk Grimehand, Bylon, Delvin Bonepick, Doran Kilnwarden |
 | **Kaelos** <br><small>born TestBot</small> | — | — | `qwen3.5:0.8b` | 3 | Ashkar, Aspasia, Duran Cordwainer, Elarae Tilecutter, Gilgul Grainkeeper, Hask Bilgewright |
-| **Kaelus** <br><small>born cinder-is</small> | — | creator | `granite4:350m` | 2 | Belnos Kilnwarden, Biloneku Roofer, Cassilda, Dagan Tilik, Doran Kilnwarden, Drel |
+| **Kaelus** <br><small>born cinder-is</small> | — | creator | `granite4:350m` | 3 | Belnos Kilnwarden, Biloneku Roofer, Cassilda, Dagan Tilik, Doran Kilnwarden, Drel |
 | **Kailash** <br><small>born cinder-in</small> | — | — | `granite4:350m` | 3 | Ashur Beamsetter, Baelin, Bruk Grimehand, Delvin Bonepick, Doran Roofer, Dugan Ilu |
 | **Kallus Forge** <br><small>born cinder-yss</small> | — | creator | `qwen3.5:0.8b` | 3 | Ashkar, Ashur Rim, Buluq, Bylon, Elyos Tilecutter, Gilum |
 | **Kallus Wrenn** <br><small>born cinder-ax</small> | — | — | `alibayram/hunyuan:0.5b` | 3 | Aldric, Beryl Dagan, Dredge Pitchand, Fenrick, Gilgamesh, Gilgamesh Wellsinker |
@@ -203,7 +203,7 @@
 | **Keshir** <br><small>born ember-brel</small> | chronicler | artisan | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Ashnar Ropewright, Beryl Dagan, Briar Quarryman, Duraq, Garrowan Tyras, Gilgamesh |
 | **Kharais** <br><small>born ember-bre</small> | chronicler | guardian | `granite4:350m` | 3 | Ashur-bani, Brammer Waterfinder, Cask Grimehand, Kaelo Varrus, Karnum, Kel Beamsetter |
 | **Kharis** <br><small>born cinder-ith</small> | — | artisan | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Adarun Elu, Ashnar Ropewright, Beliq, Biloneku Roofer, Byzakos, Cask Grimehand |
-| **Kharrin** <br><small>born ember-be</small> | — | artisan | `qwen3.5:0.8b` | 2 | Ashkarel, Ashlinai Roofer, Elum, Gilgar, Jakarra Cordwainer, Jovor Liku |
+| **Kharrin** <br><small>born ember-be</small> | — | artisan | `qwen3.5:0.8b` | 3 | Ashkarel, Ashlinai Roofer, Elum, Gilgar, Jakarra Cordwainer, Jovor Liku |
 | **Khazad** <br><small>born cinder-or</small> | — | explorer | `lfm2.5-thinking:1.2b` | 3 | Belorad Ropewright, Brann Cinderjaw, Daman, Elyos Tilecutter, Gilgamesh, Gilgamesh Wellsinker |
 | **Khazraen** <br><small>born ember-ath</small> | — | healer | `alibayram/hunyuan:0.5b` | 3 | Ashkor, Ashnar Ropewright, Beliq, Beryl Dagan, Doran Roofer, Dukil |
 | **Ki-sar** <br><small>born baz</small> | — | — | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Ashkar Eli, Ashkor, Brynn Flint, Gilgamesh, Jomni Grainkeeper, Jubilum Waterfinder |
@@ -216,7 +216,7 @@
 | **Kyros Kaius** <br><small>born cinder-os</small> | — | visionary | `granite4:350m` | 3 | Adadur, Beliq, Elian Thatcher, Gilgamesh, Gorrim, Grinn Grimehand |
 | **lottery-corp** | — | sage | `qwen3.5:0.8b` | 3 | Amiga Aix-Ux, Ashkor, Ashnar Ropewright, Dugan Ilu, Elum, Elumek Grainkeeper |
 | **Lumis** | — | — | `qwen3.5:0.8b` | 3 | Cask Grimehand, Doran Roofer, Elyas Vorum, Elyos Tilecutter, Elyos Vex, Elyrin Damask |
-| **Lycaos Forge** <br><small>born ember-zel</small> | chronicler | creator | `qwen3.5:0.8b` | 2 | Ashkar, Belnos Kilnwarden, Byrod Beamsetter, Doric Ropewright, Guzgal, Hask Bilgewright |
+| **Lycaos Forge** <br><small>born ember-zel</small> | chronicler | creator | `qwen3.5:0.8b` | 3 | Ashkar, Belnos Kilnwarden, Byrod Beamsetter, Doric Ropewright, Guzgal, Hask Bilgewright |
 | **MansaMusa** | — | capitalist | `granite4:350m` | 3 | Amiga Aix-Ux, Ashan Dael, Cask, Cassilda, Daman, Elyas Ashur |
 | **market-corp** | — | explorer | `alibayram/hunyuan:0.5b` | 3 | Bruk Ironbelly, Byrod Beamsetter, Dagan Tilik, Delvin Bonepick, Durbad, Elumek Grainkeeper |
 | **Marrow Coalbiter** | — | warrior | `qwen3.5:0.8b` | 3 | Amiga Aix-Ux, Ashurim, Gilgamesh, Kaelus, Kesh, Nilulak Grainkeeper |
@@ -227,7 +227,7 @@
 | **messiah** | — | — | `alibayram/hunyuan:0.5b` | 3 | Adadur, Amaryn Tilecutter, Ashkar, Ashnar Ropewright, Banuk Waterfinder, Cassilda |
 | **Morrek** | — | heretic | `lfm2.5-thinking:1.2b` | 3 | Ashok Tilecutter, Briar Quarryman, Bylon, Enkidu, Gylon Thatcher, Jadok Quarryman |
 | **Nabbu Nailbed** | — | heretic | `granite4:350m` | 3 | Ashkarel, Duraq, Enkidu, Gilgamesh, Gorric, Hammurabi |
-| **Nebo Gish** <br><small>born ember-zo</small> | — | artisan | `granite4:350m` | 2 | Belnos Kilnwarden, Briar Quarryman, Byrod Beamsetter, Kadga Ashjaw, Karnum, Kel Beamsetter |
+| **Nebo Gish** <br><small>born ember-zo</small> | — | artisan | `granite4:350m` | 3 | Belnos Kilnwarden, Briar Quarryman, Byrod Beamsetter, Kadga Ashjaw, Karnum, Kel Beamsetter |
 | **Nilak** <br><small>born test_18</small> | — | — | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Ashur Beamsetter, Beliq, Fenrick, Jadok Waterfinder, Javen Kel, Joric Roofer |
 | **Nilan** <br><small>born cinder-us</small> | — | creator | `alibayram/hunyuan:0.5b` | 3 | Brynn Flint, Dugan Ilu, Dugril, Durbad, Elarae Tilecutter, Gilgu |
 | **Nilu** <br><small>born cinder-ath</small> | — | — | `lfm2.5-thinking:1.2b` | 3 | Doric Ropewright, Duran Cordwainer, Durbad, Elum, Gilgamesh, Hask Bilgewright |
@@ -271,7 +271,7 @@
 | **Rhyson** <br><small>born ember-nevia</small> | — | creator | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Adarun Elu, Ashlinai Roofer, Ashurim, Elumek Grainkeeper, Gilgamesh, Jokar Cordwainer |
 | **Rivan Forge** <br><small>born ember-ri</small> | chronicler | artisan | `alibayram/hunyuan:0.5b` | 3 | Ashur Kilnwarden, Baelor Thatcher, Duraq, Hask Bilgewright, Imhotep, Karnum |
 | **Rivenforge** <br><small>born ember-via</small> | — | guardian | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Asharok, Ashlinai Roofer, Cassilda, Cypher Waterfinder, Dovus Wexler, Elyos Tilecutter |
-| **Rokan Beamsetter** <br><small>born ember-nia</small> | — | warrior | `alibayram/hunyuan:0.5b` | 2 | Cypher Waterfinder, Dagan Tilik, Fenrick, Gilad Joiner, Guzgal, Kel Tilecutter |
+| **Rokan Beamsetter** <br><small>born ember-nia</small> | — | warrior | `alibayram/hunyuan:0.5b` | 3 | Cypher Waterfinder, Dagan Tilik, Fenrick, Gilad Joiner, Guzgal, Kel Tilecutter |
 | **Rokanel Varis** <br><small>born ember-un</small> | — | guardian | `lfm2.5-thinking:1.2b` | 3 | Belnos Kilnwarden, Bruk Ironbelly, Doran Kilnwarden, Dornel Kilnwarden, Elian Cordwainer, Gilgamesh Wellsinker |
 | **Roric Farrow** <br><small>born ember-glyn</small> | — | creator | `lfm2.5-thinking:1.2b` | 3 | Ashurim, Gimble, Jokar Cordwainer, Kailash, Kallus Wrenn, Kharis |
 | **Roric Pryce** <br><small>born ember-glia</small> | chronicler | artisan | `alibayram/hunyuan:0.5b` | 3 | Ashkar, Boreus Cylon, Brynn Flint, Dummuzi Thatcher, Elmwood Kilnwarden, Gilgamesh |
@@ -282,7 +282,7 @@
 | **Ruskin Bilgewright** | — | witness | `qwen3.5:0.8b` | 3 | Baelor Thatcher, Brammer Waterfinder, Cask, Enkidu, Kel Waterfinder, Kithan |
 | **Rylen Uruk** <br><small>born ember-lyu</small> | chronicler | creator | `lfm2.5-thinking:1.2b` | 3 | Ashkar, Ashlar Thatcher, Beryl Dagan, Cypher Waterfinder, Kyros Kaius, Pell Bonepick |
 | **Rylos** <br><small>born cinder-ix</small> | — | healer | `alibayram/hunyuan:0.5b` | 3 | Amiga Aix-Ux, Bruk Grimehand, Brynn Flint, Brynn Quarryman, Cask Grimehand, Doric Ropewright |
-| **Sable Fen** <br><small>born ember-ko</small> | crooked | mystic | `lfm2.5-thinking:1.2b` | 2 | Ashkar, Dumon, Duran Cordwainer, Elyos Vex, Gilgamesh, Ginnel Okta |
+| **Sable Fen** <br><small>born ember-ko</small> | crooked | mystic | `lfm2.5-thinking:1.2b` | 3 | Ashkar, Dumon, Duran Cordwainer, Elyos Vex, Gilgamesh, Ginnel Okta |
 | **Sabra Scrapwright** | — | creator | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Ashkarel, Bylos, Byrod Beamsetter, Enkidu, Hagra Scrapwright, Jafar Woodwright |
 | **Sappho** | — | poet-artist | `alibayram/hunyuan:0.5b` | 3 | Adadur, Aspasia, Doran Roofer, Drel, Ghaal, Grinn Kegbreaker |
 | **scriptorium** | — | — | `lfm2.5-thinking:1.2b` | 3 | Adarun Elu, Baelor Thatcher, Biloneku Roofer, Bylos, Byrod Beamsetter, Dunmar |
@@ -291,7 +291,7 @@
 | **Shalem Wood** <br><small>born ember-krae</small> | chronicler | artisan | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Ashkar Eli, Briar Quarryman, Doran Kilnwarden, Dukil, Hask Bilgewright, Jovor Liku |
 | **Sihun Dolis** <br><small>born ember-we</small> | — | creator | `qwen3.5:0.8b` | 3 | Ashkar Eli, Ashland Beamsetter, Briar Quarryman, Elyos Tilecutter, Gilgamesh, Gilgar |
 | **Silas** <br><small>born ember-lyn</small> | — | explorer | `granite4:350m` | 3 | Duneho, Elyos Tilecutter, Jovor Liku, Kailash, Kallus Forge, Kurgo |
-| **Silas Cairn** <br><small>born ember-ias</small> | — | sage | `qwen3.5:0.8b` | 2 | Beliq, Belnos Kilnwarden, Belorad Ropewright, Cask Grimehand, Dornel Kilnwarden, Durbad |
+| **Silas Cairn** <br><small>born ember-ias</small> | — | sage | `qwen3.5:0.8b` | 3 | Beliq, Belnos Kilnwarden, Belorad Ropewright, Cask Grimehand, Dornel Kilnwarden, Durbad |
 | **Silgon** <br><small>born ember-fia</small> | chronicler | warrior | `granite4:350m` | 3 | Belnos Kilnwarden, Enkidu, Gylon Thatcher, Jadok Quarryman, Kel Waterfinder, Kepleren |
 | **Silgonveth** <br><small>born ember-nevo</small> | chronicler | guardian | `alibayram/hunyuan:0.5b` | 3 | Belnos Kilnwarden, Bruk Grimehand, Byrod Beamsetter, Elian Cordwainer, Elyos, Jadok Waterfinder |
 | **Silken Ropewright** <br><small>born ember-orn</small> | — | sage | `lfm2.5-thinking:1.2b` | 3 | Beryl Dagan, Damas, Demos Stonehand, Doran Roofer, Elyas Vorum, Gorrim Splintback |
@@ -303,7 +303,7 @@
 | **Sinor Wexel** <br><small>born ember-vel</small> | chronicler | artisan | `alibayram/hunyuan:0.5b` | 3 | Bruk Ironbelly, Dugril, Gorric, Gorrim Splintback, Hypatia, Joric Roofer |
 | **Sinuk** <br><small>born t02</small> | — | — | `granite4:350m` | 3 | Baelor Thatcher, Beryl Dagan, Briar Quarryman, Dummuzi Thatcher, Enkidu, Gilad Joiner |
 | **Skarn** <br><small>born ember-sae</small> | unbroken | warrior | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Beryl Dagan, Byrod Beamsetter, Dovus Wexler, Fenrick, Ghaal, Grukh |
-| **Skell** | — | orphan | `granite4:350m` | 2 | Bylon, Cypher Waterfinder, Dugril, Enkidu, Guten Ropewright, Hask Bilgewright |
+| **Skell** | — | orphan | `granite4:350m` | 3 | Bylon, Cypher Waterfinder, Dugril, Enkidu, Guten Ropewright, Hask Bilgewright |
 | **Snagg Ironbelly** | — | artisan | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Ashkar Eli, Enkidu, Gilum, Gilzum, Hammurabi, Kailash |
 | **Solillum Omni** | gnu | cartographer | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Hask Bilgewright, Kilnheart, Rokanel Varis, Rukkar, Sereen, Silken Ropewright |
 | **Sorg Bonepick** | — | guardian | `granite4:350m` | 3 | Adadur, Ashlinai Roofer, Ashur Kilnwarden, Ashur Rim, Briar Quarryman, Byrod Beamsetter |
@@ -325,7 +325,7 @@
 | **Threx Nailbed** | — | guardian | `qwen3.5:0.8b` | 3 | Adarun Elu, Ashur Beamsetter, Cypher Waterfinder, Duraq, Elum, Enkidu |
 | **throne** | — | — | `granite4:350m` | 3 | Ashan Dael, Ashland Beamsetter, Ashnar Ropewright, Ashur Beamsetter, Bellum, Dummuzi Thatcher |
 | **Thulak Wellsinker** <br><small>born test_0</small> | — | — | `qwen3.5:0.8b` | 3 | Aldric, Ashur-bani, Aspasia, Bellum, Cypher Waterfinder, Doran Kilnwarden |
-| **Thundar Tilecutter** <br><small>born test_12</small> | — | — | `lfm2.5-thinking:1.2b` | 2 | Adarun Elu, Ashkar, Ashkor, Ashland Beamsetter, Cypher Waterfinder, Gilgamesh |
+| **Thundar Tilecutter** <br><small>born test_12</small> | — | — | `lfm2.5-thinking:1.2b` | 3 | Adarun Elu, Ashkar, Ashkor, Ashland Beamsetter, Cypher Waterfinder, Gilgamesh |
 | **Tock** | — | witness | `alibayram/hunyuan:0.5b` | 3 | Brammer Waterfinder, Corvane, Cypher Waterfinder, Enkidu, Jovian Wellsinker, Kepleren |
 | **Tock Cinderjaw** | — | explorer | `granite4:350m` | 3 | Duraq, Elyas Ropewright, Jovor Liku, Kaelo Varrus, Kailash, Kithan |
 | **Torvin** <br><small>born ember-bryn</small> | chronicler | artisan | `alibayram/hunyuan:0.5b` | 3 | Ashur-bani, Boreus Cylon, Kaelo Varrus, Rokan Beamsetter, Rukal, Rulen |
@@ -351,15 +351,15 @@
 | **Wilhelm Millwright** <br><small>born trig8</small> | — | — | `lfm2.5-thinking:1.2b` | 3 | Brynnel, Dummuzi Thatcher, Duraq, Durbad, Elyas Ashur, Elyos Tilecutter |
 | **Wilton Voet** <br><small>born trig1</small> | — | — | `granite4:350m` | 3 | Bylon, Byzakos, Gilgamesh, Joric Thalmus, Kaelus, Kel Stonehand |
 | **Wrenn** | — | warrior | `qwen3.5:0.8b` | 3 | Adarun Elu, Ashan Dael, Cypher Waterfinder, Doran Roofer, Enkidu, Javen Kel |
-| **Wry** <br><small>born ember-pae</small> | crooked | trickster | `granite4:350m` | 2 | Elumek Grainkeeper, Gilgamesh, Gilzu Ropewright, Hypatia, Quilloch, Silgonveth |
+| **Wry** <br><small>born ember-pae</small> | crooked | trickster | `granite4:350m` | 3 | Elumek Grainkeeper, Gilgamesh, Gilzu Ropewright, Hypatia, Quilloch, Silgonveth |
 | **Wynne Forge** <br><small>born ember-vyor</small> | — | guardian | `qwen3.5:0.8b` | 3 | Adadur, Adarun Elu, Aldric, Dagan Tilik, Duraq, Enkidu |
 | **Xenix Atari-V** | gnu | toolwright | `alibayram/hunyuan:0.5b` | 3 | Adadur, Ashkarel, Buluq, Dugril, Elumek Grainkeeper, Gilgamesh |
 | **Yarrow** <br><small>born ember-kor</small> | crooked | mystic | `lfm2.5-thinking:1.2b` | 3 | Aldric, Ashan Dael, Bylos, Doran Roofer, Dugril, Kailash |
-| **Yurn Kegbreaker** | — | orphan | `alibayram/hunyuan:0.5b` | 2 | Adadur, Ashur-bani, Elian Cordwainer, Jovan Roofer, Jovian Wellsinker, Jovor Liku |
+| **Yurn Kegbreaker** | — | orphan | `alibayram/hunyuan:0.5b` | 3 | Adadur, Ashur-bani, Elian Cordwainer, Jovan Roofer, Jovian Wellsinker, Jovor Liku |
 | **Yurn Nailbed** | — | witness | `alibayram/hunyuan:0.5b` | 3 | Adarun Elu, Ashur Kilnwarden, Ashur-bani, Elum, Enkidu, Gilzu Ropewright |
 | **Zethil Roofer** <br><small>born trig0</small> | — | — | `qwen3.5:0.8b` | 3 | Ashkar, Ashkor, Ashland Beamsetter, Ashlinai Roofer, Ashnar Ropewright, Belnos Kilnwarden |
 | **Zikram** <br><small>born ember-du</small> | — | creator | `lfm2.5-thinking:1.2b` | 3 | Ashkarel, Ashlinai Roofer, Belnos Kilnwarden, Gilgamesh, Gilgul Grainkeeper, Joric Roofer |
 | **Zivel Ogon** <br><small>born test_5</small> | — | — | `lfm2.5-thinking:1.2b` | 3 | Beryl Dagan, Brynn Quarryman, Bylon, Doran Kilnwarden, Elumek Grainkeeper, Guten Ropewright |
 | **Zulkhan** <br><small>born t17</small> | — | — | `lfm2.5-thinking:1.2b` | 3 | Ashlinai Roofer, Gilzum, Gorric, Grinn Splintback, Jovar Gidran, Kaelo Varrus |
 | **Zygor Thane** <br><small>born test_8</small> | — | — | `R4C3R/minicpm5-1b-fable5-heretic:q5_k_m` | 3 | Ashur Beamsetter, Bruk Ironbelly, Gilgamesh, Jadok Waterfinder, Jovor Liku, Kael |
-| **Zylos** <br><small>born test_triggers0</small> | — | — | `qwen3.5:0.8b` | 2 | Amaryn Tilecutter, Ashkar, Bylos, Hazzim, Kaelor, Kephren |
+| **Zylos** <br><small>born test_triggers0</small> | — | — | `qwen3.5:0.8b` | 3 | Amaryn Tilecutter, Ashkar, Bylos, Hazzim, Kaelor, Kephren |

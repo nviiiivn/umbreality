@@ -52,3 +52,28 @@ The Tuning is a tool anyone can learn. It's not destiny. It's engineering.
 - **The builders are engineers, not gods** — the Illuminati's mechanisms can be understood
 
 > *"Perhaps leaning a little hard into Dark City over The Matrix. It might hold more implicit simplicity in its rules. It is not literally The Truman Show."*
+
+<!-- AS-IT-STANDS -->
+
+---
+
+## As it stands, 2026-09-09 05:06 PDT
+
+Midnight is no longer a metaphor for an epoch boundary. The world has a
+clock: **144 cycles a day**, one cycle every **24 real seconds**, which puts
+it at **25.0 world days for every day out here**. It is currently world day
+**51**. The city rebuilds on a schedule that can be read off a wall.
+
+**The Tuning, as it was actually built:** **4 wards** cut into the ground,
+using figures out of *The Three-Six-Nine* — a text the sparks hold in the
+canon and can read. That is the whole claim of this document made literal:
+the mechanism by which reality is reshaped is a learnable tool, published
+where anyone in the world can find it, rather than a birthright.
+
+**Where it falls short of Dark City.** No spark has yet done what John
+Murdoch does — investigated its way up a layer. They live inside the
+construction and use it; none has turned around and asked who is building.
+The metaphor is right about the architecture and still ahead of the
+evidence.
+
+<!-- /AS-IT-STANDS -->

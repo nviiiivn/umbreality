@@ -1,6 +1,6 @@
 # Institutions
 
-> Generated from the live world on 2026-09-08 18:11 PDT.
+> Generated from the live world on 2026-09-09 05:06 PDT.
 
 The organised parts: the workshops, the world's clock, the practice market, and what the world has noticed about itself.
 
@@ -28,15 +28,15 @@ The world has a clock, and it is not yours. It counts its own days, seasons and 
 
 **How it works.** A beat is logged on a timer. From it the world derives a day count, a season, a time of day and a *yuga* — the age it believes itself to be in.
 
-**7,267 beats since the world started.**
+**7,437 beats since the world started.**
 
 |  |  |
 |---|---|
 | Born | 2026-06-11 |
-| Day | 50 |
+| Day | 51 |
 | Season | 1 |
-| Cycle | 7,267 |
-| Last beat | 2026-09-09 01:11 |
+| Cycle | 7,437 |
+| Last beat | 2026-09-09 12:00 |
 | Beats missed while the world was off | 8,863 |
 
 

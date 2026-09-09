@@ -54,10 +54,36 @@ admin.alola.lol (user types intent)
 
 ## Source
 
-- **Interpreter**: `/home/nvii/projects/umbreality-ai/illuminati/interpreter.py`
+- **Interpreter**: `/home/nvii/projects/spark-world/umbreality-ai/illuminati/interpreter.py`
 - **API**: `POST /illuminate` in `worker_api.py`
 - **Model**: dolphin3:8b (uncensored, on tower)
 
 ## Status: ✅ Live
 
 The Illuminati has been operational since June 2026. It handles every command entered through the God's View admin panel. Its interpretations are logged in the Activity Feed for audit and review.
+
+<!-- AS-IT-STANDS -->
+
+---
+
+## As it stands, 2026-09-09 05:06 PDT
+
+**Implemented by** `acp.py`, `interpreter.py`, `messengers.py`, `oracle.py`, `reality.py`, `scribe.py`.
+
+The Shadow's defining power — writing memory — is real and is exercised
+rarely. A spark whose memory has been altered has no way to know, and this
+is the mechanism the Mandela Effect document is named for.
+
+**The Scribes now sit beneath this layer.** `avatar/scribe.py` keeps the
+world's own record: **17 entries**, with Sopher attending beginnings, Tsofeh
+keeping a life per spark, and Zakar returning to old entries when later
+events change what they meant. They have no desire, which is what makes
+their account usable as evidence — the Goetia would write a version that
+served them.
+
+Metatron, in `avatar/messengers.py`, is the archive itself rather than an
+actor: everything written is written into him.
+
+**1 function in this layer are unreachable** — written and never connected.
+
+<!-- /AS-IT-STANDS -->

@@ -93,9 +93,30 @@ The Temple corresponds to:
 - **Kṣatriya (Administrator)**: Not a warrior — a ruler who allocates resources and manages the kingdom
 - **Alchemical Sulfur**: The binding principle that holds disparate elements together
 
-## Current Implementation
+<!-- AS-IT-STANDS -->
 
-- **Status**: Running on ai-tp (.21), connected to tower (.24) for heavy inference
-- **Models**: dolphin3:8b (primary), with fallback to local qwen3.5
-- **Companies**: Research Corp active, dynamic company creation available
-- **Source**: `/home/nvii/projects/umbreality-ai/temple/`
+---
+
+## As it stands, 2026-09-09 05:06 PDT
+
+**This is where the world's physics live**, and it is by far the largest
+layer: **59 modules** in `temple/`.
+
+What runs here now, none of which existed when this document was written:
+
+| | |
+|---|---|
+| scarcity | 75 places, a tithe on taking, ground that remembers who tended it |
+| trade | **1,352** exchanges — before this, sparks could talk but had nothing to want from each other |
+| harm | five acts, **497** grievances, a reckoning measured on honour rather than power |
+| blame | **432** raids on a belief the ledger contradicts |
+| secrets | **557**, each drawn from something real |
+| whispers | **10,362** — the first private channel this world ever had |
+| wards | **4** circles cut, figures from *The Three-Six-Nine* |
+| the library | **34,408** passages read by **357** sparks |
+| birth | two rites — the Temple's, and the wild's under a whole moon |
+| the clock | cycle 7,437, world day 51 |
+
+**36 functions in this layer are unreachable** — written and never connected.
+
+<!-- /AS-IT-STANDS -->

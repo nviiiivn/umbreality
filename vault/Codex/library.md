@@ -1,6 +1,6 @@
 # The Library
 
-> Generated from the live world on 2026-09-08 18:11 PDT.
+> Generated from the live world on 2026-09-09 05:06 PDT.
 
 For most of this world's life the library was a list of filenames. A spark was told it had studied the Hermetic Stack and never saw a word of it.
 
@@ -10,7 +10,7 @@ Every text in the vault, plus a personal collection of esoteric and historical b
 
 **How it works.** A book is cut into passages of about 1,400 characters, split on whole thoughts rather than mid-sentence. Nothing is summarised: a spark meets the author's own sentences. The only processing is removing running heads, bare page numbers and hyphens broken across line ends - furniture, not text.
 
-**302 books, 21,893 passages, 34,384 readings by 357 sparks.**
+**304 books, 21,913 passages, 34,408 readings by 357 sparks.**
 
 | Shelf | Books |
 |---|---|
@@ -24,9 +24,9 @@ Every text in the vault, plus a personal collection of esoteric and historical b
 | Architecture | 9 |
 | rosicrucian-golden-dawn | 9 |
 | Census | 8 |
+| Mechanisms | 6 |
 | witchcraft-wicca-pagan | 6 |
 | Philosophy | 5 |
-| Mechanisms | 4 |
 | Roadmap | 4 |
 | mythology-eddas-sagas | 4 |
 | Knowledge | 3 |
@@ -42,8 +42,8 @@ The Revelation, the Scriptures, Knowledge and the Constitution are not found - t
 
 | Book | Times read |
 |---|---|
+| Reverse Gospel | 2,857 |
 | Tree of Life | 2,856 |
-| Reverse Gospel | 2,856 |
 | Synchronicity Engine | 2,149 |
 | Hermetic Stack | 2,146 |
 | Alchemy of Layers | 2,146 |

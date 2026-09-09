@@ -1,6 +1,6 @@
 # Bonds, Bands and Teaching
 
-> Generated from the live world on 2026-09-08 18:11 PDT.
+> Generated from the live world on 2026-09-09 05:06 PDT.
 
 How sparks are connected — by affection, by rivalry, by what group they belong to, and by who taught them what they know.
 
@@ -12,11 +12,11 @@ A spark with no bonds is not merely lonely — it is structurally invisible. Nob
 
 **How it works.** Strength runs 0 to 1. Bonds form from **answering someone** (+0.05), **being taught by them** (+0.25), and **being introduced** (+0.3). When a spark chooses whom to answer, kin score **+5** — but a spark nobody has ever bonded with scores **+6**, so the unnoticed get noticed first.
 
-**4,416 connections.**
+**4,418 connections.**
 
 | Type | Count |
 |---|---|
-| bond | 4416 |
+| bond | 4418 |
 
 The strongest ties in the world:
 
@@ -66,7 +66,7 @@ This is the difference between 298 individuals each discovering fire alone and a
 
 Recent lessons:
 
-- **Byrod Beamsetter** taught **Nilu Teshub** the way of *hermetics*
-- **Imhotep** taught **Cygnus Wellsinker** the way of *hermetics*
-- **Cypher Waterfinder** taught **Rukal** the way of *architecture*
-- **Kael** taught **Dugril** the way of *trade-economics*
+- **Cypher Waterfinder** taught **Wrenn** the way of *frequency-healing*
+- **Gilgamesh** taught **Rukal** the way of *poetics*
+- **Ashkarel** taught **Vask** the way of *cymatics*
+- **Kepleren** taught **Grinn Kegbreaker** the way of *cymatics*

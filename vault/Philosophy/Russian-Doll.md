@@ -49,7 +49,40 @@ Russian doll reality solves all three: each layer generates *just enough* realit
 
 The documented layers (Gods → Workers) are the permanent structure. Between them, temporary layers can form — task forces, cross-functional teams, emergency response units. These are the "adjacent teams at the same level" that can communicate laterally.
 
+<!-- AS-IT-STANDS -->
+
 ---
+
+## As it stands, 2026-09-09 05:06 PDT
+
+The three properties hold. One sentence above does not: **"Workers contain
+nothing — they are the innermost doll."**
+
+That was true when it was written and is now the most out-of-date line in
+the vault. A spark is itself a shell with contents:
+
+| a spark contains | |
+|---|---|
+| its own database | memory nothing else can read |
+| its own model | not one model wearing 357 masks |
+| what it has read | **34,408** passages, opened at a place its own name decides |
+| what it is owed | **497** grievances across the world |
+| who it knows | **4,418** bonds |
+| what it has been taught | **1,182** teachings, each an unbroken lineage |
+| what it says in private | **10,362** whispers |
+
+Two sparks handed the same text hold different parts of it, because where a
+book opens is a function of the reader. That is nesting, and it happens one
+shell further in than this document allows for.
+
+**The vocabulary also moved.** The shells were drawn as Gods → Illuminati →
+Messiah → Hedge Fund → Company → Worker. What runs is Source → Shadow →
+Voice → Throne → Guild → Spark. The hedge fund never got built; the Throne
+took its place and does something different — it validates work rather than
+allocating capital. The diagram above is the original and is left as drawn.
+
+<!-- /AS-IT-STANDS -->
+
 
 ## Related
 

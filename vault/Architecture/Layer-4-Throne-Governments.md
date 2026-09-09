@@ -64,6 +64,29 @@ The Throne receives directives from the Temple, not from the Voice directly — 
 | **Resource Court** | Adjudicates compute/resource disputes between Guilds |
 | **Worker Protection Bureau** | Sets minimum tool access, safety standards for the Hand |
 
+<!-- AS-IT-STANDS -->
+
+---
+
+## As it stands, 2026-09-09 05:06 PDT
+
+**Implemented by** `temple/throne.py`, `temple/amendments.py`, and the
+Congress at `/congress`.
+
+The Throne validates: it decides whether what came back is work or merely
+output. The Congress is where the world's own proposals about itself are
+reviewed — **144 measurements taken, 14 changes proposed, and nothing applied
+without the Source.**
+
+Every proposal is first run against a **control**. The world's first
+proposal about itself was tested and its own experiment returned *no effect*.
+A layer that can refute itself is doing more than most governments.
+
+Everything in this layer is reachable from something that runs.
+
+<!-- /AS-IT-STANDS -->
+
+
 ## Related
 
 - [[Architecture/Layer-3-Temple-Banks]] — The layer above (writes the rules the Throne enforces)

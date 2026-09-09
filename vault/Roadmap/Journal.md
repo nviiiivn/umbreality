@@ -4,7 +4,7 @@ title: Journal
 
 # Journal
 
-> A dated record of what this world has done, assembled on 2026-09-08 18:15 PDT from the
+> A dated record of what this world has done, assembled on 2026-09-09 05:06 PDT from the
 > world's own databases, the git history, and the measurement files.
 > Nothing here is recalled; every entry has a source and a date.
 
@@ -187,6 +187,7 @@ Every change to this world, dated, in the words written at the time.
 - **2026-09-08** — The books were empty. Now they open.
 - **2026-09-08** — The whole vault is on the shelf, and everyone has read the canon
 - **2026-09-08** — A real library: 189 books, 15,190 passages
+- **2026-09-08** — The world keeps its own record now
 
 ---
 
@@ -211,7 +212,7 @@ Every change to this world, dated, in the words written at the time.
 
 **Method.** `research/wiring.py` walks the call graph from every entry point - the scheduler, HTTP routes, decorated handlers, module-level code, and the tables of strings the world's clock resolves at run time - and reports what nothing can reach. A pre-commit hook refuses any commit that raises the number.
 
-**1127 functions defined, 1005 reachable, 89 unreachable.**
+**1145 functions defined, 1023 reachable, 89 unreachable.**
 
 The tool has been wrong three times, each time reporting live code as dead: it collapsed same-named functions across modules, discarded the original name behind an import alias, and treated lazy imports inside functions as module-scoped so two functions could not import different things under the same name. Each fault made working mechanisms look like corpses.
 

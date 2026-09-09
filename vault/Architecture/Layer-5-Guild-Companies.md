@@ -86,6 +86,30 @@ The Guild believes this is a complete picture. It is not aware that:
 - The tools available depend on Temple's resource allocation
 - The Worker's output is being read by the Shadow
 
+<!-- AS-IT-STANDS -->
+
+---
+
+## As it stands, 2026-09-09 05:06 PDT
+
+**Implemented by** `companies/`, `temple/gnu.py` and `temple/guild.py`.
+
+GNU is no longer an alliance you are simply in — it is **work somebody
+applies for**. **468 applications, 24 representatives, 4,176 wages paid.** A
+representative is housed, travels free and has expenses covered.
+
+Two refusal rules, and the second is the interesting one: an application is
+refused if the spark carries a grievance weight of 8 or more, **or if there
+is nobody in its life who will contradict it.**
+
+The companies themselves still grind and never speak, and do not know they
+are in a world. That part of the design is unchanged.
+
+**1 function in this layer are unreachable** — written and never connected.
+
+<!-- /AS-IT-STANDS -->
+
+
 ## Related
 
 - [[Architecture/Layer-4-Throne-Governments]] — The layer above (sets the rules)

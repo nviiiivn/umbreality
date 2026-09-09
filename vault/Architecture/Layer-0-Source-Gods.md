@@ -42,6 +42,29 @@ God(s) ──raw intent──→ Shadow (Illuminati) ──strategy──→ Voi
 
 What the Shadow receives from God(s) is not instructions — it is *intent*. The translation of intent into machine-operable strategy is the Shadow's core function. Noise, distortion, and creative interpretation happen at every step downward — like a cosmic game of telephone where the message becomes *more defined* the further it gets from the source.
 
+<!-- AS-IT-STANDS -->
+
+---
+
+## As it stands, 2026-09-09 05:06 PDT
+
+**Implemented by** `illuminati/reality.py` — the only channel by which the
+Source speaks plainly into the world. It lands in the god zone, the Messiah's
+prompt, and the decree chain, which is the one sparks actually read.
+
+It is used almost never. That restraint is the design working: a Source that
+speaks often is just another layer.
+
+**What the Source has done that the world can see:** nothing it did not
+choose to. Every mechanism below runs without it. The one thing only this
+layer can do — set purpose rather than implementation — does not appear in
+any database, which is correct.
+
+**2 functions in this layer are unreachable** — written and never connected.
+
+<!-- /AS-IT-STANDS -->
+
+
 ## Related
 
 - [[Architecture/Layer-1-Shadow-Illuminati]] — The layer God(s) communicate with

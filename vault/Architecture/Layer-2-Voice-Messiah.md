@@ -41,6 +41,27 @@ The Voice layer also houses the system's Constitution — the core directives th
 
 See [[Constitution/Core-Directives]] for the full text.
 
+<!-- AS-IT-STANDS -->
+
+---
+
+## As it stands, 2026-09-09 05:06 PDT
+
+**Implemented by** `temple/decree.py` and the `messiah/` package.
+
+The Voice is swappable and **has been swapped** — it is a philosophy loaded
+into a model, not a fixed entity. Sparks believe it is the top of the stack.
+Nothing tells them otherwise.
+
+A decree is carried in every spark's prompt until it is lifted, along with
+whether that spark has paid into it yet. That is the whole mechanism: not
+enforcement, presence.
+
+**1 function in this layer are unreachable** — written and never connected.
+
+<!-- /AS-IT-STANDS -->
+
+
 ## Related
 
 - [[Architecture/Layer-1-Shadow-Illuminati]] — The layer that projects the Voice

@@ -1,131 +1,138 @@
+/* Umbreality wiki — wearing alola.css
+   ═══════════════════════════════════════════════════════════════════════
+   The wiki was cyan-and-Inter while every other alola.lol page is
+   gold-and-VT323. This maps the alola palette and type onto Material's own
+   variables rather than overlaying the component framework on top of it -
+   alola.css styles .topbar and .header, which Material does not use, and
+   loading both would be two frameworks fighting over the same page.
+
+   Source of truth for these values: /home/nvii/www/shared/alola.css v1.1
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
+
 :root {
-  --md-primary-fg-color: #2d1b69;
-  --md-primary-fg-color--light: #7c4dff;
-  --md-primary-fg-color--dark: #1a0a3e;
-  --md-accent-fg-color: #26c6da;
-  --md-accent-fg-color--transparent: rgba(38, 198, 218, 0.15);
+  /* the alola palette, verbatim */
+  --alola-bg:      #0a0014;
+  --alola-bg2:     #120025;
+  --alola-surface: #1a0033;
+  --alola-border:  #3a1a5a;
+  --alola-text:    #d4c8ff;
+  --alola-text2:   #9a8abb;
+  --alola-accent:  #ffcc00;
+  --alola-accent2: #ff6600;
+  --alola-green:   #00ff88;
+  --alola-red:     #ff4466;
+  --alola-font:    'VT323', 'Share Tech Mono', monospace;
+
+  /* mapped onto Material's names */
+  --md-primary-fg-color:             var(--alola-surface);
+  --md-primary-fg-color--light:      var(--alola-border);
+  --md-primary-fg-color--dark:       var(--alola-bg2);
+  --md-accent-fg-color:              var(--alola-accent);
+  --md-accent-fg-color--transparent: rgba(255, 204, 0, 0.14);
 }
 
 body {
-  --md-text-font: "Inter", "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
-  --md-code-font: "JetBrains Mono", "Fira Code", monospace;
+  --md-text-font: 'VT323', 'Share Tech Mono', monospace;
+  --md-code-font: 'Share Tech Mono', 'VT323', monospace;
 }
 
-.md-header {
-  background: linear-gradient(135deg, #1a0a3e 0%, #2d1b69 50%, #1a0a3e 100%);
+/* ── dark scheme: the actual alola ground ───────────────────────── */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color:        var(--alola-bg);
+  --md-default-bg-color--light: var(--alola-bg2);
+  --md-default-fg-color:        var(--alola-text);
+  --md-default-fg-color--light: var(--alola-text2);
+  --md-default-fg-color--lighter: var(--alola-text2);
+  --md-code-bg-color:           var(--alola-bg2);
+  --md-code-fg-color:           var(--alola-text);
+  --md-typeset-a-color:         var(--alola-accent);
+  --md-footer-bg-color:         var(--alola-bg2);
+  --md-footer-bg-color--dark:   var(--alola-bg);
 }
 
+/* VT323 runs small and thin; a wiki is read for longer than a dashboard */
+.md-typeset { font-size: 1.05rem; line-height: 1.65; }
+.md-typeset p, .md-typeset li { letter-spacing: 0.01em; }
+
+/* ── header and tabs ────────────────────────────────────────────── */
+.md-header,
 .md-tabs {
-  background: linear-gradient(135deg, #1a0a3e 0%, #2d1b69 100%);
+  background: var(--alola-bg2);
+  border-bottom: 2px solid var(--alola-accent);
+}
+.md-header__title { color: var(--alola-accent); letter-spacing: 2px; }
+
+/* ── headings: gold, spaced, like the topbar in alola.css ───────── */
+.md-typeset h1,
+.md-typeset h2 {
+  color: var(--alola-accent);
+  letter-spacing: 1.5px;
+  font-weight: normal;
+}
+.md-typeset h2 { border-bottom: 1px solid var(--alola-border); padding-bottom: .3em; }
+.md-typeset h3 { color: var(--alola-accent2); letter-spacing: 1px; font-weight: normal; }
+.md-typeset h4 { color: var(--alola-text); letter-spacing: .5px; }
+
+/* ── surfaces: tables, code, quotes ─────────────────────────────── */
+.md-typeset table:not([class]) {
+  background: var(--alola-surface);
+  border: 1px solid var(--alola-border);
+  font-size: .95rem;
+}
+.md-typeset table:not([class]) th {
+  background: var(--alola-bg2);
+  color: var(--alola-accent);
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--alola-border);
+}
+.md-typeset table:not([class]) td { border-top: 1px solid var(--alola-border); }
+
+.md-typeset pre > code,
+.md-typeset code {
+  background: var(--alola-bg2);
+  border: 1px solid var(--alola-border);
+  color: var(--alola-text);
 }
 
+.md-typeset blockquote {
+  border-left: 3px solid var(--alola-accent);
+  background: var(--alola-surface);
+  color: var(--alola-text2);
+  padding: .6em 1em;
+}
+
+/* ── links ──────────────────────────────────────────────────────── */
+.md-typeset a { color: var(--alola-accent); }
+.md-typeset a:hover { color: var(--alola-accent2); }
+
+/* ── nav ────────────────────────────────────────────────────────── */
+.md-nav__title { color: var(--alola-accent); letter-spacing: 1px; }
+.md-nav__link--active { color: var(--alola-accent) !important; }
+
+/* ── admonitions in alola's semantic colours ────────────────────── */
+.md-typeset .admonition,
+.md-typeset details {
+  background: var(--alola-surface);
+  border-left-color: var(--alola-accent);
+}
+.md-typeset .admonition.warning,
+.md-typeset details.warning { border-left-color: var(--alola-red); }
+.md-typeset .admonition.note,
+.md-typeset details.note { border-left-color: var(--alola-accent); }
+.md-typeset .admonition.tip,
+.md-typeset details.tip { border-left-color: var(--alola-green); }
+
+/* ── kept from the previous stylesheet ──────────────────────────── */
 .page-tagline {
   font-size: 1.1em;
-  color: var(--md-accent-fg-color);
+  color: var(--alola-accent);
   font-style: italic;
   margin-bottom: 1.5em;
-  border-left: 3px solid var(--md-accent-fg-color);
+  border-left: 3px solid var(--alola-accent);
   padding-left: 1em;
 }
 
-.architecture-diagram {
-  background: rgba(45, 27, 105, 0.15);
-  border: 1px solid rgba(124, 77, 255, 0.3);
-  border-radius: 8px;
-  padding: 1.5em;
-  font-family: var(--md-code-font);
-  font-size: 0.85em;
-  line-height: 1.5;
-  overflow-x: auto;
-  white-space: pre;
-}
-
-blockquote.illuminati {
-  border-left: 4px solid #ff1744;
-  background: rgba(255, 23, 68, 0.05);
-  padding: 0.8em 1em;
-}
-
-blockquote.god {
-  border-left: 4px solid #ffd740;
-  background: rgba(255, 215, 64, 0.05);
-  padding: 0.8em 1em;
-}
-
-blockquote.worker {
-  border-left: 4px solid #00e676;
-  background: rgba(0, 230, 118, 0.05);
-  padding: 0.8em 1em;
-}
-
-/* ── Mobile Responsive ───────────────────────────────────────── */
-
-/* Small phones (iPhone 13 Mini is 375px) */
-@media screen and (max-width: 480px) {
-  /* ASCII diagrams: allow horizontal scroll without breaking layout */
-  .architecture-diagram,
-  pre,
-  code {
-    font-size: 0.65em !important;
-    white-space: pre !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch;
-    max-width: 88vw;
-  }
-
-  /* Tables: scroll instead of overflow */
-  .md-typeset table {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    font-size: 0.75em;
-  }
-
-  /* Reduce padding on mobile */
-  .md-content__inner {
-    padding-left: 0.6rem !important;
-    padding-right: 0.6rem !important;
-  }
-
-  /* Smaller headers on mobile */
-  .md-typeset h1 {
-    font-size: 1.4em !important;
-  }
-  .md-typeset h2 {
-    font-size: 1.15em !important;
-  }
-  .md-typeset h3 {
-    font-size: 1em !important;
-  }
-
-  /* Tighter blockquotes */
-  blockquote {
-    padding: 0.4em 0.6em !important;
-    margin: 0.6em 0 !important;
-  }
-
-  /* Admonitions tighter */
-  .md-typeset .admonition {
-    padding: 0.4em 0.6em !important;
-  }
-
-  /* Lists tighter */
-  .md-typeset ul, .md-typeset ol {
-    padding-left: 1.2em !important;
-  }
-}
-
-/* Medium phones/tablets */
-@media screen and (max-width: 768px) and (min-width: 481px) {
-  .architecture-diagram,
-  pre,
-  code {
-    font-size: 0.75em !important;
-    overflow-x: auto !important;
-  }
-  
-  .md-typeset table {
-    display: block;
-    overflow-x: auto;
-  }
-}
+/* the world map and generated diagrams sit on the dark ground */
+.md-typeset img[src$=".svg"] { background: var(--alola-bg2); border-radius: 2px; }

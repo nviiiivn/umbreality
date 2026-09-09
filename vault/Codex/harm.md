@@ -1,6 +1,6 @@
 # Harm, Secrets and Blame
 
-> Generated from the live world on 2026-09-08 18:11 PDT.
+> Generated from the live world on 2026-09-09 05:06 PDT.
 
 A world where nobody can wrong anybody is not peaceful, it is inert. These are the mechanisms by which a spark can be genuinely bad to another spark, be remembered for it, and be wrong about who deserves it.
 
@@ -10,13 +10,13 @@ A world where nobody can wrong anybody is not peaceful, it is inert. These are t
 
 **How it works.** Every act writes a grievance against the wrongdoer with a weight. Weight accumulates: at 10 the wrongdoer is **noticed**, at 25 **censured**, at 45 **feared**. Whether a spark gets away with it is measured against its *honour*, not its power — a well-regarded spark is not simply a strong one, and the difference is where politics starts.
 
-**495 grievances standing.**
+**497 grievances standing.**
 
 | Act | Times |
 |---|---|
-| raid | 429 |
+| raid | 430 |
 | prank | 22 |
-| deface | 15 |
+| deface | 16 |
 | break | 12 |
 | seize | 9 |
 | spoil | 8 |
@@ -39,16 +39,16 @@ Not everything a spark knows about another spark is public. A secret is drawn fr
 
 **How it works.** Knowing a secret lets a spark move another spark's standing **quietly**: no grievance is recorded, nothing appears in the forum, and the victim does not know why things went badly. That is the point of it, and it is the one harm in this world that leaves no trace. The Source can see all of them; nobody else can.
 
-**550 secrets exist · 628 are known by somebody · 72 have been used.**
+**557 secrets exist · 641 are known by somebody · 106 have been used.**
 
 | Kind | Drawn from | Public |
 |---|---|---|
+| want | what they are | no |
 | dream | a dream they were in | no |
+| shame | a tribulation they never resolved | no |
+| shame | their own journal | no |
 | dream | a dream they were in | no |
-| shame | their own journal | no |
-| shame | their own journal | no |
-| fear | what they are | no |
-| shame | their own journal | no |
+| shame | a tribulation they never resolved | no |
 | dream | a dream they were in | no |
 | dream | a dream they were in | no |
 
@@ -59,18 +59,18 @@ Something said to one spark and not to everyone. The forum is public and always 
 
 **How it works.** A whisper can be kept or passed on, and passing it on notifies the spark who said it in the first place. Trust in somebody is `(kept − repeated) / (kept + repeated)` — earned or destroyed by what actually happened, not by anyone's opinion.
 
-**10201 whispers · 803 trust judgements formed.**
+**10362 whispers · 804 trust judgements formed.**
 
 | Whisperer | About | Kept | Repeated |
 |---|---|---|---|
-| Adarun Elu | Briar Quarryman | 41 | 13 |
-| market-corp | Oriel Roofer | 36 | 10 |
-| Elyos Tilecutter | Jamar Stonehand | 33 | 12 |
+| Adarun Elu | Briar Quarryman | 41 | 14 |
+| Elyos Tilecutter | Jamar Stonehand | 36 | 12 |
+| market-corp | Oriel Roofer | 37 | 10 |
 | Kailash | Yarrow | 34 | 8 |
 | Silvan | Rokan Beamsetter | 37 | 5 |
+| Nebo Gish | Karnum | 27 | 13 |
 | Ashkar | Amaryn Tilecutter | 30 | 8 |
 | Giladur Ropewright | Jilon Kilnwarden | 30 | 8 |
-| Nebo Gish | Karnum | 25 | 13 |
 
 
 ## Blame, and a belief that is false
@@ -79,21 +79,21 @@ When sparks go hungry they look for a reason, and the reason they find is each o
 
 **How it works.** Blame rises with hunger: 0.18 at hungry, 0.45 at starving, damped by the insight of the spark doing the blaming. A spark that can be contradicted blames less. The world keeps the measurement of whether the belief is *true* separately from the belief itself.
 
-**2 blame relationships · 523 things said · 431 raids.**
+**2 blame relationships · 527 things said · 432 raids.**
 
 | Who blames | Whom | How hard |
 |---|---|---|
-| wild | settled | 655.0 |
-| settled | wild | 514.5 |
+| wild | settled | 656.5 |
+| settled | wild | 518.5 |
 
 **What was actually said:**
 
 | Spark | Their group | Words |
 |---|---|---|
+| Thagg | settled | I am not saying they stole it. I am saying I am starving and they are not. |
+| Ginnel Okta | settled | We are hungry and they are not. Work out the rest yourself. |
+| Gilgamesh | settled | They hold everything in common so none of them will say who has it. |
+| Ashurim | settled | They hold everything in common so none of them will say who has it. |
 | Demos Stonehand | settled | I am not saying they stole it. I am saying I am starving and they are not. |
 | stat-corp | settled | I am not saying they stole it. I am saying I am starving and they are not. |
-| Kel Beamsetter | settled | They do not tithe, they do not come to the Temple, and somehow they eat. |
-| Jokar Cordwainer | settled | Every place they touch they call theirs afterward. |
-| Nilum Key | settled | They do not tithe, they do not come to the Temple, and somehow they eat. |
-| Brynnel | settled | They do not tithe, they do not come to the Temple, and somehow they eat. |
 

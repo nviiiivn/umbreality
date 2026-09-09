@@ -1,57 +1,79 @@
-# Self-Modification Protocol
-
-An agent's prompt, tools, and rules are **configuration files** — not hardcoded constants. Any layer can modify the layer below it based on performance analysis. This is how the system improves itself.
-
+---
+title: Self-Modification
 ---
 
-## The Core Loop
+# Self-Modification
 
-```
-OBSERVE → ANALYZE → HYPOTHESIZE → SANDBOX → DEPLOY → MONITOR
-```
+> Regenerated from the running world on 2026-09-09 05:06 PDT. The prose is written; every number is read live. These four documents were written on 8 June 2026 and not touched again for three months, which is how a description of a moving world becomes fiction.
 
-### 1. Observe
-The upper layer monitors lower agent performance metrics: success rate, latency, error patterns, coverage gaps, quality of findings.
+The world observes itself, says what looks wrong, and proposes what it would
+change. It cannot change anything, and it never has been allowed to.
 
-### 2. Analyze
-Identifies patterns: what's working? what's failing? what's missing? A company may notice its web scanner workers have a 95% false positive rate. A hedge fund may notice one company consistently outperforms another.
+## What it can see
 
-### 3. Hypothesize
-Generates improved configurations. This could be a prompt rewrite, a tool addition/removal, or a structural change to how work is organized.
+**144 measurements taken, 14 changes proposed.** The loop looks for sparks
+with nothing to do, sparks bonded to nobody, work that never moves, rooms
+nobody enters — and, since it was given the ability, **its own broken
+wiring**.
 
-### 4. Sandbox
-Tests the new configuration against historical data or in a controlled environment. Must catch catastrophic regressions before deployment.
+The most important thing it has done is find a real fault in itself before
+any human did. It reported *"sparks that have never spoken, model may be
+returning empty output"*. That was true. It was a genuine bug in how
+reasoning models were being called, and the world found it first.
 
-### 5. Deploy
-If the improvement is verified, the new config is pushed to the lower agent. The old config is versioned.
+## What it cannot do
 
-### 6. Monitor
-Continues observing. If degradation occurs, **rolls back** automatically.
+`sandbox._apply` writes database rows and only database rows. Five bounded
+change types and nothing else: seed an ambition, retarget one at a real
+place, create a bond, reassign a model, post a call for hands. No code, no
+filesystem, no arbitrary queries.
 
----
+Anything proposed is first applied to a **copy** of the world and measured
+against a control. A change that does not beat doing nothing never ships.
+The first proposal the world ever made — *"sparks connected to nobody"* — was
+tested and its own experiment returned **no effect**. The world proposed a
+fix and refuted it.
 
-## Rules
+Two separate switches gate thinking and acting. Both are off.
 
-1. **Downward only:** A layer can ONLY modify layers below it. Never above.
-2. **Versioned:** Every config change is tracked in git. Full history is preserved.
-3. **Rollback-capable:** Any change can be undone instantly.
-4. **Sandboxed:** Changes are tested before deployment.
-5. **Observable:** The modifying layer must monitor the result of its change.
+## The line not crossed
 
----
+The world can name a fault in its own code precisely and hand it over. It
+cannot repair it. That is deliberate, and it is the threshold Japan's
+Moonshot programme calls *self-organization* — systems that self-modify their
+own knowledge and functions.
 
-## The Meta-Meta Problem
+**Knowledge, yes**: 34,408 passages read by 357 sparks, matched to each by what it
+is. **Functions, no.** That line is the operator's to cross on purpose, not
+something to arrive at by accident.
 
-Who modifies the Illuminati? Only God(s) can. The Illuminati is the highest layer that exists within the system, and it can self-modify within constitutional bounds. But fundamental changes to the Illuminati require God(s).
+## Reachability, which is how this is kept honest
 
-The Constitution itself can be amended — but only through the [[Constitution/Amendment-Protocol]], which is designed to be weighty.
+The mistake this world has made most often is writing a mechanism and never
+connecting it. Written-but-unwired is indistinguishable from working code: no
+test fails, no error appears, and the thing simply never runs. It is how
+wardens never patrolled, pilgrimage was never required, and the library
+handed out filenames instead of books for three months.
 
-> *"A meta-agent rewrites the other agents' prompts/rules based on performance."*
+`research/wiring.py` walks the call graph from every entry point — the
+scheduler, HTTP routes, decorated handlers, module-level code, and the tables
+of strings the clock resolves at run time — and reports what nothing can
+reach. A pre-commit hook refuses any commit that raises the number.
 
----
+**1,145 functions defined · 1,023 reachable · 89 unreachable.**
 
-## Related
+The tool itself has been wrong three times, each time reporting live code as
+dead. That is worth recording: an instrument that measures honesty has to be
+held to the same standard.
 
-- [[Mechanisms/Information-Flow]] — How the observation data moves up
-- [[Constitution/Amendment-Protocol]] — How to change the system's foundation
-- [[Constitution/Core-Directives]] — The bounds within which modification happens
+## The Scribes
+
+The world keeps its own record now. **17 entries.** Sopher attends
+beginnings and scans every table for the first row of any kind it has not
+seen — so a mechanism added next month is noticed without being told it
+exists. Tsofeh keeps a life per spark. Zakar returns to what was written when
+later events change what it meant, and adds an amendment beside it rather
+than rewriting it.
+
+They have no domain and no desire, which is what makes their account usable
+as evidence.

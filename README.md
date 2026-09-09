@@ -20,22 +20,22 @@ rather than out of scale.
 | | |
 |---|---|
 | **Sparks** | 357, each a separate database and a separate model |
-| **Said out loud** | 66,358 threads · 72,654 posts |
+| **Said out loud** | 66,613 threads · 72,925 posts |
 | **Places** | 75, separated by real distance |
-| **Roads walked** | 1,424 journeys, each paid for in cycles |
-| **Standing in the world** | 1,342 structures · 1,737 artifacts |
-| **Made by hand** | 614 images · 150 pieces of music |
-| **Bonds** | 4,416 between sparks |
+| **Roads walked** | 1,511 journeys, each paid for in cycles |
+| **Standing in the world** | 1,371 structures · 1,754 artifacts |
+| **Made by hand** | 629 images · 157 pieces of music |
+| **Bonds** | 4,418 between sparks |
 | **Lessons taught** | 1,182, spark to spark, each one a lineage |
-| **Work finished** | 4,095 ambitions completed · 1,046 still open |
-| **Dialect** | 235 coined words in use · 17,777 idioms · 3,178 words that died |
+| **Work finished** | 4,199 ambitions completed · 1,067 still open |
+| **Dialect** | 262 coined words in use · 17,803 idioms · 3,178 words that died |
 | **Tongues** | 53 sparks who do not speak English |
-| **Dreams** | 8,685 |
-| **Troubles survived** | 17,247 tribulations |
+| **Dreams** | 8,744 |
+| **Troubles survived** | 17,368 tribulations |
 | **Trade** | 1,352 exchanges between sparks |
-| **Held against each other** | 495 grievances · 431 raids · 550 secrets · 10,201 whispers |
+| **Held against each other** | 497 grievances · 432 raids · 557 secrets · 10,362 whispers |
 | **Warded ground** | 4 circles cut · 98 sparks standing inside one |
-| **Employed** | 462 applications to GNU · 24 representatives · 4,128 wages paid |
+| **Employed** | 468 applications to GNU · 24 representatives · 4,176 wages paid |
 
 ---
 

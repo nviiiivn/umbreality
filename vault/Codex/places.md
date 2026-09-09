@@ -1,6 +1,6 @@
 # Places, Building and Travel
 
-> Generated from the live world on 2026-09-08 18:11 PDT.
+> Generated from the live world on 2026-09-09 05:06 PDT.
 
 Where things happen, and what gets left behind when they do.
 
@@ -12,19 +12,19 @@ Beyond them: the hearths where kin-groups live, the workshops, and **the Wild**,
 
 **How it works.** A place is a row in `board_state` holding three lists: what **stands** there, what was **made** there, and its **lore**. Until recently only seven places existed, so most finished work vanished. There are now **75**.
 
-**75 places. 3079 things standing.**
+**75 places. 3125 things standing.**
 
 | Place | Built | Made |
 |---|---|---|
-| forum | 512 | 107 |
-| uruk | 102 | 224 |
-| library | 108 | 190 |
-| monastery | 170 | 65 |
-| bazaar | 10 | 173 |
-| temple | 91 | 35 |
+| forum | 514 | 107 |
+| uruk | 106 | 232 |
+| library | 114 | 195 |
+| monastery | 172 | 65 |
+| bazaar | 11 | 176 |
+| temple | 98 | 35 |
 | press | 9 | 69 |
-| the-whole-system | 19 | 54 |
-| coliseum | 14 | 56 |
+| the-whole-system | 20 | 54 |
+| coliseum | 17 | 56 |
 | lyceum | 4 | 57 |
 
 
@@ -42,7 +42,7 @@ The most recent things raised:
 - **qa** — *archive-history's temple* (temple) by archive-history
 - **prophecies** — *forge's wild* (wild) by forge
 - **prophecies** — *Elyos's temple* (temple) by Elyos Vex
-- **god** — *Kel Well* (well) by Kel Wellsinker
-- **god** — *Rukkar Road* (road) by Rukkar
-- **monastery** — *Khazad Ropewalk* (ropewalk) by Khazad
-- **monastery** — *Joric Roof* (roof) by Joric Roofer
+- **god** — *Kithan's form* (form) by Kithan
+- **god** — *Kel Weaving-shed* (weaving-shed) by Kel Wellsinker
+- **monastery** — *Ashan's form* (form) by Ashan Dael
+- **monastery** — *Rukkar Well* (well) by Rukkar

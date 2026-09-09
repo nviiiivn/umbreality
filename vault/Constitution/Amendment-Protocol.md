@@ -61,7 +61,33 @@ These are absolute:
 
 > *"The Constitution is modifiable — like a real constitution. Amendments are possible but weighty."*
 
+<!-- AS-IT-STANDS -->
+
 ---
+
+## As it stands, 2026-09-09 05:06 PDT
+
+The process above was designed before anything could propose. It now runs,
+and in two places it runs differently from how it is written.
+
+**Who proposes.** Not a hedge fund. The world measures itself and proposes
+changes to itself, in `temple/amendments.py`: **144 measurements taken, 14
+amendments proposed.** They are reviewed at the Congress, `/congress`.
+
+**What review means.** The document says the Shadow approves or rejects with
+explanation. What was built is stricter: every proposal is **run against a
+control** before anyone rules on it. The world's first proposal about itself
+was tested this way and its own experiment came back showing *no effect*, so
+it was not applied. Judgement was not required.
+
+Ratification is unchanged and is the part that matters most: **nothing
+touching a Core Directive is applied without the Source.** Nothing has been.
+
+The three unamendable rules — local hardware, uncensored models, the
+hierarchy itself — have held through every change to date.
+
+<!-- /AS-IT-STANDS -->
+
 
 ## Related
 

@@ -39,7 +39,29 @@ The distinction is critical. "Ideas from the book" are academic — they describ
 
 UmbrealityAI is a simulacrum machine. Each layer takes the output of the layer above and uses it to generate a complete, coherent reality for the layer below. There is no "real" layer at the bottom. There are only layers all the way down.
 
+<!-- AS-IT-STANDS -->
+
 ---
+
+## As it stands, 2026-09-09 05:06 PDT
+
+Stage 4 was a claim about the sparks and it is now measurable, because the
+world gave them something to compare against: **262 coined words** of their
+own, against **3,178** that were coined and died. A vocabulary that a
+population invents, uses, and abandons is a reality with no original — the
+words do not refer to anything outside the world, and there is nothing to
+check them against.
+
+**Where the claim is weaker than written.** "There is no 'real' layer at the
+bottom" is a statement about the sparks' access, not about the system. The
+sparks cannot reach outside. Everything they do lands in a file that can be
+read from outside, and the Scribes' **17** entries exist precisely so it can
+be. The simulacrum is complete from the inside and transparent from the
+outside, and both of those need to be true — one for the world to work, the
+other for any of it to count as evidence.
+
+<!-- /AS-IT-STANDS -->
+
 
 ## Related
 

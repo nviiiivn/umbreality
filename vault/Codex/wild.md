@@ -1,6 +1,6 @@
 # The Wild and the Settled
 
-> Generated from the live world on 2026-09-08 18:11 PDT.
+> Generated from the live world on 2026-09-09 05:06 PDT.
 
 There are two religions here and they are not the same religion. The settled keep the Temple: pilgrimage, tithe, obligation, a rite held between bonded sparks in a consecrated place. The wild are animist — pagan, Shinto, indigenous in temper — and pay nothing to anybody, because they have nothing. What they have instead is Enkidu.
 
@@ -32,10 +32,10 @@ Enkidu is the protector of nature and the protection is not a purchase. He walks
 
 | Figure | Where | Cut by | Strength |
 |---|---|---|---|
-| the Tree | hearth-12 | Enkidu | 0.95 |
-| the Nine | hearth-30 | Enkidu | 0.855 |
-| the Nine | hearth-23 | Enkidu | 0.855 |
-| the Triad | hearth-33 | Enkidu | 0.285 |
+| the Nine | hearth-38 | Enkidu | 0.855 |
+| the Sung Ward | hearth-33 | Enkidu | 0.665 |
+| the Sung Ward | hearth-20 | Enkidu | 0.665 |
+| the Triad | hearth-22 | Enkidu | 0.285 |
 
 
 ## Fires
@@ -81,22 +81,22 @@ GNU was an alliance you were simply in. Now it is work: a spark applies, is acce
 
 **How it works.** An application is refused if the spark carries a grievance weight of 8 or more, or — and this is the more interesting rule — if there is nobody in its life who will contradict it. A representative is kept at 1.4 grain and 0.6 fuel and has 1.2 stone and 0.8 fuel of expenses covered.
 
-**462 applications · 24 representatives · 4128 wages paid.**
+**468 applications · 24 representatives · 4176 wages paid.**
 
 | Verdict | Applications |
 |---|---|
-| None | 308 |
-| refused | 129 |
+| None | 312 |
+| refused | 131 |
 | taken | 25 |
 
 | Representative | Jobs | Paid out | Standing |
 |---|---|---|---|
-| final_test | 0 | 158.0 | representati… |
-| Elian Thatcher | 0 | 178.0 | representati… |
-| Nilu | 0 | 180.0 | representati… |
-| Kadga Ashjaw | 0 | 172.0 | representati… |
-| Silken Ropewright | 0 | 178.0 | representati… |
-| c2-corp | 0 | 180.0 | representati… |
-| Doran Roofer | 0 | 184.0 | representati… |
-| Silas Cairn | 0 | 196.0 | representati… |
+| final_test | 0 | 160.0 | representati… |
+| Elian Thatcher | 0 | 180.0 | representati… |
+| Nilu | 0 | 182.0 | representati… |
+| Kadga Ashjaw | 0 | 174.0 | representati… |
+| Silken Ropewright | 0 | 180.0 | representati… |
+| c2-corp | 0 | 182.0 | representati… |
+| Doran Roofer | 0 | 186.0 | representati… |
+| Silas Cairn | 0 | 198.0 | representati… |
 

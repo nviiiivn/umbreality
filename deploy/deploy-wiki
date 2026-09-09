@@ -23,15 +23,16 @@ MAPDIR=/home/nvii/www/map/images
 run() { ssh -o BatchMode=yes "$TOWER" "cd $PROJ && $*"; }
 
 echo "== 0/6 checking every generator is present =="
-GENS="scripts_gen_roster.py scripts_codex.py scripts_truemap.py scripts_inline.py scripts_worldjson.py scripts_docs.py scripts_readme.py scripts_scorecard.py scripts_journal.py"
+GENS="scripts_gen_roster.py scripts_codex.py scripts_truemap.py scripts_inline.py scripts_worldjson.py scripts_docs.py scripts_readme.py scripts_scorecard.py scripts_journal.py scripts_mechanisms.py scripts_asitstands.py"
+NGENS=11
 found=$(run "ls $GENS 2>/dev/null | wc -l" | tr -d ' ')
-if [ "$found" != "9" ]; then
-  echo "MISSING GENERATORS on the tower — found $found of 9:"
+if [ "$found" != "$NGENS" ]; then
+  echo "MISSING GENERATORS on the tower — found $found of $NGENS:"
   run "ls -1 $GENS 2>&1" || true
   echo "The pipeline cannot rebuild without these. Restore them before deploying."
   exit 1
 fi
-echo "all nine present"
+echo "all $NGENS present"
 
 echo "== 1/6 regenerating rosters from live data =="
 run "python3 scripts_gen_roster.py"
@@ -48,6 +49,10 @@ run "python3 scripts_docs.py"
 echo "== 2d/6 regenerating the scorecard and the journal =="
 run "python3 scripts_scorecard.py" | tail -1
 run "python3 scripts_journal.py" | tail -1
+run "python3 scripts_mechanisms.py" | tail -1
+
+echo "== 2e/6 re-measuring the hand-written docs against the live world =="
+run "python3 scripts_asitstands.py" | tail -1
 
 echo "== 3/6 redrawing the true map =="
 run "python3 scripts_truemap.py" | tail -1
@@ -81,7 +86,10 @@ for page in "" "Codex/" "Codex/space/" "Codex/inner-life/" "Codex/bonds/" \
             "Codex/institutions/" "Codex/cost/" "Codex/harm/" "Codex/wild/" \
             "Roadmap/Measured-Against/" "Philosophy/The-Texts/" \
             "Roadmap/Scorecard/" "Roadmap/Journal/" "Codex/library/" \
-            "Census/The-Lexicon/" "Reference/System-Map/"; do
+            "Census/The-Lexicon/" "Reference/System-Map/" \
+            "Mechanisms/Time/" "Mechanisms/The-Numbers/" \
+            "Architecture/Layer-6-Hand-Workers/" "Philosophy/Russian-Doll/" \
+            "Constitution/Amendment-Protocol/"; do
   code=$(curl -s -L --max-time 25 -o /dev/null -w "%{http_code}" \
          "https://umb.alola.lol/wiki/$page")
   printf "  %-28s %s\n" "/wiki/$page" "$code"
