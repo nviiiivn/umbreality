@@ -23,15 +23,15 @@ MAPDIR=/home/nvii/www/map/images
 run() { ssh -o BatchMode=yes "$TOWER" "cd $PROJ && $*"; }
 
 echo "== 0/6 checking every generator is present =="
-GENS="scripts_gen_roster.py scripts_codex.py scripts_truemap.py scripts_inline.py scripts_worldjson.py scripts_docs.py scripts_readme.py"
+GENS="scripts_gen_roster.py scripts_codex.py scripts_truemap.py scripts_inline.py scripts_worldjson.py scripts_docs.py scripts_readme.py scripts_scorecard.py scripts_journal.py"
 found=$(run "ls $GENS 2>/dev/null | wc -l" | tr -d ' ')
-if [ "$found" != "7" ]; then
-  echo "MISSING GENERATORS on the tower — found $found of 7:"
+if [ "$found" != "9" ]; then
+  echo "MISSING GENERATORS on the tower — found $found of 9:"
   run "ls -1 $GENS 2>&1" || true
   echo "The pipeline cannot rebuild without these. Restore them before deploying."
   exit 1
 fi
-echo "all seven present"
+echo "all nine present"
 
 echo "== 1/6 regenerating rosters from live data =="
 run "python3 scripts_gen_roster.py"
@@ -44,6 +44,10 @@ run "python3 scripts_readme.py" | tail -1
 
 echo "== 2c/6 regenerating the derived pages from the README =="
 run "python3 scripts_docs.py"
+
+echo "== 2d/6 regenerating the scorecard and the journal =="
+run "python3 scripts_scorecard.py" | tail -1
+run "python3 scripts_journal.py" | tail -1
 
 echo "== 3/6 redrawing the true map =="
 run "python3 scripts_truemap.py" | tail -1
@@ -76,6 +80,7 @@ for page in "" "Codex/" "Codex/space/" "Codex/inner-life/" "Codex/bonds/" \
             "Codex/places/" "Codex/language/" "Codex/forum/" \
             "Codex/institutions/" "Codex/cost/" "Codex/harm/" "Codex/wild/" \
             "Roadmap/Measured-Against/" "Philosophy/The-Texts/" \
+            "Roadmap/Scorecard/" "Roadmap/Journal/" "Codex/library/" \
             "Census/The-Lexicon/" "Reference/System-Map/"; do
   code=$(curl -s -L --max-time 25 -o /dev/null -w "%{http_code}" \
          "https://umb.alola.lol/wiki/$page")

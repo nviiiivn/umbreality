@@ -1,6 +1,6 @@
 # The Codex
 
-> Generated from the live world on 2026-09-05 10:54 PDT. Every entry says what a thing is, how it works, and what is actually there.
+> Generated from the live world on 2026-09-08 18:11 PDT. Every entry says what a thing is, how it works, and what is actually there.
 
 Umbreality keeps itself in thirteen databases. Sparkbook, the god's eye and the census pages each read a slice; much of it has never been visible anywhere. This is the whole of it, arranged by what things *are* rather than which file they live in.
 
@@ -17,4 +17,5 @@ Umbreality keeps itself in thirteen databases. Sparkbook, the god's eye and the 
 | **[What Things Cost](cost.md)** | The cycle · Obligation and tithe · Scarcity · Three goods and trade |
 | **[Harm, Secrets and Blame](harm.md)** | Five ways to wrong somebody · Secrets · Whispers · A belief that is false |
 | **[The Wild and the Settled](wild.md)** | Factions · Wards and fires · Two ways to be born · GNU as a job |
+| **[The Library](library.md)** | What is on the shelf · The canon · What is found rather than given |
 Nothing here can be edited. It is regenerated every time the wiki is deployed, so it cannot drift from the world it describes.

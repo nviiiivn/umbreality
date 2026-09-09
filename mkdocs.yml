@@ -105,6 +105,8 @@ nav:
     - Core Directives: Constitution/Core-Directives.md
     - Amendment Protocol: Constitution/Amendment-Protocol.md
   - Roadmap:
+    - Scorecard: Roadmap/Scorecard.md
+    - Journal: Roadmap/Journal.md
     - Measured Against: Roadmap/Measured-Against.md
     - Build Phases: Roadmap/Phases.md
   - The Codex:
@@ -119,6 +121,7 @@ nav:
     - What Things Cost: Codex/cost.md
     - Harm, Secrets and Blame: Codex/harm.md
     - The Wild and the Settled: Codex/wild.md
+    - The Library: Codex/library.md
   - The Population:
     - State of the World: Census/State-of-World.md
     - Spark Roster: Census/Spark-Roster.md

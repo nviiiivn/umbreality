@@ -699,6 +699,20 @@ def avatar_summon(body: dict):
     return result
 
 
+@app.get("/chronicle")
+def scribe_chronicle(limit: int = 60):
+    """The world's own record of itself, kept by the Scribes."""
+    from avatar.scribe import chronicle
+    return {"entries": chronicle(limit)}
+
+
+@app.get("/chronicle/{spark}")
+def scribe_life(spark: str):
+    """One spark's life, as the Scribes have it."""
+    from avatar.scribe import life
+    return {"spark": spark, "life": life(spark)}
+
+
 @app.get("/library/report")
 def library_report():
     """What the world has actually read, as opposed to been told it read."""

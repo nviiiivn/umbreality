@@ -172,10 +172,16 @@ The largest gap, and the one named by somebody other than us.
 
 - [x] Goals that come from another spark's real difficulty (GNU: a problem
       is dropped at a workshop and routed to whoever has the trade)
-- [ ] **A spark that identifies a desirable future state nobody asked it
-      about.** Not a response to a request, not a selection from
-      CONCRETE_GOALS. This does not exist and is the single thing most worth
-      building.
+- [~] **A spark that identifies a desirable future state nobody asked it
+      about.** `temple/wanting.py` gathers a spark's real situation and asks
+      what it wants, resolving the answer against the world so a want names
+      a real target. Built, wired, and **not yet proven** — it has never
+      produced a want, because the machine cannot spare an inference slot.
+      Two things it found on the way matter more than the module: every one
+      of the 357 sparks sat permanently at the three-ambition cap, so no
+      spark could ever have held a want of its own; and the premise was
+      wrong — sparks already want things nobody offered, in speech. Their
+      ambitions came from a list of twelve strings; their words never did.
 - [ ] A spark that abandons a goal because it has decided it was the wrong
       goal
 

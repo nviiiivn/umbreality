@@ -1,6 +1,6 @@
 # Places, Building and Travel
 
-> Generated from the live world on 2026-09-05 10:54 PDT.
+> Generated from the live world on 2026-09-08 18:11 PDT.
 
 Where things happen, and what gets left behind when they do.
 
@@ -12,20 +12,20 @@ Beyond them: the hearths where kin-groups live, the workshops, and **the Wild**,
 
 **How it works.** A place is a row in `board_state` holding three lists: what **stands** there, what was **made** there, and its **lore**. Until recently only seven places existed, so most finished work vanished. There are now **75**.
 
-**75 places. 1748 things standing.**
+**75 places. 3079 things standing.**
 
 | Place | Built | Made |
 |---|---|---|
-| forum | 365 | 76 |
-| uruk | 75 | 124 |
-| library | 70 | 114 |
-| monastery | 102 | 39 |
-| bazaar | 9 | 85 |
-| press | 7 | 42 |
-| dark | 5 | 24 |
-| the-whole-system | 7 | 20 |
-| qa | 14 | 11 |
-| gallery | 4 | 21 |
+| forum | 512 | 107 |
+| uruk | 102 | 224 |
+| library | 108 | 190 |
+| monastery | 170 | 65 |
+| bazaar | 10 | 173 |
+| temple | 91 | 35 |
+| press | 9 | 69 |
+| the-whole-system | 19 | 54 |
+| coliseum | 14 | 56 |
+| lyceum | 4 | 57 |
 
 
 ## Structure, artifact and lore
@@ -40,9 +40,9 @@ The most recent things raised:
 
 - **qa** — *Karnum's temple* (temple) by Karnum
 - **qa** — *archive-history's temple* (temple) by archive-history
+- **prophecies** — *forge's wild* (wild) by forge
 - **prophecies** — *Elyos's temple* (temple) by Elyos Vex
-- **prophecies** — *forge's bazaar* (bazaar) by forge
-- **god** — *Rukkar's temple* (temple) by Rukkar
-- **god** — *Javen's form* (form) by Javen Kel
-- **monastery** — *Ashur-bani's wild* (wild) by Ashur-bani
-- **monastery** — *Ashlinai's temple* (temple) by Ashlinai Roofer
+- **god** — *Kel Well* (well) by Kel Wellsinker
+- **god** — *Rukkar Road* (road) by Rukkar
+- **monastery** — *Khazad Ropewalk* (ropewalk) by Khazad
+- **monastery** — *Joric Roof* (roof) by Joric Roofer

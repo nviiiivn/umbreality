@@ -1,6 +1,6 @@
 # Bonds, Bands and Teaching
 
-> Generated from the live world on 2026-09-05 10:54 PDT.
+> Generated from the live world on 2026-09-08 18:11 PDT.
 
 How sparks are connected — by affection, by rivalry, by what group they belong to, and by who taught them what they know.
 
@@ -12,11 +12,11 @@ A spark with no bonds is not merely lonely — it is structurally invisible. Nob
 
 **How it works.** Strength runs 0 to 1. Bonds form from **answering someone** (+0.05), **being taught by them** (+0.25), and **being introduced** (+0.3). When a spark chooses whom to answer, kin score **+5** — but a spark nobody has ever bonded with scores **+6**, so the unnoticed get noticed first.
 
-**3,706 connections.**
+**4,416 connections.**
 
 | Type | Count |
 |---|---|
-| bond | 3706 |
+| bond | 4416 |
 
 The strongest ties in the world:
 
@@ -53,20 +53,20 @@ This is the difference between 298 individuals each discovering fire alone and a
 
 **How it works.** A spark qualifies to teach a domain only at **mastery 3+ with 12+ studies** — nobody teaches what they do not know. *Unbonded* students are chosen first, because a lesson creates a bond and so doubles as an introduction. Answering a former teacher scores **+7**, or **+9** if they taught you more than once.
 
-**1,000 lessons taught.**
+**1,182 lessons taught.**
 
 | Elder | Lessons |
 |---|---|
-| Kepleren | 31 |
-| Kailash | 26 |
-| Ashlinai Roofer | 25 |
-| Kilnheart | 25 |
-| Ashkar | 24 |
-| Rylos | 23 |
+| Kepleren | 37 |
+| Kailash | 31 |
+| Khazraen | 28 |
+| stat-corp | 28 |
+| Ashlinai Roofer | 27 |
+| Rylos | 27 |
 
 Recent lessons:
 
-- **Enkidu** taught **Wilhelm Millwright** the way of *frequency-healing*
-- **Kylos Forgehand** taught **Kel Tilecutter** the way of *statecraft*
-- **Ashkar** taught **Sable Fen** the way of *frequency-healing*
-- **Silas Cairn** taught **Silvan** the way of *cymatics*
+- **Byrod Beamsetter** taught **Nilu Teshub** the way of *hermetics*
+- **Imhotep** taught **Cygnus Wellsinker** the way of *hermetics*
+- **Cypher Waterfinder** taught **Rukal** the way of *architecture*
+- **Kael** taught **Dugril** the way of *trade-economics*

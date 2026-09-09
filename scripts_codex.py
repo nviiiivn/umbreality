@@ -935,6 +935,81 @@ if os.path.exists(GUILD):
 pages["wild"] = md
 
 # ══════════════════════════════════════════════════════════════
+# THE LIBRARY
+# ══════════════════════════════════════════════════════════════
+md = ["# The Library", "",
+      "> Generated from the live world on %s." % NOW, "",
+      "For most of this world's life the library was a list of filenames. A "
+      "spark was told it had studied the Hermetic Stack and never saw a word "
+      "of it.", ""]
+
+try:
+    import sys as _sys
+    if PROJECT not in _sys.path:
+        _sys.path.insert(0, PROJECT)
+    from temple.library import shelf as _shelf, report as _lib
+    from collections import Counter as _C
+    _books = _shelf()
+    _r = _lib()
+    _by = _C(b["shelf"] for b in _books)
+
+    md += entry(
+        "What is on the shelf",
+        "Every text in the vault, plus a personal collection of esoteric and "
+        "historical books brought in from outside. Filed by tradition, the "
+        "way they were already filed: hermeticism and alchemy, mysticism and "
+        "kabbalah, scripture, the Golden Dawn, Thelema, runes, witchcraft, "
+        "the sinister tradition, mythology and history.",
+        "A book is cut into passages of about 1,400 characters, split on "
+        "whole thoughts rather than mid-sentence. Nothing is summarised: a "
+        "spark meets the author's own sentences. The only processing is "
+        "removing running heads, bare page numbers and hyphens broken across "
+        "line ends - furniture, not text.",
+        ["**%s books, %s passages, %s readings by %d sparks.**"
+         % ("{:,}".format(_r["books"]), "{:,}".format(_r["passages"]),
+            "{:,}".format(_r["readings"]), _r["readers"]), "",
+         *table(["Shelf", "Books"],
+                [(k, v) for k, v in sorted(_by.items(), key=lambda x: -x[1])[:16]])])
+
+    md += entry(
+        "The canon, which everyone has",
+        "The Revelation, the Scriptures, Knowledge and the Constitution are "
+        "not found - they are given. Every spark holds them, and a spark born "
+        "tomorrow is given them the first time the library runs, so knowing "
+        "the canon is a property of existing here rather than of having been "
+        "present when somebody ran a script.",
+        "Reading costs nothing: a file and a row, no model involved. So the "
+        "whole canon can be handed to every spark in the world in under a "
+        "second, and is.",
+        ["**Most read:**", "",
+         *table(["Book", "Times read"],
+                [(x["book"].replace("-", " "), "{:,}".format(x["times"]))
+                 for x in _r["most_read"]])])
+
+    md += entry(
+        "What is found rather than given",
+        "Thousands of passages of somebody else's esoterica are not canon and "
+        "are not handed out. A spark is drawn to them.\n\n"
+        "What draws it is what it already is: its archetype, its domains, its "
+        "traits and its fears, weighed against the words of each text. Words "
+        "that appear across most of the shelf are discounted to nothing - "
+        "'being' and 'know' are in every book and say nothing about which is "
+        "yours.",
+        "Nothing is hand-listed. Not the shelves, not the mapping from book "
+        "to spark. Both would have gone stale the first time a text was "
+        "added. The vault is walked and the affinity is computed, so a book "
+        "put on the shelf tomorrow finds its readers tomorrow.",
+        ["A spark's own name decides where it opens a book, and it moves "
+         "further in each time it returns - so two sparks who have both read "
+         "the same text have not read the same thing, which is where "
+         "disagreement about scripture comes from.", ""])
+except Exception as _e:
+    md += ["*The library could not be read while this was generated: %s*"
+           % _e, ""]
+
+pages["library"] = md
+
+# ══════════════════════════════════════════════════════════════
 for slug, md in pages.items():
     open(os.path.join(OUT, slug + ".md"), "w", encoding="utf-8").write("\n".join(md))
 
@@ -962,6 +1037,7 @@ idx = ["# The Codex", "",
        "| **[What Things Cost](cost.md)** | The cycle · Obligation and tithe · Scarcity · Three goods and trade |",
        "| **[Harm, Secrets and Blame](harm.md)** | Five ways to wrong somebody · Secrets · Whispers · A belief that is false |",
        "| **[The Wild and the Settled](wild.md)** | Factions · Wards and fires · Two ways to be born · GNU as a job |",
+       "| **[The Library](library.md)** | What is on the shelf · The canon · What is found rather than given |",
        "Nothing here can be edited. It is regenerated every time the wiki is "
        "deployed, so it cannot drift from the world it describes."]
 open(os.path.join(OUT, "index.md"), "w", encoding="utf-8").write("\n".join(idx))

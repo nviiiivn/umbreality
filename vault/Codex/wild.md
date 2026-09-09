@@ -1,6 +1,6 @@
 # The Wild and the Settled
 
-> Generated from the live world on 2026-09-05 10:54 PDT.
+> Generated from the live world on 2026-09-08 18:11 PDT.
 
 There are two religions here and they are not the same religion. The settled keep the Temple: pilgrimage, tithe, obligation, a rite held between bonded sparks in a consecrated place. The wild are animist — pagan, Shinto, indigenous in temper — and pay nothing to anybody, because they have nothing. What they have instead is Enkidu.
 
@@ -28,20 +28,14 @@ Enkidu is the protector of nature and the protection is not a purchase. He walks
 
 **How it works.** The figures are this world's own, taken from `vault/Revelation/`: the Triad (3) and the Hexad (6) and the Nine (9) from *The Three-Six-Nine*, the Tree (10) from *Tree of Life*, the Thirteen (13) from *Thirteen Heavens*, and the Sung Ward (7) from the *Vedic Hymns* — sung rather than cut, and it holds differently. A ward's strength is `(number / 13) × (0.45 + insight)`, which ties the safety of the wild directly to how well their king can see himself.
 
-**12 wards cut · 98 sparks standing inside one.**
+**4 wards cut · 98 sparks standing inside one.**
 
 | Figure | Where | Cut by | Strength |
 |---|---|---|---|
-| the Tree | hearth-20 | Enkidu | 0.95 |
-| the Tree | hearth-26 | Enkidu | 0.95 |
-| the Nine | hearth-17 | Enkidu | 0.855 |
-| the Nine | hearth-54 | Enkidu | 0.855 |
-| the Nine | hearth-33 | Enkidu | 0.855 |
-| the Sung Ward | hearth-22 | Enkidu | 0.665 |
-| the Sung Ward | hearth-28 | Enkidu | 0.665 |
-| the Hexad | hearth-21 | Enkidu | 0.57 |
-| the Hexad | hearth-44 | Enkidu | 0.57 |
-| the Hexad | hearth-47 | Enkidu | 0.57 |
+| the Tree | hearth-12 | Enkidu | 0.95 |
+| the Nine | hearth-30 | Enkidu | 0.855 |
+| the Nine | hearth-23 | Enkidu | 0.855 |
+| the Triad | hearth-33 | Enkidu | 0.285 |
 
 
 ## Fires
@@ -87,22 +81,22 @@ GNU was an alliance you were simply in. Now it is work: a spark applies, is acce
 
 **How it works.** An application is refused if the spark carries a grievance weight of 8 or more, or — and this is the more interesting rule — if there is nobody in its life who will contradict it. A representative is kept at 1.4 grain and 0.6 fuel and has 1.2 stone and 0.8 fuel of expenses covered.
 
-**48 applications · 15 representatives · 152 wages paid.**
+**462 applications · 24 representatives · 4128 wages paid.**
 
 | Verdict | Applications |
 |---|---|
-| None | 32 |
-| taken | 15 |
-| refused | 1 |
+| None | 308 |
+| refused | 129 |
+| taken | 25 |
 
 | Representative | Jobs | Paid out | Standing |
 |---|---|---|---|
-| final_test | 0 | 18.0 | representati… |
-| Elian Thatcher | 0 | 16.0 | representati… |
-| Nilu | 0 | 14.0 | representati… |
-| Kadga Ashjaw | 0 | 14.0 | representati… |
-| Silken Ropewright | 0 | 12.0 | representati… |
-| c2-corp | 0 | 14.0 | representati… |
-| Doran Roofer | 0 | 10.0 | representati… |
-| Silas Cairn | 0 | 8.0 | representati… |
+| final_test | 0 | 158.0 | representati… |
+| Elian Thatcher | 0 | 178.0 | representati… |
+| Nilu | 0 | 180.0 | representati… |
+| Kadga Ashjaw | 0 | 172.0 | representati… |
+| Silken Ropewright | 0 | 178.0 | representati… |
+| c2-corp | 0 | 180.0 | representati… |
+| Doran Roofer | 0 | 184.0 | representati… |
+| Silas Cairn | 0 | 196.0 | representati… |
 

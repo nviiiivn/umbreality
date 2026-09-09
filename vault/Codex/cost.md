@@ -1,6 +1,6 @@
 # What Things Cost
 
-> Generated from the live world on 2026-09-05 10:54 PDT.
+> Generated from the live world on 2026-09-08 18:11 PDT.
 
 For most of this world's life nothing cost anything. A spark could act as often as it was called on, take what it wanted from the ground, and owe nobody. Everything on this page exists to end that.
 
@@ -10,17 +10,17 @@ A spark does not get to do everything it thinks of. It wakes with a handful of a
 
 **How it works.** Four actions a cycle as a base, adjusted by how tired, warm and fed the spark is. Speaking or answering costs 1; studying 1; art and music 2; scripture 2; building 3; travelling 3; a pilgrimage 3; a rite 4. A cycle spent doing nothing returns a little energy, so rest is a real choice rather than a wasted turn.
 
-**1,453 actions taken and paid for.**
+**10,438 actions taken and paid for.**
 
 | Spent on | Times |
 |---|---|
-| speak | 939 |
-| answer | 407 |
-| pilgrimage | 60 |
-| scripture | 17 |
-| art | 17 |
-| music | 9 |
-| bond | 4 |
+| speak | 6,612 |
+| pilgrimage | 1,874 |
+| answer | 1,323 |
+| art | 243 |
+| scripture | 196 |
+| music | 106 |
+| bond | 84 |
 
 
 ## The obligation, and the tithe on refusing it
@@ -29,10 +29,18 @@ Pilgrimage used to be available. Now it is due. Every spark carries a debt to th
 
 **How it works.** Each spark has a due date 400 cycles out. Miss it and the tithe is 5.0 at base, plus 3.0 for every 100 cycles late, plus 4% of everything held — and a spark is never taken below a floor of 20.0, because a tax that starves people is a different mechanism.
 
-**357 sparks under obligation · 42 pilgrimages begun · 2 completed.**
+**357 sparks under obligation · 349 pilgrimages begun · 3 completed.**
 
 | Spark | Times levied | Paid in total |
 |---|---|---|
+| Nilum Gadi | 39 | 205.0 |
+| Soul Forge | 38 | 203.5 |
+| Boreus Cylon | 44 | 194.0 |
+| Daman | 18 | 188.5 |
+| Guten Ropewright | 41 | 178.5 |
+| Nebo Gish | 40 | 172.5 |
+| Duneho | 10 | 158.7 |
+| Corvane | 10 | 147.8 |
 
 
 ## Scarcity, and the ground remembering who tended it
@@ -41,18 +49,18 @@ There is not enough. A place can be stripped, and a stripped place does not reco
 
 **How it works.** A place regenerates 3.2 a cycle and caps at 45.0; a spark can carry 13.0 and no more. Tending gives 1.5 back to the ground. Crucially the ground remembers **which** spark tended **it** — reciprocity with a particular place, not with an open commons, because an open commons only subsidises whoever takes fastest.
 
-**12,478 entries in the ledger · 75 places · 185 tending relationships.**
+**577,225 entries in the ledger · 75 places · 2850 tending relationships.**
 
 | Spark | Holds | Taken | Put back | Cycles hungry |
 |---|---|---|---|---|
-| Ruskin Bilgewright | 0.0 | 21.1 | 0.0 | 7 |
-| Adadur | 4.9 | 20.1 | 0.0 | 8 |
-| Kaelen | 5.5 | 19.9 | 0.0 | 7 |
-| Zylos | 4.6 | 19.6 | 0.0 | 1 |
-| Bylon | 4.3 | 19.3 | 0.0 | 3 |
-| Threx Nailbed | 0.5 | 19.2 | 1.5 | 3 |
-| Wrenn | 0.6 | 19.2 | 5.8 | 10 |
-| Khazraen | 4.1 | 19.1 | 0.0 | 3 |
+| Tarn Greaseknuckle | 5.0 | 1260.9 | 156.4 | 231 |
+| Threx Nailbed | 10.4 | 1253.8 | 141.3 | 221 |
+| Sabra Scrapwright | 11.9 | 1250.0 | 128.0 | 201 |
+| Ruskin Bilgewright | 9.3 | 1244.4 | 134.9 | 207 |
+| Kadga Grimehand | 13.0 | 1243.6 | 147.8 | 230 |
+| Kadga Tarcoat | 6.5 | 1242.9 | 152.3 | 235 |
+| Cask | 7.5 | 1241.1 | 135.8 | 225 |
+| Delvin Bonepick | 10.4 | 1233.5 | 143.1 | 244 |
 
 
 ## Three goods, and the first trade this world ever had
@@ -61,16 +69,16 @@ Grain, fuel and stone. No place gives all three, which is the entire reason a sp
 
 **How it works.** Each place has a sort, and the sort decides its yields. The settled pay a tithe of 18% on what they take. The wild pay nothing to any institution — they pay the ground, by tending it. A spark posts what it is giving and what it wants for it; another spark takes the offer or does not.
 
-**1,288 offers posted, 1,054 taken up · 4,105 tithes collected.**
+**47,679 offers posted, 1,352 taken up · 103,917 tithes collected.**
 
 | Gave | For | Between |
 |---|---|---|
-| 1.5 fuel | 1.2 grain | Rhizome Stonehand → Zivel Ogon |
-| 1.8 stone | 1.2 grain | Tyrois Vale → Baelor Thatcher |
-| 1.3 fuel | 1.2 grain | Omen → market-corp |
-| 2.5 stone | 1.2 grain | Ssath → Grinn Kegbreaker |
-| 2.5 fuel | 1.2 grain | Brynn Quarryman → Oswin |
-| 1.9 fuel | 1.2 grain | Nurrk → Brynn Flint |
+| 2.5 grain | 1.2 fuel | Ashurim → Beliq |
+| 2.5 grain | 1.2 fuel | Zygor Thane → Jovor Liku |
+| 2.5 grain | 1.2 fuel | Dagan Tilik → Brynnel |
+| 2.5 stone | 1.2 grain | Skarn → Silvius Thane |
+| 2.5 stone | 1.2 grain | Skell → Thayon Beamsetter |
+| 2.5 stone | 1.2 grain | Omen → Ashur Beamsetter |
 
 | Kind of ground | Places |
 |---|---|
